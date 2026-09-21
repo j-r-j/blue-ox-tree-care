@@ -18,10 +18,10 @@ export const site = {
     closes: '17:00',
   },
   trustLines: [
-    'ISA Board Certified Master Arborist owned & operated',
+    'Travis Berlin, ISA BCMA (RM-7612B) — fewer than 2% of ISA Certified Arborists have ever earned BCMA',
+    'Lacy Berlin, ISA Certified Arborist (RM-8632A)',
     'Licensed and insured',
     'Free estimates',
-    'Fewer than 2% of ISA Certified Arborists earn the BCMA credential',
   ],
   serviceAreaNote:
     'Service-area business — no public storefront. We come to your property.',
@@ -31,7 +31,7 @@ export const site = {
       name: 'Travis Berlin',
       title: 'Co-Owner & ISA Board Certified Master Arborist',
       credentials: 'ISA BCMA, RM-7612B',
-      bio: `Travis is a fifth-generation Coloradan, born and raised. He is an experienced ISA Board Certified Master Arborist — fewer than 2% of ISA Certified Arborists have ever earned this elite credential. He has managed four tree companies and opened two of his own, including one in Hawaii and Blue Ox Tree Care in Salida, Colorado. Travis was the arborist who managed Disneyland's trees in Anaheim, California, and served as a municipal arborist for the city of Newport Beach, California. Today he brings that depth of experience to Central Texas tree care.`,
+      bio: `Travis is a fifth-generation Coloradan, born and raised. He is an experienced ISA Board Certified Master Arborist — fewer than 2% of ISA Certified Arborists have ever earned this elite credential. He has managed four tree companies, opening two of his own, one in Hawaii and Blue Ox Tree Care in Salida, CO. He also was the arborist who managed Disneyland's trees in Anaheim, CA, as well as a Municipal Arborist for the city of Newport Beach, CA.`,
     },
     {
       id: 'lacy-berlin',

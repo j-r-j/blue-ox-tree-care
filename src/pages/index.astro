@@ -19,21 +19,17 @@ const guideNavItems = getGuideNavItems();
   description={seo.home.description}
   schema={localBusinessSchema()}
 >
-  <section class="relative overflow-hidden bg-ox-navy text-white">
-    <div
-      class="pointer-events-none absolute inset-0 bg-cover bg-center opacity-15"
-      style={`background-image: url('${withBase('/images/hero-bg.jpg')}')`}
-      aria-hidden="true"
-    />
-    <div class="relative mx-auto max-w-6xl px-4 py-16 md:py-24">
+  <section class="overflow-hidden bg-gradient-to-b from-ox-navy to-[#152f3c] text-white">
+    <div class="mx-auto max-w-6xl px-4 py-16 md:py-24">
       <div class="max-w-3xl">
         <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-ox-gold">Austin, Texas</p>
         <h1 class="mb-4 text-4xl font-bold leading-tight md:text-5xl">
           Professional Tree Care in Austin by ISA Certified Arborists
         </h1>
         <p class="mb-4 text-lg text-white/90">
-          Travis & Lacy Berlin bring Board Certified Master Arborist expertise to Austin, Round Rock,
-          Bee Cave, and Lakeway — from structural pruning to organic pest and disease care.
+          An ISA certified arborist team led by Board Certified Master Arborist Travis Berlin — with
+          Lacy Berlin, an ISA Certified Arborist — serving Austin, Round Rock, Bee Cave, and Lakeway
+          from structural pruning to organic pest and disease care.
         </p>
         <ul class="mb-6 space-y-2 text-sm text-white/85">
           {site.trustLines.map((line) => (
@@ -148,7 +144,9 @@ const guideNavItems = getGuideNavItems();
         <div>
           <h3 class="mb-2 font-semibold text-ox-blue">ISA Certified</h3>
           <p class="text-sm text-ox-navy/80">
-            Travis Berlin (BCMA, RM-7612B) and Lacy Berlin (RM-8632A) hold the industry's highest arborist credentials.
+            Travis Berlin is an ISA Board Certified Master Arborist (RM-7612B) — a credential earned
+            by fewer than 2% of ISA Certified Arborists. Lacy Berlin is an ISA Certified Arborist
+            (RM-8632A).
           </p>
         </div>
         <div>

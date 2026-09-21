@@ -103,7 +103,7 @@ function isActive(href: string) {
                 href={withBase(`/guides/${guide.slug}`)}
                 class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream"
               >
-                {guide.title}
+                {guide.navLabel}
               </a>
             ))}
           </div>
@@ -153,16 +153,23 @@ function isActive(href: string) {
         <div class="absolute right-0 mt-2 max-h-[70vh] w-72 overflow-y-auto rounded-md bg-white py-2 shadow-lg">
           <a href={withBase('/services')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Services</a>
           <a href={withBase('/service-areas')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Service Areas</a>
-          <p class="px-4 pt-2 text-xs font-semibold uppercase tracking-wide text-ox-navy/50">Guides</p>
-          <a href={withBase('/guides')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">All Guides</a>
+          <a
+            href={withBase('/guides')}
+            class="block px-4 pt-2 text-sm font-semibold text-ox-navy hover:bg-ox-cream"
+          >
+            Guides
+          </a>
           {guideNavItems.map((guide) => (
             <a href={withBase(`/guides/${guide.slug}`)} class="block px-4 py-2 pl-6 text-sm text-ox-navy hover:bg-ox-cream">
-              {guide.title}
+              {guide.navLabel}
             </a>
           ))}
           <a href={withBase('/about')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">About</a>
           <a href={withBase('/faq')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">FAQ</a>
           <a href={withBase('/contact')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Contact</a>
+          <a href={withBase('/contact')} class="block px-4 py-2 text-sm font-semibold text-ox-navy hover:bg-ox-cream">
+            Free Estimate
+          </a>
           <a href={`tel:${site.phoneTel}`} class="block px-4 py-2 text-sm font-semibold text-ox-gold hover:bg-ox-cream">
             Call {site.phone}
           </a>
