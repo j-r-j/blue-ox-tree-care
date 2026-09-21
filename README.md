@@ -2,7 +2,7 @@
 
 Static marketing site for [Blue Ox Tree Care](https://www.blueoxtreecarellc.com/) — ISA certified arborists Travis & Lacy Berlin serving Austin, Round Rock, Bee Cave, and Lakeway, Texas.
 
-Built with **Astro** (static output) and **Tailwind CSS**, deployed to **Cloudflare Pages**.
+Built with **Astro** (static output) and **Tailwind CSS**, deployed to **GitHub Pages** for preview.
 
 ## Stack
 
@@ -31,31 +31,32 @@ npm run preview
 
 Build output is written to `dist/`.
 
-## Deploy to Cloudflare Pages
-
-### Option A — Connect Git repository (recommended)
-
-1. Push this repo to GitHub (or GitLab / Bitbucket).
-2. In the [Cloudflare dashboard](https://dash.cloudflare.com/) → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
-3. Select this repository and configure:
-
-   | Setting | Value |
-   |---------|-------|
-   | **Framework preset** | Astro (or None) |
-   | **Build command** | `npm run build` |
-   | **Build output directory** | `dist` |
-   | **Node.js version** | 22 (set via environment variable `NODE_VERSION=22`) |
-
-4. Deploy. Cloudflare Pages will rebuild on every push to the production branch.
-
-### Option B — Direct upload via Wrangler CLI
+Preview the production build locally (uses the same `/blue-ox-tree-care/` base path as GitHub Pages):
 
 ```bash
-npm run build
-npx wrangler pages deploy dist --project-name=blue-ox-tree-care
+npm run preview
 ```
 
-Requires [Wrangler](https://developers.cloudflare.com/workers/wrangler/) authenticated to your Cloudflare account.
+## Live preview (GitHub Pages)
+
+**Preview URL:** [https://j-r-j.github.io/blue-ox-tree-care/](https://j-r-j.github.io/blue-ox-tree-care/)
+
+The site is configured for project Pages with:
+
+| Setting | Value |
+|---------|-------|
+| **Astro `site`** | `https://j-r-j.github.io` |
+| **Astro `base`** | `/blue-ox-tree-care/` |
+| **Build command** | `npm run build` |
+| **Publish directory** | `dist` |
+| **Node.js version** | 22 |
+
+### One-time GitHub setup
+
+1. In the repo → **Settings** → **Pages**, set **Build and deployment** → **Source** to **GitHub Actions**.
+2. Merge to `main`. The [Deploy to GitHub Pages](.github/workflows/deploy-github-pages.yml) workflow runs on every push to `main` (and can be triggered manually).
+
+No secrets are required — the workflow uses `actions/upload-pages-artifact` and `actions/deploy-pages` with `pages: write` and `id-token: write` permissions.
 
 ## Site Structure
 

@@ -2,25 +2,29 @@
 import { site } from '../data/site';
 import { services } from '../data/services';
 import { serviceAreas } from '../data/serviceAreas';
+import { withBase } from '../lib/paths';
 
 const currentPath = Astro.url.pathname;
 
 function isActive(href: string) {
-  if (href === '/') return currentPath === '/';
-  return currentPath.startsWith(href);
+  const target = withBase(href);
+  if (href === '/') {
+    return currentPath === target || currentPath === target.replace(/\/$/, '');
+  }
+  return currentPath.startsWith(target.replace(/\/$/, ''));
 }
 ---
 
 <header class="sticky top-0 z-50 bg-ox-navy text-white shadow-md">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-    <a href="/" class="flex items-center gap-2 no-underline">
+    <a href={withBase('/')} class="flex items-center gap-2 no-underline">
       <span class="text-xl font-bold tracking-tight text-white">Blue Ox Tree Care</span>
     </a>
 
     <nav class="hidden items-center gap-6 lg:flex" aria-label="Main navigation">
       <div class="group relative">
         <a
-          href="/services"
+          href={withBase('/services')}
           class:list={[
             'text-sm font-medium transition hover:text-ox-sage',
             isActive('/services') ? 'text-ox-sage' : 'text-white',
@@ -32,7 +36,7 @@ function isActive(href: string) {
           <div class="rounded-md bg-white py-2 shadow-lg">
             {services.map((service) => (
               <a
-                href={`/services/${service.slug}`}
+                href={withBase(`/services/${service.slug}`)}
                 class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream"
               >
                 {service.shortTitle}
@@ -44,7 +48,7 @@ function isActive(href: string) {
 
       <div class="group relative">
         <a
-          href="/service-areas"
+          href={withBase('/service-areas')}
           class:list={[
             'text-sm font-medium transition hover:text-ox-sage',
             isActive('/service-areas') ? 'text-ox-sage' : 'text-white',
@@ -56,7 +60,7 @@ function isActive(href: string) {
           <div class="rounded-md bg-white py-2 shadow-lg">
             {serviceAreas.map((area) => (
               <a
-                href={`/service-areas/${area.slug}`}
+                href={withBase(`/service-areas/${area.slug}`)}
                 class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream"
               >
                 {area.name}
@@ -67,7 +71,7 @@ function isActive(href: string) {
       </div>
 
       <a
-        href="/about"
+        href={withBase('/about')}
         class:list={[
           'text-sm font-medium transition hover:text-ox-sage',
           isActive('/about') ? 'text-ox-sage' : 'text-white',
@@ -76,7 +80,7 @@ function isActive(href: string) {
         About
       </a>
       <a
-        href="/gallery"
+        href={withBase('/gallery')}
         class:list={[
           'text-sm font-medium transition hover:text-ox-sage',
           isActive('/gallery') ? 'text-ox-sage' : 'text-white',
@@ -85,7 +89,7 @@ function isActive(href: string) {
         Gallery
       </a>
       <a
-        href="/faq"
+        href={withBase('/faq')}
         class:list={[
           'text-sm font-medium transition hover:text-ox-sage',
           isActive('/faq') ? 'text-ox-sage' : 'text-white',
@@ -94,7 +98,7 @@ function isActive(href: string) {
         FAQ
       </a>
       <a
-        href="/contact"
+        href={withBase('/contact')}
         class:list={[
           'text-sm font-medium transition hover:text-ox-sage',
           isActive('/contact') ? 'text-ox-sage' : 'text-white',
@@ -116,12 +120,12 @@ function isActive(href: string) {
           Menu
         </summary>
         <div class="absolute right-0 mt-2 w-64 rounded-md bg-white py-2 shadow-lg">
-          <a href="/services" class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Services</a>
-          <a href="/service-areas" class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Service Areas</a>
-          <a href="/about" class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">About</a>
-          <a href="/gallery" class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Gallery</a>
-          <a href="/faq" class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">FAQ</a>
-          <a href="/contact" class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Contact</a>
+          <a href={withBase('/services')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Services</a>
+          <a href={withBase('/service-areas')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Service Areas</a>
+          <a href={withBase('/about')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">About</a>
+          <a href={withBase('/gallery')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Gallery</a>
+          <a href={withBase('/faq')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">FAQ</a>
+          <a href={withBase('/contact')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Contact</a>
           <a href={`tel:${site.phoneTel}`} class="block px-4 py-2 text-sm font-semibold text-ox-green hover:bg-ox-cream">
             Call {site.phone}
           </a>

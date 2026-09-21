@@ -4,6 +4,7 @@ import CTABanner from '../../components/CTABanner.astro';
 import { services, getService } from '../../data/services';
 import { serviceAreas } from '../../data/serviceAreas';
 import { serviceSchema } from '../../lib/schema';
+import { withBase } from '../../lib/paths';
 
 export function getStaticPaths() {
   return services.map((service) => ({
@@ -65,7 +66,7 @@ const schema = serviceSchema(service.slug);
             <ul class="mb-6 space-y-2">
               {serviceAreas.map((area) => (
                 <li>
-                  <a href={`/service-areas/${area.slug}`} class="text-sm text-ox-green hover:underline">
+                  <a href={withBase(`/service-areas/${area.slug}`)} class="text-sm text-ox-green hover:underline">
                     {area.name}
                   </a>
                 </li>
@@ -78,7 +79,7 @@ const schema = serviceSchema(service.slug);
                 .slice(0, 4)
                 .map((s) => (
                   <li>
-                    <a href={`/services/${s.slug}`} class="text-sm text-ox-green hover:underline">
+                    <a href={withBase(`/services/${s.slug}`)} class="text-sm text-ox-green hover:underline">
                       {s.shortTitle}
                     </a>
                   </li>
