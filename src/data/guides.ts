@@ -119,6 +119,7 @@ export const guides: Guide[] = [
     relatedLinks: [
       { label: 'Organic pest & disease treatment', href: '/services/pest-disease' },
       { label: 'Tree trimming in Austin', href: '/services/tree-trimming' },
+      { label: 'Austin bulk trash & brush pickup', href: '/guides/austin-bulk-brush-pickup' },
       { label: 'Tree care in Austin', href: '/service-areas/austin' },
       { label: 'Tree care in Round Rock', href: '/service-areas/round-rock' },
     ],
@@ -226,6 +227,134 @@ export const guides: Guide[] = [
       { label: 'Tree removal in Austin', href: '/services/tree-removal' },
       { label: 'Tree risk assessment', href: '/services/tree-risk-assessment' },
       { label: 'Oak wilt guide for Central Texas', href: '/guides/oak-wilt-austin' },
+      { label: 'Austin bulk trash & brush pickup', href: '/guides/austin-bulk-brush-pickup' },
+      { label: 'Tree care in Austin', href: '/service-areas/austin' },
+    ],
+  },
+  {
+    slug: 'austin-bulk-brush-pickup',
+    title: 'Austin Bulk Trash & Brush Pickup for Tree Debris',
+    metaDescription:
+      'Austin Resource Recovery brush/bulk rules, set-out sizes, Hornsby Bend, plus Blue Ox Tree Care — call (512) 749-8615.',
+    heroSubtitle:
+      'What\'s brush vs bulk, how to schedule on-demand pickup, set-out rules for limbs, drop-off options, and when professional haul-away is the better path.',
+    sections: [
+      {
+        heading: 'Brush vs bulk vs compost cart',
+        paragraphs: [
+          'After tree work or storm cleanup, Austin homeowners often wonder which City of Austin Resource Recovery (ARR) channel to use. The answer depends on material type and size — booking the wrong service can mean a missed pickup or a pile left at the curb.',
+          'Brush collection is for tree limbs and large woody debris. Bulk collection is for furniture, appliances, household carpet, nail-free lumber, pallets, passenger tires (rims off, max 8), and similar items — brush is not accepted as a bulk item, so book brush instead. Small branches and yard trimmings go through your weekly green compost cart program, not the on-demand brush appointment.',
+        ],
+      },
+      {
+        heading: 'How to schedule on-demand pickup',
+        paragraphs: [
+          'ARR residential curbside customers — single-family homes through fourplexes — can request separate on-demand bulk and brush collections (along with household hazardous waste and clothing/textiles). Each service includes up to three free collections per calendar year; an appointment is required.',
+          'Schedule through the Austin Recycles app, online via My Schedule / on-demand pickup, or by calling Austin 3-1-1 at (512) 974-2000. Appointments cannot be edited — cancel and rebook through the same channel if your date changes. If you need more than three brush pickups in a year, the City offers fee-based extra collection based on volume.',
+        ],
+      },
+      {
+        heading: 'Brush set-out rules',
+        paragraphs: [
+          'Brush collection is the primary path for large tree debris after trimming or storm cleanup. Follow ARR set-out rules so crews can collect safely and on schedule.',
+          'Place limbs at the curb by 5:30 a.m. on your appointment day. Limbs should be 5–15 feet long — cut longer pieces down. Stack loosely in one row, no more than 15 feet across and 4 feet high, with cut ends facing the street. Trunks larger than 8 inches in diameter must be cut to 3 feet or shorter.',
+          'Do not block the sidewalk or let material stick into the street. Keep piles at least 5 feet from carts, mailboxes, fences or walls, water meters, phone and electrical boxes, hydrants, and parked cars. Do not place brush under low limbs or power lines. ARR does not collect brush in alleys, in front of vacant lots, or in front of businesses.',
+        ],
+        list: [
+          'Limbs 5–15 feet long (cut longer pieces down)',
+          'One row, ≤ 15 ft across, ≤ 4 ft high, cut ends facing the street',
+          'Trunks > 8 in diameter → ≤ 3 ft long',
+          'At curb by 5:30 a.m. on appointment day; keep 5 ft clearance from obstacles',
+        ],
+      },
+      {
+        heading: 'Small branches & weekly compost',
+        paragraphs: [
+          'Branches under 5 feet long and 3 inches in diameter or less belong in your green compost cart for regular weekly collection — not in a brush appointment pile.',
+          'You can place cart contents plus up to 15 extra items beside the cart each week: lawn and leaf bags, reusable containers, and small branch piles. This path works well for routine trimming but not for large limb stacks or whole-tree debris.',
+        ],
+      },
+      {
+        heading: 'Hornsby Bend drop-off',
+        paragraphs: [
+          'When free brush appointments are used up or you need same-day drop-off, Austin and Travis County residents can take yard trimmings to the Hornsby Bend facility at 2210 FM 973, Austin, TX. Hours are Monday through Saturday, 8 a.m. to 3 p.m., with no appointment required. Bring government-issued photo ID.',
+          'Accepted materials include tree limbs, branches, shrubs, and leaves (processed into Dillo Dirt). Not accepted: construction materials, particle board, trash, or treated/painted lumber. The City notes trailer and volume limits (about 6 cubic yards — confirm on the live City page). Fee changes for drop-off users may apply starting October 1, 2026 per proposed and adopted rule updates — confirm current fees and limits on the official City page before you go.',
+        ],
+      },
+      {
+        heading: 'After storms',
+        paragraphs: [
+          'After major Central Texas storms, ARR may publish special debris instructions that differ from routine brush rules. Check the City\'s storm debris page for current guidance before setting material out.',
+          'For hazardous limbs, fallen trees, or roof clearance, professional emergency response may be needed before curbside pickup is an option — see our storm damage service page. If you are pruning oaks after storm damage, follow safer timing and wound-painting guidance in our oak wilt guide; do not move infected oak firewood.',
+        ],
+      },
+      {
+        heading: 'When to call Blue Ox Tree Care',
+        paragraphs: [
+          'City brush pickup works well when your pile meets set-out rules and you can wait for an appointment. Call Blue Ox Tree Care at (512) 749-8615 when debris exceeds set-out limits, you need same-day or emergency storm removal, or the job includes stumps, oversized trunks, or crane work that ARR will not take.',
+          'Properties outside ARR curbside service — larger multifamily, commercial sites, or addresses with private haulers — also need professional haul-away. Many customers prefer one crew to cut, rig, and haul in a single visit rather than managing separate tree work and curbside scheduling.',
+          'Travis Berlin (ISA BCMA, RM-7612B) and Lacy Berlin (ISA Certified Arborist, RM-8632A) serve Austin, Round Rock, and Bee Cave / Lakeway. We are a service-area business — our arborists come to your property with no storefront address listed on this site.',
+        ],
+      },
+    ],
+    callout: {
+      heading: 'Verify with the City of Austin',
+      body: 'This page summarizes ARR bulk and brush rules for educational purposes. Collection limits, fees, and schedules can change. Confirm current requirements on official Austin Resource Recovery pages before scheduling pickup or visiting Hornsby Bend.',
+      links: [
+        {
+          label: 'On-demand bulk & brush collection',
+          href: 'https://www.austintexas.gov/resource-recovery/programs/demand-bulk-brush-and-household-hazardous-waste-collection',
+          external: true,
+        },
+        {
+          label: 'Yard trimmings & Hornsby Bend drop-off',
+          href: 'https://www.austintexas.gov/resource-recovery/programs/yard-trimmings-and-large-brush-drop',
+          external: true,
+        },
+        {
+          label: 'Storm debris removal',
+          href: 'https://www.austintexas.gov/resource-recovery/programs/storm-debris-removal',
+          external: true,
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: 'What is the difference between bulk and brush collection in Austin?',
+        answer:
+          'Bulk collection is for items like furniture, appliances (with doors removed), carpet, nail-free lumber, and tires — not tree limbs. Brush collection is specifically for tree limbs and large woody debris. Booking the wrong service can leave your pile uncollected.',
+      },
+      {
+        question: 'How many free brush pickups does Austin offer per year?',
+        answer:
+          'ARR residential curbside customers (single-family through fourplex) receive up to three free on-demand brush collections per calendar year. Appointments are required. Additional brush beyond the free allowance is available as a fee-based extra collection — confirm current pricing with the City.',
+      },
+      {
+        question: 'What size limbs qualify for brush collection?',
+        answer:
+          'Limbs should be 5–15 feet long. Cut longer pieces down. Trunks larger than 8 inches in diameter must be 3 feet or shorter. Stack in one row no more than 15 feet across and 4 feet high, with cut ends facing the street.',
+      },
+      {
+        question: 'Can tree limbs go in the green compost cart?',
+        answer:
+          'Small branches under 5 feet long and 3 inches in diameter or less can go in your green compost cart for weekly collection. You may also set up to 15 extra items beside the cart each week. Larger limbs require a brush appointment or Hornsby Bend drop-off.',
+      },
+      {
+        question: 'Where can I drop off brush myself in Austin?',
+        answer:
+          'Hornsby Bend at 2210 FM 973 accepts tree limbs, branches, shrubs, and leaves from Austin and Travis County residents with photo ID. Open Monday–Saturday, 8 a.m.–3 p.m., no appointment. Confirm current volume limits and any fees on the City\'s yard trimmings page before visiting.',
+      },
+      {
+        question: 'When should I call a tree company instead of ARR?',
+        answer:
+          'Call (512) 749-8615 when debris exceeds ARR set-out limits, you need emergency or same-day removal, the job includes stumps or oversized material ARR will not take, your property is not on ARR curbside service, or you want cutting and haul-away handled in one professional visit.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'Oak wilt guide for Central Texas', href: '/guides/oak-wilt-austin' },
+      { label: 'Austin protected & heritage tree rules', href: '/guides/austin-protected-heritage-trees' },
+      { label: 'Emergency storm damage service', href: '/services/storm-damage' },
+      { label: 'Tree trimming in Austin', href: '/services/tree-trimming' },
       { label: 'Tree care in Austin', href: '/service-areas/austin' },
     ],
   },
