@@ -16,8 +16,8 @@ import { withBase } from '../lib/paths';
   schema={localBusinessSchema()}
 >
   <section class="relative bg-ox-navy text-white">
-    <div class="mx-auto grid max-w-6xl items-center gap-8 px-4 py-16 md:grid-cols-2 md:py-24">
-      <div>
+    <div class="mx-auto max-w-6xl px-4 py-16 md:py-24">
+      <div class="max-w-3xl">
         <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-ox-gold">Austin, Texas</p>
         <h1 class="mb-4 text-4xl font-bold leading-tight md:text-5xl">
           Professional Tree Care in Austin by ISA Certified Arborists
@@ -48,16 +48,6 @@ import { withBase } from '../lib/paths';
             Free Estimate
           </a>
         </div>
-      </div>
-      <div class="overflow-hidden rounded-lg shadow-xl">
-        <img
-          src={withBase('/images/hero.jpg')}
-          alt="Blue Ox Tree Care — professional tree service in Austin, Texas"
-          width="600"
-          height="400"
-          class="aspect-[3/2] h-auto w-full object-cover"
-          loading="eager"
-        />
       </div>
     </div>
   </section>
