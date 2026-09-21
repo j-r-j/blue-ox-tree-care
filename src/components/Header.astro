@@ -17,8 +17,19 @@ function isActive(href: string) {
 
 <header class="sticky top-0 z-50 bg-ox-navy text-white shadow-md">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-    <a href={withBase('/')} class="flex items-center gap-2 no-underline">
-      <span class="text-xl font-bold tracking-tight text-white">Blue Ox Tree Care</span>
+    <a href={withBase('/')} class="flex items-center gap-3 no-underline">
+      <picture>
+        <source srcset={withBase('/logo-ox.webp')} type="image/webp" />
+        <img
+          src={withBase('/logo-ox.png')}
+          alt=""
+          width="44"
+          height="44"
+          class="h-11 w-11 shrink-0 object-contain"
+          loading="eager"
+        />
+      </picture>
+      <span class="text-lg font-bold leading-tight tracking-tight text-white">Blue Ox Tree Care</span>
     </a>
 
     <nav class="hidden items-center gap-6 lg:flex" aria-label="Main navigation">
@@ -26,8 +37,8 @@ function isActive(href: string) {
         <a
           href={withBase('/services')}
           class:list={[
-            'text-sm font-medium transition hover:text-ox-sage',
-            isActive('/services') ? 'text-ox-sage' : 'text-white',
+            'text-sm font-medium transition hover:text-ox-gold',
+            isActive('/services') ? 'text-ox-gold' : 'text-white',
           ]}
         >
           Services
@@ -50,8 +61,8 @@ function isActive(href: string) {
         <a
           href={withBase('/service-areas')}
           class:list={[
-            'text-sm font-medium transition hover:text-ox-sage',
-            isActive('/service-areas') ? 'text-ox-sage' : 'text-white',
+            'text-sm font-medium transition hover:text-ox-gold',
+            isActive('/service-areas') ? 'text-ox-gold' : 'text-white',
           ]}
         >
           Service Areas
@@ -73,8 +84,8 @@ function isActive(href: string) {
       <a
         href={withBase('/about')}
         class:list={[
-          'text-sm font-medium transition hover:text-ox-sage',
-          isActive('/about') ? 'text-ox-sage' : 'text-white',
+          'text-sm font-medium transition hover:text-ox-gold',
+          isActive('/about') ? 'text-ox-gold' : 'text-white',
         ]}
       >
         About
@@ -82,8 +93,8 @@ function isActive(href: string) {
       <a
         href={withBase('/gallery')}
         class:list={[
-          'text-sm font-medium transition hover:text-ox-sage',
-          isActive('/gallery') ? 'text-ox-sage' : 'text-white',
+          'text-sm font-medium transition hover:text-ox-gold',
+          isActive('/gallery') ? 'text-ox-gold' : 'text-white',
         ]}
       >
         Gallery
@@ -91,8 +102,8 @@ function isActive(href: string) {
       <a
         href={withBase('/faq')}
         class:list={[
-          'text-sm font-medium transition hover:text-ox-sage',
-          isActive('/faq') ? 'text-ox-sage' : 'text-white',
+          'text-sm font-medium transition hover:text-ox-gold',
+          isActive('/faq') ? 'text-ox-gold' : 'text-white',
         ]}
       >
         FAQ
@@ -100,8 +111,8 @@ function isActive(href: string) {
       <a
         href={withBase('/contact')}
         class:list={[
-          'text-sm font-medium transition hover:text-ox-sage',
-          isActive('/contact') ? 'text-ox-sage' : 'text-white',
+          'text-sm font-medium transition hover:text-ox-gold',
+          isActive('/contact') ? 'text-ox-gold' : 'text-white',
         ]}
       >
         Contact
@@ -111,7 +122,7 @@ function isActive(href: string) {
     <div class="flex items-center gap-3">
       <a
         href={`tel:${site.phoneTel}`}
-        class="hidden rounded-md bg-ox-green px-4 py-2 text-sm font-semibold text-white transition hover:bg-ox-green-dark sm:inline-block"
+        class="hidden rounded-md bg-ox-gold px-4 py-2 text-sm font-semibold text-ox-navy transition hover:bg-ox-gold-dark sm:inline-block"
       >
         {site.phone}
       </a>
@@ -126,7 +137,7 @@ function isActive(href: string) {
           <a href={withBase('/gallery')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Gallery</a>
           <a href={withBase('/faq')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">FAQ</a>
           <a href={withBase('/contact')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Contact</a>
-          <a href={`tel:${site.phoneTel}`} class="block px-4 py-2 text-sm font-semibold text-ox-green hover:bg-ox-cream">
+          <a href={`tel:${site.phoneTel}`} class="block px-4 py-2 text-sm font-semibold text-ox-gold hover:bg-ox-cream">
             Call {site.phone}
           </a>
         </div>

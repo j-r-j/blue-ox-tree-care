@@ -13,7 +13,7 @@ export function localBusinessSchema() {
     url: site.url,
     telephone: site.phoneTel,
     email: site.email,
-    image: `${site.url}/images/hero-placeholder.svg`,
+    image: `${site.url}/images/hero.jpg`,
     priceRange: '$$',
     sameAs: [site.instagram],
     areaServed: serviceAreaCities.map((city) => ({
