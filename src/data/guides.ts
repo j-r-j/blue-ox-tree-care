@@ -15,6 +15,8 @@ export interface GuideLink {
 export interface Guide {
   slug: string;
   title: string;
+  /** Short label for nav menus; full title stays on guide pages. */
+  navLabel?: string;
   metaDescription: string;
   heroSubtitle: string;
   sections: GuideSection[];
@@ -31,6 +33,7 @@ export const guides: Guide[] = [
   {
     slug: 'oak-wilt-austin',
     title: 'Oak Wilt in Austin & Central Texas',
+    navLabel: 'Oak Wilt',
     metaDescription:
       'Learn how oak wilt spreads in Austin and Central Texas, when to avoid pruning oaks, and how to protect live oaks and red oaks. ISA certified assessment from Blue Ox Tree Care — call (512) 749-8615.',
     heroSubtitle:
@@ -127,6 +130,7 @@ export const guides: Guide[] = [
   {
     slug: 'austin-protected-heritage-trees',
     title: 'Austin Protected & Heritage Tree Rules',
+    navLabel: 'Tree Permits',
     metaDescription:
       'Plain-English guide to City of Austin protected and heritage tree rules — DBH thresholds, permits, and when an ISA certified arborist can help with assessment and documentation. Call (512) 749-8615.',
     heroSubtitle:
@@ -234,6 +238,7 @@ export const guides: Guide[] = [
   {
     slug: 'austin-bulk-brush-pickup',
     title: 'Austin Bulk Trash & Brush Pickup for Tree Debris',
+    navLabel: 'Brush & Bulk Pickup',
     metaDescription:
       'Austin Resource Recovery brush/bulk rules, set-out sizes, Hornsby Bend, plus Blue Ox Tree Care — call (512) 749-8615.',
     heroSubtitle:
@@ -367,10 +372,23 @@ export const guideNavSlugs = [
   'austin-protected-heritage-trees',
 ] as const;
 
-export function getGuideNavItems(): Guide[] {
+export interface GuideNavItem {
+  slug: string;
+  title: string;
+  navLabel: string;
+  heroSubtitle: string;
+}
+
+export function getGuideNavItems(): GuideNavItem[] {
   return guideNavSlugs
     .map((slug) => guides.find((g) => g.slug === slug))
-    .filter((g): g is Guide => g !== undefined);
+    .filter((g): g is Guide => g !== undefined)
+    .map((g) => ({
+      slug: g.slug,
+      title: g.title,
+      navLabel: g.navLabel ?? g.title,
+      heroSubtitle: g.heroSubtitle,
+    }));
 }
 
 export function getGuide(slug: string): Guide | undefined {

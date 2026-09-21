@@ -62,7 +62,7 @@ const guideNavItems = getGuideNavItems();
         {guideNavItems.map((guide) => (
           <li>
             <a href={withBase(`/guides/${guide.slug}`)} class="text-sm text-white/80 hover:text-white">
-              {guide.title}
+              {guide.navLabel}
             </a>
           </li>
         ))}
