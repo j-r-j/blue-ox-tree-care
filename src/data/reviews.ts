@@ -16,6 +16,6 @@ export interface ReviewsData {
 
 export const reviews: ReviewsData = {
   rating: 5.0,
-  count: 10,
+  count: 11,
   quotes: [],
 };
