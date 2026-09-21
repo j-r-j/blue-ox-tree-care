@@ -69,17 +69,17 @@ const otherOwner = site.owners.find((o) => o.id !== owner.id)!;
       <div class="grid gap-12 md:grid-cols-3">
         <div class="md:col-span-2">
           <div class="mb-8 overflow-hidden rounded-lg border border-ox-navy/10 bg-white shadow-sm">
-            <div class="aspect-[3/4] overflow-hidden bg-ox-cream">
-              <img
-                src={ownerPhotos[owner.id].src}
-                alt={ownerPhotos[owner.id].alt}
-                width="800"
-                height="1067"
-                class="h-full w-full object-cover object-top"
-                loading="eager"
-              />
-            </div>
-            <div class="p-6">
+            <div class="p-6 pt-8">
+              <div class="mx-auto mb-6 aspect-square w-full max-w-[280px] overflow-hidden rounded-full bg-ox-cream">
+                <img
+                  src={ownerPhotos[owner.id].src}
+                  alt={ownerPhotos[owner.id].alt}
+                  width="280"
+                  height="280"
+                  class="h-full w-full object-cover object-top"
+                  loading="eager"
+                />
+              </div>
               <div class="mb-4 flex items-center gap-4">
                 {ownerBadges[owner.id] && (
                   <img

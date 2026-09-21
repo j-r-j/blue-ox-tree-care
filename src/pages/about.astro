@@ -47,18 +47,18 @@ const ownerBadges: Record<string, { src: string; alt: string } | undefined> = {
       <div class="mb-12 grid gap-8 md:grid-cols-2">
         {site.owners.map((owner) => (
           <article class="overflow-hidden rounded-lg border border-ox-navy/10 bg-white shadow-sm" itemscope itemtype="https://schema.org/Person">
-            <div class="aspect-[3/4] overflow-hidden bg-ox-cream">
-              <img
-                src={ownerPhotos[owner.id].src}
-                alt={ownerPhotos[owner.id].alt}
-                width="600"
-                height="800"
-                class="h-full w-full object-cover object-top"
-                loading="lazy"
-                itemprop="image"
-              />
-            </div>
-            <div class="p-6">
+            <div class="p-6 pt-8">
+              <div class="mx-auto mb-6 aspect-square w-full max-w-[280px] overflow-hidden rounded-full bg-ox-cream">
+                <img
+                  src={ownerPhotos[owner.id].src}
+                  alt={ownerPhotos[owner.id].alt}
+                  width="280"
+                  height="280"
+                  class="h-full w-full object-cover object-top"
+                  loading="lazy"
+                  itemprop="image"
+                />
+              </div>
               <div class="mb-3 flex items-start justify-between gap-3">
                 <div>
                   <h2 class="mb-1 text-xl font-bold text-ox-navy" itemprop="name">
