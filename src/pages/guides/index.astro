@@ -18,6 +18,10 @@ import { withBase } from '../../lib/paths';
   <PageBanner
     title="Tree Care Guides"
     description="Practical, accurate information for Austin-area homeowners — written by ISA certified arborists."
+    breadcrumbs={[
+      { name: 'Home', path: '/' },
+      { name: 'Guides', path: '/guides' },
+    ]}
   />
 
   <section class="py-16">
@@ -56,6 +60,9 @@ import { withBase } from '../../lib/paths';
           </a>
         </article>
       </div>
+      <p class="mt-8 text-center text-sm text-ox-navy/70">
+        <a href={withBase('/journal')} class="link-body font-medium">Tree care journal →</a>
+      </p>
     </div>
   </section>
 

@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import PageBanner from '../../components/PageBanner.astro';
+import { neighborhoods, getNeighborhood } from '../../data/neighborhoods';
+import { services } from '../../data/services';
+import { guides } from '../../data/guides';
+import { breadcrumbSchema, combineSchemas } from '../../lib/schema';
+import { withBase } from '../../lib/paths';
+
+export function getStaticPaths() {
+  return neighborhoods.map((n) => ({
+    params: { slug: n.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const neighborhood = getNeighborhood(slug!);
+
+if (!neighborhood) {
+  return Astro.redirect('/neighborhoods');
+}
+
+const relatedServices = services.filter((s) => neighborhood.relatedServices.includes(s.slug));
+const relatedGuides = guides.filter((g) => neighborhood.relatedGuides.includes(g.slug));
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Neighborhoods', path: '/neighborhoods' },
+  { name: neighborhood.name, path: `/neighborhoods/${neighborhood.slug}` },
+];
+---
+
+<BaseLayout
+  title={neighborhood.title}
+  description={neighborhood.metaDescription}
+  schema={breadcrumbSchema(breadcrumbs)}
+>
+  <PageBanner
+    title={neighborhood.title}
+    description={neighborhood.heroSubtitle}
+    breadcrumbs={breadcrumbs}
+  />
+
+  <section class="py-16">
+    <div class="mx-auto max-w-4xl px-4">
+      <div class="grid gap-12 md:grid-cols-3">
+        <div class="md:col-span-2">
+          {neighborhood.sections.map((section) => (
+            <div class="mb-10">
+              <h2 class="mb-4 text-2xl font-bold text-ox-navy">{section.heading}</h2>
+              <div class="space-y-4 text-ox-navy/90">
+                {section.paragraphs.map((p) => (
+                  <p>{p}</p>
+                ))}
+              </div>
+              {section.list && (
+                <ul class="mt-4 space-y-2">
+                  {section.list.map((item) => (
+                    <li class="flex items-start gap-2 text-ox-navy/90">
+                      <span class="check-mark mt-1">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <aside class="space-y-6">
+          <div class="rounded-lg border border-ox-navy/10 bg-white p-6 shadow-sm">
+            <h3 class="mb-3 font-semibold text-ox-navy">Services in {neighborhood.name}</h3>
+            <ul class="space-y-2">
+              {relatedServices.map((service) => (
+                <li>
+                  <a href={withBase(`/services/${service.slug}`)} class="link-aside">
+                    {service.shortTitle}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="rounded-lg border border-ox-navy/10 bg-white p-6 shadow-sm">
+            <h3 class="mb-3 font-semibold text-ox-navy">Guides</h3>
+            <ul class="space-y-2">
+              {relatedGuides.map((guide) => (
+                <li>
+                  <a href={withBase(`/guides/${guide.slug}`)} class="link-aside">
+                    {guide.navLabel ?? guide.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="rounded-lg border border-ox-navy/10 bg-white p-6 shadow-sm">
+            <h3 class="mb-3 font-semibold text-ox-navy">Austin area</h3>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a href={withBase('/service-areas/austin')} class="link-aside">Austin service area</a>
+              </li>
+              <li>
+                <a href={withBase('/neighborhoods')} class="link-aside">All neighborhoods</a>
+              </li>
+              <li>
+                <a href={withBase('/what-to-expect')} class="link-aside">What to expect</a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner heading={`Tree care in ${neighborhood.name}`} />
+</BaseLayout>

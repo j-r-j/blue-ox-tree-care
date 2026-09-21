@@ -1,15 +1,20 @@
 ---
+import Breadcrumbs from './Breadcrumbs.astro';
+import type { BreadcrumbItem } from '../lib/schema';
+
 interface Props {
   title: string;
   description?: string;
   eyebrow?: string;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
-const { title, description, eyebrow } = Astro.props;
+const { title, description, eyebrow, breadcrumbs } = Astro.props;
 ---
 
 <section class="bg-ox-navy py-12 text-white">
   <div class="mx-auto max-w-4xl px-4">
+    {breadcrumbs && <Breadcrumbs items={breadcrumbs} variant="dark" />}
     {eyebrow && (
       <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-gold">{eyebrow}</p>
     )}

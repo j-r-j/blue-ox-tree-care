@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import PageBanner from '../../components/PageBanner.astro';
+import { journalPosts, getJournalPost } from '../../data/journal';
+import { breadcrumbSchema, combineSchemas, articleSchema } from '../../lib/schema';
+import { withBase } from '../../lib/paths';
+
+export function getStaticPaths() {
+  return journalPosts.map((post) => ({
+    params: { slug: post.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const post = getJournalPost(slug!);
+
+if (!post) {
+  return Astro.redirect('/journal');
+}
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Journal', path: '/journal' },
+  { name: post.title, path: `/journal/${post.slug}` },
+];
+
+const schema = combineSchemas(
+  breadcrumbSchema(breadcrumbs),
+  articleSchema({
+    title: post.title,
+    description: post.metaDescription,
+    path: `/journal/${post.slug}`,
+    datePublished: post.datePublished,
+  }),
+);
+---
+
+<BaseLayout title={post.title} description={post.metaDescription} schema={schema}>
+  <PageBanner title={post.title} description={post.heroSubtitle} breadcrumbs={breadcrumbs}>
+    <time slot="actions" datetime={post.datePublished} class="mt-2 block text-sm text-white/70">
+      {new Date(post.datePublished).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })}
+    </time>
+  </PageBanner>
+
+  <section class="py-16">
+    <div class="mx-auto max-w-4xl px-4">
+      <div class="grid gap-12 md:grid-cols-3">
+        <article class="md:col-span-2">
+          {post.sections.map((section) => (
+            <div class="mb-10">
+              <h2 class="mb-4 text-2xl font-bold text-ox-navy">{section.heading}</h2>
+              <div class="space-y-4 text-ox-navy/90">
+                {section.paragraphs.map((p) => (
+                  <p>{p}</p>
+                ))}
+              </div>
+              {section.list && (
+                <ul class="mt-4 space-y-2">
+                  {section.list.map((item) => (
+                    <li class="flex items-start gap-2 text-ox-navy/90">
+                      <span class="check-mark mt-1">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </article>
+
+        <aside>
+          <div class="rounded-lg border border-ox-navy/10 bg-white p-6 shadow-sm">
+            <h3 class="mb-3 font-semibold text-ox-navy">Related</h3>
+            <ul class="space-y-2">
+              {post.relatedLinks.map((link) => (
+                <li>
+                  <a href={withBase(link.href)} class="link-aside">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <a href={withBase('/journal')} class="link-aside">All journal articles</a>
+              </li>
+              <li>
+                <a href={withBase('/guides')} class="link-aside">Guides</a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner heading="Schedule a tree assessment" />
+</BaseLayout>

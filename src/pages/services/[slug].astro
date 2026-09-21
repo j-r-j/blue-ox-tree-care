@@ -37,7 +37,11 @@ const schema = combineSchemas(
   description={service.metaDescription}
   schema={schema}
 >
-  <PageBanner title={service.pageTitle} description={service.intro} />
+  <PageBanner title={service.pageTitle} description={service.intro} breadcrumbs={[
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services' },
+    { name: service.shortTitle, path: `/services/${service.slug}` },
+  ]} />
 
   <section class="py-16">
     <div class="mx-auto max-w-4xl px-4">

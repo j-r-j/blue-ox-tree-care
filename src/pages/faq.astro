@@ -20,6 +20,10 @@ import { breadcrumbSchema, combineSchemas, faqPageSchema } from '../lib/schema';
   <PageBanner
     title="Frequently Asked Questions"
     description="Common questions about tree care in the Austin area — answered by ISA certified arborists."
+    breadcrumbs={[
+      { name: 'Home', path: '/' },
+      { name: 'FAQ', path: '/faq' },
+    ]}
   />
 
   <section class="py-16">

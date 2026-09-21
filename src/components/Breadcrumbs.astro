@@ -1,0 +1,48 @@
+---
+import { withBase } from '../lib/paths';
+import type { BreadcrumbItem } from '../lib/schema';
+
+interface Props {
+  items: BreadcrumbItem[];
+  variant?: 'light' | 'dark';
+}
+
+const { items, variant = 'light' } = Astro.props;
+const isDark = variant === 'dark';
+---
+
+<nav aria-label="Breadcrumb" class="mb-4">
+  <ol
+    class:list={[
+      'flex flex-wrap items-center gap-1 text-sm',
+      isDark ? 'text-white/70' : 'text-ox-navy/70',
+    ]}
+  >
+    {items.map((item, index) => {
+      const isLast = index === items.length - 1;
+      return (
+        <li class="flex items-center gap-1">
+          {index > 0 && <span aria-hidden="true" class="mx-1">/</span>}
+          {isLast ? (
+            <span
+              class:list={[isDark ? 'text-white' : 'text-ox-navy font-medium']}
+              aria-current="page"
+            >
+              {item.name}
+            </span>
+          ) : (
+            <a
+              href={withBase(item.path)}
+              class:list={[
+                'hover:underline',
+                isDark ? 'hover:text-white' : 'hover:text-ox-blue',
+              ]}
+            >
+              {item.name}
+            </a>
+          )}
+        </li>
+      );
+    })}
+  </ol>
+</nav>

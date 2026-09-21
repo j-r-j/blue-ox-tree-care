@@ -106,6 +106,9 @@ function isActive(href: string) {
                 {guide.navLabel}
               </a>
             ))}
+            <a href={withBase('/journal')} class="block border-t border-ox-navy/10 px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">
+              Journal
+            </a>
           </div>
         </div>
       </div>
@@ -164,6 +167,7 @@ function isActive(href: string) {
               {guide.navLabel}
             </a>
           ))}
+          <a href={withBase('/journal')} class="block px-4 py-2 pl-6 text-sm text-ox-navy hover:bg-ox-cream">Journal</a>
           <a href={withBase('/about')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">About</a>
           <a href={withBase('/faq')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">FAQ</a>
           <a href={withBase('/contact')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Contact</a>

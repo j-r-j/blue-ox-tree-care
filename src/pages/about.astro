@@ -37,7 +37,10 @@ const ownerBadges: Record<string, { src: string; alt: string } | undefined> = {
     personSchemas(),
   )}
 >
-  <PageBanner title="About Blue Ox Tree Care" description={aboutContent.intro} />
+  <PageBanner title="About Blue Ox Tree Care" description={aboutContent.intro} breadcrumbs={[
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+  ]} />
 
   <section class="py-16">
     <div class="mx-auto max-w-4xl px-4">
@@ -58,7 +61,9 @@ const ownerBadges: Record<string, { src: string; alt: string } | undefined> = {
             <div class="p-6">
               <div class="mb-3 flex items-start justify-between gap-3">
                 <div>
-                  <h2 class="mb-1 text-xl font-bold text-ox-navy" itemprop="name">{owner.name}</h2>
+                  <h2 class="mb-1 text-xl font-bold text-ox-navy" itemprop="name">
+                    <a href={withBase(`/arborists/${owner.id}`)} class="hover:text-ox-blue">{owner.name}</a>
+                  </h2>
                   <p class="text-sm font-medium text-ox-blue" itemprop="jobTitle">{owner.title}</p>
                 </div>
                 {ownerBadges[owner.id] && (
@@ -74,6 +79,9 @@ const ownerBadges: Record<string, { src: string; alt: string } | undefined> = {
               </div>
               <p class="mb-3 text-sm font-semibold text-ox-navy/70">{owner.credentials}</p>
               <p class="text-sm text-ox-navy/85" itemprop="description">{owner.bio}</p>
+              <a href={withBase(`/arborists/${owner.id}`)} class="link-aside mt-3 inline-block text-sm font-medium">
+                Full arborist profile →
+              </a>
             </div>
           </article>
         ))}

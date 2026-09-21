@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import PageBanner from '../../components/PageBanner.astro';
+import { site } from '../../data/site';
+import { breadcrumbSchema } from '../../lib/schema';
+import { withBase } from '../../lib/paths';
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'What to Expect', path: '/what-to-expect' },
+];
+---
+
+<BaseLayout
+  title="What to Expect | Blue Ox Tree Care Austin"
+  description="Free estimates, on-site arborist assessments, timelines, payment, service radius, and storm triage — what to expect when you hire Blue Ox Tree Care. Call (512) 749-8615."
+  schema={breadcrumbSchema(breadcrumbs)}
+>
+  <PageBanner
+    title="What to Expect"
+    description="From your first call through job completion — how Blue Ox Tree Care works with Austin-area homeowners."
+    breadcrumbs={breadcrumbs}
+  />
+
+  <section class="py-16">
+    <div class="mx-auto max-w-4xl px-4">
+      <div class="prose prose-ox max-w-none space-y-12 text-ox-navy/90">
+        <div>
+          <h2 class="mb-4 text-2xl font-bold text-ox-navy">Free estimate flow</h2>
+          <p class="mb-4">
+            Start with a phone call to {site.phone} or a message through our{' '}
+            <a href={withBase('/contact')} class="link-body">contact page</a>. Describe your trees,
+            property location, and what you need — trimming, removal, health concerns, storm damage,
+            or a general assessment. We schedule an on-site visit at a time that works for you.
+          </p>
+          <p>
+            Estimates are free for most projects. You meet a certified arborist on your property,
+            not a sales representative reading from a script. Travis Berlin (ISA BCMA, RM-7612B) or
+            Lacy Berlin (ISA Certified Arborist, RM-8632A) assess your trees, discuss options, and
+            provide a written estimate with scope and pricing before any work begins.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="mb-4 text-2xl font-bold text-ox-navy">On-site assessment</h2>
+          <p class="mb-4">
+            During the visit, we evaluate tree species, structure, health, clearance needs, and any
+            regulatory context — City of Austin protected tree rules, oak wilt risk, or HOA
+            requirements. We look from the ground and use professional judgment; advanced diagnostic
+            tools are available when a{' '}
+            <a href={withBase('/services/tree-risk-assessment')} class="link-body">formal risk assessment</a>{' '}
+            is warranted.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-start gap-2">
+              <span class="check-mark mt-1">✓</span>
+              Please ensure gate access and mark any underground utilities or irrigation you know about
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="check-mark mt-1">✓</span>
+              Pets secured and driveways clear help our crew assess safely
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="check-mark mt-1">✓</span>
+              Share neighbor or HOA concerns — we can address shared-boundary trees in the plan
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="mb-4 text-2xl font-bold text-ox-navy">Timeline and scheduling</h2>
+          <p class="mb-4">
+            Routine pruning and health work is typically scheduled within one to three weeks of
+            approval, depending on season and crew availability. Storm damage and hazardous situations
+            are prioritized — we triage safety threats first and schedule follow-up work as needed.
+          </p>
+          <p>
+            Oak wilt timing may affect when elective pruning on live oaks can proceed safely. Our{' '}
+            <a href={withBase('/guides/oak-wilt-austin')} class="link-body">oak wilt guide</a> explains
+            seasonal considerations; we recommend the best window for your specific trees during the
+            estimate.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="mb-4 text-2xl font-bold text-ox-navy">Payment</h2>
+          <p>
+            Payment terms are outlined in your estimate. We accept standard payment methods and discuss
+            invoicing for larger projects. There are no hidden fees — debris haul-away, stump grinding,
+            and permit assistance (when applicable) are specified upfront so you know the full scope
+            before work starts.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="mb-4 text-2xl font-bold text-ox-navy">Service radius</h2>
+          <p class="mb-4">
+            We serve the greater Austin metro — Austin, Round Rock, Bee Cave, Lakeway, and surrounding
+            communities within roughly 50 miles of central Austin. Neighborhood pages cover{' '}
+            <a href={withBase('/neighborhoods/tarrytown')} class="link-body">Tarrytown</a>,{' '}
+            <a href={withBase('/neighborhoods/west-lake-hills')} class="link-body">West Lake Hills</a>,{' '}
+            <a href={withBase('/neighborhoods/rollingwood')} class="link-body">Rollingwood</a>,{' '}
+            <a href={withBase('/neighborhoods/circle-c')} class="link-body">Circle C</a>,{' '}
+            <a href={withBase('/neighborhoods/mueller-east-austin')} class="link-body">Mueller / East Austin</a>, and{' '}
+            <a href={withBase('/neighborhoods/steiner-ranch')} class="link-body">Steiner Ranch</a>.
+          </p>
+          <p>
+            Blue Ox is a service-area business — we come to your property. There is no storefront or
+            street address to visit. {site.serviceAreaNote}
+          </p>
+        </div>
+
+        <div>
+          <h2 class="mb-4 text-2xl font-bold text-ox-navy">Storm triage</h2>
+          <p class="mb-4">
+            After severe weather, call {site.phone} if you have hanging branches, split trunks, or
+            trees threatening structures. We secure immediate hazards first, then plan complete cleanup.
+            Read our{' '}
+            <a href={withBase('/journal/central-texas-storm-tree-triage')} class="link-body">storm triage checklist</a>{' '}
+            for safety steps before we arrive.
+          </p>
+          <p>
+            Emergency storm work is available through our{' '}
+            <a href={withBase('/services/storm-damage')} class="link-body">storm damage service</a>.
+          </p>
+        </div>
+
+        <div class="callout-panel">
+          <h2 class="mb-2 text-lg font-bold text-ox-navy">Credentials you can verify</h2>
+          <p class="mb-4 text-sm text-ox-navy/80">
+            Travis Berlin — ISA Board Certified Master Arborist (RM-7612B). Fewer than 2% of ISA
+            Certified Arborists earn BCMA. Lacy Berlin — ISA Certified Arborist (RM-8632A). Licensed
+            and insured for hazardous tree work. Verify credentials at isa-arbor.com.
+          </p>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <a href={withBase('/arborists/travis-berlin')} class="link-aside font-medium">Travis Berlin →</a>
+            </li>
+            <li>
+              <a href={withBase('/arborists/lacy-berlin')} class="link-aside font-medium">Lacy Berlin →</a>
+            </li>
+            <li>
+              <a href={withBase('/journal/hiring-isa-arborist-austin-bcma')} class="link-aside font-medium">What BCMA means →</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner heading="Ready to get started?" subtext="Call for a free estimate — we serve the Austin metro and come to your property." />
+</BaseLayout>

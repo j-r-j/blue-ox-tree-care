@@ -2,6 +2,7 @@
 import { site, serviceAreaCities } from '../data/site';
 import { services } from '../data/services';
 import { getGuideNavItems } from '../data/guides';
+import { neighborhoods } from '../data/neighborhoods';
 import { withBase } from '../lib/paths';
 import SocialLinks from './SocialLinks.astro';
 
@@ -44,11 +45,22 @@ const guideNavItems = getGuideNavItems();
 
     <div>
       <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-gold">Service Areas</p>
-      <ul class="space-y-2">
+      <ul class="mb-6 space-y-2">
         {serviceAreaCities.map((city) => (
           <li>
             <a href={withBase(`/service-areas/${city.slug}`)} class="text-sm text-white/80 hover:text-white">
               {city.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-gold">Neighborhoods</p>
+      <ul class="space-y-2">
+        <li><a href={withBase('/neighborhoods')} class="text-sm text-white/80 hover:text-white">All neighborhoods</a></li>
+        {neighborhoods.slice(0, 4).map((n) => (
+          <li>
+            <a href={withBase(`/neighborhoods/${n.slug}`)} class="text-sm text-white/80 hover:text-white">
+              {n.name}
             </a>
           </li>
         ))}
@@ -66,10 +78,15 @@ const guideNavItems = getGuideNavItems();
             </a>
           </li>
         ))}
+        <li>
+          <a href={withBase('/journal')} class="text-sm text-white/80 hover:text-white">Journal</a>
+        </li>
       </ul>
       <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-gold">Company</p>
       <ul class="space-y-2">
         <li><a href={withBase('/about')} class="text-sm text-white/80 hover:text-white">About Us</a></li>
+        <li><a href={withBase('/arborists')} class="text-sm text-white/80 hover:text-white">Our Arborists</a></li>
+        <li><a href={withBase('/what-to-expect')} class="text-sm text-white/80 hover:text-white">What to Expect</a></li>
         <li><a href={withBase('/gallery')} class="text-sm text-white/80 hover:text-white">Gallery</a></li>
         <li><a href={withBase('/faq')} class="text-sm text-white/80 hover:text-white">FAQ</a></li>
         <li><a href={withBase('/contact')} class="text-sm text-white/80 hover:text-white">Contact</a></li>

@@ -1,4 +1,5 @@
 import { site, serviceAreaCities } from '../data/site';
+import { servedNeighborhoods, servedZipCodes } from '../data/areaServed';
 import { services } from '../data/services';
 import type { FAQItem } from '../data/faq';
 
@@ -13,6 +14,37 @@ function absoluteUrl(path: string): string {
 }
 
 export function localBusinessSchema() {
+  const cityAreas = serviceAreaCities.map((city) => ({
+    '@type': 'City' as const,
+    name: city.name.split(' / ')[0],
+    containedInPlace: {
+      '@type': 'State',
+      name: 'Texas',
+    },
+  }));
+
+  const neighborhoodAreas = servedNeighborhoods.map((n) => ({
+    '@type': 'Place' as const,
+    name: n.name,
+    url: n.placeUrl,
+    containedInPlace: {
+      '@type': 'City',
+      name: 'Austin',
+      containedInPlace: {
+        '@type': 'State',
+        name: 'Texas',
+      },
+    },
+  }));
+
+  const zipAreas = servedZipCodes.map((z) => ({
+    '@type': 'PostalCode' as const,
+    postalCode: z.postalCode,
+    addressLocality: z.locality.split(' / ')[0],
+    addressRegion: 'TX',
+    addressCountry: 'US',
+  }));
+
   return {
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'HomeAndConstructionBusiness'],
@@ -25,7 +57,13 @@ export function localBusinessSchema() {
     email: [site.email, site.emailArborists],
     image: `${site.url}/logo-ox.webp`,
     priceRange: '$$',
-    sameAs: [site.instagram, site.facebook, site.googleProfile],
+    sameAs: [site.facebook, site.instagram, site.googleProfile],
+    employee: site.owners.map((owner) => ({
+      '@type': 'Person',
+      '@id': `${site.url}/#${owner.id}`,
+      name: owner.name,
+      url: absoluteUrl(`/arborists/${owner.id}`),
+    })),
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -34,14 +72,7 @@ export function localBusinessSchema() {
         closes: site.hours.closes,
       },
     ],
-    areaServed: serviceAreaCities.map((city) => ({
-      '@type': 'City',
-      name: city.name.split(' / ')[0],
-      containedInPlace: {
-        '@type': 'State',
-        name: 'Texas',
-      },
-    })),
+    areaServed: [...cityAreas, ...neighborhoodAreas, ...zipAreas],
     geo: {
       '@type': 'GeoCircle',
       geoMidpoint: {
@@ -118,21 +149,69 @@ export function breadcrumbSchema(items: BreadcrumbItem[]) {
   };
 }
 
-export function personSchemas() {
-  return site.owners.map((owner) => ({
+export function personSchema(ownerId: string) {
+  const owner = site.owners.find((o) => o.id === ownerId);
+  if (!owner) return null;
+
+  return {
     '@context': 'https://schema.org',
     '@type': 'Person',
     '@id': `${site.url}/#${owner.id}`,
     name: owner.name,
     jobTitle: owner.title,
     description: owner.bio,
+    url: absoluteUrl(`/arborists/${owner.id}`),
+    image: `${site.url}/team/${owner.id}.jpg`,
     worksFor: {
       '@type': 'LocalBusiness',
       '@id': `${site.url}/#localbusiness`,
       name: site.name,
     },
     knowsAbout: ['Arboriculture', 'Tree care', 'Central Texas trees'],
-  }));
+  };
+}
+
+export function personSchemas() {
+  return site.owners.map((owner) => personSchema(owner.id)!);
+}
+
+export interface ArticleSchemaInput {
+  title: string;
+  description: string;
+  path: string;
+  datePublished: string;
+  dateModified?: string;
+}
+
+export function articleSchema(input: ArticleSchemaInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: input.title,
+    description: input.description,
+    url: absoluteUrl(input.path),
+    datePublished: input.datePublished,
+    dateModified: input.dateModified ?? input.datePublished,
+    author: site.owners.map((owner) => ({
+      '@type': 'Person',
+      '@id': `${site.url}/#${owner.id}`,
+      name: owner.name,
+      url: absoluteUrl(`/arborists/${owner.id}`),
+    })),
+    publisher: {
+      '@type': 'LocalBusiness',
+      '@id': `${site.url}/#localbusiness`,
+      name: site.name,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${site.url}/logo-ox.webp`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': absoluteUrl(input.path),
+    },
+  };
 }
 
 export function combineSchemas(

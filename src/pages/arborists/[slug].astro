@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import PageBanner from '../../components/PageBanner.astro';
+import { site } from '../../data/site';
+import { breadcrumbSchema, combineSchemas, personSchema } from '../../lib/schema';
+import { withBase } from '../../lib/paths';
+
+export function getStaticPaths() {
+  return site.owners.map((owner) => ({
+    params: { slug: owner.id },
+  }));
+}
+
+const { slug } = Astro.params;
+const owner = site.owners.find((o) => o.id === slug);
+
+if (!owner) {
+  return Astro.redirect('/arborists');
+}
+
+const ownerPhotos: Record<string, { src: string; alt: string }> = {
+  'travis-berlin': {
+    src: withBase('/team/travis-berlin.jpg'),
+    alt: 'Travis Berlin, ISA Board Certified Master Arborist and co-owner of Blue Ox Tree Care',
+  },
+  'lacy-berlin': {
+    src: withBase('/team/lacy-berlin.jpg'),
+    alt: 'Lacy Berlin, ISA Certified Arborist and co-owner of Blue Ox Tree Care',
+  },
+};
+
+const ownerBadges: Record<string, { src: string; alt: string } | undefined> = {
+  'travis-berlin': { src: withBase('/badges/bcma-badge.png'), alt: 'ISA Board Certified Master Arborist badge' },
+  'lacy-berlin': {
+    src: withBase('/badges/isa-certified-arborist.jpg'),
+    alt: 'ISA Certified Arborist badge',
+  },
+};
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Arborists', path: '/arborists' },
+  { name: owner.name, path: `/arborists/${owner.id}` },
+];
+
+const pageTitle =
+  owner.id === 'travis-berlin'
+    ? 'Travis Berlin, ISA BCMA | Austin Arborist'
+    : 'Lacy Berlin, ISA Certified Arborist | Austin';
+
+const pageDescription =
+  owner.id === 'travis-berlin'
+    ? 'Travis Berlin — ISA Board Certified Master Arborist (RM-7612B), fewer than 2% of ISA Certified Arborists earn BCMA. Co-owner of Blue Ox Tree Care in Austin, TX. Call (512) 749-8615.'
+    : 'Lacy Berlin — ISA Certified Arborist (RM-8632A) and co-owner of Blue Ox Tree Care in Austin, TX. Tree health treatments and organic pest & disease care. Call (512) 749-8615.';
+
+const otherOwner = site.owners.find((o) => o.id !== owner.id)!;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  schema={combineSchemas(breadcrumbSchema(breadcrumbs), personSchema(owner.id))}
+>
+  <PageBanner title={owner.name} description={owner.title} breadcrumbs={breadcrumbs} />
+
+  <section class="py-16">
+    <div class="mx-auto max-w-4xl px-4">
+      <div class="grid gap-12 md:grid-cols-3">
+        <div class="md:col-span-2">
+          <div class="mb-8 overflow-hidden rounded-lg border border-ox-navy/10 bg-white shadow-sm">
+            <div class="aspect-[4/3] overflow-hidden bg-ox-cream">
+              <img
+                src={ownerPhotos[owner.id].src}
+                alt={ownerPhotos[owner.id].alt}
+                width="800"
+                height="600"
+                class="h-full w-full object-cover object-top"
+                loading="eager"
+              />
+            </div>
+            <div class="p-6">
+              <div class="mb-4 flex items-center gap-4">
+                {ownerBadges[owner.id] && (
+                  <img
+                    src={ownerBadges[owner.id]!.src}
+                    alt={ownerBadges[owner.id]!.alt}
+                    width="48"
+                    height="70"
+                    class="h-16 w-auto object-contain"
+                  />
+                )}
+                <p class="text-sm font-semibold text-ox-navy/70">{owner.credentials}</p>
+              </div>
+              <div class="space-y-4 text-ox-navy/90">
+                <p>{owner.bio}</p>
+                {owner.id === 'travis-berlin' && (
+                  <p>
+                    Travis brings municipal-scale experience from Disneyland and Newport Beach to
+                    residential and commercial tree care across the Austin metro — Tarrytown, West
+                    Lake Hills, Steiner Ranch, and beyond.
+                  </p>
+                )}
+                {owner.id === 'lacy-berlin' && (
+                  <p>
+                    Lacy leads client communication, marketing, and day-to-day operations — keeping
+                    Blue Ox responsive for Austin-area customers while maintaining the professional
+                    presentation the company is known for.
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="space-y-6">
+          <div class="rounded-lg border border-ox-navy/10 bg-white p-6 shadow-sm">
+            <h2 class="mb-3 font-semibold text-ox-navy">Also meet</h2>
+            <p class="mb-3 text-sm text-ox-navy/80">
+              <a href={withBase(`/arborists/${otherOwner.id}`)} class="link-aside font-medium">
+                {otherOwner.name}
+              </a>
+              — {otherOwner.credentials}
+            </p>
+            <a href={withBase('/about')} class="link-aside text-sm">About Blue Ox →</a>
+          </div>
+          <div class="rounded-lg border border-ox-navy/10 bg-white p-6 shadow-sm">
+            <h2 class="mb-3 font-semibold text-ox-navy">Related</h2>
+            <ul class="space-y-2 text-sm">
+              <li><a href={withBase('/what-to-expect')} class="link-aside">What to expect</a></li>
+              <li><a href={withBase('/services/tree-risk-assessment')} class="link-aside">Tree risk assessment</a></li>
+              <li><a href={withBase('/journal/hiring-isa-arborist-austin-bcma')} class="link-aside">What BCMA means</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner heading={`Schedule tree care with ${owner.name.split(' ')[0]}`} />
+</BaseLayout>

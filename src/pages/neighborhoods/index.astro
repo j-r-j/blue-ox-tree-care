@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import PageBanner from '../../components/PageBanner.astro';
+import { neighborhoods } from '../../data/neighborhoods';
+import { breadcrumbSchema } from '../../lib/schema';
+import { withBase } from '../../lib/paths';
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Neighborhoods', path: '/neighborhoods' },
+];
+---
+
+<BaseLayout
+  title="Austin Neighborhood Tree Care | ISA Certified Arborists"
+  description="Tree care by neighborhood — Tarrytown, West Lake Hills, Rollingwood, Circle C, Mueller, Steiner Ranch, and more. Blue Ox Tree Care. Call (512) 749-8615."
+  schema={breadcrumbSchema(breadcrumbs)}
+>
+  <PageBanner
+    title="Austin Neighborhood Tree Care"
+    description="Local arboriculture for Central Texas communities — live oaks, Hill Country terrain, and city regulations."
+    breadcrumbs={breadcrumbs}
+  />
+
+  <section class="py-16">
+    <div class="mx-auto max-w-4xl px-4">
+      <p class="mb-10 text-ox-navy/85">
+        Blue Ox Tree Care serves homeowners across the Austin metro. These neighborhood pages describe
+        the tree care challenges, species, and services most relevant to each community. We are a
+        service-area business — call (512) 749-8615 and we come to your property.
+      </p>
+      <div class="grid gap-6 md:grid-cols-2">
+        {neighborhoods.map((n) => (
+          <article class="rounded-lg border border-ox-navy/10 bg-white p-6 shadow-sm">
+            <h2 class="mb-2 text-xl font-bold text-ox-navy">
+              <a href={withBase(`/neighborhoods/${n.slug}`)} class="hover:text-ox-blue">
+                {n.name}
+              </a>
+            </h2>
+            <p class="mb-1 text-xs text-ox-navy/60">ZIP: {n.zipCodes.join(', ')}</p>
+            <p class="mb-4 text-sm text-ox-navy/80">{n.heroSubtitle}</p>
+            <a href={withBase(`/neighborhoods/${n.slug}`)} class="link-aside font-medium">
+              Tree care in {n.name} →
+            </a>
+          </article>
+        ))}
+      </div>
+      <p class="mt-10 text-sm text-ox-navy/70">
+        Also see our{' '}
+        <a href={withBase('/service-areas/austin')} class="link-body">Austin service area</a> page
+        for broader Travis County coverage including Round Rock, Bee Cave, and Lakeway.
+      </p>
+    </div>
+  </section>
+
+  <CTABanner heading="Tree care in your neighborhood" />
+</BaseLayout>
