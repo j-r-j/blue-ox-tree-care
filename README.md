@@ -1,13 +1,13 @@
-# Blue Ox Tree Care — Austin Marketing Site
+# Blue Ox Tree Care: Austin Marketing Site
 
-Static marketing site for [Blue Ox Tree Care](https://www.blueoxtreecarellc.com/) — ISA certified arborists Travis & Lacy Berlin serving Austin, Round Rock, Bee Cave, and Lakeway, Texas.
+Static marketing site for [Blue Ox Tree Care](https://www.blueoxtreecarellc.com/). ISA certified arborists Travis & Lacy Berlin serving Austin, Round Rock, Bee Cave, and Lakeway, Texas.
 
 Built with **Astro** (static output) and **Tailwind CSS**, deployed to **GitHub Pages** for preview.
 
 ## Stack
 
-- [Astro 7](https://astro.build/) — static site generator
-- [Tailwind CSS 4](https://tailwindcss.com/) — utility-first styling
+- [Astro 7](https://astro.build/): static site generator
+- [Tailwind CSS 4](https://tailwindcss.com/): utility-first styling
 - Minimal JavaScript (no client frameworks)
 - JSON-LD structured data (LocalBusiness, Service, FAQPage)
 
@@ -56,7 +56,7 @@ The site is configured for project Pages with:
 1. In the repo → **Settings** → **Pages**, set **Build and deployment** → **Source** to **GitHub Actions**.
 2. Merge to `main`. The [Deploy to GitHub Pages](.github/workflows/deploy-github-pages.yml) workflow runs on every push to `main` (and can be triggered manually).
 
-No secrets are required — the workflow uses `actions/upload-pages-artifact` and `actions/deploy-pages` with `pages: write` and `id-token: write` permissions.
+No secrets are required. The workflow uses `actions/upload-pages-artifact` and `actions/deploy-pages` with `pages: write` and `id-token: write` permissions.
 
 ## Site Structure
 
@@ -76,8 +76,8 @@ No secrets are required — the workflow uses `actions/upload-pages-artifact` an
 
 - **Phone:** (512) 749-8615
 - **Email:** Owner@BlueOxTreeCareLLC.com
-- **Service area:** Austin metro — no public street address (service-area business)
+- **Service area:** Austin metro (service-area business, no public street address)
 
 ## License
 
-Proprietary — © Blue Ox Tree Care LLC
+Proprietary. © Blue Ox Tree Care LLC

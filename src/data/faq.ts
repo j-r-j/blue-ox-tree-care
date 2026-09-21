@@ -7,12 +7,12 @@ export const faqItems: FAQItem[] = [
   {
     question: 'What areas do you serve?',
     answer:
-      'We serve Austin, Round Rock, Bee Cave, Lakeway, and surrounding Central Texas communities. We are a service-area business and do not maintain a public storefront — we come to your property.',
+      'We serve Austin, Round Rock, Bee Cave, Lakeway, and surrounding Central Texas communities. We are a service-area business and do not maintain a public storefront. Our arborists come to your property.',
   },
   {
     question: 'Are you ISA certified arborists?',
     answer:
-      'Yes. Travis Berlin is an ISA Board Certified Master Arborist (BCMA, RM-7612B) — fewer than 2% of ISA Certified Arborists earn this credential. Lacy Berlin is an ISA Certified Arborist (RM-8632A). Certification means we follow industry standards for tree care and risk assessment.',
+      'Yes. Travis Berlin is an ISA Board Certified Master Arborist (BCMA, RM-7612B). Fewer than 2% of ISA Certified Arborists earn this credential. Lacy Berlin is an ISA Certified Arborist (RM-8632A). Certification means we follow industry standards for tree care and risk assessment.',
   },
   {
     question: 'Do you provide free estimates?',
@@ -42,12 +42,12 @@ export const faqItems: FAQItem[] = [
   {
     question: 'Do you offer organic pest and disease treatment?',
     answer:
-      'Yes. Lacy Berlin formulates organic, in-house pest and disease treatments tailored to your trees — without petroleum-based chemicals. Treatments address soil biology as well as systemic tree health.',
+      'Yes. Lacy Berlin formulates organic, in-house pest and disease treatments tailored to your trees without petroleum-based chemicals. Treatments address soil biology as well as systemic tree health.',
   },
   {
     question: 'Should co-dominant trees be cabled?',
     answer:
-      'Trees with two or more trunks often have included bark — a structural defect that increases split risk. An ISA Certified Arborist should inspect co-dominant trees; we offer cabling rated for 8,000 lbs when support is warranted.',
+      'Trees with two or more trunks often have included bark, a structural defect that increases split risk. An ISA Certified Arborist should inspect co-dominant trees; we offer cabling rated for 8,000 lbs when support is warranted.',
   },
   {
     question: 'Do you offer emergency storm damage service?',
