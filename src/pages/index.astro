@@ -15,10 +15,10 @@ import { withBase } from '../lib/paths';
   description="Blue Ox Tree Care — ISA certified arborists serving Austin, Round Rock, Bee Cave & Lakeway. Tree trimming, removal, oak wilt care & more. Call (512) 749-8615."
   schema={localBusinessSchema()}
 >
-  <section class="relative bg-ox-green-dark text-white">
+  <section class="relative bg-ox-navy text-white">
     <div class="mx-auto grid max-w-6xl items-center gap-8 px-4 py-16 md:grid-cols-2 md:py-24">
       <div>
-        <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-ox-sage">Austin, Texas</p>
+        <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-ox-gold">Austin, Texas</p>
         <h1 class="mb-4 text-4xl font-bold leading-tight md:text-5xl">
           Professional Tree Care by ISA Certified Arborists
         </h1>
@@ -29,7 +29,7 @@ import { withBase } from '../lib/paths';
         <div class="flex flex-col gap-3 sm:flex-row">
           <a
             href={`tel:${site.phoneTel}`}
-            class="rounded-md bg-white px-6 py-3 text-center font-semibold text-ox-green-dark transition hover:bg-ox-cream"
+            class="rounded-md bg-ox-gold px-6 py-3 text-center font-semibold text-ox-navy transition hover:bg-ox-gold-dark"
           >
             Call {site.phone}
           </a>
@@ -43,11 +43,11 @@ import { withBase } from '../lib/paths';
       </div>
       <div class="overflow-hidden rounded-lg shadow-xl">
         <img
-          src={withBase('/images/hero-placeholder.svg')}
+          src={withBase('/images/hero.jpg')}
           alt="Blue Ox Tree Care — professional tree service in Austin, Texas"
           width="600"
           height="400"
-          class="h-auto w-full"
+          class="aspect-[3/2] h-auto w-full object-cover"
           loading="eager"
         />
       </div>
@@ -69,7 +69,7 @@ import { withBase } from '../lib/paths';
         ))}
       </div>
       <div class="mt-8 text-center">
-        <a href={withBase('/services')} class="font-semibold text-ox-green hover:underline">
+        <a href={withBase('/services')} class="font-semibold text-ox-blue hover:text-ox-blue-dark hover:underline">
           View all services →
         </a>
       </div>
@@ -97,19 +97,19 @@ import { withBase } from '../lib/paths';
       <h2 class="mb-4 text-3xl font-bold text-ox-navy">Why Choose Blue Ox?</h2>
       <div class="grid gap-8 text-left md:grid-cols-3">
         <div>
-          <h3 class="mb-2 font-semibold text-ox-green">ISA Certified</h3>
+          <h3 class="mb-2 font-semibold text-ox-blue">ISA Certified</h3>
           <p class="text-sm text-ox-navy/80">
             Travis Berlin (BCMA, RM-7612B) and Lacy Berlin (RM-8632A) hold the industry's highest arborist credentials.
           </p>
         </div>
         <div>
-          <h3 class="mb-2 font-semibold text-ox-green">Central Texas Expertise</h3>
+          <h3 class="mb-2 font-semibold text-ox-blue">Central Texas Expertise</h3>
           <p class="text-sm text-ox-navy/80">
             We understand live oaks, oak wilt protocols, heritage tree permits, and Hill Country fire mitigation.
           </p>
         </div>
         <div>
-          <h3 class="mb-2 font-semibold text-ox-green">Local & Responsive</h3>
+          <h3 class="mb-2 font-semibold text-ox-blue">Local & Responsive</h3>
           <p class="text-sm text-ox-navy/80">
             Based in the Austin area — we come to your property with the equipment and knowledge to get it done right.
           </p>

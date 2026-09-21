@@ -2,10 +2,15 @@
 
 @theme {
   --color-ox-navy: #1a3a4a;
-  --color-ox-green: #2d6a4f;
-  --color-ox-green-dark: #1b4332;
-  --color-ox-sage: #52b788;
+  --color-ox-blue: #3d9be9;
+  --color-ox-blue-dark: #2b689c;
+  --color-ox-gold: #ffc824;
+  --color-ox-gold-dark: #d4a017;
+  --color-ox-green: #4b916d;
+  --color-ox-green-dark: #0d4f3d;
   --color-ox-cream: #f8f6f1;
+  /* Legacy aliases — green is secondary only on redesigned surfaces */
+  --color-ox-sage: #4b916d;
   --color-ox-bark: #5c4033;
   --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }

@@ -7,27 +7,17 @@ import { withBase } from '../lib/paths';
 <footer class="bg-ox-navy text-white">
   <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 md:grid-cols-2 lg:grid-cols-4">
     <div>
-      <h2 class="mb-3 text-lg font-bold">Blue Ox Tree Care</h2>
+      <p class="mb-3 text-lg font-bold">Blue Ox Tree Care</p>
       <p class="mb-4 text-sm text-white/80">{site.tagline}</p>
       <p class="text-sm">
-        <a href={`tel:${site.phoneTel}`} class="font-semibold text-ox-sage hover:underline">
+        <a href={`tel:${site.phoneTel}`} class="font-semibold text-ox-gold hover:underline">
           {site.phone}
-        </a>
-      </p>
-      <p class="mt-2 text-sm">
-        <a href={`mailto:${site.email}`} class="text-white/80 hover:text-ox-sage">
-          {site.email}
-        </a>
-      </p>
-      <p class="mt-1 text-sm">
-        <a href={site.instagram} class="text-white/80 hover:text-ox-sage" target="_blank" rel="noopener noreferrer">
-          Instagram
         </a>
       </p>
     </div>
 
     <div>
-      <h3 class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-sage">Services</h3>
+      <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-gold">Services</p>
       <ul class="space-y-2">
         {services.slice(0, 5).map((service) => (
           <li>
@@ -37,7 +27,7 @@ import { withBase } from '../lib/paths';
           </li>
         ))}
         <li>
-          <a href={withBase('/services')} class="text-sm font-medium text-ox-sage hover:underline">
+          <a href={withBase('/services')} class="text-sm font-medium text-ox-gold hover:underline">
             View all services →
           </a>
         </li>
@@ -45,7 +35,7 @@ import { withBase } from '../lib/paths';
     </div>
 
     <div>
-      <h3 class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-sage">Service Areas</h3>
+      <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-gold">Service Areas</p>
       <ul class="space-y-2">
         {serviceAreaCities.map((city) => (
           <li>
@@ -58,7 +48,7 @@ import { withBase } from '../lib/paths';
     </div>
 
     <div>
-      <h3 class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-sage">Company</h3>
+      <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-gold">Company</p>
       <ul class="space-y-2">
         <li><a href={withBase('/about')} class="text-sm text-white/80 hover:text-white">About Us</a></li>
         <li><a href={withBase('/gallery')} class="text-sm text-white/80 hover:text-white">Gallery</a></li>
