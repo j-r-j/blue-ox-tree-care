@@ -71,7 +71,10 @@ export const seo = {
   servicePageTitle: (name: string) => `${name} in Austin, TX`,
   serviceMeta: (nameLower: string) =>
     `Professional ${nameLower} in Austin, Round Rock, Bee Cave & Lakeway by ISA certified arborists. Licensed & insured. Free estimates. Call (512) 749-8615.`,
-  areaTitle: (city: string) => `Tree Care Services in ${city}, TX`,
+  /** Visible H1 on service area pages. */
+  areaTitle: (city: string) => `Tree Care in ${city}, TX`,
+  /** Document title — distinct from /services/ index. */
+  areaMetaTitle: (city: string) => `Tree Care in ${city}, TX | Service Area`,
   areaMeta: (city: string) =>
     `ISA certified tree care in ${city}, TX: trimming, removal, risk assessment & more. Blue Ox Tree Care. Call (512) 749-8615.`,
 } as const;

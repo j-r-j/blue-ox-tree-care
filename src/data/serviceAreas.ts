@@ -3,7 +3,10 @@ import { seo } from './site';
 export interface ServiceArea {
   slug: string;
   name: string;
+  /** Visible H1 / page banner title. */
   title: string;
+  /** Document `<title>` — unique per page for SEO. */
+  metaTitle: string;
   metaDescription: string;
   description: string;
   body: string[];
@@ -16,6 +19,7 @@ export const serviceAreas: ServiceArea[] = [
     slug: 'austin',
     name: 'Austin',
     title: seo.areaTitle('Austin'),
+    metaTitle: seo.areaMetaTitle('Austin'),
     metaDescription: seo.areaMeta('Austin'),
     description:
       'Blue Ox Tree Care provides full-service tree care throughout Austin and Travis County, from central neighborhoods to the Hill Country edge. Our ISA Board Certified Master Arborist-owned team understands Central Texas species, oak wilt protocols, and City of Austin tree regulations.',
@@ -38,6 +42,7 @@ export const serviceAreas: ServiceArea[] = [
     slug: 'round-rock',
     name: 'Round Rock',
     title: seo.areaTitle('Round Rock'),
+    metaTitle: seo.areaMetaTitle('Round Rock'),
     metaDescription: seo.areaMeta('Round Rock'),
     description:
       'Tree trimming, removal, and arborist services in Round Rock, TX. ISA certified arborists serving Williamson County with structural pruning, stump grinding, and organic tree health care.',
@@ -59,6 +64,7 @@ export const serviceAreas: ServiceArea[] = [
     slug: 'bee-cave-lakeway',
     name: 'Bee Cave / Lakeway',
     title: seo.areaTitle('Bee Cave & Lakeway'),
+    metaTitle: seo.areaMetaTitle('Bee Cave & Lakeway'),
     metaDescription: seo.areaMeta('Bee Cave and Lakeway'),
     description:
       'Tree care in Bee Cave, Lakeway, and the Austin Hill Country. Trimming, removal, fire mitigation, and risk assessment for steep lots, oak woodlands, and wildfire-prone properties.',
