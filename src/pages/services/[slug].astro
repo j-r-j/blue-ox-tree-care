@@ -7,9 +7,11 @@ import { breadcrumbSchema, combineSchemas, serviceSchema } from '../../lib/schem
 import { withBase } from '../../lib/paths';
 
 export function getStaticPaths() {
-  return services.map((service) => ({
-    params: { slug: service.slug },
-  }));
+  return services
+    .filter((service) => service.slug !== 'storm-damage')
+    .map((service) => ({
+      params: { slug: service.slug },
+    }));
 }
 
 const { slug } = Astro.params;
