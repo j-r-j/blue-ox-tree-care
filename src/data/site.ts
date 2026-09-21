@@ -6,7 +6,7 @@ export const site = {
   phoneTel: '+15127498615',
   email: 'Owner@BlueOxTreeCareLLC.com',
   emailArborists: 'arborists@blueoxtreecareaustin.com',
-  instagram: 'http://instagram.com/blueoxtreecare',
+  instagram: 'https://www.instagram.com/blueoxtreecare/',
   facebook: 'https://www.facebook.com/blueoxtreecare/',
   googleProfile: 'https://share.google/n0jI8vs2w253Twx1K',
   googleWriteReview:
