@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABanner from '../../components/CTABanner.astro';
+import PageBanner from '../../components/PageBanner.astro';
 import { guides } from '../../data/guides';
 import { breadcrumbSchema } from '../../lib/schema';
 import { withBase } from '../../lib/paths';
@@ -14,14 +15,10 @@ import { withBase } from '../../lib/paths';
     { name: 'Guides', path: '/guides' },
   ])}
 >
-  <section class="bg-ox-green-dark py-12 text-white">
-    <div class="mx-auto max-w-4xl px-4">
-      <h1 class="mb-4 text-4xl font-bold">Tree Care Guides</h1>
-      <p class="text-lg text-white/90">
-        Practical, accurate information for Austin-area homeowners — written by ISA certified arborists.
-      </p>
-    </div>
-  </section>
+  <PageBanner
+    title="Tree Care Guides"
+    description="Practical, accurate information for Austin-area homeowners — written by ISA certified arborists."
+  />
 
   <section class="py-16">
     <div class="mx-auto max-w-4xl px-4">
@@ -29,14 +26,14 @@ import { withBase } from '../../lib/paths';
         {guides.map((guide) => (
           <article class="rounded-lg border border-ox-navy/10 bg-white p-6 shadow-sm">
             <h2 class="mb-3 text-xl font-bold text-ox-navy">
-              <a href={withBase(`/guides/${guide.slug}`)} class="hover:text-ox-green">
+              <a href={withBase(`/guides/${guide.slug}`)} class="hover:text-ox-blue">
                 {guide.title}
               </a>
             </h2>
             <p class="mb-4 text-sm text-ox-navy/80">{guide.heroSubtitle}</p>
             <a
               href={withBase(`/guides/${guide.slug}`)}
-              class="text-sm font-medium text-ox-green hover:underline"
+              class="link-aside font-medium"
             >
               Read guide →
             </a>
@@ -44,7 +41,7 @@ import { withBase } from '../../lib/paths';
         ))}
         <article class="rounded-lg border border-ox-navy/10 bg-white p-6 shadow-sm">
           <h2 class="mb-3 text-xl font-bold text-ox-navy">
-            <a href={withBase('/services/storm-damage')} class="hover:text-ox-green">
+            <a href={withBase('/services/storm-damage')} class="hover:text-ox-blue">
               Emergency Storm Damage Response
             </a>
           </h2>
@@ -53,7 +50,7 @@ import { withBase } from '../../lib/paths';
           </p>
           <a
             href={withBase('/services/storm-damage')}
-            class="text-sm font-medium text-ox-green hover:underline"
+            class="link-aside font-medium"
           >
             Storm damage service →
           </a>

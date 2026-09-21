@@ -6,13 +6,42 @@
   --color-ox-blue-dark: #2b689c;
   --color-ox-gold: #ffc824;
   --color-ox-gold-dark: #d4a017;
-  --color-ox-green: #4b916d;
-  --color-ox-green-dark: #0d4f3d;
   --color-ox-cream: #f8f6f1;
-  /* Legacy aliases — green is secondary only on redesigned surfaces */
-  --color-ox-sage: #4b916d;
-  --color-ox-bark: #5c4033;
   --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+@layer components {
+  .link-aside {
+    @apply text-sm text-ox-blue hover:text-ox-blue-dark hover:underline;
+  }
+
+  .link-body {
+    @apply font-medium text-ox-blue hover:text-ox-blue-dark hover:underline;
+  }
+
+  .check-mark {
+    @apply text-ox-gold;
+  }
+
+  .list-bullet {
+    @apply text-ox-gold;
+  }
+
+  .callout-panel {
+    @apply rounded-lg border-l-4 border-ox-gold bg-white p-6 shadow-sm;
+  }
+
+  .btn-primary {
+    @apply rounded-md bg-ox-gold font-semibold text-ox-navy transition hover:bg-ox-gold-dark;
+  }
+
+  .label-accent {
+    @apply text-sm font-semibold uppercase tracking-wide text-ox-gold;
+  }
+
+  .input-field {
+    @apply w-full rounded-md border border-ox-navy/20 px-3 py-2 text-sm focus:border-ox-blue focus:outline-none focus:ring-1 focus:ring-ox-blue;
+  }
 }
 
 html {

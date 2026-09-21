@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import FAQSection from '../../components/FAQSection.astro';
+import PageBanner from '../../components/PageBanner.astro';
 import { guides, getGuide } from '../../data/guides';
 import { breadcrumbSchema, combineSchemas, faqPageSchema } from '../../lib/schema';
 import { withBase } from '../../lib/paths';
@@ -30,17 +31,13 @@ const schema = combineSchemas(
 ---
 
 <BaseLayout title={guide.title} description={guide.metaDescription} schema={schema}>
-  <section class="bg-ox-green-dark py-12 text-white">
-    <div class="mx-auto max-w-4xl px-4">
-      <nav class="mb-4 text-sm text-white/70">
-        <a href={withBase('/guides')} class="hover:text-white">Guides</a>
-        <span class="mx-2">/</span>
-        <span>{guide.title}</span>
-      </nav>
-      <h1 class="mb-4 text-4xl font-bold">{guide.title}</h1>
-      <p class="text-lg text-white/90">{guide.heroSubtitle}</p>
-    </div>
-  </section>
+  <PageBanner title={guide.title} description={guide.heroSubtitle}>
+    <nav slot="prefix" class="mb-4 text-sm text-white/70">
+      <a href={withBase('/guides')} class="hover:text-white">Guides</a>
+      <span class="mx-2">/</span>
+      <span>{guide.title}</span>
+    </nav>
+  </PageBanner>
 
   <section class="py-16">
     <div class="mx-auto max-w-4xl px-4">
@@ -58,7 +55,7 @@ const schema = combineSchemas(
                 <ul class="mt-4 space-y-2">
                   {section.list.map((item) => (
                     <li class="flex items-start gap-2 text-ox-navy/90">
-                      <span class="mt-1 text-ox-green">✓</span>
+                      <span class="check-mark mt-1">✓</span>
                       {item}
                     </li>
                   ))}
@@ -68,7 +65,7 @@ const schema = combineSchemas(
           ))}
 
           {guide.callout && (
-            <div class="rounded-lg border-l-4 border-ox-gold bg-white p-6 shadow-sm">
+            <div class="callout-panel">
               <h2 class="mb-2 text-lg font-bold text-ox-navy">{guide.callout.heading}</h2>
               <p class="text-sm text-ox-navy/80">{guide.callout.body}</p>
               {guide.callout.links && guide.callout.links.length > 0 && (
@@ -77,7 +74,7 @@ const schema = combineSchemas(
                     <li>
                       <a
                         href={link.external ? link.href : withBase(link.href)}
-                        class="text-sm font-medium text-ox-green hover:underline"
+                        class="link-aside font-medium"
                         rel={link.external ? 'noopener noreferrer' : undefined}
                         target={link.external ? '_blank' : undefined}
                       >
@@ -97,13 +94,13 @@ const schema = combineSchemas(
             <ul class="space-y-2">
               {guide.relatedLinks.map((link) => (
                 <li>
-                  <a href={withBase(link.href)} class="text-sm text-ox-green hover:underline">
+                  <a href={withBase(link.href)} class="link-aside">
                     {link.label}
                   </a>
                 </li>
               ))}
               <li>
-                <a href={withBase('/guides')} class="text-sm text-ox-green hover:underline">
+                <a href={withBase('/guides')} class="link-aside">
                   All guides
                 </a>
               </li>

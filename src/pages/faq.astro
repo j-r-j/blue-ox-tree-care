@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABanner from '../components/CTABanner.astro';
+import PageBanner from '../components/PageBanner.astro';
 import { faqItems } from '../data/faq';
 import { breadcrumbSchema, combineSchemas, faqPageSchema } from '../lib/schema';
 ---
@@ -16,14 +17,10 @@ import { breadcrumbSchema, combineSchemas, faqPageSchema } from '../lib/schema';
     faqPageSchema(faqItems),
   )}
 >
-  <section class="bg-ox-green-dark py-12 text-white">
-    <div class="mx-auto max-w-4xl px-4">
-      <h1 class="mb-4 text-4xl font-bold">Frequently Asked Questions</h1>
-      <p class="text-lg text-white/90">
-        Common questions about tree care in the Austin area — answered by ISA certified arborists.
-      </p>
-    </div>
-  </section>
+  <PageBanner
+    title="Frequently Asked Questions"
+    description="Common questions about tree care in the Austin area — answered by ISA certified arborists."
+  />
 
   <section class="py-16">
     <div class="mx-auto max-w-3xl px-4">
@@ -33,7 +30,7 @@ import { breadcrumbSchema, combineSchemas, faqPageSchema } from '../lib/schema';
             <summary class="cursor-pointer list-none px-6 py-4 font-semibold text-ox-navy marker:content-none [&::-webkit-details-marker]:hidden">
               <span class="flex items-center justify-between gap-4">
                 {item.question}
-                <span class="text-ox-green transition group-open:rotate-45">+</span>
+                <span class="text-ox-gold transition group-open:rotate-45">+</span>
               </span>
             </summary>
             <div class="border-t border-ox-navy/10 px-6 py-4 text-ox-navy/80">

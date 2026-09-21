@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABanner from '../../components/CTABanner.astro';
+import PageBanner from '../../components/PageBanner.astro';
 import AreaCard from '../../components/AreaCard.astro';
 import { serviceAreas } from '../../data/serviceAreas';
 import { breadcrumbSchema } from '../../lib/schema';
@@ -14,14 +15,10 @@ import { breadcrumbSchema } from '../../lib/schema';
     { name: 'Service Areas', path: '/service-areas' },
   ])}
 >
-  <section class="bg-ox-green-dark py-12 text-white">
-    <div class="mx-auto max-w-4xl px-4">
-      <h1 class="mb-4 text-4xl font-bold">Service Areas</h1>
-      <p class="text-lg text-white/90">
-        Proudly serving the greater Austin metro and Central Texas Hill Country.
-      </p>
-    </div>
-  </section>
+  <PageBanner
+    title="Service Areas"
+    description="Proudly serving the greater Austin metro and Central Texas Hill Country."
+  />
 
   <section class="py-16">
     <div class="mx-auto max-w-6xl px-4">

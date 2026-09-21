@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import FAQSection from '../../components/FAQSection.astro';
+import PageBanner from '../../components/PageBanner.astro';
 import { site } from '../../data/site';
 import { serviceAreas } from '../../data/serviceAreas';
 import { services } from '../../data/services';
@@ -25,32 +26,26 @@ const schema = combineSchemas(
   description="24/7 emergency storm damage tree service in Austin, Round Rock, Bee Cave & Lakeway. Hazardous limbs, fallen trees, roof clearance. Licensed & insured — call (512) 749-8615 now."
   schema={schema}
 >
-  <section class="bg-ox-green-dark py-12 text-white">
-    <div class="mx-auto max-w-4xl px-4">
-      <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-gold">
-        Emergency storm response
-      </p>
-      <h1 class="mb-4 text-4xl font-bold">Storm Damage Tree Service in Austin, TX</h1>
-      <p class="mb-6 text-lg text-white/90">
-        After high winds, hail, or ice storms, torn branches and fallen trees need immediate professional
-        attention. Blue Ox Tree Care responds to hazardous situations across the Austin metro.
-      </p>
-      <div class="flex flex-col gap-4 sm:flex-row">
-        <a
-          href={`tel:${site.phoneTel}`}
-          class="rounded-md bg-ox-gold px-6 py-3 text-center font-semibold text-ox-navy transition hover:bg-ox-gold-dark"
-        >
-          Call Now — {site.phone}
-        </a>
-        <a
-          href={withBase('/contact')}
-          class="rounded-md border-2 border-white px-6 py-3 text-center font-semibold text-white transition hover:bg-white/10"
-        >
-          Request Callback
-        </a>
-      </div>
+  <PageBanner
+    eyebrow="Emergency storm response"
+    title="Storm Damage Tree Service in Austin, TX"
+    description="After high winds, hail, or ice storms, torn branches and fallen trees need immediate professional attention. Blue Ox Tree Care responds to hazardous situations across the Austin metro."
+  >
+    <div slot="actions" class="mt-6 flex flex-col gap-4 sm:flex-row">
+      <a
+        href={`tel:${site.phoneTel}`}
+        class="btn-primary px-6 py-3 text-center"
+      >
+        Call Now — {site.phone}
+      </a>
+      <a
+        href={withBase('/contact')}
+        class="rounded-md border-2 border-white px-6 py-3 text-center font-semibold text-white transition hover:bg-white/10"
+      >
+        Request Callback
+      </a>
     </div>
-  </section>
+  </PageBanner>
 
   <section class="border-b border-ox-navy/10 bg-ox-navy py-6 text-white">
     <div class="mx-auto flex max-w-4xl flex-col items-center justify-center gap-2 px-4 text-center sm:flex-row sm:gap-6">
@@ -91,7 +86,7 @@ const schema = combineSchemas(
               'Storm damage exposed major limbs over roofs or play areas',
             ].map((item) => (
               <li class="flex items-start gap-2 text-ox-navy/90">
-                <span class="mt-1 text-ox-green">✓</span>
+                <span class="check-mark mt-1">✓</span>
                 {item}
               </li>
             ))}
@@ -107,7 +102,7 @@ const schema = combineSchemas(
               'Complete cleanup and haul-off',
             ].map((item) => (
               <li class="flex items-start gap-2 text-ox-navy/90">
-                <span class="mt-1 text-ox-green">✓</span>
+                <span class="check-mark mt-1">✓</span>
                 {item}
               </li>
             ))}
@@ -128,7 +123,7 @@ const schema = combineSchemas(
             </p>
           </div>
 
-          <div class="rounded-lg border-l-4 border-ox-green bg-white p-6 shadow-sm">
+          <div class="callout-panel">
             <h2 class="mb-3 text-xl font-bold text-ox-navy">Central Texas Notes</h2>
             <ul class="space-y-3 text-sm text-ox-navy/80">
               <li>
@@ -138,7 +133,7 @@ const schema = combineSchemas(
               <li>
                 Oak wounds from storm damage may need paint and timing considerations during active oak
                 wilt transmission periods — see our{' '}
-                <a href={withBase('/guides/oak-wilt-austin')} class="font-medium text-ox-green hover:underline">
+                <a href={withBase('/guides/oak-wilt-austin')} class="link-body">
                   oak wilt guide
                 </a>{' '}
                 for general education.
@@ -148,7 +143,7 @@ const schema = combineSchemas(
                 — see our{' '}
                 <a
                   href={withBase('/guides/austin-protected-heritage-trees')}
-                  class="font-medium text-ox-green hover:underline"
+                  class="link-body"
                 >
                   protected & heritage tree guide
                 </a>
@@ -176,7 +171,7 @@ const schema = combineSchemas(
             <ul class="mb-6 space-y-2">
               {serviceAreas.map((area) => (
                 <li>
-                  <a href={withBase(`/service-areas/${area.slug}`)} class="text-sm text-ox-green hover:underline">
+                  <a href={withBase(`/service-areas/${area.slug}`)} class="link-aside">
                     {area.name}
                   </a>
                 </li>
@@ -190,7 +185,7 @@ const schema = combineSchemas(
                 .slice(0, 4)
                 .map((s) => (
                   <li>
-                    <a href={withBase(`/services/${s.slug}`)} class="text-sm text-ox-green hover:underline">
+                    <a href={withBase(`/services/${s.slug}`)} class="link-aside">
                       {s.shortTitle}
                     </a>
                   </li>
