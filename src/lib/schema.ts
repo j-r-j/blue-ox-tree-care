@@ -23,7 +23,7 @@ export function localBusinessSchema() {
     url: site.url,
     telephone: site.phoneTel,
     email: [site.email, site.emailArborists],
-    image: `${site.url}/images/hero.jpg`,
+    image: `${site.url}/logo-ox.webp`,
     priceRange: '$$',
     sameAs: [site.instagram, site.facebook],
     openingHoursSpecification: [
