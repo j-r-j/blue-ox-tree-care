@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import { services, getService } from '../../data/services';
 import { serviceAreas } from '../../data/serviceAreas';
-import { serviceSchema } from '../../lib/schema';
+import { breadcrumbSchema, combineSchemas, serviceSchema } from '../../lib/schema';
 import { withBase } from '../../lib/paths';
 
 export function getStaticPaths() {
@@ -19,18 +19,25 @@ if (!service) {
   return Astro.redirect('/services');
 }
 
-const schema = serviceSchema(service.slug);
+const schema = combineSchemas(
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services' },
+    { name: service.shortTitle, path: `/services/${service.slug}` },
+  ]),
+  serviceSchema(service.slug),
+);
 ---
 
 <BaseLayout
   title={service.title}
   description={service.metaDescription}
-  schema={schema ?? undefined}
+  schema={schema}
 >
   <section class="bg-ox-green-dark py-12 text-white">
     <div class="mx-auto max-w-4xl px-4">
       <h1 class="mb-4 text-4xl font-bold">{service.title}</h1>
-      <p class="text-lg text-white/90">{service.description}</p>
+      <p class="text-lg font-medium text-white/95">{service.intro}</p>
     </div>
   </section>
 
@@ -38,6 +45,12 @@ const schema = serviceSchema(service.slug);
     <div class="mx-auto max-w-4xl px-4">
       <div class="grid gap-12 md:grid-cols-3">
         <div class="md:col-span-2">
+          <div class="mb-8 space-y-4 text-ox-navy/90">
+            {service.body.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+
           <h2 class="mb-4 text-2xl font-bold text-ox-navy">What We Offer</h2>
           <ul class="mb-8 space-y-2">
             {service.highlights.map((item) => (

@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABanner from '../components/CTABanner.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import AreaCard from '../components/AreaCard.astro';
-import { site } from '../data/site';
+import { site, seo } from '../data/site';
 import { services } from '../data/services';
 import { serviceAreas } from '../data/serviceAreas';
 import { localBusinessSchema } from '../lib/schema';
@@ -11,8 +11,8 @@ import { withBase } from '../lib/paths';
 ---
 
 <BaseLayout
-  title="Tree Care in Austin, TX | ISA Certified Arborists"
-  description="Blue Ox Tree Care — ISA certified arborists serving Austin, Round Rock, Bee Cave & Lakeway. Tree trimming, removal, oak wilt care & more. Call (512) 749-8615."
+  title={seo.home.title}
+  description={seo.home.description}
   schema={localBusinessSchema()}
 >
   <section class="relative bg-ox-navy text-white">
@@ -20,12 +20,20 @@ import { withBase } from '../lib/paths';
       <div>
         <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-ox-gold">Austin, Texas</p>
         <h1 class="mb-4 text-4xl font-bold leading-tight md:text-5xl">
-          Professional Tree Care by ISA Certified Arborists
+          Professional Tree Care in Austin by ISA Certified Arborists
         </h1>
-        <p class="mb-6 text-lg text-white/90">
-          Travis & Lacy Berlin bring board-certified expertise to Austin, Round Rock, Bee Cave, and Lakeway —
-          from structural pruning to oak wilt management.
+        <p class="mb-4 text-lg text-white/90">
+          Travis & Lacy Berlin bring Board Certified Master Arborist expertise to Austin, Round Rock,
+          Bee Cave, and Lakeway — from structural pruning to organic pest and disease care.
         </p>
+        <ul class="mb-6 space-y-2 text-sm text-white/85">
+          {site.trustLines.map((line) => (
+            <li class="flex items-start gap-2">
+              <span class="mt-0.5 text-ox-gold">✓</span>
+              {line}
+            </li>
+          ))}
+        </ul>
         <div class="flex flex-col gap-3 sm:flex-row">
           <a
             href={`tel:${site.phoneTel}`}
@@ -37,7 +45,7 @@ import { withBase } from '../lib/paths';
             href={withBase('/contact')}
             class="rounded-md border-2 border-white px-6 py-3 text-center font-semibold text-white transition hover:bg-white/10"
           >
-            Get an Estimate
+            Free Estimate
           </a>
         </div>
       </div>
@@ -103,20 +111,20 @@ import { withBase } from '../lib/paths';
           </p>
         </div>
         <div>
-          <h3 class="mb-2 font-semibold text-ox-blue">Central Texas Expertise</h3>
+          <h3 class="mb-2 font-semibold text-ox-blue">Licensed & Insured</h3>
           <p class="text-sm text-ox-navy/80">
-            We understand live oaks, oak wilt protocols, heritage tree permits, and Hill Country fire mitigation.
+            Professional equipment, rigorous safety standards, and full insurance for hazardous tree work on your property.
           </p>
         </div>
         <div>
-          <h3 class="mb-2 font-semibold text-ox-blue">Local & Responsive</h3>
+          <h3 class="mb-2 font-semibold text-ox-blue">Central Texas Expertise</h3>
           <p class="text-sm text-ox-navy/80">
-            Based in the Austin area — we come to your property with the equipment and knowledge to get it done right.
+            Live oaks, oak wilt protocols, heritage tree permits, organic treatments, and Hill Country fire mitigation.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <CTABanner />
+  <CTABanner subtext="Free estimates — call or contact us for tree care anywhere in the Austin metro." />
 </BaseLayout>

@@ -1,19 +1,25 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { site } from '../data/site';
-import { localBusinessSchema } from '../lib/schema';
+import { breadcrumbSchema, combineSchemas, localBusinessSchema } from '../lib/schema';
 ---
 
 <BaseLayout
   title="Contact Blue Ox Tree Care | Austin, TX"
-  description="Contact Blue Ox Tree Care in Austin, TX. Call (512) 749-8615 or email for tree trimming, removal, and arborist services."
-  schema={localBusinessSchema()}
+  description="Contact Blue Ox Tree Care in Austin, TX. Call (512) 749-8615 or email for tree trimming, removal, and arborist services. Mon–Fri 8 AM – 5 PM."
+  schema={combineSchemas(
+    breadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'Contact', path: '/contact' },
+    ]),
+    localBusinessSchema(),
+  )}
 >
   <section class="bg-ox-green-dark py-12 text-white">
     <div class="mx-auto max-w-4xl px-4">
       <h1 class="mb-4 text-4xl font-bold">Contact Us</h1>
       <p class="text-lg text-white/90">
-        Ready to schedule tree care? Reach out by phone, email, or the form below.
+        Ready to schedule tree care? Call for a free estimate — we serve the Austin metro and come to your property.
       </p>
     </div>
   </section>
@@ -47,10 +53,14 @@ import { localBusinessSchema } from '../lib/schema';
             </dd>
           </div>
           <div>
+            <dt class="text-sm font-semibold uppercase tracking-wide text-ox-green">Hours</dt>
+            <dd class="mt-1 text-ox-navy/80">{site.hours.display}</dd>
+          </div>
+          <div>
             <dt class="text-sm font-semibold uppercase tracking-wide text-ox-green">Service Area</dt>
             <dd class="mt-1 text-ox-navy/80">
               Austin, Round Rock, Bee Cave, Lakeway & surrounding Central Texas communities.
-              We are a service-area business — no public storefront.
+              {site.serviceAreaNote}
             </dd>
           </div>
           <div>
@@ -86,7 +96,7 @@ import { localBusinessSchema } from '../lib/schema';
             <input
               type="tel"
               id="phone"
-              placeholder="(512) 555-0100"
+              placeholder="(512) 749-8615"
               class="w-full rounded-md border border-ox-navy/20 px-3 py-2 text-sm focus:border-ox-green focus:outline-none focus:ring-1 focus:ring-ox-green"
             />
           </div>

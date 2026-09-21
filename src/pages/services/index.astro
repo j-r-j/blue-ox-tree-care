@@ -3,11 +3,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
 import { services } from '../../data/services';
+import { breadcrumbSchema } from '../../lib/schema';
 ---
 
 <BaseLayout
   title="Tree Care Services in Austin, TX"
   description="Full-service tree care in Austin, Round Rock & Bee Cave. Trimming, removal, stump grinding, oak wilt, fire mitigation & more. ISA certified arborists."
+  schema={breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services' },
+  ])}
 >
   <section class="bg-ox-green-dark py-12 text-white">
     <div class="mx-auto max-w-4xl px-4">

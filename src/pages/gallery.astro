@@ -1,11 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABanner from '../components/CTABanner.astro';
+import { breadcrumbSchema } from '../lib/schema';
 ---
 
 <BaseLayout
   title="Tree Care Gallery | Austin, TX Projects"
   description="View Blue Ox Tree Care project photos from Austin, Round Rock & Bee Cave. Tree trimming, removal, and arborist work."
+  schema={breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Gallery', path: '/gallery' },
+  ])}
 >
   <section class="bg-ox-green-dark py-12 text-white">
     <div class="mx-auto max-w-4xl px-4">

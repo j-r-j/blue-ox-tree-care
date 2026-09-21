@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://j-r-j.github.io/blue-ox-tree-care/sitemap-index.xml

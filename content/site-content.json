@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "source": "https://www.blueoxtreecarellc.com",
+    "scrapedAt": "2026-09-21",
+    "note": "Raw Wix page text backup. Austin phone normalized to (512) 749-8615 in content-pack."
+  },
+  "pages": {
+    "home": {
+      "url": "https://www.blueoxtreecarellc.com",
+      "trustLines": [
+        "ISA Board Certified Master Arborist Owned & Operated",
+        "ISA Board Certified Master Arborist (BCMA) is an elite credential, only 2% of ISA Certified Arborists ever move on to become BCMA's.",
+        "Call for your FREE ESTIMATE today!"
+      ]
+    },
+    "about": {
+      "url": "https://www.blueoxtreecarellc.com/about",
+      "travisBerlin": "Travis is a fifth generation Coloradan, born and raised. He is an experienced ISA Board Certified Master Arborist, in which fewer than 2% of ISA Certified Arborists have ever earned this elite credential! He has managed four tree companies, opening two tree companies of his own, one in Hawaii and Blue Ox Tree Care in Salida, CO. He also was the Arborist who managed Disneyland's trees in Anahiem, CA as well as a Municipal Arborist for the city of Newport Beach, CA.",
+      "lacyBerlin": "Lacy is a knowledgeable ISA Certified Arborist. She excels at tree health treatments, formulating and creating all organic pest and disease treatments in house. On top of having a wide array of tree knowledge, Lacy has killer marketing skills that drives the professionalism and quality presentation that Blue Ox Tree Care thrives off of."
+    },
+    "contact": {
+      "url": "https://www.blueoxtreecarellc.com/contact",
+      "emails": ["arborists@blueoxtreecareaustin.com", "Owner@BlueOxTreeCareLLC.com"],
+      "legacyPhones": {
+        "austin": "(737) 864-5589",
+        "salida": "(719) 207-1146"
+      }
+    },
+    "tree-trimming": {
+      "url": "https://www.blueoxtreecarellc.com/tree-trimming",
+      "body": "Proper trimming is important for your tree's overall health..."
+    },
+    "removals": {
+      "url": "https://www.blueoxtreecarellc.com/removals",
+      "body": "Here at Blue ox tree care, we love trees! But sometimes, removing a tree may be the best option..."
+    },
+    "stump-grinding": {
+      "url": "https://www.blueoxtreecarellc.com/stump-grinding"
+    },
+    "storm-damage": {
+      "url": "https://www.blueoxtreecarellc.com/storm-damage"
+    },
+    "tree-risk-assessment": {
+      "url": "https://www.blueoxtreecarellc.com/tree-risk-assessment"
+    },
+    "firemitigation": {
+      "url": "https://www.blueoxtreecarellc.com/firemitigation"
+    },
+    "pestanddiseasecare": {
+      "url": "https://www.blueoxtreecarellc.com/pestanddiseasecare"
+    },
+    "organic-fertilizing": {
+      "url": "https://www.blueoxtreecarellc.com/organic-fertilizing"
+    },
+    "cabling-bracing": {
+      "url": "https://www.blueoxtreecarellc.com/cabling-bracing"
+    },
+    "austin": {
+      "url": "https://www.blueoxtreecarellc.com/austin",
+      "legacyPhone": "(737) 864-5589"
+    },
+    "salida": {
+      "url": "https://www.blueoxtreecarellc.com/salida",
+      "legacyPhone": "(719) 207-1146"
+    }
+  }
+}
