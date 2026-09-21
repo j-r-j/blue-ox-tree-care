@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageBanner from '../components/PageBanner.astro';
 import { site } from '../data/site';
 import { breadcrumbSchema, combineSchemas, localBusinessSchema } from '../lib/schema';
 ---
@@ -15,14 +16,10 @@ import { breadcrumbSchema, combineSchemas, localBusinessSchema } from '../lib/sc
     localBusinessSchema(),
   )}
 >
-  <section class="bg-ox-green-dark py-12 text-white">
-    <div class="mx-auto max-w-4xl px-4">
-      <h1 class="mb-4 text-4xl font-bold">Contact Us</h1>
-      <p class="text-lg text-white/90">
-        Ready to schedule tree care? Call for a free estimate — we serve the Austin metro and come to your property.
-      </p>
-    </div>
-  </section>
+  <PageBanner
+    title="Contact Us"
+    description="Ready to schedule tree care? Call for a free estimate — we serve the Austin metro and come to your property."
+  />
 
   <section class="py-16">
     <div class="mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-2">
@@ -30,43 +27,43 @@ import { breadcrumbSchema, combineSchemas, localBusinessSchema } from '../lib/sc
         <h2 class="mb-6 text-2xl font-bold text-ox-navy">Get in Touch</h2>
         <dl class="space-y-4">
           <div>
-            <dt class="text-sm font-semibold uppercase tracking-wide text-ox-green">Phone</dt>
+            <dt class="label-accent">Phone</dt>
             <dd class="mt-1">
-              <a href={`tel:${site.phoneTel}`} class="text-xl font-bold text-ox-navy hover:text-ox-green">
+              <a href={`tel:${site.phoneTel}`} class="text-xl font-bold text-ox-navy hover:text-ox-blue">
                 {site.phone}
               </a>
             </dd>
           </div>
           <div>
-            <dt class="text-sm font-semibold uppercase tracking-wide text-ox-green">Email</dt>
+            <dt class="label-accent">Email</dt>
             <dd class="mt-1 space-y-1">
               <p>
-                <a href={`mailto:${site.email}`} class="text-ox-navy hover:text-ox-green">
+                <a href={`mailto:${site.email}`} class="text-ox-navy hover:text-ox-blue">
                   {site.email}
                 </a>
               </p>
               <p>
-                <a href={`mailto:${site.emailArborists}`} class="text-ox-navy hover:text-ox-green">
+                <a href={`mailto:${site.emailArborists}`} class="text-ox-navy hover:text-ox-blue">
                   {site.emailArborists}
                 </a>
               </p>
             </dd>
           </div>
           <div>
-            <dt class="text-sm font-semibold uppercase tracking-wide text-ox-green">Hours</dt>
+            <dt class="label-accent">Hours</dt>
             <dd class="mt-1 text-ox-navy/80">{site.hours.display}</dd>
           </div>
           <div>
-            <dt class="text-sm font-semibold uppercase tracking-wide text-ox-green">Service Area</dt>
+            <dt class="label-accent">Service Area</dt>
             <dd class="mt-1 text-ox-navy/80">
               Austin, Round Rock, Bee Cave, Lakeway & surrounding Central Texas communities.
               {site.serviceAreaNote}
             </dd>
           </div>
           <div>
-            <dt class="text-sm font-semibold uppercase tracking-wide text-ox-green">Instagram</dt>
+            <dt class="label-accent">Instagram</dt>
             <dd class="mt-1">
-              <a href={site.instagram} class="text-ox-navy hover:text-ox-green" target="_blank" rel="noopener noreferrer">
+              <a href={site.instagram} class="text-ox-navy hover:text-ox-blue" target="_blank" rel="noopener noreferrer">
                 @blueoxtreecare
               </a>
             </dd>
@@ -88,7 +85,7 @@ import { breadcrumbSchema, combineSchemas, localBusinessSchema } from '../lib/sc
               id="name"
               name="body"
               placeholder="Your name"
-              class="w-full rounded-md border border-ox-navy/20 px-3 py-2 text-sm focus:border-ox-green focus:outline-none focus:ring-1 focus:ring-ox-green"
+              class="input-field"
             />
           </div>
           <div>
@@ -97,7 +94,7 @@ import { breadcrumbSchema, combineSchemas, localBusinessSchema } from '../lib/sc
               type="tel"
               id="phone"
               placeholder="(512) 749-8615"
-              class="w-full rounded-md border border-ox-navy/20 px-3 py-2 text-sm focus:border-ox-green focus:outline-none focus:ring-1 focus:ring-ox-green"
+              class="input-field"
             />
           </div>
           <div>
@@ -106,7 +103,7 @@ import { breadcrumbSchema, combineSchemas, localBusinessSchema } from '../lib/sc
               id="message"
               rows="4"
               placeholder="Describe your tree care needs, property location, and preferred contact time."
-              class="w-full rounded-md border border-ox-navy/20 px-3 py-2 text-sm focus:border-ox-green focus:outline-none focus:ring-1 focus:ring-ox-green"
+              class="input-field"
             ></textarea>
           </div>
           <p class="text-xs text-ox-navy/60">
@@ -114,7 +111,7 @@ import { breadcrumbSchema, combineSchemas, localBusinessSchema } from '../lib/sc
           </p>
           <button
             type="submit"
-            class="w-full rounded-md bg-ox-green px-6 py-3 font-semibold text-white transition hover:bg-ox-green-dark"
+            class="btn-primary w-full px-6 py-3"
           >
             Send via Email
           </button>

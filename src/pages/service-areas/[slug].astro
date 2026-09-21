@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABanner from '../../components/CTABanner.astro';
+import PageBanner from '../../components/PageBanner.astro';
 import { serviceAreas, getServiceArea } from '../../data/serviceAreas';
 import { services } from '../../data/services';
 import { breadcrumbSchema, combineSchemas } from '../../lib/schema';
@@ -33,12 +34,7 @@ const schema = breadcrumbSchema([
   description={area.metaDescription}
   schema={schema}
 >
-  <section class="bg-ox-green-dark py-12 text-white">
-    <div class="mx-auto max-w-4xl px-4">
-      <h1 class="mb-4 text-4xl font-bold">{area.title}</h1>
-      <p class="text-lg text-white/90">{area.description}</p>
-    </div>
-  </section>
+  <PageBanner title={area.title} description={area.description} />
 
   <section class="py-16">
     <div class="mx-auto max-w-4xl px-4">
@@ -54,7 +50,7 @@ const schema = breadcrumbSchema([
           <ul class="mb-8 grid gap-2 sm:grid-cols-2">
             {area.neighborhoods.map((n) => (
               <li class="flex items-center gap-2 text-ox-navy/90">
-                <span class="text-ox-green">•</span>
+                <span class="list-bullet">•</span>
                 {n}
               </li>
             ))}
@@ -66,7 +62,7 @@ const schema = breadcrumbSchema([
               <li>
                 <a
                   href={withBase(`/services/${service.slug}`)}
-                  class="font-medium text-ox-green hover:underline"
+                  class="link-body"
                 >
                   {service.shortTitle}
                 </a>
@@ -84,14 +80,14 @@ const schema = breadcrumbSchema([
                 .filter((a) => a.slug !== area.slug)
                 .map((a) => (
                   <li>
-                    <a href={withBase(`/service-areas/${a.slug}`)} class="text-sm text-ox-green hover:underline">
+                    <a href={withBase(`/service-areas/${a.slug}`)} class="link-aside">
                       {a.name}
                     </a>
                   </li>
                 ))}
             </ul>
             <div class="mt-6 border-t border-ox-navy/10 pt-4">
-              <a href={withBase('/services')} class="text-sm font-medium text-ox-green hover:underline">
+              <a href={withBase('/services')} class="link-aside font-medium">
                 View all services →
               </a>
             </div>

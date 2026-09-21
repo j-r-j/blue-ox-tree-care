@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABanner from '../../components/CTABanner.astro';
+import PageBanner from '../../components/PageBanner.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
 import { services } from '../../data/services';
 import { breadcrumbSchema } from '../../lib/schema';
@@ -14,14 +15,10 @@ import { breadcrumbSchema } from '../../lib/schema';
     { name: 'Services', path: '/services' },
   ])}
 >
-  <section class="bg-ox-green-dark py-12 text-white">
-    <div class="mx-auto max-w-4xl px-4">
-      <h1 class="mb-4 text-4xl font-bold">Tree Care Services</h1>
-      <p class="text-lg text-white/90">
-        Professional arborist services for Central Texas homeowners and property managers.
-      </p>
-    </div>
-  </section>
+  <PageBanner
+    title="Tree Care Services"
+    description="Professional arborist services for Central Texas homeowners and property managers."
+  />
 
   <section class="py-16">
     <div class="mx-auto max-w-6xl px-4">
