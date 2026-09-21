@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageBanner from '../components/PageBanner.astro';
 import { site } from '../data/site';
 import { breadcrumbSchema, combineSchemas, localBusinessSchema } from '../lib/schema';
+import { withBase } from '../lib/paths';
 ---
 
 <BaseLayout
@@ -19,6 +20,10 @@ import { breadcrumbSchema, combineSchemas, localBusinessSchema } from '../lib/sc
   <PageBanner
     title="Contact Us"
     description="Ready to schedule tree care? Call for a free estimate — we serve the Austin metro and come to your property."
+    breadcrumbs={[
+      { name: 'Home', path: '/' },
+      { name: 'Contact', path: '/contact' },
+    ]}
   />
 
   <section class="py-16">
@@ -58,6 +63,12 @@ import { breadcrumbSchema, combineSchemas, localBusinessSchema } from '../lib/sc
             <dd class="mt-1 text-ox-navy/80">
               Austin, Round Rock, Bee Cave, Lakeway & surrounding Central Texas communities.
               {site.serviceAreaNote}
+            </dd>
+          </div>
+          <div>
+            <dt class="label-accent">New customers</dt>
+            <dd class="mt-1 text-sm text-ox-navy/80">
+              <a href={withBase('/what-to-expect')} class="link-body">What to expect</a> — estimate flow, timeline, payment, and credentials.
             </dd>
           </div>
           <div>

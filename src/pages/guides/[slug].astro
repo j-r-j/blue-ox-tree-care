@@ -31,13 +31,11 @@ const schema = combineSchemas(
 ---
 
 <BaseLayout title={guide.title} description={guide.metaDescription} schema={schema}>
-  <PageBanner title={guide.title} description={guide.heroSubtitle}>
-    <nav slot="prefix" class="mb-4 text-sm text-white/70">
-      <a href={withBase('/guides')} class="hover:text-white">Guides</a>
-      <span class="mx-2">/</span>
-      <span>{guide.title}</span>
-    </nav>
-  </PageBanner>
+  <PageBanner title={guide.title} description={guide.heroSubtitle} breadcrumbs={[
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: guide.title, path: `/guides/${guide.slug}` },
+  ]} />
 
   <section class="py-16">
     <div class="mx-auto max-w-4xl px-4">

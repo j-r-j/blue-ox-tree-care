@@ -30,6 +30,11 @@ const schema = combineSchemas(
     eyebrow="Emergency storm response"
     title="Storm Damage Tree Service in Austin, TX"
     description="After high winds, hail, or ice storms, torn branches and fallen trees need immediate professional attention. Blue Ox Tree Care responds to hazardous situations across the Austin metro."
+    breadcrumbs={[
+      { name: 'Home', path: '/' },
+      { name: 'Services', path: '/services' },
+      { name: 'Storm Damage', path: '/services/storm-damage' },
+    ]}
   >
     <div slot="actions" class="mt-6 flex flex-col gap-4 sm:flex-row">
       <a

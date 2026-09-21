@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABanner from '../components/CTABanner.astro';
 import CredentialStrip from '../components/CredentialStrip.astro';
+import GoogleReviewsStrip from '../components/GoogleReviewsStrip.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import AreaCard from '../components/AreaCard.astro';
 import { site, seo } from '../data/site';
@@ -58,6 +59,8 @@ const guideNavItems = getGuideNavItems();
   </section>
 
   <CredentialStrip variant="dark" />
+
+  <GoogleReviewsStrip />
 
   <section class="py-16">
     <div class="mx-auto max-w-6xl px-4">
@@ -129,10 +132,10 @@ const guideNavItems = getGuideNavItems();
           </article>
         ))}
       </div>
-      <div class="mt-8 text-center">
-        <a href={withBase('/guides')} class="font-semibold text-ox-blue hover:text-ox-blue-dark hover:underline">
-          View all guides →
-        </a>
+      <div class="mt-8 text-center text-sm text-ox-navy/70">
+        <a href={withBase('/journal')} class="link-body font-medium">Tree care journal →</a>
+        <span class="mx-2">·</span>
+        <a href={withBase('/what-to-expect')} class="link-body font-medium">What to expect →</a>
       </div>
     </div>
   </section>
@@ -144,9 +147,8 @@ const guideNavItems = getGuideNavItems();
         <div>
           <h3 class="mb-2 font-semibold text-ox-blue">ISA Certified</h3>
           <p class="text-sm text-ox-navy/80">
-            Travis Berlin is an ISA Board Certified Master Arborist (RM-7612B) — a credential earned
-            by fewer than 2% of ISA Certified Arborists. Lacy Berlin is an ISA Certified Arborist
-            (RM-8632A).
+            <a href={withBase('/arborists/travis-berlin')} class="link-body">Travis Berlin</a> is an ISA Board Certified Master Arborist (RM-7612B) — a credential earned by fewer than 2% of ISA Certified Arborists.{' '}
+            <a href={withBase('/arborists/lacy-berlin')} class="link-body">Lacy Berlin</a> is an ISA Certified Arborist (RM-8632A).
           </p>
         </div>
         <div>

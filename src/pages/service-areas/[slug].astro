@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import PageBanner from '../../components/PageBanner.astro';
 import { serviceAreas, getServiceArea } from '../../data/serviceAreas';
+import { neighborhoods } from '../../data/neighborhoods';
 import { services } from '../../data/services';
 import { breadcrumbSchema, combineSchemas } from '../../lib/schema';
 import { withBase } from '../../lib/paths';
@@ -34,7 +35,11 @@ const schema = breadcrumbSchema([
   description={area.metaDescription}
   schema={schema}
 >
-  <PageBanner title={area.title} description={area.description} />
+  <PageBanner title={area.title} description={area.description} breadcrumbs={[
+    { name: 'Home', path: '/' },
+    { name: 'Service Areas', path: '/service-areas' },
+    { name: area.name, path: `/service-areas/${area.slug}` },
+  ]} />
 
   <section class="py-16">
     <div class="mx-auto max-w-4xl px-4">
@@ -55,6 +60,27 @@ const schema = breadcrumbSchema([
               </li>
             ))}
           </ul>
+
+          {area.slug === 'austin' && (
+            <div class="mb-8">
+              <h2 class="mb-4 text-2xl font-bold text-ox-navy">Central & West Austin Neighborhoods</h2>
+              <p class="mb-4 text-sm text-ox-navy/80">
+                Detailed tree care for leafy central and west Austin communities we serve frequently:
+              </p>
+              <ul class="grid gap-2 sm:grid-cols-2">
+                {neighborhoods.map((n) => (
+                  <li>
+                    <a href={withBase(`/neighborhoods/${n.slug}`)} class="link-body">
+                      {n.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <p class="mt-4 text-sm">
+                <a href={withBase('/neighborhoods')} class="link-aside font-medium">View all neighborhoods →</a>
+              </p>
+            </div>
+          )}
 
           <h2 class="mb-4 text-2xl font-bold text-ox-navy">Popular Services in {area.name}</h2>
           <ul class="space-y-3">
