@@ -18,10 +18,10 @@ export const site = {
     closes: '17:00',
   },
   trustLines: [
-    'ISA Board Certified Master Arborist owned & operated',
+    'Travis Berlin, ISA BCMA (RM-7612B) — fewer than 2% of ISA Certified Arborists earn BCMA',
+    'Lacy Berlin, ISA Certified Arborist (RM-8632A)',
     'Licensed and insured',
     'Free estimates',
-    'Fewer than 2% of ISA Certified Arborists earn the BCMA credential',
   ],
   serviceAreaNote:
     'Service-area business — no public storefront. We come to your property.',
