@@ -3,11 +3,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import AreaCard from '../../components/AreaCard.astro';
 import { serviceAreas } from '../../data/serviceAreas';
+import { breadcrumbSchema } from '../../lib/schema';
 ---
 
 <BaseLayout
   title="Tree Care Service Areas | Austin Metro"
   description="Blue Ox Tree Care serves Austin, Round Rock, Bee Cave & Lakeway, TX. ISA certified arborists for all your tree care needs."
+  schema={breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Service Areas', path: '/service-areas' },
+  ])}
 >
   <section class="bg-ox-green-dark py-12 text-white">
     <div class="mx-auto max-w-4xl px-4">

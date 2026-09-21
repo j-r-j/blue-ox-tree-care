@@ -2,20 +2,38 @@ import { site, serviceAreaCities } from '../data/site';
 import { services } from '../data/services';
 import type { FAQItem } from '../data/faq';
 
+export interface BreadcrumbItem {
+  name: string;
+  path: string;
+}
+
+function absoluteUrl(path: string): string {
+  const normalized = path.startsWith('/') ? path : `/${path}`;
+  return `${site.url}${normalized}`;
+}
+
 export function localBusinessSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': ['LocalBusiness', 'HomeAndConstructionBusiness'],
     '@id': `${site.url}/#localbusiness`,
     name: site.name,
     legalName: site.legalName,
     description: site.tagline,
     url: site.url,
     telephone: site.phoneTel,
-    email: site.email,
+    email: [site.email, site.emailArborists],
     image: `${site.url}/images/hero.jpg`,
     priceRange: '$$',
-    sameAs: [site.instagram],
+    sameAs: [site.instagram, site.facebook],
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: [...site.hours.days],
+        opens: site.hours.opens,
+        closes: site.hours.closes,
+      },
+    ],
     areaServed: serviceAreaCities.map((city) => ({
       '@type': 'City',
       name: city.name.split(' / ')[0],
@@ -42,7 +60,7 @@ export function localBusinessSchema() {
           '@type': 'Service',
           name: service.shortTitle,
           description: service.description,
-          url: `${site.url}/services/${service.slug}`,
+          url: absoluteUrl(`/services/${service.slug}`),
         },
       })),
     },
@@ -57,8 +75,8 @@ export function serviceSchema(slug: string) {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: service.shortTitle,
-    description: service.description,
-    url: `${site.url}/services/${service.slug}`,
+    description: service.intro,
+    url: absoluteUrl(`/services/${service.slug}`),
     provider: {
       '@type': 'LocalBusiness',
       '@id': `${site.url}/#localbusiness`,
@@ -85,4 +103,49 @@ export function faqPageSchema(items: FAQItem[]) {
       },
     })),
   };
+}
+
+export function breadcrumbSchema(items: BreadcrumbItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: absoluteUrl(item.path),
+    })),
+  };
+}
+
+export function personSchemas() {
+  return site.owners.map((owner) => ({
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${site.url}/#${owner.id}`,
+    name: owner.name,
+    jobTitle: owner.title,
+    description: owner.bio,
+    worksFor: {
+      '@type': 'LocalBusiness',
+      '@id': `${site.url}/#localbusiness`,
+      name: site.name,
+    },
+    knowsAbout: ['Arboriculture', 'Tree care', 'Central Texas trees'],
+  }));
+}
+
+export function combineSchemas(
+  ...schemas: Array<Record<string, unknown> | Record<string, unknown>[] | null | undefined>
+): Record<string, unknown>[] {
+  const flat: Record<string, unknown>[] = [];
+  for (const schema of schemas) {
+    if (!schema) continue;
+    if (Array.isArray(schema)) {
+      flat.push(...schema);
+    } else {
+      flat.push(schema);
+    }
+  }
+  return flat;
 }

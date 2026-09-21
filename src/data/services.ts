@@ -1,9 +1,13 @@
+import { seo } from './site';
+
 export interface Service {
   slug: string;
   title: string;
   shortTitle: string;
   description: string;
   metaDescription: string;
+  intro: string;
+  body: string[];
   highlights: string[];
   localNotes?: string[];
 }
@@ -11,12 +15,19 @@ export interface Service {
 export const services: Service[] = [
   {
     slug: 'tree-trimming',
-    title: 'Tree Trimming & Pruning in Austin, TX',
+    title: seo.serviceTitle('Tree Trimming & Pruning'),
     shortTitle: 'Tree Trimming',
+    intro:
+      'Proper trimming protects your property and keeps Central Texas trees healthy — but incorrect cuts can cause decline or create hazards. Blue Ox Tree Care trims trees the right way.',
     description:
       'Professional structural pruning and canopy management for Central Texas trees — including live oaks, pecans, and cedar elms — performed by ISA certified arborists.',
-    metaDescription:
-      'Expert tree trimming and pruning in Austin, Round Rock & Bee Cave. ISA certified arborists. Oak wilt-safe practices and heritage tree care.',
+    metaDescription: seo.serviceMeta('tree trimming and pruning'),
+    body: [
+      'Proper trimming is important for your tree\'s overall health. Dead, diseased, and heavy, structurally defective branches that could break may pose a threat to your property and your family\'s safety, and should be properly trimmed.',
+      'Proper trimming can improve the shape and structure of your trees, allowing for just the right amount of light and airflow into the canopy. If you have fruit trees, they will be healthier and produce more consistent yields.',
+      'Improper trimming is often the cause of poor tree health and potential decline, and can also be extremely dangerous. With the health of your trees in mind, it is imperative that they are trimmed correctly to avoid potential risks.',
+      'Our professionals at Blue Ox Tree Care have the dedicated knowledge and experience necessary to safely and correctly trim your trees, to improve their overall longevity and help them thrive.',
+    ],
     highlights: [
       'Structural pruning for long-term tree health',
       'Canopy thinning and clearance from structures',
@@ -30,12 +41,18 @@ export const services: Service[] = [
   },
   {
     slug: 'tree-removal',
-    title: 'Tree Removal in Austin, TX',
+    title: seo.serviceTitle('Tree Removal'),
     shortTitle: 'Tree Removal',
+    intro:
+      'When a tree is hazardous, dead, or beyond repair, removal may be the safest option — and it should always be done by licensed, insured professionals.',
     description:
       'Safe, controlled tree removal for hazardous, dead, or unwanted trees across the Austin metro — with careful rigging in tight residential spaces.',
-    metaDescription:
-      'Professional tree removal in Austin, Round Rock & Lakeway. ISA certified arborists. Permit guidance for City of Austin heritage trees.',
+    metaDescription: seo.serviceMeta('tree removal'),
+    body: [
+      'We love trees — but sometimes removing a tree may be the best option. When the location of an overgrown tree is problematic, large roots start to crack a home\'s foundation, a tree is beyond structural repair and poses a threat to your house and your family\'s safety, or the tree is dead or in irreversible decline, it may be time to remove it.',
+      'Our highly experienced ISA Certified Arborists can help you make the proper assessment to determine if the tree in question should be removed.',
+      'Once the decision to remove a tree has been made, it is a very dangerous endeavor. Attempting to remove a tree on your own is not recommended. At Blue Ox Tree Care, safety is our highest priority. Our licensed and insured professionals have the proper equipment and experience necessary to safely and carefully remove your tree, protecting your family and property.',
+    ],
     highlights: [
       'Hazardous and dead tree removal',
       'Crane-assisted removal when needed',
@@ -49,12 +66,17 @@ export const services: Service[] = [
   },
   {
     slug: 'stump-grinding',
-    title: 'Stump Grinding in Austin, TX',
+    title: seo.serviceTitle('Stump Grinding'),
     shortTitle: 'Stump Grinding',
+    intro:
+      'Stump grinding removes tripping hazards and eyesores so you can reclaim yard space for lawn, landscaping, or replanting.',
     description:
       'Efficient stump grinding to reclaim yard space after tree removal — ideal for replanting, landscaping, or eliminating tripping hazards.',
-    metaDescription:
-      'Stump grinding services in Austin, Round Rock & Bee Cave. Reclaim your yard after tree removal with professional grinding.',
+    metaDescription: seo.serviceMeta('stump grinding'),
+    body: [
+      'Tired of tree stumps that are a tripping hazard — not to mention an eyesore that harbors unwanted insects and pests on your property? Our stump grinding service will remedy that for you.',
+      'You will not even be able to tell they were ever there. Your lawn can fill in or you can plant anew. Restored space on your property becomes a clean slate for your new visions to become real.',
+    ],
     highlights: [
       'Below-grade grinding for clean finish',
       'Access in fenced yards and tight spaces',
@@ -64,12 +86,18 @@ export const services: Service[] = [
   },
   {
     slug: 'storm-damage',
-    title: 'Storm Damage Tree Service in Austin, TX',
+    title: seo.serviceTitle('Storm Damage Tree Service'),
     shortTitle: 'Storm Damage',
+    intro:
+      'After high winds or storms, torn branches and hanging limbs need prompt, professional attention to protect people, property, and tree health.',
     description:
       'Emergency response and cleanup after Central Texas storms — removing fallen limbs, stabilizing damaged trees, and restoring safe access to your property.',
-    metaDescription:
-      'Storm damage tree cleanup in Austin & Central Texas. Fallen tree removal, hazard mitigation, and emergency arborist response.',
+    metaDescription: seo.serviceMeta('storm damage tree cleanup'),
+    body: [
+      'High winds or storms bring high risk of branches endangering people, property, and animals. Torn branches are a hazard that can initially go unnoticed, but can cause property damage or bodily injury if not quickly attended to.',
+      'Torn branches that are not properly removed become entry sites for insects and diseases to take hold, as well as places vulnerable to decay.',
+      'We are licensed and insured to handle hazardous jobs with the most up-to-date safety methods available in the industry.',
+    ],
     highlights: [
       'Fallen tree and limb removal',
       'Emergency hazard mitigation',
@@ -82,12 +110,18 @@ export const services: Service[] = [
   },
   {
     slug: 'tree-risk-assessment',
-    title: 'Tree Risk Assessment in Austin, TX',
+    title: seo.serviceTitle('Tree Risk Assessment'),
     shortTitle: 'Tree Risk Assessment',
+    intro:
+      'Tree limbs over your roof or a heavy lean toward your home or play areas? An ISA certified risk assessment identifies hazards and recommends mitigation before failure occurs.',
     description:
       'ISA-qualified tree risk assessments to evaluate structural defects, root issues, and failure potential — with clear recommendations for property owners.',
-    metaDescription:
-      'Professional tree risk assessment in Austin, TX. ISA certified arborists evaluate hazard trees and provide actionable recommendations.',
+    metaDescription: seo.serviceMeta('tree risk assessment'),
+    body: [
+      'Tree limbs over your roof? Tree trunk have a heavy lean over your home, business, or where your kids play? Call in the experts to do your tree risk assessment.',
+      'We will recommend how we can help mitigate that risk with specialty trimming in which we rig down limbs on special arborists\' ropes rated for thousands of pounds, or we may recommend removal.',
+      'Hazardous trees require the most skill and control to bring tree material down to the ground — and that is why our company has the experience, meticulous years of training, and insurance to protect you and your property.',
+    ],
     highlights: [
       'Visual and advanced risk evaluation',
       'Documentation for insurance or legal needs',
@@ -100,12 +134,18 @@ export const services: Service[] = [
   },
   {
     slug: 'fire-mitigation',
-    title: 'Wildfire & Fire Mitigation in Austin, TX',
+    title: seo.serviceTitle('Wildfire & Fire Mitigation'),
     shortTitle: 'Fire Mitigation',
+    intro:
+      'Defensible-space tree work reduces wildfire fuel loads around Austin Hill Country homes while following proven mitigation guidelines.',
     description:
       'Defensible-space planning and vegetation management for Hill Country and Austin-area properties — reducing fuel loads while preserving healthy trees.',
-    metaDescription:
-      'Wildfire mitigation and defensible space tree work in Austin, Bee Cave & Lakeway. Reduce fuel loads with ISA certified arborists.',
+    metaDescription: seo.serviceMeta('wildfire mitigation and defensible space tree work'),
+    body: [
+      'Every summer smoke fills the sky from millions of acres of wildfires, yet people continue to build in forested areas without proper fire mitigation.',
+      'At Blue Ox Tree Care, we follow guidelines developed by studying homes that survived wildfires and ones that did not — very specific practices that protect homes when followed correctly.',
+      'Protect your home from the all-too-common wildfire risk by contacting Blue Ox Tree Care for a property assessment — especially before you build or after moving into a wooded lot in Bee Cave, Lakeway, or the Austin Hill Country.',
+    ],
     highlights: [
       'Defensible space vegetation management',
       'Ladder fuel reduction',
@@ -115,16 +155,23 @@ export const services: Service[] = [
   },
   {
     slug: 'pest-disease',
-    title: 'Tree Pest & Disease Management in Austin, TX',
+    title: seo.serviceTitle('Tree Pest & Disease Management'),
     shortTitle: 'Pest & Disease',
+    intro:
+      'Organic, in-house pest and disease treatments restore tree health and soil biology without petroleum-based chemicals — a core specialty of Blue Ox Tree Care.',
     description:
       'Diagnosis and treatment planning for Central Texas tree pests and diseases — including oak wilt, hypoxylon canker, and borer infestations.',
-    metaDescription:
-      'Tree pest and disease diagnosis in Austin, TX. Oak wilt, hypoxylon, and borer management by ISA certified arborists.',
+    metaDescription: seo.serviceMeta('organic tree pest and disease treatment'),
+    body: [
+      'We naturally eliminate pests and diseases attacking your trees while restoring your soil\'s biology with special soil-inoculating technology that addresses pests, fungi, and bacteria systemically. Brewed in house, it is custom blended for any tree ailment.',
+      'While there is never a guarantee given how far a tree has declined, we have brought trees back from severe decline with this formula, as well as addressed diseases that industry standards often label incurable — making organic tree health care a cornerstone of our work.',
+      'This treatment pairs well with our organic contact spray for optimal results against topical pests, bacteria, and fungi.',
+      'We use exclusively organic methods that are designed to be effective without the petroleum-based salts that harm trees and soil. You can feel confident including our tree care in a non-toxic lifestyle for yourself, your family, your animals, and your property.',
+    ],
     highlights: [
       'On-site diagnosis and lab referral when needed',
       'Oak wilt assessment and trenching coordination',
-      'Integrated pest management approach',
+      'In-house organic treatment formulation',
       'Treatment and monitoring plans',
     ],
     localNotes: [
@@ -134,12 +181,18 @@ export const services: Service[] = [
   },
   {
     slug: 'organic-fertilizing',
-    title: 'Organic Tree Fertilizing in Austin, TX',
+    title: seo.serviceTitle('Organic Tree Fertilizing'),
     shortTitle: 'Organic Fertilizing',
+    intro:
+      'Restore vitality to dull or yellowing trees with arborist-formulated organic fertilizer — absorbable nutrition without petroleum salts or harmful runoff.',
     description:
       'Soil-based organic fertilization programs tailored to Central Texas soils — supporting root health, drought resilience, and long-term tree vitality.',
-    metaDescription:
-      'Organic tree fertilizing in Austin & Round Rock. Soil health programs for Central Texas trees by ISA certified arborists.',
+    metaDescription: seo.serviceMeta('organic tree fertilizing'),
+    body: [
+      'Restore life back to your dull or yellowing trees so they glow green with vitality by having us apply our specially formulated fertilizer for arborists\' use exclusively.',
+      'Our fertilizer is not made of petroleum like most mass-market products. It is completely absorbable by your trees to utilize right away, without the toxic salts that ruin the soil your tree relies on — and without polluting waterways with runoff.',
+      'We utilize knowledge of seasons and time of day to determine when to apply, maximizing your results on Central Texas properties.',
+    ],
     highlights: [
       'Soil analysis and amendment recommendations',
       'Organic, slow-release fertilization',
@@ -152,12 +205,19 @@ export const services: Service[] = [
   },
   {
     slug: 'cabling-bracing',
-    title: 'Tree Cabling & Bracing in Austin, TX',
+    title: seo.serviceTitle('Tree Cabling & Bracing'),
     shortTitle: 'Cabling & Bracing',
+    intro:
+      'Co-dominant trees with included bark can split apart without warning — inspection and 8,000-lb-rated cabling by a Board Certified Master Arborist reduces that risk.',
     description:
       'Structural support systems for trees with co-dominant stems, included bark, or heavy limbs — extending the safe life of valuable shade trees.',
-    metaDescription:
-      'Tree cabling and bracing in Austin, TX. Structural support for co-dominant stems and heavy limbs by ISA certified arborists.',
+    metaDescription: seo.serviceMeta('tree cabling and bracing'),
+    body: [
+      'Trees with two or more trunks can be hazardous and split apart, creating serious risk to people and property — not to be taken lightly.',
+      'Trees with two or more trunks are called co-dominant and most often have a structural defect called included bark. This defect can cause great risk and is often overlooked by an untrained eye.',
+      'As a home or business owner, the safest thing you can do is have co-dominant trees inspected by an ISA Certified Arborist.',
+      'Our ISA Board Certified Master Arborist can inspect your trees during a free estimate and recommend advanced tree cabling technology to prevent your trees from splitting apart. Our cabling is rated for 8,000 lbs — it can handle old-growth trees without problem.',
+    ],
     highlights: [
       'Dynamic and static cabling systems',
       'Bracing for split or weak unions',
