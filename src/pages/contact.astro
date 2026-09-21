@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageBanner from '../components/PageBanner.astro';
 import { site } from '../data/site';
+import { reviews } from '../data/reviews';
 import { breadcrumbSchema, combineSchemas, localBusinessSchema } from '../lib/schema';
 import { withBase } from '../lib/paths';
 ---
@@ -76,6 +77,19 @@ import { withBase } from '../lib/paths';
             <dd class="mt-1">
               <a href={site.instagram} class="text-ox-navy hover:text-ox-blue" target="_blank" rel="noopener noreferrer">
                 @blueoxtreecare
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt class="label-accent">Google reviews</dt>
+            <dd class="mt-1 text-sm text-ox-navy/80">
+              {reviews.rating.toFixed(1)} stars · {reviews.count} reviews on Google.{' '}
+              <a href={site.googleProfile} class="link-body" target="_blank" rel="noopener noreferrer">
+                Read reviews
+              </a>
+              {' · '}
+              <a href={site.googleWriteReview} class="link-body" target="_blank" rel="noopener noreferrer">
+                Write a review
               </a>
             </dd>
           </div>

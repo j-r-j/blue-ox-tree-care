@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import PageBanner from '../../components/PageBanner.astro';
 import { site } from '../../data/site';
+import { reviews } from '../../data/reviews';
 import { breadcrumbSchema } from '../../lib/schema';
 import { withBase } from '../../lib/paths';
 
@@ -141,6 +142,16 @@ const breadcrumbs = [
               <a href={withBase('/journal/hiring-isa-arborist-austin-bcma')} class="link-aside font-medium">What BCMA means →</a>
             </li>
           </ul>
+          <p class="mt-4 text-sm text-ox-navy/80">
+            {reviews.rating.toFixed(1)} stars · {reviews.count} Google reviews.{' '}
+            <a href={site.googleProfile} class="link-body" target="_blank" rel="noopener noreferrer">
+              Read reviews
+            </a>
+            {' · '}
+            <a href={site.googleWriteReview} class="link-body" target="_blank" rel="noopener noreferrer">
+              Write a review
+            </a>
+          </p>
         </div>
       </div>
     </div>
