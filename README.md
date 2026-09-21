@@ -33,29 +33,57 @@ Build output is written to `dist/`.
 
 ## Deploy to Cloudflare Pages
 
+This repo stays **private**. Cloudflare Pages supports private GitHub repos on paid plans; either connect Git in the dashboard or deploy from GitHub Actions with API credentials.
+
+| Setting | Value |
+|---------|-------|
+| **Build command** | `npm run build` |
+| **Build output directory** | `dist` |
+| **Node.js version** | 22 (`NODE_VERSION=22` in dashboard, or use Actions `node-version: 22`) |
+
+After the first successful deploy, the live preview URL is shown in the Cloudflare dashboard (typically `https://blue-ox-tree-care.pages.dev` unless you add a custom domain).
+
 ### Option A — Connect Git repository (recommended)
 
-1. Push this repo to GitHub (or GitLab / Bitbucket).
-2. In the [Cloudflare dashboard](https://dash.cloudflare.com/) → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
-3. Select this repository and configure:
+Best if you want Cloudflare to build and deploy on every push without managing GitHub secrets.
 
-   | Setting | Value |
-   |---------|-------|
-   | **Framework preset** | Astro (or None) |
-   | **Build command** | `npm run build` |
-   | **Build output directory** | `dist` |
-   | **Node.js version** | 22 (set via environment variable `NODE_VERSION=22`) |
+1. In the [Cloudflare dashboard](https://dash.cloudflare.com/) → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
+2. Authorize GitHub and select **`j-r-j/blue-ox-tree-care`** (private repo access requires a Cloudflare plan that includes it).
+3. Configure build settings using the table above.
+4. Set **Production branch** to `main` and deploy.
 
-4. Deploy. Cloudflare Pages will rebuild on every push to the production branch.
+Every push to `main` triggers a production deploy. Pull request previews are available when enabled in the project settings.
 
-### Option B — Direct upload via Wrangler CLI
+### Option B — GitHub Actions (Wrangler)
+
+Use this when you prefer deploy credentials in GitHub instead of granting Cloudflare direct repo access. The workflow lives at [`.github/workflows/deploy-cloudflare-pages.yml`](.github/workflows/deploy-cloudflare-pages.yml) and runs on pushes to `main` (and on manual **Run workflow**).
+
+**One-time setup:**
+
+1. **Create a Cloudflare Pages project** (empty is fine) named `blue-ox-tree-care`, or let the first Wrangler deploy create it.
+2. **Create an API token** in Cloudflare → **My Profile** → **API Tokens** → **Create Token** → **Edit Cloudflare Workers** template (includes Pages deploy permissions). Scope it to your account.
+3. **Copy your Account ID** from the Cloudflare dashboard URL or the **Workers & Pages** overview sidebar.
+4. In GitHub → **Settings** → **Secrets and variables** → **Actions**, add repository secrets:
+
+   | Secret | Value |
+   |--------|-------|
+   | `CLOUDFLARE_API_TOKEN` | API token from step 2 |
+   | `CLOUDFLARE_ACCOUNT_ID` | Account ID from step 3 |
+
+5. Merge or push to `main`. The **Deploy to Cloudflare Pages** workflow builds with `npm ci && npm run build` and runs `wrangler pages deploy dist --project-name=blue-ox-tree-care`.
+
+Do **not** commit tokens to the repo. If secrets are missing, the deploy step fails until they are configured.
+
+### Option C — Direct upload via Wrangler CLI
+
+For ad-hoc deploys from a local machine:
 
 ```bash
 npm run build
 npx wrangler pages deploy dist --project-name=blue-ox-tree-care
 ```
 
-Requires [Wrangler](https://developers.cloudflare.com/workers/wrangler/) authenticated to your Cloudflare account.
+Requires [Wrangler](https://developers.cloudflare.com/workers/wrangler/) authenticated to your Cloudflare account (`npx wrangler login`).
 
 ## Site Structure
 
