@@ -2,9 +2,11 @@
 import { site } from '../data/site';
 import { services } from '../data/services';
 import { serviceAreas } from '../data/serviceAreas';
+import { getGuideNavItems } from '../data/guides';
 import { withBase } from '../lib/paths';
 
 const currentPath = Astro.url.pathname;
+const guideNavItems = getGuideNavItems();
 
 function isActive(href: string) {
   const target = withBase(href);
@@ -22,7 +24,7 @@ function isActive(href: string) {
         <source srcset={withBase('/logo-ox.webp')} type="image/webp" />
         <img
           src={withBase('/logo-ox.png')}
-          alt=""
+          alt="Blue Ox Tree Care"
           width="44"
           height="44"
           class="h-11 w-11 shrink-0 object-contain"
@@ -81,6 +83,33 @@ function isActive(href: string) {
         </div>
       </div>
 
+      <div class="group relative">
+        <a
+          href={withBase('/guides')}
+          class:list={[
+            'text-sm font-medium transition hover:text-ox-gold',
+            isActive('/guides') ? 'text-ox-gold' : 'text-white',
+          ]}
+        >
+          Guides ▾
+        </a>
+        <div class="invisible absolute left-0 top-full z-50 min-w-[260px] pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100">
+          <div class="rounded-md bg-white py-2 shadow-lg">
+            <a href={withBase('/guides')} class="block px-4 py-2 text-sm font-medium text-ox-navy hover:bg-ox-cream">
+              All Guides
+            </a>
+            {guideNavItems.map((guide) => (
+              <a
+                href={withBase(`/guides/${guide.slug}`)}
+                class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream"
+              >
+                {guide.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <a
         href={withBase('/about')}
         class:list={[
@@ -89,15 +118,6 @@ function isActive(href: string) {
         ]}
       >
         About
-      </a>
-      <a
-        href={withBase('/gallery')}
-        class:list={[
-          'text-sm font-medium transition hover:text-ox-gold',
-          isActive('/gallery') ? 'text-ox-gold' : 'text-white',
-        ]}
-      >
-        Gallery
       </a>
       <a
         href={withBase('/faq')}
@@ -130,11 +150,17 @@ function isActive(href: string) {
         <summary class="cursor-pointer list-none rounded-md border border-white/30 px-3 py-2 text-sm font-medium">
           Menu
         </summary>
-        <div class="absolute right-0 mt-2 w-64 rounded-md bg-white py-2 shadow-lg">
+        <div class="absolute right-0 mt-2 max-h-[70vh] w-72 overflow-y-auto rounded-md bg-white py-2 shadow-lg">
           <a href={withBase('/services')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Services</a>
           <a href={withBase('/service-areas')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Service Areas</a>
+          <p class="px-4 pt-2 text-xs font-semibold uppercase tracking-wide text-ox-navy/50">Guides</p>
+          <a href={withBase('/guides')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">All Guides</a>
+          {guideNavItems.map((guide) => (
+            <a href={withBase(`/guides/${guide.slug}`)} class="block px-4 py-2 pl-6 text-sm text-ox-navy hover:bg-ox-cream">
+              {guide.title}
+            </a>
+          ))}
           <a href={withBase('/about')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">About</a>
-          <a href={withBase('/gallery')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Gallery</a>
           <a href={withBase('/faq')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">FAQ</a>
           <a href={withBase('/contact')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Contact</a>
           <a href={`tel:${site.phoneTel}`} class="block px-4 py-2 text-sm font-semibold text-ox-gold hover:bg-ox-cream">

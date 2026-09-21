@@ -7,7 +7,8 @@
   --color-ox-gold: #ffc824;
   --color-ox-gold-dark: #d4a017;
   --color-ox-cream: #f8f6f1;
-  --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
 }
 
 @layer components {
@@ -52,4 +53,9 @@ body {
   font-family: var(--font-sans);
   color: var(--color-ox-navy);
   background-color: var(--color-ox-cream);
+}
+
+h1,
+h2 {
+  font-family: var(--font-serif);
 }
