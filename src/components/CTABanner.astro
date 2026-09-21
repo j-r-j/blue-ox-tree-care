@@ -5,11 +5,13 @@ import { withBase } from '../lib/paths';
 interface Props {
   heading?: string;
   subtext?: string;
+  contactLabel?: string;
 }
 
 const {
   heading = 'Ready to schedule tree care?',
   subtext = 'Call for a consultation or request an estimate for your Austin-area property.',
+  contactLabel = 'Contact Us',
 } = Astro.props;
 ---
 
@@ -28,7 +30,7 @@ const {
         href={withBase('/contact')}
         class="rounded-md border-2 border-white px-6 py-3 font-semibold text-white transition hover:bg-white/10"
       >
-        Contact Us
+        {contactLabel}
       </a>
     </div>
   </div>

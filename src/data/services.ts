@@ -173,10 +173,10 @@ export const services: Service[] = [
       'Diagnosis and treatment planning for Central Texas tree pests and diseases — including oak wilt, hypoxylon canker, and borer infestations.',
     metaDescription: seo.serviceMeta('organic tree pest and disease treatment'),
     body: [
-      'We naturally eliminate pests and diseases attacking your trees while restoring your soil\'s biology with special soil-inoculating technology that addresses pests, fungi, and bacteria systemically. Brewed in house, it is custom blended for any tree ailment.',
-      'While there is never a guarantee given how far a tree has declined, we have brought trees back from severe decline with this formula, as well as addressed diseases that industry standards often label incurable — making organic tree health care a cornerstone of our work.',
-      'This treatment pairs well with our organic contact spray for optimal results against topical pests, bacteria, and fungi.',
-      'We use exclusively organic methods that are designed to be effective without the petroleum-based salts that harm trees and soil. You can feel confident including our tree care in a non-toxic lifestyle for yourself, your family, your animals, and your property.',
+      'We address pests and diseases attacking your trees while restoring soil biology with in-house soil-inoculating technology designed to support tree health systemically — targeting pests, fungi, and bacteria from the root zone up. Each batch is brewed and custom blended for your tree\'s specific needs.',
+      'Every tree is different, and outcomes depend on species, timing, and how far decline has progressed — we set realistic expectations up front. Our organic program has helped many Central Texas trees regain vigor where conventional approaches fell short, and organic tree health care is a cornerstone of our practice.',
+      'This soil treatment pairs with our organic contact spray for stronger results against topical pests, bacteria, and fungi.',
+      'We use exclusively organic methods without petroleum-based salts that can harm trees and soil. You can feel confident including our tree care in a non-toxic approach for your family, animals, and property.',
     ],
     highlights: [
       'On-site diagnosis and lab referral when needed',

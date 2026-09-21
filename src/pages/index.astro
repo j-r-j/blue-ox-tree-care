@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABanner from '../components/CTABanner.astro';
 import CredentialStrip from '../components/CredentialStrip.astro';
 import GoogleReviewsStrip from '../components/GoogleReviewsStrip.astro';
+import PestDiseaseHighlight from '../components/PestDiseaseHighlight.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import AreaCard from '../components/AreaCard.astro';
 import { site, seo } from '../data/site';
@@ -139,6 +140,8 @@ const guideNavItems = getGuideNavItems();
       </div>
     </div>
   </section>
+
+  <PestDiseaseHighlight />
 
   <section class="py-16">
     <div class="mx-auto max-w-4xl px-4 text-center">
