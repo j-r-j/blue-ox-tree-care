@@ -18,11 +18,11 @@ export const serviceAreas: ServiceArea[] = [
     title: seo.areaTitle('Austin'),
     metaDescription: seo.areaMeta('Austin'),
     description:
-      'Blue Ox Tree Care provides full-service tree care throughout Austin and Travis County — from central neighborhoods to the Hill Country edge. Our ISA Board Certified Master Arborist-owned team understands Central Texas species, oak wilt protocols, and City of Austin tree regulations.',
+      'Blue Ox Tree Care provides full-service tree care throughout Austin and Travis County, from central neighborhoods to the Hill Country edge. Our ISA Board Certified Master Arborist-owned team understands Central Texas species, oak wilt protocols, and City of Austin tree regulations.',
     body: [
-      'Blue Ox Tree Care provides full-service tree care throughout Austin and Travis County — from central neighborhoods to the Hill Country edge. Our ISA Board Certified Master Arborist-owned team understands Central Texas species, oak wilt protocols, and City of Austin tree regulations.',
+      'Blue Ox Tree Care provides full-service tree care throughout Austin and Travis County, from central neighborhoods to the Hill Country edge. Our ISA Board Certified Master Arborist-owned team understands Central Texas species, oak wilt protocols, and City of Austin tree regulations.',
       'Whether you need structural pruning on a mature live oak, a risk assessment before storm season, or organic treatment for a declining tree, you work directly with certified arborists who know Austin\'s trees and regulations.',
-      'Call (512) 749-8615 for your free estimate — we are a service-area business and come to your property.',
+      'Call (512) 749-8615 for your free estimate. We are a service-area business and come to your property.',
     ],
     neighborhoods: [
       'Central Austin',
@@ -40,11 +40,11 @@ export const serviceAreas: ServiceArea[] = [
     title: seo.areaTitle('Round Rock'),
     metaDescription: seo.areaMeta('Round Rock'),
     description:
-      'We serve Round Rock and surrounding Williamson County communities with the same ISA-certified expertise we bring to Austin. From new subdivisions to established shade-tree lots, we tailor pruning, removal, and health care plans to your property.',
+      'Tree trimming, removal, and arborist services in Round Rock, TX. ISA certified arborists serving Williamson County with structural pruning, stump grinding, and organic tree health care.',
     body: [
       'We serve Round Rock and surrounding Williamson County communities with the same ISA-certified expertise we bring to Austin. From new subdivisions to established shade-tree lots, we tailor pruning, removal, and health care plans to your property.',
-      'Round Rock\'s mix of new development and mature shade trees means every property is different — we assess structure, species, and soil conditions before recommending trimming, removal, or organic health treatments.',
-      'Licensed, insured, and offering free estimates. Call (512) 749-8615 to schedule service in Round Rock.',
+      'Round Rock\'s mix of new development and mature shade trees means every property is different. We assess structure, species, and soil conditions before recommending trimming, removal, or organic health treatments.',
+      'Licensed, insured, and offering free estimates. Call (512) 749-8615 to schedule tree service in Round Rock.',
     ],
     neighborhoods: [
       'Old Settlers Park area',
@@ -61,10 +61,10 @@ export const serviceAreas: ServiceArea[] = [
     title: seo.areaTitle('Bee Cave & Lakeway'),
     metaDescription: seo.areaMeta('Bee Cave and Lakeway'),
     description:
-      'Bee Cave, Lakeway, and the surrounding Hill Country present unique tree care challenges — steep lots, native juniper and oak woodlands, and wildfire concerns. Blue Ox Tree Care offers trimming, removal, fire mitigation, and risk assessment tailored to this terrain.',
+      'Tree care in Bee Cave, Lakeway, and the Austin Hill Country. Trimming, removal, fire mitigation, and risk assessment for steep lots, oak woodlands, and wildfire-prone properties.',
     body: [
-      'Bee Cave, Lakeway, and the surrounding Hill Country present unique tree care challenges — steep lots, native juniper and oak woodlands, and wildfire concerns. Blue Ox Tree Care offers trimming, removal, fire mitigation, and risk assessment tailored to this terrain.',
-      'Our fire mitigation and defensible-space work follows guidelines proven to protect homes in wildfire-prone areas — experience we honed serving mountain communities before bringing that expertise to the Austin Hill Country.',
+      'Bee Cave, Lakeway, and the surrounding Hill Country present unique tree care challenges: steep lots, native juniper and oak woodlands, and wildfire concerns. Blue Ox Tree Care offers trimming, removal, fire mitigation, and risk assessment tailored to this terrain.',
+      'Our fire mitigation and defensible-space work follows guidelines proven to protect homes in wildfire-prone areas. That expertise comes from serving mountain communities before bringing it to the Austin Hill Country.',
       'Call (512) 749-8615 for a free estimate on tree care in Bee Cave, Lakeway, West Lake Hills, and surrounding communities.',
     ],
     neighborhoods: [

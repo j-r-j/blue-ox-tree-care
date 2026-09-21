@@ -17,7 +17,7 @@ const service = getService('pest-disease')!;
 
 const videoPoster = withBase('/videos/pest-disease-care-poster.jpg');
 const videoSrc = withBase('/videos/pest-disease-care.mp4');
-const videoLabel = 'Organic pest and disease treatment — Blue Ox Tree Care';
+const videoLabel = 'Organic pest and disease treatment by Blue Ox Tree Care';
 
 const schema = combineSchemas(
   breadcrumbSchema([
@@ -29,7 +29,7 @@ const schema = combineSchemas(
   videoObjectSchema({
     name: videoLabel,
     description:
-      'Overview of Blue Ox Tree Care organic, in-house pest and disease treatments for Central Texas trees — soil inoculation and contact spray methods.',
+      'Overview of Blue Ox Tree Care organic, in-house pest and disease treatments for Central Texas trees: soil inoculation and contact spray methods.',
     thumbnailUrl: `${site.url}${videoPoster}`,
     contentUrl: `${site.url}${videoSrc}`,
     uploadDate: '2024-06-01',
@@ -53,7 +53,7 @@ const schema = combineSchemas(
           </h2>
           <div class="space-y-4 text-white/90">
             <p>
-              Lacy Berlin formulates every organic pest and disease treatment in house — custom
+              Lacy Berlin formulates every organic pest and disease treatment in house, custom
               blended for your tree's condition, not a one-size-fits-all spray from a shelf.
             </p>
             <p>
@@ -62,7 +62,7 @@ const schema = combineSchemas(
               topical pests and surface pathogens.
             </p>
             <p class="text-sm text-white/75">
-              Outcomes depend on species, timing, and how far decline has progressed — we assess
+              Outcomes depend on species, timing, and how far decline has progressed. We assess
               each tree honestly and set realistic expectations before treatment.
             </p>
           </div>

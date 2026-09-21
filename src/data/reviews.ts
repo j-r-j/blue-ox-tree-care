@@ -6,11 +6,11 @@ export interface ReviewQuote {
 }
 
 export interface ReviewsData {
-  /** Display rating from Google Business Profile — do not invent. */
+  /** Display rating from Google Business Profile. Do not invent. */
   rating: number;
-  /** Total review count from Google Business Profile — do not invent. */
+  /** Total review count from Google Business Profile. Do not invent. */
   count: number;
-  /** Curated quote cards — empty until real quotes are added. */
+  /** Curated quote cards. Empty until real quotes are added until real quotes are added. */
   quotes: ReviewQuote[];
 }
 

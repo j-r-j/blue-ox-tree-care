@@ -51,8 +51,8 @@ const pageTitle =
 
 const pageDescription =
   owner.id === 'travis-berlin'
-    ? 'Travis Berlin — ISA Board Certified Master Arborist (RM-7612B), fewer than 2% of ISA Certified Arborists earn BCMA. Co-owner of Blue Ox Tree Care in Austin, TX. Call (512) 749-8615.'
-    : 'Lacy Berlin — ISA Certified Arborist (RM-8632A) and co-owner of Blue Ox Tree Care in Austin, TX. Tree health treatments and organic pest & disease care. Call (512) 749-8615.';
+    ? 'Travis Berlin: ISA Board Certified Master Arborist (RM-7612B), fewer than 2% of ISA Certified Arborists earn BCMA. Co-owner of Blue Ox Tree Care in Austin, TX. Call (512) 749-8615.'
+    : 'Lacy Berlin: ISA Certified Arborist (RM-8632A) and co-owner of Blue Ox Tree Care in Austin, TX. Tree health treatments and organic pest & disease care. Call (512) 749-8615.';
 
 const otherOwner = site.owners.find((o) => o.id !== owner.id)!;
 ---
@@ -97,13 +97,13 @@ const otherOwner = site.owners.find((o) => o.id !== owner.id)!;
                 {owner.id === 'travis-berlin' && (
                   <p>
                     Travis brings municipal-scale experience from Disneyland and Newport Beach to
-                    residential and commercial tree care across the Austin metro — Tarrytown, West
+                    residential and commercial tree care across the Austin metro: Tarrytown, West
                     Lake Hills, Steiner Ranch, and beyond.
                   </p>
                 )}
                 {owner.id === 'lacy-berlin' && (
                   <p>
-                    Lacy leads client communication, marketing, and day-to-day operations — keeping
+                    Lacy leads client communication, marketing, and day-to-day operations, keeping
                     Blue Ox responsive for Austin-area customers while maintaining the professional
                     presentation the company is known for.
                   </p>
@@ -120,7 +120,7 @@ const otherOwner = site.owners.find((o) => o.id !== owner.id)!;
               <a href={withBase(`/arborists/${otherOwner.id}`)} class="link-aside font-medium">
                 {otherOwner.name}
               </a>
-              — {otherOwner.credentials}
+             , {otherOwner.credentials}
             </p>
             <a href={withBase('/about')} class="link-aside text-sm">About Blue Ox →</a>
           </div>

@@ -1,4 +1,4 @@
-/** Geographic coverage for LocalBusiness schema — no street address (service-area business). */
+/** Geographic coverage for LocalBusiness schema, no street address (service-area business). */
 
 import { neighborhoods } from './neighborhoods';
 

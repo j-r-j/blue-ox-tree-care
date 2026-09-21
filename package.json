@@ -2,7 +2,7 @@
   "name": "blue-ox-tree-care",
   "type": "module",
   "version": "1.0.0",
-  "description": "Blue Ox Tree Care — Austin TX marketing site (Astro + Cloudflare Pages)",
+  "description": "Blue Ox Tree Care: Austin TX marketing site (Astro + Cloudflare Pages)",
   "engines": {
     "node": ">=22.12.0"
   },
