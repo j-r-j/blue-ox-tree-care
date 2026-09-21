@@ -24,11 +24,27 @@ Blue Ox Tree Care LLC is a family-owned, licensed, and insured tree service. Co-
 ## Neighborhood Pages
 
 - Neighborhoods hub: https://www.blueoxtreecarellc.com/neighborhoods
+
+### Central Austin
 - Tarrytown: https://www.blueoxtreecarellc.com/neighborhoods/tarrytown
+- Clarksville / Old West Austin: https://www.blueoxtreecarellc.com/neighborhoods/clarksville
+- Pemberton Heights: https://www.blueoxtreecarellc.com/neighborhoods/pemberton-heights
+- Bryker Woods: https://www.blueoxtreecarellc.com/neighborhoods/bryker-woods
+- Rosedale: https://www.blueoxtreecarellc.com/neighborhoods/rosedale
+- Hyde Park: https://www.blueoxtreecarellc.com/neighborhoods/hyde-park
+- Allandale: https://www.blueoxtreecarellc.com/neighborhoods/allandale
+
+### West Austin & Hills
+- Northwest Hills: https://www.blueoxtreecarellc.com/neighborhoods/northwest-hills
+- Barton Hills: https://www.blueoxtreecarellc.com/neighborhoods/barton-hills
+- Zilker: https://www.blueoxtreecarellc.com/neighborhoods/zilker
 - West Lake Hills: https://www.blueoxtreecarellc.com/neighborhoods/west-lake-hills
 - Rollingwood: https://www.blueoxtreecarellc.com/neighborhoods/rollingwood
+- Lost Creek: https://www.blueoxtreecarellc.com/neighborhoods/lost-creek
+- Barton Creek: https://www.blueoxtreecarellc.com/neighborhoods/barton-creek
+
+### Southwest Austin
 - Circle C Ranch: https://www.blueoxtreecarellc.com/neighborhoods/circle-c
-- Mueller / East Austin: https://www.blueoxtreecarellc.com/neighborhoods/mueller-east-austin
 - Steiner Ranch: https://www.blueoxtreecarellc.com/neighborhoods/steiner-ranch
 
 ## Services

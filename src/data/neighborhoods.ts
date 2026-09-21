@@ -1,3 +1,5 @@
+export type NeighborhoodRegion = 'central' | 'west' | 'southwest';
+
 export interface NeighborhoodSection {
   heading: string;
   paragraphs: string[];
@@ -12,6 +14,7 @@ export interface NeighborhoodLink {
 export interface Neighborhood {
   slug: string;
   name: string;
+  region: NeighborhoodRegion;
   title: string;
   metaDescription: string;
   heroSubtitle: string;
@@ -27,6 +30,7 @@ export const neighborhoods: Neighborhood[] = [
   {
     slug: 'tarrytown',
     name: 'Tarrytown',
+    region: 'central',
     title: 'Tree Care in Tarrytown, Austin TX',
     metaDescription:
       'ISA certified tree care in Tarrytown, Austin — live oak pruning, heritage tree permits, oak wilt protocols. Blue Ox Tree Care. Call (512) 749-8615.',
@@ -75,8 +79,541 @@ export const neighborhoods: Neighborhood[] = [
     ],
   },
   {
+    slug: 'clarksville',
+    name: 'Clarksville / Old West Austin',
+    region: 'central',
+    title: 'Tree Care in Clarksville & Old West Austin',
+    metaDescription:
+      'ISA certified tree care in Clarksville and Old West Austin — heritage live oaks, tight urban lots, protected tree permits. Call (512) 749-8615.',
+    heroSubtitle:
+      'Arboriculture for one of Austin\'s oldest neighborhoods — historic lots, pedestrian-scale streets, and canopy that defines Old West Austin.',
+    placeUrl: 'https://www.google.com/maps/place/Clarksville,+Austin,+TX',
+    zipCodes: ['78703'],
+    relatedServices: ['tree-trimming', 'tree-risk-assessment', 'tree-removal', 'cabling-bracing'],
+    relatedGuides: ['oak-wilt-austin', 'austin-protected-heritage-trees', 'austin-bulk-brush-pickup'],
+    sections: [
+      {
+        heading: 'Old West Austin\'s urban forest',
+        paragraphs: [
+          'Clarksville and Old West Austin preserve some of the city\'s earliest residential fabric — narrow lots, walkable blocks near Shoal Creek, and trees that survived decades of infill and renovation. Canopy here is not ornamental background; it is shade for sidewalks, privacy between closely spaced homes, and often the largest living asset on the property.',
+          'Blue Ox Tree Care serves Clarksville alongside adjacent Tarrytown and Pemberton Heights. Our ISA certified arborists assess trees on tight urban parcels where every cut affects neighbors, sight lines, and sometimes City of Austin protected tree status. We are a service-area business — call (512) 749-8615 and we come to your property.',
+        ],
+      },
+      {
+        heading: 'Heritage-scale trees on compact lots',
+        paragraphs: [
+          'Many Clarksville properties contain live oaks and pecans that exceed the protected tree diameter threshold — triggering permit requirements for removal or impact from additions and ADUs. Renovation booms across Old West Austin mean root zones get compressed, grades change, and previously healthy trees show stress within a few seasons.',
+          'Our heritage tree guide explains Austin\'s protected and heritage tree framework. Before construction or major pruning, we help you understand whether city review applies and what documentation supports a compliant project. We do not replace the permit process — we provide accurate arboricultural assessment.',
+        ],
+        list: [
+          'Pre-construction tree protection planning and root zone guidance',
+          'Clearance pruning over alleys, driveways, and shared fences',
+          'Cabling and bracing for mature trees with structural defects',
+          'Removal only when risk or project requirements make retention impractical',
+        ],
+      },
+      {
+        heading: 'Oak wilt on connected central Austin blocks',
+        paragraphs: [
+          'Live oaks on Clarksville blocks often sit close enough for root grafting — meaning oak wilt can move between properties in infection centers that expand quietly underground. Fresh pruning wounds during the active transmission season (often described as February through June) attract beetles that carry spores from diseased red oaks.',
+          'Our oak wilt guide covers timing and wound management. We schedule elective pruning for safer windows when possible and use proper technique when storm damage forces work during higher-risk periods.',
+        ],
+      },
+      {
+        heading: 'Storms, debris, and ongoing care',
+        paragraphs: [
+          'Central Austin storms deposit limbs on Clarksville roofs and power lines with regularity. Our storm damage service secures hazardous hangers first, then plans cleanup. For routine maintenance debris, Austin Resource Recovery brush collection rules apply — our brush pickup guide explains bundling and schedule alignment.',
+          'Licensed, insured, and BCMA-led. Free estimates throughout Clarksville and Old West Austin.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'pemberton-heights',
+    name: 'Pemberton Heights',
+    region: 'central',
+    title: 'Tree Care in Pemberton Heights, Austin TX',
+    metaDescription:
+      'Tree care in Pemberton Heights — estate live oaks, heritage trees, and ISA certified arborists. Austin\'s most canopy-rich central neighborhood. Call (512) 749-8615.',
+    heroSubtitle:
+      'Professional arboriculture for Pemberton Heights — grand live oaks, estate-scale lots, and Austin\'s strictest tree protection context.',
+    placeUrl: 'https://www.google.com/maps/place/Pemberton+Heights,+Austin,+TX',
+    zipCodes: ['78703'],
+    relatedServices: ['tree-trimming', 'tree-risk-assessment', 'tree-removal', 'organic-fertilizing'],
+    relatedGuides: ['oak-wilt-austin', 'austin-protected-heritage-trees', 'austin-bulk-brush-pickup'],
+    sections: [
+      {
+        heading: 'Tree care on Pemberton Heights estates',
+        paragraphs: [
+          'Pemberton Heights ranks among Austin\'s most heavily canopied central neighborhoods — estate-scale properties shaded by live oaks and pecans that often qualify as protected or heritage trees under City of Austin ordinance. Homeowners here invest in tree care because canopy directly supports property value, privacy, and the neighborhood\'s established character.',
+          'Blue Ox Tree Care provides trimming, risk assessment, organic health programs, and permit-aware removal guidance throughout Pemberton Heights. Travis Berlin (ISA BCMA, RM-7612B) and Lacy Berlin (RM-8632A) work directly with homeowners — not a sales team. Call (512) 749-8615 for a free on-site estimate.',
+        ],
+      },
+      {
+        heading: 'Protected and heritage tree compliance',
+        paragraphs: [
+          'Diameter thresholds in Austin mean many Pemberton Heights trees require permits before removal or significant impact from construction, pool installation, or utility work. Heritage tree designation adds mitigation requirements that surprise homeowners who have not navigated the process before.',
+          'We evaluate whether your tree triggers city review, discuss retention alternatives when possible, and provide documentation that supports permit applications. Our protected and heritage tree guide covers the basics; on-site assessment translates ordinance language to your specific trees.',
+        ],
+        list: [
+          'Heritage and protected tree evaluation before renovation projects',
+          'Structural pruning that preserves long-term health on high-value specimens',
+          'Tree risk assessment with written reports for insurance or sale due diligence',
+          'Organic pest and disease treatment for stressed mature trees',
+        ],
+      },
+      {
+        heading: 'Live oak health and oak wilt vigilance',
+        paragraphs: [
+          'Pemberton Heights live oaks form interconnected root systems across property lines — ideal conditions for oak wilt spread when infection enters a neighborhood. Vigilance matters: veinal necrosis, rapid canopy thinning, and neighbor removals for wilt all warrant professional assessment.',
+          'Pruning timing follows Central Texas oak wilt guidance — elective work on susceptible species is safest mid-July through January. Our oak wilt guide explains why; we apply that knowledge on every Pemberton Heights property we manage.',
+        ],
+      },
+      {
+        heading: 'Storm response and debris planning',
+        paragraphs: [
+          'Large limbs over Pemberton Heights driveways and rooflines create serious storm liability. After weather events, our storm damage service prioritizes securing threats over structures. Routine pruning debris can be hauled away or staged for Austin Resource Recovery collection — we discuss options during your estimate.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'bryker-woods',
+    name: 'Bryker Woods',
+    region: 'central',
+    title: 'Tree Care in Bryker Woods, Austin TX',
+    metaDescription:
+      'ISA certified tree trimming and health care in Bryker Woods, Austin — mature central Austin canopy on family-sized lots. Call (512) 749-8615.',
+    heroSubtitle:
+      'Central Austin tree care for Bryker Woods — bungalow lots under mature live oaks and pecans between MoPac and downtown.',
+    placeUrl: 'https://www.google.com/maps/place/Bryker+Woods,+Austin,+TX',
+    zipCodes: ['78703', '78756'],
+    relatedServices: ['tree-trimming', 'pest-disease', 'tree-risk-assessment', 'organic-fertilizing'],
+    relatedGuides: ['oak-wilt-austin', 'austin-protected-heritage-trees', 'austin-bulk-brush-pickup'],
+    sections: [
+      {
+        heading: 'Central Austin canopy on Bryker Woods lots',
+        paragraphs: [
+          'Bryker Woods combines walkable central Austin location with residential-scale lots that still carry substantial tree canopy — live oaks arching over bungalow roofs, pecans shading front yards, and the occasional protected-size tree that survived every renovation on the block. Trees here are part of daily life: shade for play, privacy from MoPac corridor noise, and cooling that offsets Austin summers.',
+          'Blue Ox Tree Care provides science-based trimming, health diagnosis, and risk assessment throughout Bryker Woods. We are a service-area business serving central and west Austin — call (512) 749-8615 and our certified arborists come to you.',
+        ],
+      },
+      {
+        heading: 'Pruning for structure and clearance',
+        paragraphs: [
+          'Bryker Woods trees often need clearance from roofs, second-story additions, and shared fences — but clearance work must not become topping or over-thinning that weakens the tree. We follow ANSI A300 standards, preserving branch collar integrity and species-appropriate crown architecture.',
+          'Younger replacements and mid-age trees benefit from structural training before defects become entrenched. Mature specimens may need crown reduction rather than repeated topping by prior contractors — we assess what prior work has done and plan corrective care.',
+        ],
+        list: [
+          'Roof and gutter clearance without lion-tailing',
+          'Deadwood removal and crown cleaning for mature specimens',
+          'Organic treatment for borers, fungal issues, and drought stress',
+          'Protected tree guidance when diameter thresholds apply',
+        ],
+      },
+      {
+        heading: 'Oak wilt and seasonal timing',
+        paragraphs: [
+          'Central Austin live oaks face regional oak wilt pressure. Bryker Woods blocks with contiguous live oak canopy share root graft risk — one infected property affects neighbors. We recommend pruning schedules that minimize unnecessary wounding during active transmission seasons and paint fresh cuts when work cannot wait.',
+          'See our oak wilt guide for educational background on Central Texas timing recommendations.',
+        ],
+      },
+      {
+        heading: 'Renovation stress and storm cleanup',
+        paragraphs: [
+          'Bryker Woods renovation activity compresses root zones and changes drainage — trees that tolerated old conditions decline after construction. We assess construction impact and recommend retention or removal based on structural reality, not guesswork. After storms, our storm damage service addresses hangers over Bryker Woods homes promptly.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'rosedale',
+    name: 'Rosedale',
+    region: 'central',
+    title: 'Tree Care in Rosedale, Austin TX',
+    metaDescription:
+      'Tree trimming, removal, and oak wilt-aware care in Rosedale, Austin. ISA certified arborists for central Austin live oaks. Call (512) 749-8615.',
+    heroSubtitle:
+      'Tree care for Rosedale — central Austin\'s blend of historic pecans, live oaks, and active renovation under established canopy.',
+    placeUrl: 'https://www.google.com/maps/place/Rosedale,+Austin,+TX',
+    zipCodes: ['78756'],
+    relatedServices: ['tree-trimming', 'tree-removal', 'tree-risk-assessment', 'stump-grinding'],
+    relatedGuides: ['oak-wilt-austin', 'austin-protected-heritage-trees', 'austin-bulk-brush-pickup'],
+    sections: [
+      {
+        heading: 'Rosedale\'s mixed central Austin canopy',
+        paragraphs: [
+          'Rosedale stretches between central Austin and UT-adjacent neighborhoods with a canopy mix that reflects its development history — massive pecans from early plantings, live oaks that matured as the neighborhood filled in, and younger replacements where older trees failed or were removed. Lot sizes vary, but tree density remains high compared to newer Austin subdivisions.',
+          'Blue Ox Tree Care serves Rosedale homeowners who need professional assessment before renovation, storm cleanup, or routine maintenance. ISA certified arborists Travis and Lacy Berlin provide on-site estimates — call (512) 749-8615.',
+        ],
+      },
+      {
+        heading: 'Pecans and live oaks — different care needs',
+        paragraphs: [
+          'Pecans and live oaks dominate Rosedale but require different management. Pecans drop heavy limbs in storms and need structural attention to co-dominant stems; live oaks demand oak-wilt-aware timing and root-zone protection during construction. Treating every tree the same leads to poor outcomes.',
+          'We identify species, assess structure, and recommend work scoped to each tree\'s condition — not a blanket "trim everything" approach.',
+        ],
+        list: [
+          'Species-specific pruning plans for pecans and live oaks',
+          'Stump grinding and replanting guidance after necessary removals',
+          'Risk assessment before second-story additions or pool projects',
+          'Storm damage triage for limbs over Rosedale rooflines',
+        ],
+      },
+      {
+        heading: 'Protected trees and renovation permits',
+        paragraphs: [
+          'Rosedale renovation continues at a steady pace — and protected tree permits appear more often than homeowners expect. Diameter thresholds apply regardless of whether a tree "looks like it belongs to the city." Our heritage tree guide walks through Austin\'s rules; we help you understand permit requirements before work begins.',
+        ],
+      },
+      {
+        heading: 'Debris and ongoing maintenance',
+        paragraphs: [
+          'Rosedale addresses fall under Austin Resource Recovery collection for brush and bulk debris. After professional pruning or removal, our brush pickup guide helps you plan curbside cleanup. For haul-away included in service, discuss options during your free estimate.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'hyde-park',
+    name: 'Hyde Park',
+    region: 'central',
+    title: 'Tree Care in Hyde Park, Austin TX',
+    metaDescription:
+      'Heritage tree and live oak care in Hyde Park, Austin — ISA certified arborists for Austin\'s north-central landmark neighborhood. Call (512) 749-8615.',
+    heroSubtitle:
+      'Arboriculture for Hyde Park — landmark-district character, towering pecans, and live oaks on north-central Austin\'s classic bungalow blocks.',
+    placeUrl: 'https://www.google.com/maps/place/Hyde+Park,+Austin,+TX',
+    zipCodes: ['78751'],
+    relatedServices: ['tree-trimming', 'tree-risk-assessment', 'cabling-bracing', 'pest-disease'],
+    relatedGuides: ['oak-wilt-austin', 'austin-protected-heritage-trees', 'austin-bulk-brush-pickup'],
+    sections: [
+      {
+        heading: 'Hyde Park\'s landmark canopy',
+        paragraphs: [
+          'Hyde Park carries north-central Austin\'s strongest sense of place — wide porches beneath pecans that predate current homes, live oaks shading Speedway and Duval corridors, and a local historic district context where tree removal draws neighbor attention even when permits allow it. Canopy preservation is cultural here, not just horticultural.',
+          'Blue Ox Tree Care provides trimming, cabling, health treatment, and risk assessment throughout Hyde Park. We respect retention goals while being honest when a tree poses unacceptable failure risk. Service-area business — call (512) 749-8615.',
+        ],
+      },
+      {
+        heading: 'Large pecans and structural risk',
+        paragraphs: [
+          'Hyde Park pecans reach sizes that create both awe and liability — heavy lateral limbs over streets and structures, hollow trunks invisible from the curb, and included bark unions that fail in wind events. Regular assessment catches problems while cabling or selective reduction remain options.',
+          'Live oaks interspersed through Hyde Park need oak-wilt-aware scheduling and neighbor-aware root graft assessment when wilt appears nearby.',
+        ],
+        list: [
+          'Advanced risk assessment for oversized legacy pecans',
+          'Cabling and bracing when retention is feasible and safe',
+          'Organic health treatment for declining but savable trees',
+          'Heritage and protected tree permit navigation',
+        ],
+      },
+      {
+        heading: 'City of Austin tree regulations',
+        paragraphs: [
+          'Hyde Park trees frequently exceed protected diameter thresholds. Heritage designation on select specimens adds mitigation requirements. Our protected and heritage tree guide explains the process; we provide on-site evaluation that supports informed decisions before you commit to a renovation timeline.',
+        ],
+      },
+      {
+        heading: 'Storm seasons and ARR cleanup',
+        paragraphs: [
+          'Hyde Park sees significant storm debris from both pecan limb drop and oak branch failure. Our storm damage service addresses immediate hazards; routine work debris aligns with Austin Resource Recovery rules covered in our brush pickup guide.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'allandale',
+    name: 'Allandale',
+    region: 'central',
+    title: 'Tree Care in Allandale, Austin TX',
+    metaDescription:
+      'Tree trimming and live oak care in Allandale, Austin — ISA certified arborists for north-central Austin\'s mature street-tree canopy. Call (512) 749-8615.',
+    heroSubtitle:
+      'North-central Austin tree care for Allandale — post-war lots with consistent live oak street trees and deep backyard canopy.',
+    placeUrl: 'https://www.google.com/maps/place/Allandale,+Austin,+TX',
+    zipCodes: ['78757', '78756'],
+    relatedServices: ['tree-trimming', 'storm-damage', 'organic-fertilizing', 'tree-risk-assessment'],
+    relatedGuides: ['oak-wilt-austin', 'austin-bulk-brush-pickup', 'austin-protected-heritage-trees'],
+    sections: [
+      {
+        heading: 'Allandale\'s established live oak canopy',
+        paragraphs: [
+          'Allandale developed in the post-war era with lot sizes that allowed live oaks to become the defining neighborhood feature — street trees maturing alongside backyard specimens until many properties sit under continuous shade. That canopy is cooler in summer and more complex to manage than sparse new-build subdivisions.',
+          'Blue Ox Tree Care provides trimming, fertilizing, storm response, and risk assessment across Allandale and adjacent Crestview and Brentwood corridors. ISA certified arborists on every assessment — call (512) 749-8615.',
+        ],
+      },
+      {
+        heading: 'Maintenance cycles for mature shade trees',
+        paragraphs: [
+          'Allandale live oaks benefit from periodic crown cleaning, clearance from structures, and structural correction before defects become emergencies — typically on a multi-year cycle rather than annual shearing. Over-pruning live oaks for light penetration backfires when lion-tailing promotes epicormic sprout weakness.',
+          'Organic fertilizing supports trees in compacted soils where decades of foot traffic, driveway expansion, and utility trenching stressed root systems.',
+        ],
+        list: [
+          'Crown cleaning and selective thinning with species-appropriate timing',
+          'Clearance pruning for two-story additions common in Allandale renovations',
+          'Storm damage response after Central Texas wind events',
+          'Oak wilt timing guidance for connected live oak blocks',
+        ],
+      },
+      {
+        heading: 'Protected trees on renovated Allandale lots',
+        paragraphs: [
+          'Allandale\'s renovation wave means protected tree permits appear regularly — especially when expanding footprints toward mature trees at the rear lot line. We assess impact before you finalize plans and explain Austin ordinance requirements via our heritage tree guide context.',
+        ],
+      },
+      {
+        heading: 'Brush pickup after tree work',
+        paragraphs: [
+          'Allandale homeowners use Austin Resource Recovery for brush collection after maintenance. Our brush pickup guide explains bundle limits and schedules. We offer haul-away when curbside staging is impractical for larger jobs.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'northwest-hills',
+    name: 'Northwest Hills',
+    region: 'west',
+    title: 'Tree Care in Northwest Hills, Austin TX',
+    metaDescription:
+      'Tree care in Northwest Hills — hilly west Austin terrain, live oaks, and ISA certified arborists. Fire and storm-aware pruning. Call (512) 749-8615.',
+    heroSubtitle:
+      'West Austin arboriculture for Northwest Hills — Balcones terrain, view corridors, and live oak canopy on sloped lots.',
+    placeUrl: 'https://www.google.com/maps/place/Northwest+Hills,+Austin,+TX',
+    zipCodes: ['78731', '78759'],
+    relatedServices: ['tree-trimming', 'tree-risk-assessment', 'fire-mitigation', 'tree-removal'],
+    relatedGuides: ['oak-wilt-austin', 'austin-protected-heritage-trees', 'austin-bulk-brush-pickup'],
+    sections: [
+      {
+        heading: 'Tree work on Northwest Hills terrain',
+        paragraphs: [
+          'Northwest Hills combines west Austin\'s characteristic topography — slopes, rock outcrops, and narrow driveways — with live oak and cedar elm canopy that homeowners balance against view preservation and wildfire awareness. Tree work here requires equipment planning that flat central Austin jobs do not.',
+          'Blue Ox Tree Care serves Northwest Hills from Far West Boulevard corridors to Great Hills edges. Travis Berlin\'s BCMA credential and wildfire-adjacent experience from Colorado inform slope work and defensible-space planning. Call (512) 749-8615 — we come to your property.',
+        ],
+      },
+      {
+        heading: 'Views, clearance, and selective reduction',
+        paragraphs: [
+          'Northwest Hills homeowners often request view restoration — a legitimate goal when executed through selective reduction and interior thinning rather than topping. Topping destroys structure and creates long-term hazard; proper reduction removes weight while preserving tree health.',
+          'Clearance from chimneys, solar arrays, and second-story decks requires branch-specific cuts, not indiscriminate shearing.',
+        ],
+        list: [
+          'View-oriented selective crown reduction',
+          'Slope-aware removal with rigging plans for limited access',
+          'Fire mitigation limbing and ladder-fuel reduction near structures',
+          'Risk assessment for trees leaning over downhill neighbors',
+        ],
+      },
+      {
+        heading: 'Oak wilt and rocky soils',
+        paragraphs: [
+          'Live oaks on Northwest Hills slopes may have shallower root plates in rocky Balcones soils — affecting stability assessment during drought and after saturation events. Oak wilt remains a regional concern; we schedule susceptible-species pruning for safer seasonal windows per our oak wilt guide.',
+        ],
+      },
+      {
+        heading: 'Storms and emergency response',
+        paragraphs: [
+          'Hill country wind funnels through Northwest Hills draws, breaking limbs and occasionally uprooting trees on saturated slopes. Our storm damage service secures hazards first. Debris disposal follows Austin Resource Recovery rules for city addresses — see our brush pickup guide.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'barton-hills',
+    name: 'Barton Hills',
+    region: 'west',
+    title: 'Tree Care in Barton Hills, Austin TX',
+    metaDescription:
+      'Tree care in Barton Hills, Austin — greenbelt-adjacent live oaks, Barton Creek watershed, ISA certified arborists. Call (512) 749-8615.',
+    heroSubtitle:
+      'Southwest-central Austin tree care for Barton Hills — greenbelt edge properties, Barton Creek watershed, and native oak-juniper woodland.',
+    placeUrl: 'https://www.google.com/maps/place/Barton+Hills,+Austin,+TX',
+    zipCodes: ['78704'],
+    relatedServices: ['tree-trimming', 'tree-risk-assessment', 'fire-mitigation', 'pest-disease'],
+    relatedGuides: ['oak-wilt-austin', 'austin-protected-heritage-trees', 'austin-bulk-brush-pickup'],
+    sections: [
+      {
+        heading: 'Greenbelt-edge tree care in Barton Hills',
+        paragraphs: [
+          'Barton Hills sits where south-central Austin meets the Barton Creek greenbelt — properties transition from landscaped yards to native oak-juniper slopes within short distances. That edge creates unique management needs: retaining privacy and shade while respecting slope stability, greenbelt interface, and wildfire ladder fuels on hillside lots.',
+          'Blue Ox Tree Care provides trimming, health treatment, fire mitigation, and risk assessment throughout Barton Hills. ISA certified arborists assess each property\'s mix of cultivated and native trees — call (512) 749-8615.',
+        ],
+      },
+      {
+        heading: 'Native woodland and home landscape integration',
+        paragraphs: [
+          'Barton Hills lots often blend live oaks planted decades ago with Ashe juniper and cedar elm volunteering from the greenbelt. Juniper management near structures supports defensible space without clear-cutting hillsides. Live oaks near the creek corridor need oak-wilt-aware care when root zones connect to broader watershed populations.',
+          'Steep rear slopes limit equipment access — we plan hand-work and rigging approaches during estimate rather than assuming bucket-truck access.',
+        ],
+        list: [
+          'Greenbelt-adjacent limbing and ladder-fuel reduction',
+          'Live oak structural pruning with oak wilt timing awareness',
+          'Organic treatment for post-drought decline and borer activity',
+          'Slope stability consideration when removing large hillside trees',
+        ],
+      },
+      {
+        heading: 'Protected trees and Barton Creek context',
+        paragraphs: [
+          'Barton Hills renovation and pool projects regularly encounter protected-size trees. Austin\'s heritage and protected tree ordinance applies — our guide explains thresholds and permit flow. Creek corridor properties may face additional sensitivity around root zones and erosion; we factor that into retention recommendations.',
+        ],
+      },
+      {
+        heading: 'Storm debris on hillside Barton Hills properties',
+        paragraphs: [
+          'Barton Hills storms send limbs downhill and onto lower neighbors\' roofs — creating liability chains that prompt urgent professional response. Our storm damage service addresses immediate safety; routine debris follows ARR collection guidance in our brush pickup guide.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'zilker',
+    name: 'Zilker',
+    region: 'west',
+    title: 'Tree Care in Zilker, Austin TX',
+    metaDescription:
+      'ISA certified tree care in Zilker, Austin — Barton Springs area live oaks, protected trees, renovation-aware pruning. Call (512) 749-8615.',
+    heroSubtitle:
+      'Tree care steps from Barton Springs — Zilker\'s high-value central-south lots with heritage-scale live oaks and active renovation.',
+    placeUrl: 'https://www.google.com/maps/place/Zilker,+Austin,+TX',
+    zipCodes: ['78704'],
+    relatedServices: ['tree-trimming', 'tree-risk-assessment', 'tree-removal', 'cabling-bracing'],
+    relatedGuides: ['austin-protected-heritage-trees', 'oak-wilt-austin', 'austin-bulk-brush-pickup'],
+    sections: [
+      {
+        heading: 'Zilker\'s high-value urban canopy',
+        paragraphs: [
+          'Zilker ranks among Austin\'s most tree-identified neighborhoods — walkable to Barton Springs, dense with live oaks and pecans that shade bungalow streets and newer infill alike. Property values reflect canopy quality; so does the cost of poor tree work. Topping a Zilker live oak damages asset value and tree health simultaneously.',
+          'Blue Ox Tree Care serves Zilker homeowners with ISA certified assessment, structural pruning, cabling, and permit-aware removal when retention is not viable. Service-area business — call (512) 749-8615.',
+        ],
+      },
+      {
+        heading: 'Renovation, ADUs, and root zone pressure',
+        paragraphs: [
+          'Zilker\'s development pressure means trees endure compressed root zones from additions, pools, and accessory dwelling units. Decline often appears two to five years after construction — when homeowners assume the tree "made it through" the build. Early assessment during planning prevents expensive retention failures.',
+          'Protected tree permits are common on Zilker projects. We evaluate diameter, discuss impact alternatives, and align with Austin ordinance requirements explained in our heritage tree guide.',
+        ],
+        list: [
+          'Pre-renovation tree retention feasibility assessment',
+          'Structural pruning and cabling for high-value retained trees',
+          'Removal and stump grinding when risk or project design requires it',
+          'Oak wilt timing for elective live oak pruning',
+        ],
+      },
+      {
+        heading: 'Species mix and professional technique',
+        paragraphs: [
+          'Zilker combines pecans with live oaks and occasional red oaks — each species carrying different storm failure modes and disease susceptibilities. Red oaks in the area warrant oak wilt vigilance as beetle transmission vectors. We identify species before recommending work, never applying one template to every tree on the lot.',
+        ],
+      },
+      {
+        heading: 'Events, tourism, and routine maintenance',
+        paragraphs: [
+          'Zilker properties near park corridors see heavy foot traffic that compacts soil around root zones. Organic health programs and mulching guidance support trees in high-use edges. Storm and routine debris align with Austin Resource Recovery — our brush pickup guide covers post-work cleanup.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'lost-creek',
+    name: 'Lost Creek',
+    region: 'west',
+    title: 'Tree Care in Lost Creek, Austin TX',
+    metaDescription:
+      'Tree trimming, fire mitigation, and removal in Lost Creek — west Austin wooded lots by ISA certified arborists. Call (512) 749-8615.',
+    heroSubtitle:
+      'West Austin tree care for Lost Creek — wooded enclave lots, live oak woodlands, and Hill Country edge terrain near Bee Cave.',
+    placeUrl: 'https://www.google.com/maps/place/Lost+Creek,+Austin,+TX',
+    zipCodes: ['78746', '78738'],
+    relatedServices: ['fire-mitigation', 'tree-trimming', 'tree-removal', 'tree-risk-assessment'],
+    relatedGuides: ['oak-wilt-austin', 'austin-protected-heritage-trees', 'austin-bulk-brush-pickup'],
+    sections: [
+      {
+        heading: 'Wooded lots in Lost Creek',
+        paragraphs: [
+          'Lost Creek occupies a west Austin pocket where wooded lots, curving streets, and Hill Country edge terrain replace central Austin\'s grid. Properties retain native live oak and juniper woodland alongside decades-old landscape plantings — creating layered canopy that requires selective management rather than blanket clearing.',
+          'Blue Ox Tree Care serves Lost Creek with trimming, fire mitigation, removal, and risk assessment suited to wooded residential terrain. Call (512) 749-8615 — certified arborists come to your property.',
+        ],
+      },
+      {
+        heading: 'Wildfire awareness on west Austin wooded parcels',
+        paragraphs: [
+          'Lost Creek\'s tree density supports shade and privacy but also continuous fuel paths when juniper understory connects to overhanging oak limbs near roofs. Fire mitigation creates defensible space through selective limbing, dead material removal, and crown separation — not moonscape clearing.',
+          'Our fire mitigation service follows principles proven in wildfire-prone regions, adapted to Lost Creek\'s mix of native and cultivated trees.',
+        ],
+        list: [
+          'Defensible space assessment with written recommendations',
+          'Selective juniper thinning near structures and driveways',
+          'Live oak structural pruning on wooded entry corridors',
+          'Removal planning for dead or hazard trees on slope access',
+        ],
+      },
+      {
+        heading: 'Oak wilt in west Austin woodlands',
+        paragraphs: [
+          'Lost Creek live oaks in clustered woodland patterns share root graft potential — oak wilt infection centers can spread through contiguous canopy. We monitor regional wilt activity and schedule pruning to reduce unnecessary wounding during active transmission seasons per our oak wilt guide.',
+        ],
+      },
+      {
+        heading: 'Access, storms, and debris',
+        paragraphs: [
+          'Lost Creek\'s winding streets and sloped driveways affect equipment staging for large removals. We plan access during estimate. After storms, hazardous hangers over Lost Creek rooflines get priority response through our storm damage service.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'barton-creek',
+    name: 'Barton Creek',
+    region: 'west',
+    title: 'Tree Care in Barton Creek, Austin TX',
+    metaDescription:
+      'Tree care in Barton Creek, Austin — golf-course corridor live oaks, Hill Country estates, ISA certified arborists. Call (512) 749-8615.',
+    heroSubtitle:
+      'Southwest Austin tree care for Barton Creek — estate properties, golf-course corridor oaks, and Edwards Plateau limestone terrain.',
+    placeUrl: 'https://www.google.com/maps/place/Barton+Creek,+Austin,+TX',
+    zipCodes: ['78735', '78733'],
+    relatedServices: ['tree-trimming', 'tree-risk-assessment', 'fire-mitigation', 'organic-fertilizing'],
+    relatedGuides: ['oak-wilt-austin', 'austin-protected-heritage-trees', 'austin-bulk-brush-pickup'],
+    sections: [
+      {
+        heading: 'Estate-scale tree care in Barton Creek',
+        paragraphs: [
+          'Barton Creek encompasses some of southwest Austin\'s largest residential parcels — live oaks framing fairway views, limestone outcrops interrupting root zones, and canopy that defines the corridor\'s premium character. Tree decisions here affect views, golf course interface, and HOA landscape standards simultaneously.',
+          'Blue Ox Tree Care provides trimming, risk assessment, fire mitigation, and organic health programs throughout Barton Creek and Westbank Drive corridors. ISA BCMA-led — call (512) 749-8615 for a free estimate.',
+        ],
+      },
+      {
+        heading: 'Limestone soils and live oak management',
+        paragraphs: [
+          'Edwards Plateau limestone shapes Barton Creek root development — trees may appear healthy above ground while root plates are shallower than central Austin specimens. Drought stress, construction trenching, and irrigation changes show up as canopy thinning years later.',
+          'Organic fertilizing and targeted health treatment address decline before removal becomes the only option — Lacy Berlin formulates in-house organic programs for Barton Creek properties.',
+        ],
+        list: [
+          'View-preservation pruning along golf course and greenbelt edges',
+          'Structural assessment for large live oaks near entertainment patios',
+          'Fire mitigation on parcels backing to wildland interface',
+          'Risk assessment documentation for estate sales and renovations',
+        ],
+      },
+      {
+        heading: 'Protected trees on Barton Creek renovations',
+        paragraphs: [
+          'Large-diameter live oaks on Barton Creek estates frequently trigger Austin protected tree review during pool, guest house, or hardscape expansion. Our heritage tree guide explains ordinance basics; on-site assessment clarifies what your project triggers.',
+        ],
+      },
+      {
+        heading: 'Storm recovery and maintenance debris',
+        paragraphs: [
+          'Barton Creek storms break heavy oak limbs over pool enclosures and drive courtries. Our storm damage service prioritizes structural safety. Routine maintenance debris can be hauled or staged per Austin Resource Recovery rules — see our brush pickup guide.',
+        ],
+      },
+    ],
+  },
+  {
     slug: 'west-lake-hills',
     name: 'West Lake Hills',
+    region: 'west',
     title: 'Tree Care in West Lake Hills, TX',
     metaDescription:
       'Tree trimming, removal, and fire mitigation in West Lake Hills by ISA certified arborists. Hill Country terrain expertise. Call (512) 749-8615.',
@@ -127,6 +664,7 @@ export const neighborhoods: Neighborhood[] = [
   {
     slug: 'rollingwood',
     name: 'Rollingwood',
+    region: 'west',
     title: 'Tree Care in Rollingwood, TX',
     metaDescription:
       'ISA certified tree trimming, removal, and health care in Rollingwood, TX. Mature live oak specialists. Free estimates — (512) 749-8615.',
@@ -177,6 +715,7 @@ export const neighborhoods: Neighborhood[] = [
   {
     slug: 'circle-c',
     name: 'Circle C Ranch',
+    region: 'southwest',
     title: 'Tree Care in Circle C Ranch, Austin TX',
     metaDescription:
       'Tree trimming, removal, and health care in Circle C Ranch, Austin. ISA certified arborists for Southwest Austin. Call (512) 749-8615.',
@@ -224,57 +763,9 @@ export const neighborhoods: Neighborhood[] = [
     ],
   },
   {
-    slug: 'mueller-east-austin',
-    name: 'Mueller / East Austin',
-    title: 'Tree Care in Mueller & East Austin',
-    metaDescription:
-      'ISA certified tree care in Mueller and East Austin — pruning, removal, and health treatments. Call Blue Ox Tree Care at (512) 749-8615.',
-    heroSubtitle:
-      'Arboriculture for Mueller\'s urban forest and the diverse canopy of East Austin neighborhoods.',
-    placeUrl: 'https://www.google.com/maps/place/Mueller,+Austin,+TX',
-    zipCodes: ['78723', '78721', '78702'],
-    relatedServices: ['tree-trimming', 'tree-removal', 'pest-disease', 'tree-risk-assessment'],
-    relatedGuides: ['oak-wilt-austin', 'austin-protected-heritage-trees', 'austin-bulk-brush-pickup'],
-    sections: [
-      {
-        heading: 'Tree care in Mueller and East Austin',
-        paragraphs: [
-          'East Austin encompasses one of the city\'s most diverse urban forests — from the planned street trees and park plantings of Mueller to the long-established pecans, live oaks, and hackberries in Cherrywood, Holly, and Govalle. New development and infill construction continue to stress existing trees through root zone damage, grade changes, and changing irrigation patterns.',
-          'Blue Ox Tree Care provides professional arboriculture across Mueller and broader East Austin. Our ISA certified team — led by BCMA Travis Berlin and arborist Lacy Berlin — assesses trees in context: species, structure, soil conditions, construction impact, and City of Austin regulatory requirements. We are a service-area business; call (512) 749-8615 and we come to you.',
-        ],
-      },
-      {
-        heading: 'Mueller\'s urban canopy',
-        paragraphs: [
-          'Mueller was designed with significant green space and street-tree plantings, but even planned urban forests need maintenance as trees mature. Clearance pruning over sidewalks and drives, crown thinning for wind resilience, and removal of declining specimens all become part of responsible property and HOA stewardship. We work with homeowners and property managers who need documented arborist assessments before major work.',
-          'Protected tree rules still apply in Mueller when diameter thresholds are met — the city\'s heritage and protected tree ordinance is not limited to central Austin\'s oldest neighborhoods. Our heritage tree guide explains permit basics; we help you understand whether your project requires city review.',
-        ],
-        list: [
-          'Clearance pruning for pedestrian and vehicle access',
-          'Construction impact assessment and root zone protection guidance',
-          'Removal and stump grinding when trees fail or pose unacceptable risk',
-          'Organic pest and disease diagnosis with in-house treatment options',
-        ],
-      },
-      {
-        heading: 'Established East Austin neighborhoods',
-        paragraphs: [
-          'Beyond Mueller, East Austin\'s older blocks often contain trees that predate current structures — pecans with massive spread, live oaks rooted in compact urban soils, and volunteer species that homeowners inherit without a management plan. These trees provide shade and ecological value but can develop defects invisible from the ground: internal decay, root rot, and structural cracks that a casual inspection misses.',
-          'Tree risk assessment from a qualified arborist identifies defects, estimates failure potential, and recommends mitigation — pruning, cabling, removal, or monitoring. This is particularly valuable before lease turnover, renovation, or insurance renewals when documentation matters.',
-        ],
-      },
-      {
-        heading: 'Oak wilt, storms, and debris',
-        paragraphs: [
-          'East Austin live oaks participate in the same regional oak wilt dynamics as the rest of Travis County. Pruning timing and wound management matter wherever susceptible oaks are present. After severe weather, our storm damage service addresses hazardous limbs and fallen trees with safety-first triage.',
-          'For routine debris, Austin Resource Recovery brush and bulk collection rules apply to most East Austin addresses. Our brush pickup guide helps you plan curbside cleanup after professional pruning or removal — bundle sizes, schedules, and what ARR accepts.',
-        ],
-      },
-    ],
-  },
-  {
     slug: 'steiner-ranch',
     name: 'Steiner Ranch',
+    region: 'southwest',
     title: 'Tree Care in Steiner Ranch, Austin TX',
     metaDescription:
       'Tree trimming, fire mitigation, and removal in Steiner Ranch by ISA certified arborists. Northwest Austin Hill Country. Call (512) 749-8615.',
@@ -322,6 +813,16 @@ export const neighborhoods: Neighborhood[] = [
     ],
   },
 ];
+
+export const neighborhoodRegions: { id: NeighborhoodRegion; label: string }[] = [
+  { id: 'central', label: 'Central Austin' },
+  { id: 'west', label: 'West Austin & Hills' },
+  { id: 'southwest', label: 'Southwest Austin' },
+];
+
+export function getNeighborhoodsByRegion(region: NeighborhoodRegion): Neighborhood[] {
+  return neighborhoods.filter((n) => n.region === region);
+}
 
 export function getNeighborhood(slug: string): Neighborhood | undefined {
   return neighborhoods.find((n) => n.slug === slug);

@@ -1,5 +1,7 @@
 /** Geographic coverage for LocalBusiness schema — no street address (service-area business). */
 
+import { neighborhoods } from './neighborhoods';
+
 export interface ServedNeighborhood {
   name: string;
   slug: string;
@@ -12,48 +14,25 @@ export interface ServedZip {
   locality: string;
 }
 
-export const servedNeighborhoods: ServedNeighborhood[] = [
-  {
-    name: 'Tarrytown',
-    slug: 'tarrytown',
-    placeUrl: 'https://www.google.com/maps/place/Tarrytown,+Austin,+TX',
-  },
-  {
-    name: 'West Lake Hills',
-    slug: 'west-lake-hills',
-    placeUrl: 'https://www.google.com/maps/place/West+Lake+Hills,+TX',
-  },
-  {
-    name: 'Rollingwood',
-    slug: 'rollingwood',
-    placeUrl: 'https://www.google.com/maps/place/Rollingwood,+TX',
-  },
-  {
-    name: 'Circle C Ranch',
-    slug: 'circle-c',
-    placeUrl: 'https://www.google.com/maps/place/Circle+C+Ranch,+Austin,+TX',
-  },
-  {
-    name: 'Mueller',
-    slug: 'mueller-east-austin',
-    placeUrl: 'https://www.google.com/maps/place/Mueller,+Austin,+TX',
-  },
-  {
-    name: 'Steiner Ranch',
-    slug: 'steiner-ranch',
-    placeUrl: 'https://www.google.com/maps/place/Steiner+Ranch,+Austin,+TX',
-  },
-];
+export const servedNeighborhoods: ServedNeighborhood[] = neighborhoods.map((n) => ({
+  name: n.name,
+  slug: n.slug,
+  placeUrl: n.placeUrl,
+}));
 
 export const servedZipCodes: ServedZip[] = [
-  { postalCode: '78703', locality: 'Austin (Tarrytown / Clarksville)' },
-  { postalCode: '78746', locality: 'West Lake Hills / Rollingwood' },
+  { postalCode: '78703', locality: 'Tarrytown / Clarksville / Pemberton Heights' },
+  { postalCode: '78756', locality: 'Rosedale / Bryker Woods' },
+  { postalCode: '78751', locality: 'Hyde Park' },
+  { postalCode: '78757', locality: 'Allandale' },
+  { postalCode: '78731', locality: 'Northwest Hills' },
+  { postalCode: '78704', locality: 'Zilker / Barton Hills' },
+  { postalCode: '78746', locality: 'West Lake Hills / Rollingwood / Lost Creek' },
+  { postalCode: '78735', locality: 'Barton Creek' },
+  { postalCode: '78733', locality: 'Barton Creek / Westlake' },
   { postalCode: '78739', locality: 'Circle C / Southwest Austin' },
-  { postalCode: '78723', locality: 'Mueller / East Austin' },
-  { postalCode: '78732', locality: 'Steiner Ranch / Northwest Austin' },
+  { postalCode: '78732', locality: 'Steiner Ranch' },
   { postalCode: '78701', locality: 'Central Austin' },
-  { postalCode: '78704', locality: 'South Austin' },
-  { postalCode: '78731', locality: 'Northwest Austin' },
   { postalCode: '78748', locality: 'Southwest Austin' },
   { postalCode: '78681', locality: 'Round Rock' },
   { postalCode: '78738', locality: 'Bee Cave / Lakeway' },

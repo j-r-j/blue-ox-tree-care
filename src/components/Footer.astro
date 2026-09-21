@@ -54,13 +54,17 @@ const guideNavItems = getGuideNavItems();
           </li>
         ))}
       </ul>
-      <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-gold">Neighborhoods</p>
-      <ul class="space-y-2">
-        <li><a href={withBase('/neighborhoods')} class="text-sm text-white/80 hover:text-white">All neighborhoods</a></li>
-        {neighborhoods.slice(0, 4).map((n) => (
+      <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-gold">Neighborhoods we serve</p>
+      <ul class="grid grid-cols-2 gap-x-4 gap-y-1">
+        <li class="col-span-2">
+          <a href={withBase('/neighborhoods')} class="text-sm font-medium text-ox-gold hover:underline">
+            All neighborhoods →
+          </a>
+        </li>
+        {neighborhoods.map((n) => (
           <li>
             <a href={withBase(`/neighborhoods/${n.slug}`)} class="text-sm text-white/80 hover:text-white">
-              {n.name}
+              {n.name.split(' / ')[0]}
             </a>
           </li>
         ))}
