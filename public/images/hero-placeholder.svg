@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none">
+  <rect width="1200" height="600" fill="#1b4332"/>
+  <ellipse cx="300" cy="520" rx="120" ry="30" fill="#0d2818" opacity="0.5"/>
+  <ellipse cx="900" cy="520" rx="140" ry="35" fill="#0d2818" opacity="0.5"/>
+  <path d="M280 520 L280 350 Q280 200 350 180 Q400 170 420 250 Q440 170 500 180 Q570 200 570 350 L570 520 Z" fill="#2d6a4f"/>
+  <path d="M850 520 L850 300 Q850 150 920 130 Q970 120 990 200 Q1010 120 1060 130 Q1130 150 1130 300 L1130 520 Z" fill="#40916c"/>
+  <text x="600" y="320" text-anchor="middle" fill="#f8f6f1" font-family="system-ui,sans-serif" font-size="36" font-weight="bold">Blue Ox Tree Care</text>
+  <text x="600" y="360" text-anchor="middle" fill="#52b788" font-family="system-ui,sans-serif" font-size="20">Austin, Texas</text>
+</svg>

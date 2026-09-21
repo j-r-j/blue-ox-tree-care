@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import { services } from '../../data/services';
+---
+
+<BaseLayout
+  title="Tree Care Services in Austin, TX"
+  description="Full-service tree care in Austin, Round Rock & Bee Cave. Trimming, removal, stump grinding, oak wilt, fire mitigation & more. ISA certified arborists."
+>
+  <section class="bg-ox-green-dark py-12 text-white">
+    <div class="mx-auto max-w-4xl px-4">
+      <h1 class="mb-4 text-4xl font-bold">Tree Care Services</h1>
+      <p class="text-lg text-white/90">
+        Professional arborist services for Central Texas homeowners and property managers.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {services.map((service) => (
+          <ServiceCard service={service} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</BaseLayout>

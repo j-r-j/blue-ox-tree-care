@@ -1,0 +1,24 @@
+---
+import type { ServiceArea } from '../data/serviceAreas';
+
+interface Props {
+  area: ServiceArea;
+}
+
+const { area } = Astro.props;
+---
+
+<article class="flex flex-col rounded-lg border border-ox-navy/10 bg-white p-6 shadow-sm transition hover:shadow-md">
+  <h3 class="mb-2 text-lg font-semibold text-ox-navy">
+    <a href={`/service-areas/${area.slug}`} class="hover:text-ox-green">
+      {area.name}
+    </a>
+  </h3>
+  <p class="mb-4 flex-1 text-sm text-ox-navy/80">{area.description.slice(0, 120)}…</p>
+  <a
+    href={`/service-areas/${area.slug}`}
+    class="text-sm font-medium text-ox-green hover:underline"
+  >
+    View area →
+  </a>
+</article>
