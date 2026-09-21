@@ -25,7 +25,7 @@ export function localBusinessSchema() {
     email: [site.email, site.emailArborists],
     image: `${site.url}/logo-ox.webp`,
     priceRange: '$$',
-    sameAs: [site.instagram, site.facebook],
+    sameAs: [site.instagram, site.facebook, site.googleProfile],
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',

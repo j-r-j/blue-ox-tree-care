@@ -7,7 +7,8 @@ export const site = {
   email: 'Owner@BlueOxTreeCareLLC.com',
   emailArborists: 'arborists@blueoxtreecareaustin.com',
   instagram: 'http://instagram.com/blueoxtreecare',
-  facebook: 'https://www.facebook.com/Blue-Ox-Tree-Care-102246518322535',
+  facebook: 'https://www.facebook.com/blueoxtreecare/',
+  googleProfile: 'https://share.google/RaJen7sPcxILcMAUu',
   url: 'https://www.blueoxtreecarellc.com',
   hours: {
     display: 'Monday–Friday, 8:00 AM – 5:00 PM',
