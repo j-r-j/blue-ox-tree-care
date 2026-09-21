@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import { site } from '../../data/site';
+import { serviceAreas } from '../../data/serviceAreas';
+import { services } from '../../data/services';
+import { stormDamageFaqs } from '../../data/stormDamageFaqs';
+import { breadcrumbSchema, combineSchemas, faqPageSchema, serviceSchema } from '../../lib/schema';
+import { withBase } from '../../lib/paths';
+
+const schema = combineSchemas(
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services' },
+    { name: 'Storm Damage', path: '/services/storm-damage' },
+  ]),
+  serviceSchema('storm-damage'),
+  faqPageSchema(stormDamageFaqs),
+);
+---
+
+<BaseLayout
+  title="Emergency Storm Damage Tree Service in Austin, TX | ISA Certified Arborists"
+  description="24/7 emergency storm damage tree service in Austin, Round Rock, Bee Cave & Lakeway. Hazardous limbs, fallen trees, roof clearance. Licensed & insured — call (512) 749-8615 now."
+  schema={schema}
+>
+  <section class="bg-ox-green-dark py-12 text-white">
+    <div class="mx-auto max-w-4xl px-4">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-gold">
+        Emergency storm response
+      </p>
+      <h1 class="mb-4 text-4xl font-bold">Storm Damage Tree Service in Austin, TX</h1>
+      <p class="mb-6 text-lg text-white/90">
+        After high winds, hail, or ice storms, torn branches and fallen trees need immediate professional
+        attention. Blue Ox Tree Care responds to hazardous situations across the Austin metro.
+      </p>
+      <div class="flex flex-col gap-4 sm:flex-row">
+        <a
+          href={`tel:${site.phoneTel}`}
+          class="rounded-md bg-ox-gold px-6 py-3 text-center font-semibold text-ox-navy transition hover:bg-ox-gold-dark"
+        >
+          Call Now — {site.phone}
+        </a>
+        <a
+          href={withBase('/contact')}
+          class="rounded-md border-2 border-white px-6 py-3 text-center font-semibold text-white transition hover:bg-white/10"
+        >
+          Request Callback
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-ox-navy/10 bg-ox-navy py-6 text-white">
+    <div class="mx-auto flex max-w-4xl flex-col items-center justify-center gap-2 px-4 text-center sm:flex-row sm:gap-6">
+      <p class="font-semibold text-ox-gold">Storm emergency line</p>
+      <a href={`tel:${site.phoneTel}`} class="text-2xl font-bold hover:underline">
+        {site.phone}
+      </a>
+      <p class="text-sm text-white/80">Austin · Round Rock · Bee Cave · Lakeway</p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="mx-auto max-w-4xl px-4">
+      <div class="grid gap-12 md:grid-cols-3">
+        <div class="md:col-span-2">
+          <h2 class="mb-4 text-2xl font-bold text-ox-navy">After a storm: safety first</h2>
+          <div class="mb-10 space-y-4 text-ox-navy/90">
+            <p>
+              Central Texas storms — straight-line winds, hail, and occasional ice — can leave hanging
+              limbs, split trunks, and trees blocking driveways or resting on roofs. Stay clear of
+              damaged trees until a professional evaluates tension and stability. Downed power lines
+              require utility response; never assume a limb is safe to cut because it looks still.
+            </p>
+            <p>
+              Torn bark and jagged breaks become entry points for insects and decay fungi. Prompt removal
+              of hazardous material and proper pruning cuts protect remaining structure and reduce
+              secondary failure in the weeks after a storm.
+            </p>
+          </div>
+
+          <h2 class="mb-4 text-2xl font-bold text-ox-navy">When to call us immediately</h2>
+          <ul class="mb-10 space-y-2">
+            {[
+              'A tree or large limb is on your home, garage, fence, or vehicle',
+              'A hanger is suspended over a walkway, patio, or driveway you need to use',
+              'The tree blocks emergency access or a primary entrance',
+              'Split trunks or root plate uplift suggest imminent failure',
+              'Storm damage exposed major limbs over roofs or play areas',
+            ].map((item) => (
+              <li class="flex items-start gap-2 text-ox-navy/90">
+                <span class="mt-1 text-ox-green">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <h2 class="mb-4 text-2xl font-bold text-ox-navy">What our storm response includes</h2>
+          <ul class="mb-10 space-y-2">
+            {[
+              'Emergency hazard mitigation and controlled limb removal',
+              'Fallen tree removal from structures, fences, and yards',
+              'Roof and structure clearance with rigging when needed',
+              'Post-storm tree health and risk assessment by ISA certified arborists',
+              'Complete cleanup and haul-off',
+            ].map((item) => (
+              <li class="flex items-start gap-2 text-ox-navy/90">
+                <span class="mt-1 text-ox-green">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <h2 class="mb-4 text-2xl font-bold text-ox-navy">Insurance and documentation</h2>
+          <div class="mb-10 space-y-4 text-ox-navy/90">
+            <p>
+              Homeowner's insurance may cover tree removal when a covered structure is damaged — policies
+              vary widely. Document the scene with photos before cleanup when safe to do so, notify your
+              insurer promptly, and retain invoices. We provide professional documentation of work
+              performed; we do not act as public adjusters or guarantee coverage decisions.
+            </p>
+            <p>
+              For tree-risk documentation after storm events, Travis Berlin (ISA BCMA, RM-7612B) and Lacy
+              Berlin (ISA Certified Arborist, RM-8632A) can assess whether remaining trees are stable or
+              require follow-up care.
+            </p>
+          </div>
+
+          <div class="rounded-lg border-l-4 border-ox-green bg-white p-6 shadow-sm">
+            <h2 class="mb-3 text-xl font-bold text-ox-navy">Central Texas Notes</h2>
+            <ul class="space-y-3 text-sm text-ox-navy/80">
+              <li>
+                Ice storms and high winds frequently damage live oaks and pecans in Austin and Round Rock
+                — prompt assessment helps prevent secondary failure.
+              </li>
+              <li>
+                Oak wounds from storm damage may need paint and timing considerations during active oak
+                wilt transmission periods — see our{' '}
+                <a href={withBase('/guides/oak-wilt-austin')} class="font-medium text-ox-green hover:underline">
+                  oak wilt guide
+                </a>{' '}
+                for general education.
+              </li>
+              <li>
+                Regulated trees damaged by storms may still require City of Austin review before removal
+                — see our{' '}
+                <a
+                  href={withBase('/guides/austin-protected-heritage-trees')}
+                  class="font-medium text-ox-green hover:underline"
+                >
+                  protected & heritage tree guide
+                </a>
+                .
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <aside>
+          <div class="rounded-lg border border-ox-navy/10 bg-white p-6 shadow-sm">
+            <h3 class="mb-3 font-semibold text-ox-navy">Emergency Contact</h3>
+            <a
+              href={`tel:${site.phoneTel}`}
+              class="mb-4 block text-xl font-bold text-ox-gold hover:underline"
+            >
+              {site.phone}
+            </a>
+            <p class="mb-6 text-sm text-ox-navy/70">
+              Licensed and insured for hazardous tree work. Service-area business — we come to your
+              property.
+            </p>
+
+            <h3 class="mb-3 font-semibold text-ox-navy">Service Areas</h3>
+            <ul class="mb-6 space-y-2">
+              {serviceAreas.map((area) => (
+                <li>
+                  <a href={withBase(`/service-areas/${area.slug}`)} class="text-sm text-ox-green hover:underline">
+                    {area.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <h3 class="mb-3 font-semibold text-ox-navy">Related Services</h3>
+            <ul class="space-y-2">
+              {services
+                .filter((s) => s.slug !== 'storm-damage')
+                .slice(0, 4)
+                .map((s) => (
+                  <li>
+                    <a href={withBase(`/services/${s.slug}`)} class="text-sm text-ox-green hover:underline">
+                      {s.shortTitle}
+                    </a>
+                  </li>
+                ))}
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection heading="Storm Damage FAQ" items={stormDamageFaqs} />
+
+  <CTABanner
+    heading="Storm damage on your property?"
+    subtext="Call now for emergency tree service in Austin, Round Rock, Bee Cave, and Lakeway."
+  />
+</BaseLayout>

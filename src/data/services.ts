@@ -86,13 +86,14 @@ export const services: Service[] = [
   },
   {
     slug: 'storm-damage',
-    title: seo.serviceTitle('Storm Damage Tree Service'),
+    title: seo.serviceTitle('Emergency Storm Damage Tree Service'),
     shortTitle: 'Storm Damage',
     intro:
-      'After high winds or storms, torn branches and hanging limbs need prompt, professional attention to protect people, property, and tree health.',
+      'After high winds, hail, or ice storms, torn branches and fallen trees need immediate professional response to protect people, property, and remaining tree health.',
     description:
-      'Emergency response and cleanup after Central Texas storms — removing fallen limbs, stabilizing damaged trees, and restoring safe access to your property.',
-    metaDescription: seo.serviceMeta('storm damage tree cleanup'),
+      'Emergency storm damage tree service in Austin, Round Rock, Bee Cave & Lakeway — hazardous limb removal, fallen tree cleanup, and post-storm assessment by ISA certified arborists.',
+    metaDescription:
+      'Emergency storm damage tree service in Austin, Round Rock, Bee Cave & Lakeway. Hazardous limbs, fallen trees, roof clearance. Licensed & insured — call (512) 749-8615.',
     body: [
       'High winds or storms bring high risk of branches endangering people, property, and animals. Torn branches are a hazard that can initially go unnoticed, but can cause property damage or bodily injury if not quickly attended to.',
       'Torn branches that are not properly removed become entry sites for insects and diseases to take hold, as well as places vulnerable to decay.',
