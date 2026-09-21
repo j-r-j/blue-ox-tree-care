@@ -2,7 +2,7 @@
 
 Static marketing site for [Blue Ox Tree Care](https://www.blueoxtreecarellc.com/) — ISA certified arborists Travis & Lacy Berlin serving Austin, Round Rock, Bee Cave, and Lakeway, Texas.
 
-Built with **Astro** (static output) and **Tailwind CSS**, deployed to **Cloudflare Pages**.
+Built with **Astro** (static output) and **Tailwind CSS**, deployed to **GitHub Pages** for preview.
 
 ## Stack
 
@@ -31,59 +31,32 @@ npm run preview
 
 Build output is written to `dist/`.
 
-## Deploy to Cloudflare Pages
+Preview the production build locally (uses the same `/blue-ox-tree-care/` base path as GitHub Pages):
 
-This repo stays **private**. Cloudflare Pages supports private GitHub repos on paid plans; either connect Git in the dashboard or deploy from GitHub Actions with API credentials.
+```bash
+npm run preview
+```
+
+## Live preview (GitHub Pages)
+
+**Preview URL:** [https://j-r-j.github.io/blue-ox-tree-care/](https://j-r-j.github.io/blue-ox-tree-care/)
+
+The site is configured for project Pages with:
 
 | Setting | Value |
 |---------|-------|
+| **Astro `site`** | `https://j-r-j.github.io` |
+| **Astro `base`** | `/blue-ox-tree-care/` |
 | **Build command** | `npm run build` |
-| **Build output directory** | `dist` |
-| **Node.js version** | 22 (`NODE_VERSION=22` in dashboard, or use Actions `node-version: 22`) |
+| **Publish directory** | `dist` |
+| **Node.js version** | 22 |
 
-After the first successful deploy, the live preview URL is shown in the Cloudflare dashboard (typically `https://blue-ox-tree-care.pages.dev` unless you add a custom domain).
+### One-time GitHub setup
 
-### Option A — Connect Git repository (recommended)
+1. In the repo → **Settings** → **Pages**, set **Build and deployment** → **Source** to **GitHub Actions**.
+2. Merge to `main`. The [Deploy to GitHub Pages](.github/workflows/deploy-github-pages.yml) workflow runs on every push to `main` (and can be triggered manually).
 
-Best if you want Cloudflare to build and deploy on every push without managing GitHub secrets.
-
-1. In the [Cloudflare dashboard](https://dash.cloudflare.com/) → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
-2. Authorize GitHub and select **`j-r-j/blue-ox-tree-care`** (private repo access requires a Cloudflare plan that includes it).
-3. Configure build settings using the table above.
-4. Set **Production branch** to `main` and deploy.
-
-Every push to `main` triggers a production deploy. Pull request previews are available when enabled in the project settings.
-
-### Option B — GitHub Actions (Wrangler)
-
-Use this when you prefer deploy credentials in GitHub instead of granting Cloudflare direct repo access. The workflow lives at [`.github/workflows/deploy-cloudflare-pages.yml`](.github/workflows/deploy-cloudflare-pages.yml) and runs on pushes to `main` (and on manual **Run workflow**).
-
-**One-time setup:**
-
-1. **Create a Cloudflare Pages project** (empty is fine) named `blue-ox-tree-care`, or let the first Wrangler deploy create it.
-2. **Create an API token** in Cloudflare → **My Profile** → **API Tokens** → **Create Token** → **Edit Cloudflare Workers** template (includes Pages deploy permissions). Scope it to your account.
-3. **Copy your Account ID** from the Cloudflare dashboard URL or the **Workers & Pages** overview sidebar.
-4. In GitHub → **Settings** → **Secrets and variables** → **Actions**, add repository secrets:
-
-   | Secret | Value |
-   |--------|-------|
-   | `CLOUDFLARE_API_TOKEN` | API token from step 2 |
-   | `CLOUDFLARE_ACCOUNT_ID` | Account ID from step 3 |
-
-5. Merge or push to `main`. The **Deploy to Cloudflare Pages** workflow builds with `npm ci && npm run build` and runs `wrangler pages deploy dist --project-name=blue-ox-tree-care`.
-
-Do **not** commit tokens to the repo. If secrets are missing, the deploy step fails until they are configured.
-
-### Option C — Direct upload via Wrangler CLI
-
-For ad-hoc deploys from a local machine:
-
-```bash
-npm run build
-npx wrangler pages deploy dist --project-name=blue-ox-tree-care
-```
-
-Requires [Wrangler](https://developers.cloudflare.com/workers/wrangler/) authenticated to your Cloudflare account (`npx wrangler login`).
+No secrets are required — the workflow uses `actions/upload-pages-artifact` and `actions/deploy-pages` with `pages: write` and `id-token: write` permissions.
 
 ## Site Structure
 

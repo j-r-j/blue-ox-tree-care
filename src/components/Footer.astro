@@ -1,6 +1,7 @@
 ---
 import { site, serviceAreaCities } from '../data/site';
 import { services } from '../data/services';
+import { withBase } from '../lib/paths';
 ---
 
 <footer class="bg-ox-navy text-white">
@@ -30,13 +31,13 @@ import { services } from '../data/services';
       <ul class="space-y-2">
         {services.slice(0, 5).map((service) => (
           <li>
-            <a href={`/services/${service.slug}`} class="text-sm text-white/80 hover:text-white">
+            <a href={withBase(`/services/${service.slug}`)} class="text-sm text-white/80 hover:text-white">
               {service.shortTitle}
             </a>
           </li>
         ))}
         <li>
-          <a href="/services" class="text-sm font-medium text-ox-sage hover:underline">
+          <a href={withBase('/services')} class="text-sm font-medium text-ox-sage hover:underline">
             View all services →
           </a>
         </li>
@@ -48,7 +49,7 @@ import { services } from '../data/services';
       <ul class="space-y-2">
         {serviceAreaCities.map((city) => (
           <li>
-            <a href={`/service-areas/${city.slug}`} class="text-sm text-white/80 hover:text-white">
+            <a href={withBase(`/service-areas/${city.slug}`)} class="text-sm text-white/80 hover:text-white">
               {city.name}
             </a>
           </li>
@@ -59,10 +60,10 @@ import { services } from '../data/services';
     <div>
       <h3 class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-sage">Company</h3>
       <ul class="space-y-2">
-        <li><a href="/about" class="text-sm text-white/80 hover:text-white">About Us</a></li>
-        <li><a href="/gallery" class="text-sm text-white/80 hover:text-white">Gallery</a></li>
-        <li><a href="/faq" class="text-sm text-white/80 hover:text-white">FAQ</a></li>
-        <li><a href="/contact" class="text-sm text-white/80 hover:text-white">Contact</a></li>
+        <li><a href={withBase('/about')} class="text-sm text-white/80 hover:text-white">About Us</a></li>
+        <li><a href={withBase('/gallery')} class="text-sm text-white/80 hover:text-white">Gallery</a></li>
+        <li><a href={withBase('/faq')} class="text-sm text-white/80 hover:text-white">FAQ</a></li>
+        <li><a href={withBase('/contact')} class="text-sm text-white/80 hover:text-white">Contact</a></li>
       </ul>
       <p class="mt-4 text-xs text-white/60">
         Service-area business — no public storefront. We come to your property.

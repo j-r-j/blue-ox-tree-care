@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import { serviceAreas, getServiceArea } from '../../data/serviceAreas';
 import { services } from '../../data/services';
+import { withBase } from '../../lib/paths';
 
 export function getStaticPaths() {
   return serviceAreas.map((area) => ({
@@ -50,7 +51,7 @@ const relatedServices = services.filter((s) => area.relatedServices.includes(s.s
             {relatedServices.map((service) => (
               <li>
                 <a
-                  href={`/services/${service.slug}`}
+                  href={withBase(`/services/${service.slug}`)}
                   class="font-medium text-ox-green hover:underline"
                 >
                   {service.shortTitle}
@@ -69,14 +70,14 @@ const relatedServices = services.filter((s) => area.relatedServices.includes(s.s
                 .filter((a) => a.slug !== area.slug)
                 .map((a) => (
                   <li>
-                    <a href={`/service-areas/${a.slug}`} class="text-sm text-ox-green hover:underline">
+                    <a href={withBase(`/service-areas/${a.slug}`)} class="text-sm text-ox-green hover:underline">
                       {a.name}
                     </a>
                   </li>
                 ))}
             </ul>
             <div class="mt-6 border-t border-ox-navy/10 pt-4">
-              <a href="/services" class="text-sm font-medium text-ox-green hover:underline">
+              <a href={withBase('/services')} class="text-sm font-medium text-ox-green hover:underline">
                 View all services →
               </a>
             </div>
