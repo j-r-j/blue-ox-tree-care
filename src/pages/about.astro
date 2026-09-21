@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout
+  title="About Our Austin Arborists | ISA Certified Tree Care"
+  description="Meet Travis & Lacy Berlin — ISA certified arborists serving Austin, TX. BCMA RM-7612B & Certified Arborist RM-8632A. Family-owned tree care."
+>
+  <section class="bg-ox-green-dark py-12 text-white">
+    <div class="mx-auto max-w-4xl px-4">
+      <h1 class="mb-4 text-4xl font-bold">About Blue Ox Tree Care</h1>
+      <p class="text-lg text-white/90">
+        Family-owned tree care by ISA certified arborists — now proudly serving the Austin, Texas metro.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="mx-auto max-w-4xl px-4">
+      <div class="mb-12 grid gap-8 md:grid-cols-2">
+        {site.owners.map((owner) => (
+          <article class="rounded-lg border border-ox-navy/10 bg-white p-6 shadow-sm">
+            <div class="mb-4 flex h-32 items-center justify-center rounded-md bg-ox-cream">
+              <span class="text-4xl font-bold text-ox-green">{owner.name.charAt(0)}</span>
+            </div>
+            <h2 class="mb-1 text-xl font-bold text-ox-navy">{owner.name}</h2>
+            <p class="mb-2 text-sm font-medium text-ox-green">{owner.title}</p>
+            <p class="text-sm font-semibold text-ox-bark">{owner.credentials}</p>
+          </article>
+        ))}
+      </div>
+
+      <div class="prose prose-ox max-w-none space-y-6 text-ox-navy/90">
+        <h2 class="text-2xl font-bold text-ox-navy">Our Story</h2>
+        <p>
+          Blue Ox Tree Care is owned and operated by Travis and Lacy Berlin, a husband-and-wife team of
+          ISA certified arborists dedicated to professional, science-based tree care. Travis holds the
+          Board Certified Master Arborist credential (BCMA, RM-7612B) — one of the highest certifications
+          in the arboriculture industry. Lacy is an ISA Certified Arborist (RM-8632A) with deep expertise
+          in tree health and client education.
+        </p>
+        <p>
+          Today, Blue Ox Tree Care serves the greater Austin area — including Austin, Round Rock,
+          Bee Cave, and Lakeway — bringing the same commitment to tree health, safety, and customer
+          service that built our reputation.
+        </p>
+
+        <h2 class="text-2xl font-bold text-ox-navy">Our History in Salida, Colorado</h2>
+        <p>
+          Before relocating to Central Texas, Travis and Lacy operated Blue Ox Tree Care in Salida,
+          Colorado, serving the Arkansas River Valley and surrounding mountain communities. That
+          experience — working in challenging terrain, managing wildfire-adjacent properties, and
+          caring for diverse native species — informs how we approach Hill Country and Austin-area
+          tree care today. Salida remains an important chapter in our story, but our focus and
+          service area is now Austin and Central Texas.
+        </p>
+
+        <h2 class="text-2xl font-bold text-ox-navy">Our Approach</h2>
+        <p>
+          We believe every tree deserves an informed care plan. That means proper pruning cuts,
+          species-appropriate timing, honest assessments, and clear communication. Whether you need
+          a single tree trimmed or a full property risk assessment, you will work directly with
+          certified arborists — not a sales team.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner heading="Work with certified arborists" subtext="Contact Blue Ox Tree Care for tree care in the Austin metro." />
+</BaseLayout>

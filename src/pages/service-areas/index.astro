@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import AreaCard from '../../components/AreaCard.astro';
+import { serviceAreas } from '../../data/serviceAreas';
+---
+
+<BaseLayout
+  title="Tree Care Service Areas | Austin Metro"
+  description="Blue Ox Tree Care serves Austin, Round Rock, Bee Cave & Lakeway, TX. ISA certified arborists for all your tree care needs."
+>
+  <section class="bg-ox-green-dark py-12 text-white">
+    <div class="mx-auto max-w-4xl px-4">
+      <h1 class="mb-4 text-4xl font-bold">Service Areas</h1>
+      <p class="text-lg text-white/90">
+        Proudly serving the greater Austin metro and Central Texas Hill Country.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="grid gap-6 md:grid-cols-3">
+        {serviceAreas.map((area) => (
+          <AreaCard area={area} />
+        ))}
+      </div>
+      <p class="mt-8 text-center text-sm text-ox-navy/70">
+        Don't see your area listed? Call us — we may still be able to help.
+      </p>
+    </div>
+  </section>
+
+  <CTABanner />
+</BaseLayout>

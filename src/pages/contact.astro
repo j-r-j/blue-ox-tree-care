@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+import { localBusinessSchema } from '../lib/schema';
+---
+
+<BaseLayout
+  title="Contact Blue Ox Tree Care | Austin, TX"
+  description="Contact Blue Ox Tree Care in Austin, TX. Call (512) 749-8615 or email for tree trimming, removal, and arborist services."
+  schema={localBusinessSchema()}
+>
+  <section class="bg-ox-green-dark py-12 text-white">
+    <div class="mx-auto max-w-4xl px-4">
+      <h1 class="mb-4 text-4xl font-bold">Contact Us</h1>
+      <p class="text-lg text-white/90">
+        Ready to schedule tree care? Reach out by phone, email, or the form below.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-2">
+      <div>
+        <h2 class="mb-6 text-2xl font-bold text-ox-navy">Get in Touch</h2>
+        <dl class="space-y-4">
+          <div>
+            <dt class="text-sm font-semibold uppercase tracking-wide text-ox-green">Phone</dt>
+            <dd class="mt-1">
+              <a href={`tel:${site.phoneTel}`} class="text-xl font-bold text-ox-navy hover:text-ox-green">
+                {site.phone}
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt class="text-sm font-semibold uppercase tracking-wide text-ox-green">Email</dt>
+            <dd class="mt-1 space-y-1">
+              <p>
+                <a href={`mailto:${site.email}`} class="text-ox-navy hover:text-ox-green">
+                  {site.email}
+                </a>
+              </p>
+              <p>
+                <a href={`mailto:${site.emailArborists}`} class="text-ox-navy hover:text-ox-green">
+                  {site.emailArborists}
+                </a>
+              </p>
+            </dd>
+          </div>
+          <div>
+            <dt class="text-sm font-semibold uppercase tracking-wide text-ox-green">Service Area</dt>
+            <dd class="mt-1 text-ox-navy/80">
+              Austin, Round Rock, Bee Cave, Lakeway & surrounding Central Texas communities.
+              We are a service-area business — no public storefront.
+            </dd>
+          </div>
+          <div>
+            <dt class="text-sm font-semibold uppercase tracking-wide text-ox-green">Instagram</dt>
+            <dd class="mt-1">
+              <a href={site.instagram} class="text-ox-navy hover:text-ox-green" target="_blank" rel="noopener noreferrer">
+                @blueoxtreecare
+              </a>
+            </dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="rounded-lg border border-ox-navy/10 bg-white p-6 shadow-sm">
+        <h2 class="mb-4 text-xl font-bold text-ox-navy">Request an Estimate</h2>
+        <form
+          action={`mailto:${site.email}?subject=Tree Care Estimate Request`}
+          method="GET"
+          class="space-y-4"
+        >
+          <div>
+            <label for="name" class="mb-1 block text-sm font-medium text-ox-navy">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="body"
+              placeholder="Your name"
+              class="w-full rounded-md border border-ox-navy/20 px-3 py-2 text-sm focus:border-ox-green focus:outline-none focus:ring-1 focus:ring-ox-green"
+            />
+          </div>
+          <div>
+            <label for="phone" class="mb-1 block text-sm font-medium text-ox-navy">Phone</label>
+            <input
+              type="tel"
+              id="phone"
+              placeholder="(512) 555-0100"
+              class="w-full rounded-md border border-ox-navy/20 px-3 py-2 text-sm focus:border-ox-green focus:outline-none focus:ring-1 focus:ring-ox-green"
+            />
+          </div>
+          <div>
+            <label for="message" class="mb-1 block text-sm font-medium text-ox-navy">Message</label>
+            <textarea
+              id="message"
+              rows="4"
+              placeholder="Describe your tree care needs, property location, and preferred contact time."
+              class="w-full rounded-md border border-ox-navy/20 px-3 py-2 text-sm focus:border-ox-green focus:outline-none focus:ring-1 focus:ring-ox-green"
+            ></textarea>
+          </div>
+          <p class="text-xs text-ox-navy/60">
+            This form opens your email client. For faster service, call {site.phone}.
+          </p>
+          <button
+            type="submit"
+            class="w-full rounded-md bg-ox-green px-6 py-3 font-semibold text-white transition hover:bg-ox-green-dark"
+          >
+            Send via Email
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

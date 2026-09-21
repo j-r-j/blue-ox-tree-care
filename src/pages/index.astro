@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/CTABanner.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import AreaCard from '../components/AreaCard.astro';
+import { site } from '../data/site';
+import { services } from '../data/services';
+import { serviceAreas } from '../data/serviceAreas';
+import { localBusinessSchema } from '../lib/schema';
+---
+
+<BaseLayout
+  title="Tree Care in Austin, TX | ISA Certified Arborists"
+  description="Blue Ox Tree Care — ISA certified arborists serving Austin, Round Rock, Bee Cave & Lakeway. Tree trimming, removal, oak wilt care & more. Call (512) 749-8615."
+  schema={localBusinessSchema()}
+>
+  <section class="relative bg-ox-green-dark text-white">
+    <div class="mx-auto grid max-w-6xl items-center gap-8 px-4 py-16 md:grid-cols-2 md:py-24">
+      <div>
+        <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-ox-sage">Austin, Texas</p>
+        <h1 class="mb-4 text-4xl font-bold leading-tight md:text-5xl">
+          Professional Tree Care by ISA Certified Arborists
+        </h1>
+        <p class="mb-6 text-lg text-white/90">
+          Travis & Lacy Berlin bring board-certified expertise to Austin, Round Rock, Bee Cave, and Lakeway —
+          from structural pruning to oak wilt management.
+        </p>
+        <div class="flex flex-col gap-3 sm:flex-row">
+          <a
+            href={`tel:${site.phoneTel}`}
+            class="rounded-md bg-white px-6 py-3 text-center font-semibold text-ox-green-dark transition hover:bg-ox-cream"
+          >
+            Call {site.phone}
+          </a>
+          <a
+            href="/contact"
+            class="rounded-md border-2 border-white px-6 py-3 text-center font-semibold text-white transition hover:bg-white/10"
+          >
+            Get an Estimate
+          </a>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-lg shadow-xl">
+        <img
+          src="/images/hero-placeholder.svg"
+          alt="Blue Ox Tree Care — professional tree service in Austin, Texas"
+          width="600"
+          height="400"
+          class="h-auto w-full"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="mb-10 text-center">
+        <h2 class="mb-3 text-3xl font-bold text-ox-navy">Tree Care Services in Central Texas</h2>
+        <p class="mx-auto max-w-2xl text-ox-navy/80">
+          From routine pruning to emergency storm response, we provide full-service arboriculture
+          tailored to Austin-area trees and regulations.
+        </p>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {services.slice(0, 6).map((service) => (
+          <ServiceCard service={service} />
+        ))}
+      </div>
+      <div class="mt-8 text-center">
+        <a href="/services" class="font-semibold text-ox-green hover:underline">
+          View all services →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="mb-10 text-center">
+        <h2 class="mb-3 text-3xl font-bold text-ox-navy">Areas We Serve</h2>
+        <p class="mx-auto max-w-2xl text-ox-navy/80">
+          Proudly serving homeowners and property managers across the Austin metro.
+        </p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        {serviceAreas.map((area) => (
+          <AreaCard area={area} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="mx-auto max-w-4xl px-4 text-center">
+      <h2 class="mb-4 text-3xl font-bold text-ox-navy">Why Choose Blue Ox?</h2>
+      <div class="grid gap-8 text-left md:grid-cols-3">
+        <div>
+          <h3 class="mb-2 font-semibold text-ox-green">ISA Certified</h3>
+          <p class="text-sm text-ox-navy/80">
+            Travis Berlin (BCMA, RM-7612B) and Lacy Berlin (RM-8632A) hold the industry's highest arborist credentials.
+          </p>
+        </div>
+        <div>
+          <h3 class="mb-2 font-semibold text-ox-green">Central Texas Expertise</h3>
+          <p class="text-sm text-ox-navy/80">
+            We understand live oaks, oak wilt protocols, heritage tree permits, and Hill Country fire mitigation.
+          </p>
+        </div>
+        <div>
+          <h3 class="mb-2 font-semibold text-ox-green">Local & Responsive</h3>
+          <p class="text-sm text-ox-navy/80">
+            Based in the Austin area — we come to your property with the equipment and knowledge to get it done right.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</BaseLayout>
