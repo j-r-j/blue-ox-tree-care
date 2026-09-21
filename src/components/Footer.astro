@@ -28,13 +28,24 @@ const guideNavItems = getGuideNavItems();
     <div>
       <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-gold">Services</p>
       <ul class="space-y-2">
-        {services.slice(0, 5).map((service) => (
-          <li>
-            <a href={withBase(`/services/${service.slug}`)} class="text-sm text-white/80 hover:text-white">
-              {service.shortTitle}
-            </a>
-          </li>
-        ))}
+        <li>
+          <a
+            href={withBase('/services/pest-disease')}
+            class="text-sm font-semibold text-ox-gold hover:underline"
+          >
+            Organic Pest &amp; Disease Care
+          </a>
+        </li>
+        {services
+          .filter((service) => service.slug !== 'pest-disease')
+          .slice(0, 4)
+          .map((service) => (
+            <li>
+              <a href={withBase(`/services/${service.slug}`)} class="text-sm text-white/80 hover:text-white">
+                {service.shortTitle}
+              </a>
+            </li>
+          ))}
         <li>
           <a href={withBase('/services')} class="text-sm font-medium text-ox-gold hover:underline">
             View all services →

@@ -9,7 +9,7 @@ import { withBase } from '../../lib/paths';
 
 export function getStaticPaths() {
   return services
-    .filter((service) => service.slug !== 'storm-damage')
+    .filter((service) => service.slug !== 'storm-damage' && service.slug !== 'pest-disease')
     .map((service) => ({
       params: { slug: service.slug },
     }));

@@ -43,6 +43,18 @@
   .input-field {
     @apply w-full rounded-md border border-ox-navy/20 px-3 py-2 text-sm focus:border-ox-blue focus:outline-none focus:ring-1 focus:ring-ox-blue;
   }
+
+  .video-frame {
+    @apply overflow-hidden rounded-lg border-2 border-ox-gold/40 bg-ox-navy shadow-lg ring-1 ring-ox-navy/20;
+  }
+
+  .video-frame-inner {
+    @apply aspect-video w-full;
+  }
+
+  .video-frame video {
+    @apply h-full w-full object-cover;
+  }
 }
 
 html {

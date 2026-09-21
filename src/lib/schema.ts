@@ -214,6 +214,24 @@ export function articleSchema(input: ArticleSchemaInput) {
   };
 }
 
+export function videoObjectSchema(options: {
+  name: string;
+  description: string;
+  thumbnailUrl: string;
+  contentUrl: string;
+  uploadDate: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: options.name,
+    description: options.description,
+    thumbnailUrl: options.thumbnailUrl,
+    contentUrl: options.contentUrl,
+    uploadDate: options.uploadDate,
+  };
+}
+
 export function combineSchemas(
   ...schemas: Array<Record<string, unknown> | Record<string, unknown>[] | null | undefined>
 ): Record<string, unknown>[] {
