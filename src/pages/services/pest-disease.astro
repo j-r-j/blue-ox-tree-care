@@ -17,6 +17,7 @@ const service = getService('pest-disease')!;
 
 const videoPoster = withBase('/videos/pest-disease-care-poster.jpg');
 const videoSrc = withBase('/videos/pest-disease-care.mp4');
+const videoLabel = 'Organic pest and disease treatment — Blue Ox Tree Care';
 
 const schema = combineSchemas(
   breadcrumbSchema([
@@ -26,7 +27,7 @@ const schema = combineSchemas(
   ]),
   serviceSchema('pest-disease'),
   videoObjectSchema({
-    name: 'Organic pest and disease treatment overview',
+    name: videoLabel,
     description:
       'Overview of Blue Ox Tree Care organic, in-house pest and disease treatments for Central Texas trees — soil inoculation and contact spray methods.',
     thumbnailUrl: `${site.url}${videoPoster}`,
@@ -38,20 +39,19 @@ const schema = combineSchemas(
 
 <BaseLayout title={service.title} description={service.metaDescription} schema={schema}>
   <PageBanner
-    eyebrow="Core specialty"
+    eyebrow="A New Dawn of Tree Care"
     title={service.pageTitle}
     description={service.intro}
   />
 
   <section class="bg-ox-navy py-12 text-white md:py-16">
     <div class="mx-auto max-w-6xl px-4">
-      <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
-        <div class="order-2 lg:order-1">
-          <p class="label-accent mb-3">Organic tree health care</p>
+      <div class="grid items-start gap-10 lg:grid-cols-2 lg:items-center lg:gap-12">
+        <div>
           <h2 class="mb-4 text-3xl font-bold text-white">
             In-house brews &amp; soil-inoculating technology
           </h2>
-          <div class="mb-6 space-y-4 text-white/90">
+          <div class="space-y-4 text-white/90">
             <p>
               Lacy Berlin formulates every organic pest and disease treatment in house — custom
               blended for your tree's condition, not a one-size-fits-all spray from a shelf.
@@ -66,38 +66,49 @@ const schema = combineSchemas(
               each tree honestly and set realistic expectations before treatment.
             </p>
           </div>
-          <div class="flex flex-col gap-3 sm:flex-row">
-            <a href={`tel:${site.phoneTel}`} class="btn-primary px-6 py-3 text-center">
-              Call {site.phone}
-            </a>
-            <a
-              href={withBase('/contact')}
-              class="rounded-md border-2 border-ox-gold px-6 py-3 text-center font-semibold text-ox-gold transition hover:bg-ox-gold/10"
-            >
-              Free Estimate
-            </a>
-          </div>
         </div>
 
-        <div class="order-1 lg:order-2">
-          <figure class="video-frame">
-            <div class="video-frame-inner">
-              <video
-                controls
-                playsinline
-                preload="metadata"
-                poster={videoPoster}
-                aria-label="Organic pest and disease treatment overview"
-              >
-                <source src={videoSrc} type="video/mp4" />
-                Your browser does not support embedded video. Call {site.phone} to learn about our
-                organic pest and disease treatments.
-              </video>
-            </div>
-            <figcaption class="px-4 py-3 text-center text-sm text-white/70">
-              Watch how we approach organic pest and disease care
-            </figcaption>
-          </figure>
+        <figure class="video-frame">
+          <div class="video-frame-inner">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              poster={videoPoster}
+              title={videoLabel}
+              aria-label={videoLabel}
+            >
+              <source src={videoSrc} type="video/mp4" />
+              Your browser does not support embedded video. Call {site.phone} to learn about our
+              organic pest and disease treatments.
+            </video>
+          </div>
+          <figcaption class="px-4 py-3 text-center text-sm text-white/70">
+            In-house organic pest &amp; disease care · Austin, TX
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="mt-10 lg:max-w-xl">
+        <h2 class="mb-4 text-2xl font-bold text-white">What We Offer</h2>
+        <ul class="space-y-2">
+          {service.highlights.map((item) => (
+            <li class="flex items-start gap-2 text-white/90">
+              <span class="check-mark mt-1">✓</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href={`tel:${site.phoneTel}`} class="btn-primary px-6 py-3 text-center">
+            Call {site.phone}
+          </a>
+          <a
+            href={withBase('/contact')}
+            class="rounded-md border-2 border-ox-gold px-6 py-3 text-center font-semibold text-ox-gold transition hover:bg-ox-gold/10"
+          >
+            Free Estimate
+          </a>
         </div>
       </div>
     </div>
@@ -112,16 +123,6 @@ const schema = combineSchemas(
               <p>{paragraph}</p>
             ))}
           </div>
-
-          <h2 class="mb-4 text-2xl font-bold text-ox-navy">What We Offer</h2>
-          <ul class="mb-8 space-y-2">
-            {service.highlights.map((item) => (
-              <li class="flex items-start gap-2 text-ox-navy/90">
-                <span class="check-mark mt-1">✓</span>
-                {item}
-              </li>
-            ))}
-          </ul>
 
           {service.localNotes && service.localNotes.length > 0 && (
             <div class="callout-panel">

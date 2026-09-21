@@ -8,15 +8,32 @@ const serviceHref = withBase('/services/pest-disease');
 <section class="bg-ox-navy py-16 text-white">
   <div class="mx-auto max-w-6xl px-4">
     <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
+      <div>
+        <p class="label-accent mb-3">Core specialty</p>
+        <h2 class="mb-4 text-3xl font-bold text-white">Organic Pest &amp; Disease Care</h2>
+        <p class="mb-6 text-lg text-white/90">
+          Lacy Berlin formulates every organic treatment in house — soil-inoculating technology
+          paired with contact spray for pests, fungi, and bacteria without petroleum-based
+          chemicals.
+        </p>
+        <a
+          href={serviceHref}
+          class="inline-flex items-center gap-2 rounded-md bg-ox-gold px-6 py-3 font-semibold text-ox-navy transition hover:bg-ox-gold-dark"
+        >
+          Watch how we treat trees
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
       <a
         href={serviceHref}
         class="group block overflow-hidden rounded-lg border-2 border-ox-gold/40 shadow-lg ring-1 ring-ox-navy/20 transition hover:border-ox-gold/70"
-        aria-label="See our organic pest and disease care approach"
+        aria-label="Organic pest and disease treatment — Blue Ox Tree Care"
       >
         <div class="relative aspect-video">
           <img
             src={posterSrc}
-            alt="Organic pest and disease treatment in progress on a Central Texas tree"
+            alt=""
             width="854"
             height="480"
             class="h-full w-full object-cover transition group-hover:scale-[1.02]"
@@ -36,26 +53,6 @@ const serviceHref = withBase('/services/pest-disease');
           </span>
         </div>
       </a>
-
-      <div>
-        <p class="label-accent mb-3">Core specialty</p>
-        <h2 class="mb-4 text-3xl font-bold text-white">Organic Pest &amp; Disease Care</h2>
-        <p class="mb-4 text-lg text-white/90">
-          Lacy Berlin formulates every organic treatment in house — soil-inoculating technology
-          paired with contact spray for pests, fungi, and bacteria without petroleum-based
-          chemicals.
-        </p>
-        <p class="mb-6 text-sm text-white/75">
-          A cornerstone of Blue Ox Tree Care across Austin, Round Rock, Bee Cave, and Lakeway.
-        </p>
-        <a
-          href={serviceHref}
-          class="inline-flex items-center gap-2 rounded-md bg-ox-gold px-6 py-3 font-semibold text-ox-navy transition hover:bg-ox-gold-dark"
-        >
-          See our organic approach
-          <span aria-hidden="true">→</span>
-        </a>
-      </div>
     </div>
   </div>
 </section>
