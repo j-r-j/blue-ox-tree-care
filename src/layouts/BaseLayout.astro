@@ -14,7 +14,7 @@ interface Props {
   ogImage?: string;
 }
 
-const { title, description, schema, ogImage = withBase('/images/og-image.jpg') } = Astro.props;
+const { title, description, schema, ogImage = withBase('/images/og-share.jpg') } = Astro.props;
 const fullTitle = title.includes('Blue Ox') ? title : `${title} | Blue Ox Tree Care`;
 const ogImageUrl = new URL(ogImage, Astro.site).href;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
