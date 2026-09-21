@@ -360,6 +360,19 @@ export const guides: Guide[] = [
   },
 ];
 
+/** Nav/footer display order — brush guide first (business-critical). */
+export const guideNavSlugs = [
+  'austin-bulk-brush-pickup',
+  'oak-wilt-austin',
+  'austin-protected-heritage-trees',
+] as const;
+
+export function getGuideNavItems(): Guide[] {
+  return guideNavSlugs
+    .map((slug) => guides.find((g) => g.slug === slug))
+    .filter((g): g is Guide => g !== undefined);
+}
+
 export function getGuide(slug: string): Guide | undefined {
   return guides.find((g) => g.slug === slug);
 }

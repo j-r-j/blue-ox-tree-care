@@ -1,13 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABanner from '../components/CTABanner.astro';
+import CredentialStrip from '../components/CredentialStrip.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import AreaCard from '../components/AreaCard.astro';
 import { site, seo } from '../data/site';
 import { services } from '../data/services';
 import { serviceAreas } from '../data/serviceAreas';
+import { getGuideNavItems } from '../data/guides';
 import { localBusinessSchema } from '../lib/schema';
 import { withBase } from '../lib/paths';
+
+const guideNavItems = getGuideNavItems();
 ---
 
 <BaseLayout
@@ -15,8 +19,13 @@ import { withBase } from '../lib/paths';
   description={seo.home.description}
   schema={localBusinessSchema()}
 >
-  <section class="relative bg-ox-navy text-white">
-    <div class="mx-auto max-w-6xl px-4 py-16 md:py-24">
+  <section class="relative overflow-hidden bg-ox-navy text-white">
+    <div
+      class="pointer-events-none absolute inset-0 bg-cover bg-center opacity-15"
+      style={`background-image: url('${withBase('/images/hero-bg.jpg')}')`}
+      aria-hidden="true"
+    />
+    <div class="relative mx-auto max-w-6xl px-4 py-16 md:py-24">
       <div class="max-w-3xl">
         <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-ox-gold">Austin, Texas</p>
         <h1 class="mb-4 text-4xl font-bold leading-tight md:text-5xl">
@@ -52,6 +61,8 @@ import { withBase } from '../lib/paths';
     </div>
   </section>
 
+  <CredentialStrip variant="dark" />
+
   <section class="py-16">
     <div class="mx-auto max-w-6xl px-4">
       <div class="mb-10 text-center">
@@ -86,6 +97,46 @@ import { withBase } from '../lib/paths';
         {serviceAreas.map((area) => (
           <AreaCard area={area} />
         ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="mb-10 text-center">
+        <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-ox-gold">Local knowledge</p>
+        <h2 class="mb-3 text-3xl font-bold text-ox-navy">Austin tree guides</h2>
+        <p class="mx-auto max-w-2xl text-ox-navy/80">
+          Practical guides for Austin-area homeowners — written by ISA certified arborists.
+        </p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        {guideNavItems.map((guide, index) => (
+          <article
+            class:list={[
+              'rounded-lg border bg-white p-6 shadow-sm',
+              index === 0 ? 'border-ox-gold ring-1 ring-ox-gold/30' : 'border-ox-navy/10',
+            ]}
+          >
+            {index === 0 && (
+              <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-ox-gold">Featured</p>
+            )}
+            <h3 class="mb-3 text-lg font-bold text-ox-navy">
+              <a href={withBase(`/guides/${guide.slug}`)} class="hover:text-ox-blue">
+                {guide.title}
+              </a>
+            </h3>
+            <p class="mb-4 text-sm text-ox-navy/80">{guide.heroSubtitle}</p>
+            <a href={withBase(`/guides/${guide.slug}`)} class="link-aside font-medium">
+              Read guide →
+            </a>
+          </article>
+        ))}
+      </div>
+      <div class="mt-8 text-center">
+        <a href={withBase('/guides')} class="font-semibold text-ox-blue hover:text-ox-blue-dark hover:underline">
+          View all guides →
+        </a>
       </div>
     </div>
   </section>

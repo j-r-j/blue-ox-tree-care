@@ -1,0 +1,24 @@
+---
+import { site } from '../data/site';
+import { withBase } from '../lib/paths';
+---
+
+<div
+  class="fixed inset-x-0 bottom-0 z-40 border-t border-ox-navy/10 bg-white shadow-[0_-4px_12px_rgba(26,58,74,0.12)] pb-[env(safe-area-inset-bottom)] lg:hidden"
+  aria-label="Quick contact"
+>
+  <div class="grid grid-cols-2 divide-x divide-ox-navy/10">
+    <a
+      href={`tel:${site.phoneTel}`}
+      class="flex items-center justify-center px-4 py-3 text-sm font-semibold text-ox-navy transition hover:bg-ox-cream"
+    >
+      Call {site.phone}
+    </a>
+    <a
+      href={withBase('/contact')}
+      class="flex items-center justify-center bg-ox-gold px-4 py-3 text-sm font-semibold text-ox-navy transition hover:bg-ox-gold-dark"
+    >
+      Free Estimate
+    </a>
+  </div>
+</div>

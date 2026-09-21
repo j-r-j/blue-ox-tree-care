@@ -3,6 +3,8 @@ import { seo } from './site';
 export interface Service {
   slug: string;
   title: string;
+  /** Page H1 — shorter than document title (no credential pipe). */
+  pageTitle: string;
   shortTitle: string;
   description: string;
   metaDescription: string;
@@ -16,6 +18,7 @@ export const services: Service[] = [
   {
     slug: 'tree-trimming',
     title: seo.serviceTitle('Tree Trimming & Pruning'),
+    pageTitle: seo.servicePageTitle('Tree Trimming & Pruning'),
     shortTitle: 'Tree Trimming',
     intro:
       'Proper trimming protects your property and keeps Central Texas trees healthy — but incorrect cuts can cause decline or create hazards. Blue Ox Tree Care trims trees the right way.',
@@ -42,6 +45,7 @@ export const services: Service[] = [
   {
     slug: 'tree-removal',
     title: seo.serviceTitle('Tree Removal'),
+    pageTitle: seo.servicePageTitle('Tree Removal'),
     shortTitle: 'Tree Removal',
     intro:
       'When a tree is hazardous, dead, or beyond repair, removal may be the safest option — and it should always be done by licensed, insured professionals.',
@@ -67,6 +71,7 @@ export const services: Service[] = [
   {
     slug: 'stump-grinding',
     title: seo.serviceTitle('Stump Grinding'),
+    pageTitle: seo.servicePageTitle('Stump Grinding'),
     shortTitle: 'Stump Grinding',
     intro:
       'Stump grinding removes tripping hazards and eyesores so you can reclaim yard space for lawn, landscaping, or replanting.',
@@ -87,6 +92,7 @@ export const services: Service[] = [
   {
     slug: 'storm-damage',
     title: seo.serviceTitle('Emergency Storm Damage Tree Service'),
+    pageTitle: seo.servicePageTitle('Storm Damage Tree Service'),
     shortTitle: 'Storm Damage',
     intro:
       'After high winds, hail, or ice storms, torn branches and fallen trees need immediate professional response to protect people, property, and remaining tree health.',
@@ -112,6 +118,7 @@ export const services: Service[] = [
   {
     slug: 'tree-risk-assessment',
     title: seo.serviceTitle('Tree Risk Assessment'),
+    pageTitle: seo.servicePageTitle('Tree Risk Assessment'),
     shortTitle: 'Tree Risk Assessment',
     intro:
       'Tree limbs over your roof or a heavy lean toward your home or play areas? An ISA certified risk assessment identifies hazards and recommends mitigation before failure occurs.',
@@ -136,6 +143,7 @@ export const services: Service[] = [
   {
     slug: 'fire-mitigation',
     title: seo.serviceTitle('Wildfire & Fire Mitigation'),
+    pageTitle: seo.servicePageTitle('Wildfire & Fire Mitigation'),
     shortTitle: 'Fire Mitigation',
     intro:
       'Defensible-space tree work reduces wildfire fuel loads around Austin Hill Country homes while following proven mitigation guidelines.',
@@ -157,6 +165,7 @@ export const services: Service[] = [
   {
     slug: 'pest-disease',
     title: seo.serviceTitle('Tree Pest & Disease Management'),
+    pageTitle: seo.servicePageTitle('Tree Pest & Disease Management'),
     shortTitle: 'Pest & Disease',
     intro:
       'Organic, in-house pest and disease treatments restore tree health and soil biology without petroleum-based chemicals — a core specialty of Blue Ox Tree Care.',
@@ -183,6 +192,7 @@ export const services: Service[] = [
   {
     slug: 'organic-fertilizing',
     title: seo.serviceTitle('Organic Tree Fertilizing'),
+    pageTitle: seo.servicePageTitle('Organic Tree Fertilizing'),
     shortTitle: 'Organic Fertilizing',
     intro:
       'Restore vitality to dull or yellowing trees with arborist-formulated organic fertilizer — absorbable nutrition without petroleum salts or harmful runoff.',
@@ -207,6 +217,7 @@ export const services: Service[] = [
   {
     slug: 'cabling-bracing',
     title: seo.serviceTitle('Tree Cabling & Bracing'),
+    pageTitle: seo.servicePageTitle('Tree Cabling & Bracing'),
     shortTitle: 'Cabling & Bracing',
     intro:
       'Co-dominant trees with included bark can split apart without warning — inspection and 8,000-lb-rated cabling by a Board Certified Master Arborist reduces that risk.',
