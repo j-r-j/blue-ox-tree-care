@@ -1,0 +1,30 @@
+---
+import { neighborhoodRegions, getNeighborhoodsByRegion } from '../data/neighborhoods';
+import { withBase } from '../lib/paths';
+
+interface Props {
+  headingLevel?: 'h2' | 'h3';
+}
+
+const { headingLevel = 'h3' } = Astro.props;
+const Heading = headingLevel;
+---
+
+<div class="grid gap-6 sm:grid-cols-3">
+  {neighborhoodRegions.map((region) => (
+    <div>
+      <Heading class="mb-2 font-sans text-sm font-semibold uppercase tracking-wide text-ox-navy/70">
+        {region.label}
+      </Heading>
+      <ul class="space-y-1">
+        {getNeighborhoodsByRegion(region.id).map((n) => (
+          <li>
+            <a href={withBase(`/neighborhoods/${n.slug}`)} class="link-aside inline-block py-0.5 text-[15px]">
+              {n.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</div>

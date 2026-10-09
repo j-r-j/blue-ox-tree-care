@@ -14,18 +14,18 @@ const isDark = variant === 'dark';
 <nav aria-label="Breadcrumb" class="mb-4">
   <ol
     class:list={[
-      'flex flex-wrap items-center gap-1 text-sm',
-      isDark ? 'text-white/70' : 'text-ox-navy/70',
+      'flex flex-wrap items-center gap-x-1 gap-y-0.5 text-sm',
+      isDark ? 'text-white/75' : 'text-ox-navy/70',
     ]}
   >
     {items.map((item, index) => {
       const isLast = index === items.length - 1;
       return (
-        <li class="flex items-center gap-1">
+        <li class:list={['flex min-w-0 items-center gap-1', isLast && 'max-w-full']}>
           {index > 0 && <span aria-hidden="true" class="mx-1">/</span>}
           {isLast ? (
             <span
-              class:list={[isDark ? 'text-white' : 'text-ox-navy font-medium']}
+              class:list={['truncate', isDark ? 'text-white' : 'font-medium text-ox-navy']}
               aria-current="page"
             >
               {item.name}
@@ -34,8 +34,8 @@ const isDark = variant === 'dark';
             <a
               href={withBase(item.path)}
               class:list={[
-                'hover:underline',
-                isDark ? 'hover:text-white' : 'hover:text-ox-blue',
+                'inline-block py-1 underline-offset-2 hover:underline',
+                isDark ? 'hover:text-white' : 'hover:text-ox-blue-dark',
               ]}
             >
               {item.name}

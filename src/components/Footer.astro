@@ -6,121 +6,102 @@ import { neighborhoods } from '../data/neighborhoods';
 import { withBase } from '../lib/paths';
 import SocialLinks from './SocialLinks.astro';
 
-const guideNavItems = getGuideNavItems();
+const featuredService = services.find((s) => s.slug === 'pest-disease');
+const footerServices = [
+  ...(featuredService ? [featuredService] : []),
+  ...services.filter((s) => s.slug !== 'pest-disease'),
+];
+
+const linkGroups: { heading: string; links: { label: string; href: string; hub?: boolean }[] }[] = [
+  {
+    heading: 'Services',
+    links: [
+      ...footerServices.map((s) => ({ label: s.shortTitle, href: `/services/${s.slug}` })),
+      { label: 'All services', href: '/services', hub: true },
+    ],
+  },
+  {
+    heading: 'Areas We Serve',
+    links: [
+      ...serviceAreaCities.map((c) => ({ label: c.name, href: `/service-areas/${c.slug}` })),
+      { label: `Austin neighborhoods (${neighborhoods.length})`, href: '/neighborhoods' },
+      { label: 'All service areas', href: '/service-areas', hub: true },
+    ],
+  },
+  {
+    heading: 'Resources',
+    links: [
+      ...getGuideNavItems().map((g) => ({ label: `${g.navLabel} guide`, href: `/guides/${g.slug}` })),
+      { label: 'Tree care journal', href: '/journal' },
+      { label: 'FAQ', href: '/faq' },
+      { label: 'All resources', href: '/guides', hub: true },
+    ],
+  },
+  {
+    heading: 'Company',
+    links: [
+      { label: 'About us', href: '/about' },
+      { label: 'Our arborists', href: '/arborists' },
+      { label: 'What to expect', href: '/what-to-expect' },
+      { label: 'Contact', href: '/contact' },
+    ],
+  },
+];
+
+const legalLinks = [
+  { label: 'Privacy Policy', href: '/privacy' },
+  { label: 'Terms', href: '/terms' },
+];
 ---
 
 <footer class="bg-ox-navy text-white">
-  <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 md:grid-cols-2 lg:grid-cols-4">
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 lg:grid-cols-[1.2fr_3fr] lg:gap-12">
     <div>
-      <p class="mb-3 text-lg font-bold">Blue Ox Tree Care</p>
-      <p class="mb-4 text-sm text-white/80">{site.tagline}</p>
-      <p class="text-sm">
-        <a href={`tel:${site.phoneTel}`} class="font-semibold text-ox-gold hover:underline">
-          {site.phone}
-        </a>
-      </p>
-      <div class="mt-4">
-        <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-ox-gold">Follow Us</p>
-        <SocialLinks variant="footer" />
-      </div>
+      <p class="mb-2 text-lg font-bold">{site.name}</p>
+      <p class="mb-4 max-w-xs text-sm text-white/75">{site.tagline}</p>
+      <a href={`tel:${site.phoneTel}`} class="block text-xl font-bold text-ox-gold hover:underline">
+        {site.phone}
+      </a>
+      <p class="mb-4 text-sm text-white/75">{site.hours.short}</p>
+      <a href={withBase('/contact')} class="btn-primary mb-6 inline-block px-5 py-2.5 text-sm">
+        Get a Free Estimate
+      </a>
+      <SocialLinks variant="footer" />
     </div>
 
-    <div>
-      <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-gold">Services</p>
-      <ul class="space-y-2">
-        <li>
-          <a
-            href={withBase('/services/pest-disease')}
-            class="text-sm font-semibold text-ox-gold hover:underline"
-          >
-            Organic Pest &amp; Disease Care
-          </a>
-        </li>
-        {services
-          .filter((service) => service.slug !== 'pest-disease')
-          .slice(0, 4)
-          .map((service) => (
-            <li>
-              <a href={withBase(`/services/${service.slug}`)} class="text-sm text-white/80 hover:text-white">
-                {service.shortTitle}
-              </a>
-            </li>
-          ))}
-        <li>
-          <a href={withBase('/services')} class="text-sm font-medium text-ox-gold hover:underline">
-            View all services →
-          </a>
-        </li>
-      </ul>
-    </div>
-
-    <div>
-      <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-gold">Service Areas</p>
-      <ul class="mb-6 space-y-2">
-        {serviceAreaCities.map((city) => (
-          <li>
-            <a href={withBase(`/service-areas/${city.slug}`)} class="text-sm text-white/80 hover:text-white">
-              {city.name}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-gold">Neighborhoods we serve</p>
-      <ul class="grid grid-cols-2 gap-x-4 gap-y-1">
-        <li class="col-span-2">
-          <a href={withBase('/neighborhoods')} class="text-sm font-medium text-ox-gold hover:underline">
-            All neighborhoods →
-          </a>
-        </li>
-        {neighborhoods.map((n) => (
-          <li>
-            <a href={withBase(`/neighborhoods/${n.slug}`)} class="text-sm text-white/80 hover:text-white">
-              {n.name.split(' / ')[0]}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    <div>
-      <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-gold">Guides</p>
-      <ul class="mb-6 space-y-2">
-        <li><a href={withBase('/guides')} class="text-sm text-white/80 hover:text-white">All Guides</a></li>
-        {guideNavItems.map((guide) => (
-          <li>
-            <a href={withBase(`/guides/${guide.slug}`)} class="text-sm text-white/80 hover:text-white">
-              {guide.navLabel}
-            </a>
-          </li>
-        ))}
-        <li>
-          <a href={withBase('/journal')} class="text-sm text-white/80 hover:text-white">Journal</a>
-        </li>
-      </ul>
-      <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-gold">Company</p>
-      <ul class="space-y-2">
-        <li><a href={withBase('/about')} class="text-sm text-white/80 hover:text-white">About Us</a></li>
-        <li><a href={withBase('/arborists')} class="text-sm text-white/80 hover:text-white">Our Arborists</a></li>
-        <li><a href={withBase('/what-to-expect')} class="text-sm text-white/80 hover:text-white">What to Expect</a></li>
-        <li><a href={withBase('/gallery')} class="text-sm text-white/80 hover:text-white">Gallery</a></li>
-        <li><a href={withBase('/faq')} class="text-sm text-white/80 hover:text-white">FAQ</a></li>
-        <li><a href={withBase('/contact')} class="text-sm text-white/80 hover:text-white">Contact</a></li>
-      </ul>
-      <p class="mt-4 text-xs text-white/60">
-        Service-area business with no public storefront. We come to your property.
-      </p>
+    <div class="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4">
+      {linkGroups.map((group) => (
+        <nav aria-label={`Footer: ${group.heading}`}>
+          <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-gold">{group.heading}</p>
+          <ul class="space-y-1">
+            {group.links.map((link) => (
+              <li>
+                <a
+                  href={withBase(link.href)}
+                  class:list={[
+                    'inline-block py-1 text-sm hover:text-white hover:underline',
+                    link.hub ? 'font-semibold text-ox-gold' : 'text-white/80',
+                  ]}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ))}
     </div>
   </div>
 
   <div class="border-t border-white/10">
-    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-4 text-xs text-white/60 sm:flex-row">
-      <p>&copy; {new Date().getFullYear()} {site.legalName}. All rights reserved.</p>
-      <p>
-        <a href={withBase('/privacy')} class="hover:text-white hover:underline">Privacy Policy</a>
-        <span aria-hidden="true" class="mx-1">·</span>
-        <a href={withBase('/terms')} class="hover:text-white hover:underline">Terms</a>
-      </p>
-      <p>ISA Certified Arborists · Austin, Texas</p>
+    <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-xs text-white/60 md:flex-row md:items-center md:justify-between">
+      <p>&copy; {new Date().getFullYear()} {site.legalName}. ISA Certified Arborists, Austin, Texas.</p>
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
+        <p>{site.serviceAreaNote}</p>
+        {legalLinks.map((link) => (
+          <a href={withBase(link.href)} class="hover:text-white hover:underline">{link.label}</a>
+        ))}
+      </div>
     </div>
   </div>
 </footer>
