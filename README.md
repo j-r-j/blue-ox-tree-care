@@ -89,15 +89,16 @@ If the site moves to Cloudflare Pages, add the same two names under **Settings â
 | Field | Notes |
 |-------|-------|
 | `name`, `phone`, `email`, `location`, `service`, `message`, `preferred_contact` | What the visitor typed. Email is optional unless they pick Email as their contact method. |
-| `sms_consent` | `true` only if they checked the call/text consent box. It is never pre-checked and is not required. |
-| `sms_consent_text` | The exact consent wording shown next to the box. |
-| `consent_timestamp` | When they submitted (ISO 8601, UTC). |
 | `page_url` | The page they submitted from. |
 | `_subject` / `subject` | Email subject line used by most form services. |
 
-**Keep these records.** The consent fields are your proof that someone agreed to calls and texts. Do not delete old submissions in the form service, or export them regularly. Only send marketing or automated texts to people with `sms_consent: true`, and honor STOP replies right away.
+### Replying to leads
 
-The consent wording lives in `src/data/leadForm.ts`. The Privacy Policy (`/privacy`) and Terms (`/terms`) pages are plain-language starting points. Have a lawyer review all three before relying on them.
+Travis or Lacy reply to each request personally, by calling or texting the number the visitor gave (or by email if they asked for that). The form has no call/text consent checkbox, because Blue Ox does not send automated, bulk, or marketing texts. Under the submit button, the form says: "We will call or text you back about your request. We never sell your info. See our Privacy Policy."
+
+**If that ever changes** (for example, automated appointment reminders, a texting platform, or marketing texts), add a separate, unchecked consent checkbox with a TCPA disclosure and SMS terms first, and log that consent with each submission. Talk to a lawyer before starting.
+
+The Privacy Policy (`/privacy`) and Terms (`/terms`) pages are plain-language starting points. Have a lawyer review them before relying on them.
 
 ### Spam protection
 
@@ -117,7 +118,7 @@ The form has a hidden honeypot field (`_gotcha`). Submissions that fill it are d
 | `/faq` | Frequently asked questions |
 | `/contact` | Contact & estimate request form (`#estimate`) |
 | `/privacy` | Privacy Policy |
-| `/terms` | Terms, including text message terms |
+| `/terms` | Terms of use |
 
 ## NAP (Name, Address, Phone)
 
