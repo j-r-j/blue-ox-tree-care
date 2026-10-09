@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageBanner from '../components/PageBanner.astro';
+import { site } from '../data/site';
+import { breadcrumbSchema } from '../lib/schema';
+import { withBase } from '../lib/paths';
+
+const lastUpdated = 'October 9, 2026';
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Privacy Policy', path: '/privacy' },
+];
+---
+
+<BaseLayout
+  title="Privacy Policy"
+  description="How Blue Ox Tree Care collects and uses the information you share with us, including phone numbers and text messages."
+  schema={breadcrumbSchema(breadcrumbs)}
+>
+  <PageBanner title="Privacy Policy" description={`Last updated ${lastUpdated}`} breadcrumbs={breadcrumbs} />
+
+  <section class="py-12">
+    <div class="legal-copy mx-auto max-w-3xl px-4">
+      <p>
+        This page explains what information {site.legalName} ("{site.name}," "we," "us") collects
+        through this website and how we use it. If you have questions, call us at{' '}
+        <a href={`tel:${site.phoneTel}`}>{site.phone}</a> or email{' '}
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+
+      <h2>What we collect</h2>
+      <p>When you fill out our estimate form, we get what you type in:</p>
+      <ul>
+        <li>Your name, phone number, and email address</li>
+        <li>Your address or neighborhood</li>
+        <li>The service you need and any message you write</li>
+        <li>How you would like us to contact you</li>
+        <li>Whether you checked the box to get calls and texts from us</li>
+      </ul>
+      <p>
+        With each form, we also record the date and time, the page you sent it from, and the exact
+        consent wording you saw. This helps us keep a record of your choices.
+      </p>
+      <p>
+        If you call, text, or email us, we get your phone number or email address and what you
+        tell us.
+      </p>
+
+      <h2>How we use it</h2>
+      <ul>
+        <li>To reply to your request and set up your estimate</li>
+        <li>To schedule, do, and bill for tree care work</li>
+        <li>
+          To call or text you at the number you gave us, if you agreed to that. You can stop texts
+          at any time by replying STOP.
+        </li>
+        <li>To keep records the law requires</li>
+      </ul>
+
+      <h2>Text messages</h2>
+      <p>
+        We only send texts to people who asked us to or agreed to get them. Message and data rates
+        may apply. Message frequency varies. Reply STOP to opt out. Reply HELP for help. See our{' '}
+        <a href={withBase('/terms')}>Terms</a> for more about texts.
+      </p>
+      <p>
+        We do not sell or share your mobile phone number or text opt-in with other companies for
+        their own marketing.
+      </p>
+
+      <h2>Who else sees it</h2>
+      <p>We do not sell your personal information. We share it only:</p>
+      <ul>
+        <li>
+          With companies that help us run our business, such as our website form service, email,
+          and phone or text service. They may use it only to help us.
+        </li>
+        <li>When the law requires it</li>
+      </ul>
+
+      <h2>Website basics</h2>
+      <p>
+        This website does not use ads or tracking cookies. Like most websites, our web host and the
+        Google Fonts service may see basic technical details, such as your IP address and browser
+        type, when the page loads.
+      </p>
+
+      <h2>How long we keep it</h2>
+      <p>
+        We keep your information as long as we need it to serve you, keep business records, and
+        follow the law.
+      </p>
+
+      <h2>Your choices</h2>
+      <ul>
+        <li>Reply STOP to any text to stop getting texts.</li>
+        <li>
+          Ask us to see, fix, or delete your information by calling{' '}
+          <a href={`tel:${site.phoneTel}`}>{site.phone}</a> or emailing{' '}
+          <a href={`mailto:${site.email}`}>{site.email}</a>.
+        </li>
+      </ul>
+
+      <h2>Children</h2>
+      <p>This website is for adults. We do not knowingly collect information from children under 13.</p>
+
+      <h2>Changes</h2>
+      <p>
+        If we change this policy, we will post the new version here and update the date at the top.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
