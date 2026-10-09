@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import FAQSection from '../../components/FAQSection.astro';
 import PageBanner from '../../components/PageBanner.astro';
+import SidebarCTA from '../../components/SidebarCTA.astro';
 import { guides, getGuide } from '../../data/guides';
 import { breadcrumbSchema, combineSchemas, faqPageSchema } from '../../lib/schema';
 import { withBase } from '../../lib/paths';
@@ -20,24 +21,22 @@ if (!guide) {
   return Astro.redirect('/guides');
 }
 
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Resources', path: '/guides' },
+  { name: guide.navLabel ?? guide.title, path: `/guides/${guide.slug}` },
+];
+
 const schema = combineSchemas(
-  breadcrumbSchema([
-    { name: 'Home', path: '/' },
-    { name: 'Guides', path: '/guides' },
-    { name: guide.title, path: `/guides/${guide.slug}` },
-  ]),
+  breadcrumbSchema(breadcrumbs),
   faqPageSchema(guide.faqs),
 );
 ---
 
 <BaseLayout title={guide.title} description={guide.metaDescription} schema={schema}>
-  <PageBanner title={guide.title} description={guide.heroSubtitle} breadcrumbs={[
-    { name: 'Home', path: '/' },
-    { name: 'Guides', path: '/guides' },
-    { name: guide.title, path: `/guides/${guide.slug}` },
-  ]} />
+  <PageBanner title={guide.title} description={guide.heroSubtitle} breadcrumbs={breadcrumbs} />
 
-  <section class="py-16">
+  <section class="py-12 md:py-16">
     <div class="mx-auto max-w-4xl px-4">
       <div class="grid gap-12 md:grid-cols-3">
         <div class="md:col-span-2">
@@ -86,9 +85,10 @@ const schema = combineSchemas(
           )}
         </div>
 
-        <aside>
-          <div class="rounded-lg border border-ox-navy/10 bg-white p-6 shadow-sm">
-            <h3 class="mb-3 font-semibold text-ox-navy">Related Pages</h3>
+        <aside class="space-y-6">
+          <SidebarCTA heading="Want an arborist's opinion?" />
+          <div class="sidebar-card">
+            <h2 class="sidebar-heading">Related pages</h2>
             <ul class="space-y-2">
               {guide.relatedLinks.map((link) => (
                 <li>
@@ -97,9 +97,9 @@ const schema = combineSchemas(
                   </a>
                 </li>
               ))}
-              <li>
-                <a href={withBase('/guides')} class="link-aside">
-                  All guides
+              <li class="border-t border-ox-navy/10 pt-3">
+                <a href={withBase('/guides')} class="link-aside font-semibold">
+                  All guides &amp; resources →
                 </a>
               </li>
             </ul>

@@ -3,35 +3,69 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import PageBanner from '../../components/PageBanner.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
+import { site } from '../../data/site';
 import { services } from '../../data/services';
+import { serviceAreas } from '../../data/serviceAreas';
+import { neighborhoods } from '../../data/neighborhoods';
 import { breadcrumbSchema } from '../../lib/schema';
+import { withBase } from '../../lib/paths';
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services' },
+];
 ---
 
 <BaseLayout
   title="Tree Care Services in Austin, TX"
-  description="Tree trimming, removal, stump grinding, storm damage, oak wilt care, and fire mitigation in Austin, Round Rock & Bee Cave. ISA certified arborists. Call (512) 749-8615."
-  schema={breadcrumbSchema([
-    { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services' },
-  ])}
+  description="Tree trimming, removal, stump grinding, storm damage, organic pest care and fire mitigation in Austin, Round Rock & Bee Cave. Call (512) 749-8615."
+  schema={breadcrumbSchema(breadcrumbs)}
 >
   <PageBanner
     ctas
     title="Tree Care Services"
     description="Professional arborist services for Central Texas homeowners and property managers."
-    breadcrumbs={[
-      { name: 'Home', path: '/' },
-      { name: 'Services', path: '/services' },
-    ]}
+    breadcrumbs={breadcrumbs}
   />
 
-  <section class="py-16">
+  <section class="py-12 md:py-16">
     <div class="mx-auto max-w-6xl px-4">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => (
-          <ServiceCard service={service} />
+          <ServiceCard service={service} headingLevel="h2" />
         ))}
       </div>
+
+      <div class="mt-10 grid gap-6 rounded-lg border border-ox-navy/10 bg-white p-6 shadow-sm md:grid-cols-2 md:items-center">
+        <div>
+          <h2 class="mb-1 text-xl font-bold text-ox-navy">Not sure what your tree needs?</h2>
+          <p class="text-sm text-ox-navy/80">
+            Describe the problem and an ISA certified arborist will recommend the right service during a
+            free on-site estimate.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3 sm:flex-row md:justify-end">
+          <a href={`tel:${site.phoneTel}`} class="btn-primary px-5 py-3 text-center">Call {site.phone}</a>
+          <a
+            href={withBase('/contact')}
+            class="rounded-md border-2 border-ox-navy px-5 py-3 text-center font-semibold text-ox-navy transition hover:bg-ox-navy hover:text-white"
+          >
+            Free Estimate
+          </a>
+        </div>
+      </div>
+
+      <p class="mt-8 text-center text-sm text-ox-navy/75">
+        Serving{' '}
+        {serviceAreas.map((area, index) => (
+          <>
+            <a href={withBase(`/service-areas/${area.slug}`)} class="link-body">{area.name}</a>
+            {index < serviceAreas.length - 2 ? ', ' : index === serviceAreas.length - 2 ? ', and ' : ''}
+          </>
+        ))}
+        {' '}plus{' '}
+        <a href={withBase('/neighborhoods')} class="link-body">{neighborhoods.length} Austin neighborhoods</a>.
+      </p>
     </div>
   </section>
 

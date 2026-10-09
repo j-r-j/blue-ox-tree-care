@@ -134,7 +134,7 @@ export const neighborhoods: Neighborhood[] = [
     region: 'central',
     title: 'Tree Care in Pemberton Heights, Austin TX',
     metaDescription:
-      'Tree care in Pemberton Heights, estate live oaks, heritage trees, and ISA certified arborists. Austin\'s most canopy-rich central neighborhood. Call (512) 749-8615.',
+      "Tree care in Pemberton Heights, Austin's most canopy-rich central neighborhood: estate live oaks and heritage trees. Call (512) 749-8615.",
     heroSubtitle:
       'Professional arboriculture for Pemberton Heights, grand live oaks, estate-scale lots, and Austin\'s strictest tree protection context.',
     placeUrl: 'https://www.google.com/maps/place/Pemberton+Heights,+Austin,+TX',

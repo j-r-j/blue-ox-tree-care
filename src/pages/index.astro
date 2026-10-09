@@ -10,6 +10,7 @@ import AreaCard from '../components/AreaCard.astro';
 import { site, seo } from '../data/site';
 import { services } from '../data/services';
 import { serviceAreas } from '../data/serviceAreas';
+import { neighborhoods } from '../data/neighborhoods';
 import { getGuideNavItems } from '../data/guides';
 import { localBusinessSchema } from '../lib/schema';
 import { withBase } from '../lib/paths';
@@ -66,8 +67,8 @@ const guideNavItems = getGuideNavItems();
         ))}
       </div>
       <div class="mt-8 text-center">
-        <a href={withBase('/services')} class="font-semibold text-ox-blue hover:text-ox-blue-dark hover:underline">
-          View all services →
+        <a href={withBase('/services')} class="font-semibold text-ox-blue-dark hover:underline">
+          View all tree care services →
         </a>
       </div>
     </div>
@@ -85,6 +86,11 @@ const guideNavItems = getGuideNavItems();
         {serviceAreas.map((area) => (
           <AreaCard area={area} />
         ))}
+      </div>
+      <div class="mt-8 text-center">
+        <a href={withBase('/service-areas')} class="font-semibold text-ox-blue-dark hover:underline">
+          See all {neighborhoods.length} Austin neighborhoods we serve →
+        </a>
       </div>
     </div>
   </section>

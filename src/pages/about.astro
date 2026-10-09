@@ -17,6 +17,12 @@ const ownerPhotos: Record<string, { src: string; alt: string }> = {
   },
 };
 
+const aboutLinks = [
+  { label: 'Our arborists', href: '/arborists', text: 'Credentials and background for Travis and Lacy.' },
+  { label: 'What to expect', href: '/what-to-expect', text: 'Estimates, scheduling, payment, and storm triage.' },
+  { label: 'Tree care FAQ', href: '/faq', text: 'Quick answers to common Austin tree questions.' },
+];
+
 const ownerBadges: Record<string, { src: string; alt: string } | undefined> = {
   'travis-berlin': { src: withBase('/badges/bcma-badge.png'), alt: 'ISA Board Certified Master Arborist badge' },
   'lacy-berlin': {
@@ -27,8 +33,8 @@ const ownerBadges: Record<string, { src: string; alt: string } | undefined> = {
 ---
 
 <BaseLayout
-  title="About Our Austin Arborists | ISA Certified Tree Care"
-  description="Meet Travis & Lacy Berlin, ISA certified arborists serving Austin, TX. BCMA RM-7612B and Certified Arborist RM-8632A. Family-owned tree care with Disneyland and Salida experience."
+  title="About Us | Family-Owned Austin Arborists"
+  description="Meet Travis & Lacy Berlin, family owners of Blue Ox Tree Care and ISA certified arborists (BCMA RM-7612B, RM-8632A) serving Austin, TX."
   schema={combineSchemas(
     breadcrumbSchema([
       { name: 'Home', path: '/' },
@@ -42,7 +48,7 @@ const ownerBadges: Record<string, { src: string; alt: string } | undefined> = {
     { name: 'About', path: '/about' },
   ]} />
 
-  <section class="py-16">
+  <section class="py-12 md:py-16">
     <div class="mx-auto max-w-4xl px-4">
       <div class="mb-12 grid gap-8 md:grid-cols-2">
         {site.owners.map((owner) => (
@@ -80,14 +86,14 @@ const ownerBadges: Record<string, { src: string; alt: string } | undefined> = {
               <p class="mb-3 text-sm font-semibold text-ox-navy/70">{owner.credentials}</p>
               <p class="text-sm text-ox-navy/85" itemprop="description">{owner.bio}</p>
               <a href={withBase(`/arborists/${owner.id}`)} class="link-aside mt-3 inline-block text-sm font-medium">
-                Full arborist profile →
+                {owner.name.split(' ')[0]}'s full profile →
               </a>
             </div>
           </article>
         ))}
       </div>
 
-      <div class="prose prose-ox max-w-none space-y-6 text-ox-navy/90">
+      <div class="space-y-6 text-ox-navy/90">
         <h2 class="text-2xl font-bold text-ox-navy">Our Story</h2>
         <p>{aboutContent.story}</p>
         <p>{aboutContent.disneylandNote}</p>
@@ -98,6 +104,23 @@ const ownerBadges: Record<string, { src: string; alt: string } | undefined> = {
         <h2 class="text-2xl font-bold text-ox-navy">Our Approach</h2>
         <p>{aboutContent.approach}</p>
       </div>
+
+      <nav aria-labelledby="about-more" class="mt-12 border-t border-ox-navy/10 pt-8">
+        <h2 id="about-more" class="mb-4 text-2xl font-bold text-ox-navy">Get to know us</h2>
+        <ul class="grid gap-4 sm:grid-cols-3">
+          {aboutLinks.map((link) => (
+            <li>
+              <a
+                href={withBase(link.href)}
+                class="block h-full rounded-lg border border-ox-navy/10 bg-white p-5 shadow-sm transition hover:border-ox-gold hover:shadow-md"
+              >
+                <span class="mb-1 block font-semibold text-ox-navy">{link.label} →</span>
+                <span class="block text-sm text-ox-navy/75">{link.text}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </div>
   </section>
 

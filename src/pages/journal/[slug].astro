@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import PageBanner from '../../components/PageBanner.astro';
+import SidebarCTA from '../../components/SidebarCTA.astro';
 import { journalPosts, getJournalPost } from '../../data/journal';
 import { breadcrumbSchema, combineSchemas, articleSchema } from '../../lib/schema';
 import { withBase } from '../../lib/paths';
@@ -21,6 +22,7 @@ if (!post) {
 
 const breadcrumbs = [
   { name: 'Home', path: '/' },
+  { name: 'Resources', path: '/guides' },
   { name: 'Journal', path: '/journal' },
   { name: post.title, path: `/journal/${post.slug}` },
 ];
@@ -47,7 +49,7 @@ const schema = combineSchemas(
     </time>
   </PageBanner>
 
-  <section class="py-16">
+  <section class="py-12 md:py-16">
     <div class="mx-auto max-w-4xl px-4">
       <div class="grid gap-12 md:grid-cols-3">
         <article class="md:col-span-2">
@@ -73,9 +75,10 @@ const schema = combineSchemas(
           ))}
         </article>
 
-        <aside>
-          <div class="rounded-lg border border-ox-navy/10 bg-white p-6 shadow-sm">
-            <h3 class="mb-3 font-semibold text-ox-navy">Related</h3>
+        <aside class="space-y-6">
+          <SidebarCTA />
+          <div class="sidebar-card">
+            <h2 class="sidebar-heading">Related reading</h2>
             <ul class="space-y-2">
               {post.relatedLinks.map((link) => (
                 <li>
@@ -84,11 +87,11 @@ const schema = combineSchemas(
                   </a>
                 </li>
               ))}
-              <li>
-                <a href={withBase('/journal')} class="link-aside">All journal articles</a>
+              <li class="border-t border-ox-navy/10 pt-3">
+                <a href={withBase('/journal')} class="link-aside font-semibold">All journal articles →</a>
               </li>
               <li>
-                <a href={withBase('/guides')} class="link-aside">Guides</a>
+                <a href={withBase('/guides')} class="link-aside font-semibold">Guides &amp; resources →</a>
               </li>
             </ul>
           </div>

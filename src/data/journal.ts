@@ -24,7 +24,7 @@ export const journalPosts: JournalPost[] = [
     slug: 'how-often-prune-live-oaks-austin',
     title: 'How Often to Prune Live Oaks in Austin',
     metaDescription:
-      'When and how often to prune live oaks in Austin: oak wilt timing, structural needs, and Central Texas best practices from ISA certified arborists. Call (512) 749-8615.',
+      'How often to prune live oaks in Austin: oak wilt timing, structural needs, and Central Texas best practices from ISA arborists. Call (512) 749-8615.',
     heroSubtitle:
       'Pruning frequency and seasonal timing for Austin live oaks, balancing structure, health, and oak wilt risk.',
     datePublished: '2025-09-15',

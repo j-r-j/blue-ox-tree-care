@@ -35,7 +35,7 @@ export const guides: Guide[] = [
     title: 'Oak Wilt in Austin & Central Texas',
     navLabel: 'Oak Wilt',
     metaDescription:
-      'Learn how oak wilt spreads in Austin and Central Texas, when to avoid pruning oaks, and how to protect live oaks and red oaks. ISA certified assessment from Blue Ox Tree Care. Call (512) 749-8615.',
+      'How oak wilt spreads in Austin, when to avoid pruning oaks, and how to protect live oaks and red oaks. ISA certified assessments. Call (512) 749-8615.',
     heroSubtitle:
       'Educational guide for Austin-area homeowners: what oak wilt is, how it spreads, and how pruning timing affects risk on Central Texas oaks.',
     sections: [
@@ -132,7 +132,7 @@ export const guides: Guide[] = [
     title: 'Austin Protected & Heritage Tree Rules',
     navLabel: 'Tree Permits',
     metaDescription:
-      'Plain-English guide to City of Austin protected and heritage tree rules: DBH thresholds, permits, and when an ISA certified arborist can help with assessment and documentation. Call (512) 749-8615.',
+      'Plain-English guide to Austin protected and heritage tree rules: DBH thresholds, permits, and how an ISA arborist helps. Call (512) 749-8615.',
     heroSubtitle:
       'Understand when City of Austin tree permits may apply before removal or significant pruning, and how certified arborists help with assessment and documentation.',
     sections: [
@@ -240,7 +240,7 @@ export const guides: Guide[] = [
     title: 'Austin Bulk Trash & Brush Pickup for Tree Debris',
     navLabel: 'Brush & Bulk Pickup',
     metaDescription:
-      'Austin Resource Recovery brush/bulk rules, set-out sizes, Hornsby Bend, plus Blue Ox Tree Care. Call (512) 749-8615.',
+      'Austin Resource Recovery brush and bulk pickup rules for tree debris: set-out sizes, scheduling, Hornsby Bend drop-off, and haul-away. Call (512) 749-8615.',
     heroSubtitle:
       'What\'s brush vs bulk, how to schedule on-demand pickup, set-out rules for limbs, drop-off options, and when professional haul-away is the better path.',
     sections: [

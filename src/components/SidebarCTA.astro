@@ -9,7 +9,7 @@ interface Props {
 const { heading = 'Get a free estimate' } = Astro.props;
 ---
 
-<div class="rounded-lg border-t-4 border-ox-gold bg-ox-navy p-6 text-white shadow-sm">
+<div class="hidden rounded-lg border-t-4 border-ox-gold bg-ox-navy p-6 text-white shadow-sm md:block">
   <h2 class="mb-1 text-lg font-bold text-white">{heading}</h2>
   <p class="mb-4 text-sm text-white/80">Talk directly with an ISA certified arborist.</p>
   <a href={`tel:${site.phoneTel}`} class="btn-primary mb-2 block px-4 py-3 text-center">
