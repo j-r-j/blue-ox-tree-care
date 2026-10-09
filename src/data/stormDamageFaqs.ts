@@ -4,26 +4,26 @@ export const stormDamageFaqs: FAQItem[] = [
   {
     question: 'When should I call for emergency storm damage tree service?',
     answer:
-      'Call (512) 749-8615 as soon as you have a hazard: a tree on your roof, blocked driveway, or hanging limb over a walkway. We prioritize situations that threaten people, structures, or access. For non-urgent cleanup, we will schedule the earliest available crew.',
+      'Call (512) 749-8615 as soon as there is danger. That could be a tree on your roof, a blocked driveway, or a limb hanging over a walkway. We go first to jobs where people, buildings, or the way in and out are at risk. For cleanup that can wait, we send the first crew we have open.',
   },
   {
     question: 'Is it safe to cut storm-damaged limbs myself?',
     answer:
-      'Storm-damaged trees are unpredictable. Tension, torn wood, and broken hangers can release without warning. Avoid working under suspended limbs or on ladders with a chainsaw. Licensed, insured professionals use rigging and systematic dismantling to control descent.',
+      'It can be very risky. A storm-damaged tree can act in ways you don\'t expect. Bent wood holds a lot of force. Torn wood and broken branches stuck up in the tree can drop with no warning. Don\'t work under a hanging limb, and don\'t use a chainsaw on a ladder. A licensed, insured crew uses ropes and takes the tree apart piece by piece to control the fall.',
   },
   {
     question: 'Does insurance cover storm tree removal in Austin?',
     answer:
-      'Homeowner policies vary. Coverage often applies when a covered structure is damaged by a fallen tree, but not for every cleanup scenario. Document the scene with photos when safe, notify your insurer promptly, and retain invoices. We provide professional documentation of work performed.',
+      'It depends on your policy. Coverage often applies when a fallen tree damages a covered building. It may not cover every cleanup job. When it is safe, take photos of the damage. Call your insurance company soon, and keep your bills. We give you clear records of the work we did.',
   },
   {
     question: 'What areas do you cover for storm damage response?',
     answer:
-      'We respond throughout our Austin metro service area: Austin, Round Rock, Bee Cave, Lakeway, and nearby Central Texas communities. We are a service-area business; our arborists come to your property.',
+      'We cover the Austin area: Austin, Round Rock, Bee Cave, Lakeway, and nearby Central Texas towns. We have no storefront. Our arborists come to you.',
   },
   {
-    question: 'Should I prune oaks immediately after storm damage?',
+    question: 'Should I prune oaks right after storm damage?',
     answer:
-      'Emergency removal of hazardous limbs may be required regardless of season. For non-urgent oak pruning, follow safer timing and wound-painting guidance in our oak wilt guide. Fresh wounds during active transmission periods attract beetles that can spread the fungus.',
+      'If a broken limb is dangerous, it may need to come down right away, in any season. Other oak pruning can wait for a safer time of year. Our oak wilt guide explains the timing and when to paint cuts. Oak wilt is a deadly oak disease. Fresh cuts made from about February through June draw beetles that can carry it.',
   },
 ];

@@ -1,7 +1,7 @@
 export const site = {
   name: 'Blue Ox Tree Care',
   legalName: 'Blue Ox Tree Care LLC',
-  tagline: 'ISA certified arborists serving Austin, Round Rock, Bee Cave & Lakeway',
+  tagline: 'Tree care by ISA certified arborists in Austin, Round Rock, Bee Cave, and Lakeway.',
   phone: '(512) 749-8615',
   phoneTel: '+15127498615',
   email: 'Owner@BlueOxTreeCareLLC.com',
@@ -13,45 +13,43 @@ export const site = {
     'https://search.google.com/local/writereview?placeid=ChIJ49bZIDiCXS8R3UNshQ48qhU',
   url: 'https://www.blueoxtreecarellc.com',
   hours: {
-    display: 'Monday–Friday, 8:00 AM – 5:00 PM',
-    short: 'Mon–Fri, 8 AM – 5 PM',
+    display: 'Monday to Friday, 8 AM to 5 PM',
+    short: 'Mon to Fri, 8 AM to 5 PM',
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] as const,
     opens: '08:00',
     closes: '17:00',
   },
   trustLines: [
-    'Travis Berlin, ISA BCMA (RM-7612B). Fewer than 2% of ISA Certified Arborists have ever earned BCMA',
-    'Lacy Berlin, ISA Certified Arborist (RM-8632A)',
+    'Travis Berlin is an ISA Board Certified Master Arborist (RM-7612B). Fewer than 2% of ISA Certified Arborists have ever earned it.',
+    'Lacy Berlin is an ISA Certified Arborist (RM-8632A).',
     'Licensed and insured',
     'Free estimates',
   ],
-  serviceAreaNote:
-    'Service-area business with no public storefront. We come to your property.',
+  serviceAreaNote: 'We have no storefront. We come to you.',
   owners: [
     {
       id: 'travis-berlin',
       name: 'Travis Berlin',
       title: 'Co-Owner & ISA Board Certified Master Arborist',
       credentials: 'ISA BCMA, RM-7612B',
-      bio: `Travis is a fifth-generation Coloradan, born and raised. He is an experienced ISA Board Certified Master Arborist. Fewer than 2% of ISA Certified Arborists have ever earned this elite credential. He has managed four tree companies, opening two of his own, one in Hawaii and Blue Ox Tree Care in Salida, CO. He also was the arborist who managed Disneyland's trees in Anaheim, CA, as well as a Municipal Arborist for the city of Newport Beach, CA.`,
+      bio: `Travis was born and raised in Colorado. His family has lived there for five generations. He is an ISA Board Certified Master Arborist. Fewer than 2% of ISA Certified Arborists have ever earned this title. Travis has managed four tree companies. He started two of them: one in Hawaii, and Blue Ox Tree Care in Salida, Colorado. He was the arborist in charge of the trees at Disneyland in Anaheim, California. He also worked as a city arborist for Newport Beach, California.`,
     },
     {
       id: 'lacy-berlin',
       name: 'Lacy Berlin',
       title: 'Co-Owner & ISA Certified Arborist',
       credentials: 'ISA Certified Arborist, RM-8632A',
-      bio: `Lacy is a knowledgeable ISA Certified Arborist who excels at tree health treatments, formulating and creating organic pest and disease treatments in house. Beyond deep tree health expertise, Lacy drives the professionalism and quality presentation that Blue Ox Tree Care is known for, from marketing and client communication to day-to-day operations that keep the company responsive for Austin-area customers.`,
+      bio: `Lacy is an ISA Certified Arborist. Her focus is tree health. She makes our organic pest and disease treatments herself, right here in house. Lacy also leads the business side of Blue Ox: marketing, talking with customers, and the day-to-day work. She keeps us quick to answer when Austin-area customers call.`,
     },
   ],
 } as const;
 
 export const aboutContent = {
-  intro:
-    'Family-owned tree care by ISA certified arborists, proudly serving the Austin, Texas metro.',
-  story: `Blue Ox Tree Care is owned and operated by Travis and Lacy Berlin, a husband-and-wife team dedicated to professional, science-based tree care. Today we serve the greater Austin area, including Austin, Round Rock, Bee Cave, and Lakeway, with the same commitment to tree health, safety, and customer service that built our reputation.`,
-  salidaHistory: `Before relocating to Central Texas, Travis and Lacy operated Blue Ox Tree Care in Salida, Colorado, serving the Arkansas River Valley and surrounding mountain communities. That experience working in challenging terrain, managing wildfire-adjacent properties, and caring for diverse native species informs how we approach Hill Country and Austin-area tree care today. Salida remains an important chapter in our story; our focus and service area is now Austin and Central Texas.`,
-  disneylandNote: `Travis's experience managing trees at Disneyland in Anaheim, California, and as a municipal arborist in Newport Beach reflects the scale and precision we bring to residential and commercial tree care in Austin.`,
-  approach: `We believe every tree deserves an informed care plan. That means proper pruning cuts, species-appropriate timing, honest assessments, and clear communication. Whether you need a single tree trimmed or a full property risk assessment, you will work directly with certified arborists, not a sales team.`,
+  intro: 'A family-owned tree care company in Austin, Texas. We are ISA certified arborists.',
+  story: `Travis and Lacy Berlin own and run Blue Ox Tree Care. They are husband and wife. They care for trees based on science, and they put safety first. Today we serve the Austin area, including Austin, Round Rock, Bee Cave, and Lakeway.`,
+  salidaHistory: `Before they moved to Central Texas, Travis and Lacy ran Blue Ox Tree Care in Salida, Colorado. They served the Arkansas River Valley and the mountain towns nearby. They worked on steep land, on homes near wildfire areas, and with many kinds of native trees. That work shapes how we care for Hill Country and Austin trees today. Salida is part of our story, but now we only serve Austin and Central Texas.`,
+  disneylandNote: `Travis also managed the trees at Disneyland in Anaheim, California. He worked as a city arborist in Newport Beach, too. He brings that big-job care to every home and business we serve in Austin.`,
+  approach: `Every tree needs a care plan based on facts. To us, that means good pruning cuts, the right timing for each kind of tree, honest advice, and clear talk. You may need one tree trimmed. You may want every tree on your land checked for risk. Either way, you work with certified arborists, not a sales team.`,
 } as const;
 
 export const serviceAreaCities = [
@@ -62,19 +60,19 @@ export const serviceAreaCities = [
 
 export const seo = {
   home: {
-    title: 'Blue Ox Tree Care | ISA Certified Arborists in Austin, TX',
+    title: 'Austin Tree Service & ISA Arborists | Blue Ox Tree Care',
     description:
-      'Tree care in Austin, Round Rock, Bee Cave & Lakeway from a Board Certified Master Arborist. Licensed, insured, free estimates. Call (512) 749-8615.',
+      'Austin tree service led by a Board Certified Master Arborist. Trimming, removal, and tree health in Round Rock, Bee Cave & Lakeway. Call (512) 749-8615.',
   },
   serviceTitle: (name: string) => `${name} in Austin, TX`,
   /** Visible H1 on service pages; credentials stay in document title / subcopy. */
   servicePageTitle: (name: string) => `${name} in Austin, TX`,
   serviceMeta: (nameLower: string) =>
-    `${nameLower.charAt(0).toUpperCase()}${nameLower.slice(1)} in Austin, Round Rock, Bee Cave & Lakeway by ISA certified arborists. Free estimates: (512) 749-8615.`,
+    `${nameLower.charAt(0).toUpperCase()}${nameLower.slice(1)} in Austin, Round Rock, Bee Cave & Lakeway from ISA certified arborists. Free estimate: (512) 749-8615.`,
   /** Visible H1 on service area pages. */
   areaTitle: (city: string) => `Tree Care in ${city}, TX`,
   /** Document title, distinct from the /services/ index. */
   areaMetaTitle: (city: string) => `Tree Care & Arborists in ${city}, TX`,
   areaMeta: (city: string) =>
-    `ISA certified tree care in ${city}, TX: trimming, removal, risk assessment & more. Blue Ox Tree Care. Call (512) 749-8615.`,
+    `Tree service in ${city}, TX from ISA certified arborists. Trimming, removal, storm cleanup, and tree health. Free estimate: (512) 749-8615.`,
 } as const;
