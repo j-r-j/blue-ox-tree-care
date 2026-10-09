@@ -5,8 +5,6 @@ import {
   leadFormAccessKey,
   leadFormEndpoint,
   serviceOptions,
-  smsConsentLead,
-  smsConsentText,
 } from '../data/leadForm';
 import { withBase } from '../lib/paths';
 
@@ -151,27 +149,7 @@ const hasEndpoint = leadFormEndpoint.length > 0;
       </div>
     </fieldset>
 
-    <div class="rounded-md border border-ox-navy/15 bg-ox-cream p-4">
-      <div class="flex items-start gap-3">
-        <input
-          type="checkbox"
-          id="lead-sms-consent"
-          name="sms_consent"
-          value="yes"
-          class="mt-1 h-5 w-5 shrink-0 accent-ox-blue-dark"
-        />
-        <label for="lead-sms-consent" id="lead-sms-consent-label" class="text-xs leading-relaxed text-ox-navy/80">
-          {smsConsentLead} See our{' '}
-          <a href={withBase('/privacy')} class="link-body">Privacy Policy</a> and{' '}
-          <a href={withBase('/terms')} class="link-body">Terms</a>.
-        </label>
-      </div>
-      <p class="mt-2 pl-8 text-xs text-ox-navy/60">Optional. You can still get an estimate without checking this box.</p>
-    </div>
-
-    <input type="hidden" name="sms_consent_text" value={smsConsentText} />
     <input type="hidden" name="page_url" value={pageUrl} />
-    <input type="hidden" name="consent_timestamp" value="" />
     <input type="hidden" name="_subject" value={subject} />
     {leadFormAccessKey && <input type="hidden" name="access_key" value={leadFormAccessKey} />}
 
@@ -188,6 +166,10 @@ const hasEndpoint = leadFormEndpoint.length > 0;
     <button type="submit" class="btn-primary w-full px-6 py-3 text-base" data-submit>
       Get My Free Estimate
     </button>
+    <p class="text-center text-sm text-ox-navy/70" data-privacy-note>
+      We will call or text you back about your request. We never sell your info. See our{' '}
+      <a href={withBase('/privacy')} class="link-body">Privacy Policy</a>.
+    </p>
     <p class="text-center text-sm text-ox-navy/70">
       Want to talk now? Call{' '}
       <a href={`tel:${site.phoneTel}`} class="whitespace-nowrap font-semibold text-ox-navy underline">{site.phone}</a>.
@@ -246,9 +228,6 @@ const hasEndpoint = leadFormEndpoint.length > 0;
       service: text('service'),
       message: text('message'),
       preferred_contact: text('preferred_contact'),
-      sms_consent: data.get('sms_consent') === 'yes',
-      sms_consent_text: text('sms_consent_text'),
-      consent_timestamp: new Date().toISOString(),
       page_url: window.location.href,
       _subject: subject,
       subject,
@@ -266,9 +245,6 @@ const hasEndpoint = leadFormEndpoint.length > 0;
       `Preferred contact: ${payload.preferred_contact}`,
       `Message: ${payload.message || '(none)'}`,
       '',
-      `Call/text consent: ${payload.sms_consent ? 'Yes' : 'No'}`,
-      `Consent text shown: ${payload.sms_consent_text}`,
-      `Submitted: ${payload.consent_timestamp}`,
       `Page: ${payload.page_url}`,
     ];
     return `mailto:${to}?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
@@ -290,7 +266,7 @@ const hasEndpoint = leadFormEndpoint.length > 0;
     const submitButton = form.querySelector<HTMLButtonElement>('[data-submit]');
     const emailField = form.querySelector<HTMLInputElement>('input[name="email"]');
     const fields = Array.from(form.querySelectorAll<Field>('input[id], select[id], textarea[id]')).filter(
-      (field) => field.type !== 'checkbox' && field.type !== 'radio' && field.name !== '_gotcha',
+      (field) => field.type !== 'radio' && field.name !== '_gotcha',
     );
 
     const syncEmailRequired = () => {
