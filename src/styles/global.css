@@ -90,8 +90,17 @@
   }
 }
 
+/* Padding keeps anchor targets and focused form fields clear of the sticky header and mobile call bar. */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  scroll-padding-bottom: 4.5rem;
+}
+
+@media (min-width: 64rem) {
+  html {
+    scroll-padding-bottom: 0;
+  }
 }
 
 body {

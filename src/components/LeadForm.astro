@@ -69,7 +69,7 @@ const hasEndpoint = leadFormEndpoint.length > 0;
 
       <div>
         <label for="lead-email" class="form-label">
-          Email
+          Email{' '}
           <span class="required-mark" aria-hidden="true" data-email-required hidden>*</span>
           <span class="text-sm font-normal text-ox-navy/60" data-email-optional>(optional)</span>
         </label>
@@ -190,7 +190,7 @@ const hasEndpoint = leadFormEndpoint.length > 0;
     </button>
     <p class="text-center text-sm text-ox-navy/70">
       Want to talk now? Call{' '}
-      <a href={`tel:${site.phoneTel}`} class="font-semibold text-ox-navy underline">{site.phone}</a>.
+      <a href={`tel:${site.phoneTel}`} class="whitespace-nowrap font-semibold text-ox-navy underline">{site.phone}</a>.
     </p>
   </form>
 
@@ -199,7 +199,7 @@ const hasEndpoint = leadFormEndpoint.length > 0;
     <p class="mb-3">We will reach out soon to set up your free estimate.</p>
     <p class="text-sm">
       Need help sooner? Call{' '}
-      <a href={`tel:${site.phoneTel}`} class="font-semibold underline">{site.phone}</a>.
+      <a href={`tel:${site.phoneTel}`} class="whitespace-nowrap font-semibold underline">{site.phone}</a>.
     </p>
   </div>
 
@@ -208,7 +208,7 @@ const hasEndpoint = leadFormEndpoint.length > 0;
     <p class="mb-3">Your email app should open with your request filled in. Just press send.</p>
     <p class="text-sm">
       Email app did not open? Call us at{' '}
-      <a href={`tel:${site.phoneTel}`} class="font-semibold underline">{site.phone}</a>{' '}
+      <a href={`tel:${site.phoneTel}`} class="whitespace-nowrap font-semibold underline">{site.phone}</a>{' '}
       or email <a href={`mailto:${site.email}`} class="font-semibold underline">{site.email}</a>.
     </p>
   </div>
@@ -277,7 +277,8 @@ const hasEndpoint = leadFormEndpoint.length > 0;
   function show(el: Element | null) {
     if (!(el instanceof HTMLElement)) return;
     el.classList.remove('hidden');
-    el.focus();
+    el.focus({ preventScroll: true });
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   document.querySelectorAll<HTMLFormElement>('form[data-lead-form]').forEach((form) => {
@@ -364,7 +365,7 @@ const hasEndpoint = leadFormEndpoint.length > 0;
         if (errorBox) {
           errorBox.innerHTML =
             'Sorry, we could not send your request. Please try again, or call us at ' +
-            `<a href="tel:${form.dataset.phoneTel}" class="font-semibold underline">${form.dataset.phone}</a>.`;
+            `<a href="tel:${form.dataset.phoneTel}" class="whitespace-nowrap font-semibold underline">${form.dataset.phone}</a>.`;
           errorBox.classList.remove('hidden');
           errorBox.focus();
         }
