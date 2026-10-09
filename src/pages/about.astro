@@ -68,9 +68,9 @@ const ownerBadges: Record<string, { src: string; alt: string } | undefined> = {
               <div class="mb-3 flex items-start justify-between gap-3">
                 <div>
                   <h2 class="mb-1 text-xl font-bold text-ox-navy" itemprop="name">
-                    <a href={withBase(`/arborists/${owner.id}`)} class="hover:text-ox-blue">{owner.name}</a>
+                    <a href={withBase(`/arborists/${owner.id}`)} class="hover:text-ox-blue-dark">{owner.name}</a>
                   </h2>
-                  <p class="text-sm font-medium text-ox-blue" itemprop="jobTitle">{owner.title}</p>
+                  <p class="text-sm font-medium text-ox-blue-dark" itemprop="jobTitle">{owner.title}</p>
                 </div>
                 {ownerBadges[owner.id] && (
                   <img

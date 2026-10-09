@@ -21,7 +21,13 @@ const isDark = variant === 'dark';
     {items.map((item, index) => {
       const isLast = index === items.length - 1;
       return (
-        <li class:list={['flex min-w-0 items-center gap-1', isLast && 'max-w-full']}>
+        <li
+          class:list={[
+            'flex min-w-0 items-center gap-1',
+            isLast && 'max-w-full',
+            isLast && items.length > 2 && 'max-sm:hidden',
+          ]}
+        >
           {index > 0 && <span aria-hidden="true" class="mx-1">/</span>}
           {isLast ? (
             <span
