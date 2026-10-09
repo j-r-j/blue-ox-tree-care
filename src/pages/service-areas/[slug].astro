@@ -35,7 +35,7 @@ const schema = breadcrumbSchema([
   description={area.metaDescription}
   schema={schema}
 >
-  <PageBanner title={area.title} description={area.description} breadcrumbs={[
+  <PageBanner ctas title={area.title} description={area.description} breadcrumbs={[
     { name: 'Home', path: '/' },
     { name: 'Service Areas', path: '/service-areas' },
     { name: area.name, path: `/service-areas/${area.slug}` },

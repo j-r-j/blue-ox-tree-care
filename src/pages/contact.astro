@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageBanner from '../components/PageBanner.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import LeadForm from '../components/LeadForm.astro';
 import { site } from '../data/site';
 import { reviews } from '../data/reviews';
 import { breadcrumbSchema, combineSchemas, localBusinessSchema } from '../lib/schema';
@@ -25,11 +27,29 @@ import { withBase } from '../lib/paths';
       { name: 'Home', path: '/' },
       { name: 'Contact', path: '/contact' },
     ]}
-  />
+  >
+    <p slot="actions" class="mt-4">
+      <a href={`tel:${site.phoneTel}`} class="text-lg font-semibold text-ox-gold hover:underline">
+        Call {site.phone}
+      </a>
+    </p>
+  </PageBanner>
 
-  <section class="py-16">
-    <div class="mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-2">
-      <div>
+  <section class="py-10 md:py-16">
+    <div class="mx-auto grid max-w-6xl gap-12 px-4 lg:grid-cols-5">
+      <div
+        id="estimate"
+        class="rounded-lg border border-ox-navy/10 bg-white p-5 shadow-sm sm:p-8 lg:col-span-3"
+      >
+        <h2 class="mb-1 text-2xl font-bold text-ox-navy md:text-3xl">Get a Free Estimate</h2>
+        <p class="mb-6 text-ox-navy/80">It takes about one minute. The estimate is free.</p>
+        <div class="mb-6 border-b border-ox-navy/10 pb-6">
+          <HowItWorks />
+        </div>
+        <LeadForm />
+      </div>
+
+      <div class="lg:col-span-2">
         <h2 class="mb-6 text-2xl font-bold text-ox-navy">Get in Touch</h2>
         <dl class="space-y-4">
           <div>
@@ -94,53 +114,6 @@ import { withBase } from '../lib/paths';
             </dd>
           </div>
         </dl>
-      </div>
-
-      <div class="rounded-lg border border-ox-navy/10 bg-white p-6 shadow-sm">
-        <h2 class="mb-4 text-xl font-bold text-ox-navy">Request an Estimate</h2>
-        <form
-          action={`mailto:${site.email}?subject=Tree Care Estimate Request`}
-          method="GET"
-          class="space-y-4"
-        >
-          <div>
-            <label for="name" class="mb-1 block text-sm font-medium text-ox-navy">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="body"
-              placeholder="Your name"
-              class="input-field"
-            />
-          </div>
-          <div>
-            <label for="phone" class="mb-1 block text-sm font-medium text-ox-navy">Phone</label>
-            <input
-              type="tel"
-              id="phone"
-              placeholder="(512) 749-8615"
-              class="input-field"
-            />
-          </div>
-          <div>
-            <label for="message" class="mb-1 block text-sm font-medium text-ox-navy">Message</label>
-            <textarea
-              id="message"
-              rows="4"
-              placeholder="Describe your tree care needs, property location, and preferred contact time."
-              class="input-field"
-            ></textarea>
-          </div>
-          <p class="text-xs text-ox-navy/60">
-            This form opens your email client. For faster service, call {site.phone}.
-          </p>
-          <button
-            type="submit"
-            class="btn-primary w-full px-6 py-3"
-          >
-            Send via Email
-          </button>
-        </form>
       </div>
     </div>
   </section>

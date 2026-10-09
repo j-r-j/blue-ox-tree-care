@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageBanner from '../components/PageBanner.astro';
+import { site } from '../data/site';
+import { breadcrumbSchema } from '../lib/schema';
+import { withBase } from '../lib/paths';
+
+const lastUpdated = 'October 9, 2026';
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Terms', path: '/terms' },
+];
+---
+
+<BaseLayout
+  title="Terms and Text Message Terms"
+  description="Terms for using the Blue Ox Tree Care website and for getting calls and text messages from us."
+  schema={breadcrumbSchema(breadcrumbs)}
+>
+  <PageBanner title="Terms" description={`Last updated ${lastUpdated}`} breadcrumbs={breadcrumbs} />
+
+  <section class="py-12">
+    <div class="legal-copy mx-auto max-w-3xl px-4">
+      <p>
+        These terms cover this website and the calls and text messages you may get from{' '}
+        {site.legalName} ("{site.name}," "we," "us"). By using this site, you agree to them.
+      </p>
+
+      <h2 id="sms">Text message terms</h2>
+      <ul>
+        <li>
+          <strong>What you get:</strong> Calls and texts from {site.name} about your estimate
+          request, appointments, and our tree care services.
+        </li>
+        <li>
+          <strong>How you sign up:</strong> By checking the call and text box on our estimate form.
+          You do not have to agree to get an estimate or buy anything.
+        </li>
+        <li>
+          <strong>Automated messages:</strong> Some calls or texts may be sent using automated
+          technology.
+        </li>
+        <li><strong>How often:</strong> Message frequency varies.</li>
+        <li><strong>Cost:</strong> Message and data rates may apply.</li>
+        <li>
+          <strong>To stop:</strong> Reply STOP to any text. We will send one message to confirm, and
+          then stop. You can also call us at <a href={`tel:${site.phoneTel}`}>{site.phone}</a>.
+        </li>
+        <li>
+          <strong>For help:</strong> Reply HELP, call <a href={`tel:${site.phoneTel}`}>{site.phone}</a>,
+          or email <a href={`mailto:${site.email}`}>{site.email}</a>.
+        </li>
+        <li>
+          <strong>Carriers:</strong> Mobile carriers are not liable for delayed or undelivered
+          messages.
+        </li>
+        <li>
+          <strong>Your phone number:</strong> Only give us a number that you own or are allowed to
+          use. If your number changes, please tell us.
+        </li>
+      </ul>
+      <p>
+        Read our <a href={withBase('/privacy')}>Privacy Policy</a> to see how we handle your
+        information.
+      </p>
+
+      <h2>Estimates and website information</h2>
+      <p>
+        The information on this site is general. It is not a quote or a promise about any tree.
+        Prices, scope, and timing for your job are set in the estimate we give you after we see your
+        property.
+      </p>
+
+      <h2>Using this site</h2>
+      <p>
+        Please do not misuse this site or send false information through our forms. The words,
+        photos, and logos on this site belong to {site.legalName} or are used with permission.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        We may update these terms. We will post the new version here and update the date at the top.
+      </p>
+
+      <h2>Contact us</h2>
+      <p>
+        Questions? Call <a href={`tel:${site.phoneTel}`}>{site.phone}</a> or email{' '}
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

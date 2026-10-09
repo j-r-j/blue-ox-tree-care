@@ -40,8 +40,41 @@
     @apply text-sm font-semibold uppercase tracking-wide text-ox-gold;
   }
 
+  /* text-base keeps iOS Safari from zooming in when a field gets focus. */
   .input-field {
-    @apply w-full rounded-md border border-ox-navy/20 px-3 py-2 text-sm focus:border-ox-blue focus:outline-none focus:ring-1 focus:ring-ox-blue;
+    @apply w-full rounded-md border border-ox-navy/30 px-3 py-2.5 text-base focus:border-ox-blue focus:outline-none focus:ring-1 focus:ring-ox-blue;
+  }
+
+  .input-invalid {
+    @apply border-red-600 ring-1 ring-red-600;
+  }
+
+  .form-label {
+    @apply mb-1 block font-semibold text-ox-navy;
+  }
+
+  .required-mark {
+    @apply font-semibold text-red-700;
+  }
+
+  .field-error {
+    @apply mt-1 text-sm font-medium text-red-700;
+  }
+
+  .legal-copy {
+    @apply space-y-4 text-ox-navy/90;
+  }
+
+  .legal-copy h2 {
+    @apply pt-4 text-2xl font-bold text-ox-navy;
+  }
+
+  .legal-copy ul {
+    @apply list-disc space-y-2 pl-6;
+  }
+
+  .legal-copy a {
+    @apply font-medium text-ox-blue-dark underline hover:text-ox-navy;
   }
 
   .video-frame {
@@ -57,8 +90,17 @@
   }
 }
 
+/* Padding keeps anchor targets and focused form fields clear of the sticky header and mobile call bar. */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  scroll-padding-bottom: 4.5rem;
+}
+
+@media (min-width: 64rem) {
+  html {
+    scroll-padding-bottom: 0;
+  }
 }
 
 body {

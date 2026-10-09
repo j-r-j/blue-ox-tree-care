@@ -1,5 +1,6 @@
 ---
 import { site } from '../data/site';
+import { estimateFormPath } from '../data/leadForm';
 import { withBase } from '../lib/paths';
 ---
 
@@ -15,7 +16,7 @@ import { withBase } from '../lib/paths';
       Call {site.phone}
     </a>
     <a
-      href={withBase('/contact')}
+      href={withBase(estimateFormPath)}
       class="flex items-center justify-center bg-ox-gold px-4 py-3 text-sm font-semibold text-ox-navy transition hover:bg-ox-gold-dark"
     >
       Free Estimate

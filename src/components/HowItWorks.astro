@@ -1,0 +1,27 @@
+---
+const steps = [
+  { title: 'Send a request', text: 'Fill out this short form or give us a call.' },
+  { title: 'We call you', text: 'We ask about your trees and pick a time to visit.' },
+  { title: 'Free on-site estimate', text: 'An arborist looks at your trees and gives you a free estimate.' },
+];
+---
+
+<div>
+  <h3 class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-blue-dark">How it works</h3>
+  <ol class="grid gap-3 sm:grid-cols-3">
+    {steps.map((step, index) => (
+      <li class="flex gap-3 sm:flex-col sm:gap-2">
+        <span
+          class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ox-gold text-sm font-bold text-ox-navy"
+          aria-hidden="true"
+        >
+          {index + 1}
+        </span>
+        <div>
+          <p class="font-semibold leading-snug text-ox-navy">{step.title}</p>
+          <p class="text-sm text-ox-navy/75">{step.text}</p>
+        </div>
+      </li>
+    ))}
+  </ol>
+</div>

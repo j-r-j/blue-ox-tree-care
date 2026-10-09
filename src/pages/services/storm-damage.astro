@@ -4,6 +4,7 @@ import CTABanner from '../../components/CTABanner.astro';
 import FAQSection from '../../components/FAQSection.astro';
 import PageBanner from '../../components/PageBanner.astro';
 import { site } from '../../data/site';
+import { estimateFormPath } from '../../data/leadForm';
 import { serviceAreas } from '../../data/serviceAreas';
 import { services } from '../../data/services';
 import { stormDamageFaqs } from '../../data/stormDamageFaqs';
@@ -44,7 +45,7 @@ const schema = combineSchemas(
         Call Now: {site.phone}
       </a>
       <a
-        href={withBase('/contact')}
+        href={withBase(estimateFormPath)}
         class="rounded-md border-2 border-white px-6 py-3 text-center font-semibold text-white transition hover:bg-white/10"
       >
         Request Callback

@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import PageBanner from '../../components/PageBanner.astro';
 import { site } from '../../data/site';
+import { estimateFormPath } from '../../data/leadForm';
 import { serviceAreas } from '../../data/serviceAreas';
 import { services, getService } from '../../data/services';
 import {
@@ -39,6 +40,7 @@ const schema = combineSchemas(
 
 <BaseLayout title={service.title} description={service.metaDescription} schema={schema}>
   <PageBanner
+    ctas
     eyebrow="A New Dawn of Tree Care"
     title={service.pageTitle}
     description={service.intro}
@@ -104,7 +106,7 @@ const schema = combineSchemas(
             Call {site.phone}
           </a>
           <a
-            href={withBase('/contact')}
+            href={withBase(estimateFormPath)}
             class="rounded-md border-2 border-ox-gold px-6 py-3 text-center font-semibold text-ox-gold transition hover:bg-ox-gold/10"
           >
             Free Estimate

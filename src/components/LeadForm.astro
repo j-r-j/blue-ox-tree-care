@@ -1,0 +1,380 @@
+---
+import { site } from '../data/site';
+import {
+  contactMethods,
+  leadFormAccessKey,
+  leadFormEndpoint,
+  serviceOptions,
+  smsConsentLead,
+  smsConsentText,
+} from '../data/leadForm';
+import { withBase } from '../lib/paths';
+
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+const subject = 'New estimate request from website';
+const hasEndpoint = leadFormEndpoint.length > 0;
+---
+
+<div>
+  <form
+    id="estimate-form"
+    data-lead-form
+    data-endpoint={leadFormEndpoint}
+    data-mailto={site.email}
+    data-phone={site.phone}
+    data-phone-tel={site.phoneTel}
+    data-subject={subject}
+    action={hasEndpoint ? leadFormEndpoint : `mailto:${site.email}?subject=${encodeURIComponent(subject)}`}
+    method="POST"
+    enctype={hasEndpoint ? undefined : 'text/plain'}
+    class="space-y-5"
+  >
+    <p class="text-sm text-ox-navy/70">
+      <span class="font-semibold text-red-700" aria-hidden="true">*</span> means required.
+    </p>
+
+    <div>
+      <label for="lead-name" class="form-label">
+        Name <span class="required-mark" aria-hidden="true">*</span>
+      </label>
+      <input
+        type="text"
+        id="lead-name"
+        name="name"
+        autocomplete="name"
+        required
+        class="input-field"
+        aria-describedby="lead-name-error"
+      />
+      <p id="lead-name-error" class="field-error" hidden>Please tell us your name.</p>
+    </div>
+
+    <div class="grid gap-5 sm:grid-cols-2">
+      <div>
+        <label for="lead-phone" class="form-label">
+          Phone <span class="required-mark" aria-hidden="true">*</span>
+        </label>
+        <input
+          type="tel"
+          id="lead-phone"
+          name="phone"
+          autocomplete="tel"
+          inputmode="tel"
+          required
+          class="input-field"
+          aria-describedby="lead-phone-error"
+        />
+        <p id="lead-phone-error" class="field-error" hidden>Please enter a phone number we can call.</p>
+      </div>
+
+      <div>
+        <label for="lead-email" class="form-label">
+          Email{' '}
+          <span class="required-mark" aria-hidden="true" data-email-required hidden>*</span>
+          <span class="text-sm font-normal text-ox-navy/60" data-email-optional>(optional)</span>
+        </label>
+        <input
+          type="email"
+          id="lead-email"
+          name="email"
+          autocomplete="email"
+          inputmode="email"
+          class="input-field"
+          aria-describedby="lead-email-error"
+        />
+        <p id="lead-email-error" class="field-error" hidden>Please enter a valid email address.</p>
+      </div>
+    </div>
+
+    <div>
+      <label for="lead-location" class="form-label">
+        Address or neighborhood <span class="required-mark" aria-hidden="true">*</span>
+      </label>
+      <input
+        type="text"
+        id="lead-location"
+        name="location"
+        autocomplete="street-address"
+        placeholder="Example: 123 Oak St or Tarrytown"
+        required
+        class="input-field"
+        aria-describedby="lead-location-error"
+      />
+      <p id="lead-location-error" class="field-error" hidden>Please tell us where the trees are.</p>
+    </div>
+
+    <div>
+      <label for="lead-service" class="form-label">
+        What do you need? <span class="required-mark" aria-hidden="true">*</span>
+      </label>
+      <select
+        id="lead-service"
+        name="service"
+        required
+        class="input-field bg-white"
+        aria-describedby="lead-service-error"
+      >
+        <option value="">Choose one</option>
+        {serviceOptions.map((option) => <option value={option}>{option}</option>)}
+      </select>
+      <p id="lead-service-error" class="field-error" hidden>Please pick a service.</p>
+    </div>
+
+    <div>
+      <label for="lead-message" class="form-label">
+        Message <span class="text-sm font-normal text-ox-navy/60">(optional)</span>
+      </label>
+      <textarea
+        id="lead-message"
+        name="message"
+        rows="3"
+        placeholder="Tell us about your trees."
+        class="input-field"
+      ></textarea>
+    </div>
+
+    <fieldset>
+      <legend class="form-label">How should we reach you?</legend>
+      <div class="flex flex-wrap gap-x-6 gap-y-2">
+        {contactMethods.map((method, index) => (
+          <label class="flex min-h-11 items-center gap-2 text-ox-navy">
+            <input
+              type="radio"
+              name="preferred_contact"
+              value={method}
+              checked={index === 0}
+              class="h-5 w-5 accent-ox-blue-dark"
+            />
+            {method}
+          </label>
+        ))}
+      </div>
+    </fieldset>
+
+    <div class="rounded-md border border-ox-navy/15 bg-ox-cream p-4">
+      <div class="flex items-start gap-3">
+        <input
+          type="checkbox"
+          id="lead-sms-consent"
+          name="sms_consent"
+          value="yes"
+          class="mt-1 h-5 w-5 shrink-0 accent-ox-blue-dark"
+        />
+        <label for="lead-sms-consent" id="lead-sms-consent-label" class="text-xs leading-relaxed text-ox-navy/80">
+          {smsConsentLead} See our{' '}
+          <a href={withBase('/privacy')} class="link-body">Privacy Policy</a> and{' '}
+          <a href={withBase('/terms')} class="link-body">Terms</a>.
+        </label>
+      </div>
+      <p class="mt-2 pl-8 text-xs text-ox-navy/60">Optional. You can still get an estimate without checking this box.</p>
+    </div>
+
+    <input type="hidden" name="sms_consent_text" value={smsConsentText} />
+    <input type="hidden" name="page_url" value={pageUrl} />
+    <input type="hidden" name="consent_timestamp" value="" />
+    <input type="hidden" name="_subject" value={subject} />
+    {leadFormAccessKey && <input type="hidden" name="access_key" value={leadFormAccessKey} />}
+
+    {/* Honeypot: hidden from people, bots tend to fill it. Submissions with a value are dropped. */}
+    <div class="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+      <label for="lead-company-website">Leave this field empty</label>
+      <input type="text" id="lead-company-website" name="_gotcha" tabindex="-1" autocomplete="off" />
+    </div>
+
+    {/* TODO(turnstile): render the Cloudflare Turnstile widget here and send its token as `cf-turnstile-response`. */}
+
+    <div role="alert" tabindex="-1" class="hidden rounded-md border border-red-300 bg-red-50 p-4 text-sm text-red-800" data-form-error></div>
+
+    <button type="submit" class="btn-primary w-full px-6 py-3 text-base" data-submit>
+      Get My Free Estimate
+    </button>
+    <p class="text-center text-sm text-ox-navy/70">
+      Want to talk now? Call{' '}
+      <a href={`tel:${site.phoneTel}`} class="whitespace-nowrap font-semibold text-ox-navy underline">{site.phone}</a>.
+    </p>
+  </form>
+
+  <div class="hidden rounded-md border border-green-300 bg-green-50 p-6 text-ox-navy" role="status" tabindex="-1" data-form-success>
+    <p class="mb-2 text-lg font-bold">Thanks! We got your request.</p>
+    <p class="mb-3">We will reach out soon to set up your free estimate.</p>
+    <p class="text-sm">
+      Need help sooner? Call{' '}
+      <a href={`tel:${site.phoneTel}`} class="whitespace-nowrap font-semibold underline">{site.phone}</a>.
+    </p>
+  </div>
+
+  <div class="hidden rounded-md border border-ox-blue/40 bg-ox-blue/5 p-6 text-ox-navy" role="status" tabindex="-1" data-form-mailto>
+    <p class="mb-2 text-lg font-bold">Almost done!</p>
+    <p class="mb-3">Your email app should open with your request filled in. Just press send.</p>
+    <p class="text-sm">
+      Email app did not open? Call us at{' '}
+      <a href={`tel:${site.phoneTel}`} class="whitespace-nowrap font-semibold underline">{site.phone}</a>{' '}
+      or email <a href={`mailto:${site.email}`} class="font-semibold underline">{site.email}</a>.
+    </p>
+  </div>
+</div>
+
+<script>
+  type Field = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+
+  const PHONE_DIGITS_MIN = 10;
+
+  function setError(field: Field, show: boolean) {
+    const error = document.getElementById(`${field.id}-error`);
+    field.setAttribute('aria-invalid', show ? 'true' : 'false');
+    field.classList.toggle('input-invalid', show);
+    if (error) error.hidden = !show;
+  }
+
+  function isFieldValid(field: Field): boolean {
+    const value = field.value.trim();
+    if (field.name === 'phone') return value.replace(/\D/g, '').length >= PHONE_DIGITS_MIN;
+    if (field.name === 'email' && value) return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    if (field.required) return value.length > 0;
+    return true;
+  }
+
+  function buildPayload(form: HTMLFormElement) {
+    const data = new FormData(form);
+    const text = (name: string) => String(data.get(name) ?? '').trim();
+    const subject = text('_subject');
+    return {
+      name: text('name'),
+      phone: text('phone'),
+      email: text('email'),
+      location: text('location'),
+      service: text('service'),
+      message: text('message'),
+      preferred_contact: text('preferred_contact'),
+      sms_consent: data.get('sms_consent') === 'yes',
+      sms_consent_text: text('sms_consent_text'),
+      consent_timestamp: new Date().toISOString(),
+      page_url: window.location.href,
+      _subject: subject,
+      subject,
+      ...(data.has('access_key') ? { access_key: text('access_key') } : {}),
+    };
+  }
+
+  function mailtoHref(to: string, payload: ReturnType<typeof buildPayload>) {
+    const lines = [
+      `Name: ${payload.name}`,
+      `Phone: ${payload.phone}`,
+      `Email: ${payload.email || '(none)'}`,
+      `Address or neighborhood: ${payload.location}`,
+      `Service: ${payload.service}`,
+      `Preferred contact: ${payload.preferred_contact}`,
+      `Message: ${payload.message || '(none)'}`,
+      '',
+      `Call/text consent: ${payload.sms_consent ? 'Yes' : 'No'}`,
+      `Consent text shown: ${payload.sms_consent_text}`,
+      `Submitted: ${payload.consent_timestamp}`,
+      `Page: ${payload.page_url}`,
+    ];
+    return `mailto:${to}?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+  }
+
+  function show(el: Element | null) {
+    if (!(el instanceof HTMLElement)) return;
+    el.classList.remove('hidden');
+    el.focus({ preventScroll: true });
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  document.querySelectorAll<HTMLFormElement>('form[data-lead-form]').forEach((form) => {
+    form.noValidate = true;
+    const container = form.parentElement;
+    const successBox = container?.querySelector('[data-form-success]') ?? null;
+    const mailtoBox = container?.querySelector('[data-form-mailto]') ?? null;
+    const errorBox = form.querySelector<HTMLElement>('[data-form-error]');
+    const submitButton = form.querySelector<HTMLButtonElement>('[data-submit]');
+    const emailField = form.querySelector<HTMLInputElement>('input[name="email"]');
+    const fields = Array.from(form.querySelectorAll<Field>('input[id], select[id], textarea[id]')).filter(
+      (field) => field.type !== 'checkbox' && field.type !== 'radio' && field.name !== '_gotcha',
+    );
+
+    const syncEmailRequired = () => {
+      if (!emailField) return;
+      const wantsEmail =
+        form.querySelector<HTMLInputElement>('input[name="preferred_contact"]:checked')?.value === 'Email';
+      emailField.required = wantsEmail;
+      form.querySelector<HTMLElement>('[data-email-required]')!.hidden = !wantsEmail;
+      form.querySelector<HTMLElement>('[data-email-optional]')!.hidden = wantsEmail;
+      if (!wantsEmail && !emailField.value) setError(emailField, false);
+    };
+    form.querySelectorAll('input[name="preferred_contact"]').forEach((radio) =>
+      radio.addEventListener('change', syncEmailRequired),
+    );
+    syncEmailRequired();
+
+    fields.forEach((field) => {
+      field.addEventListener('blur', () => {
+        if (field.value.trim()) setError(field, !isFieldValid(field));
+      });
+      field.addEventListener('input', () => {
+        if (field.getAttribute('aria-invalid') === 'true' && isFieldValid(field)) setError(field, false);
+      });
+    });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      errorBox?.classList.add('hidden');
+
+      const invalid = fields.filter((field) => !isFieldValid(field));
+      fields.forEach((field) => setError(field, invalid.includes(field)));
+      if (invalid.length > 0) {
+        invalid[0].focus();
+        return;
+      }
+
+      const honeypot = form.querySelector<HTMLInputElement>('input[name="_gotcha"]');
+      if (honeypot?.value) {
+        form.classList.add('hidden');
+        show(successBox);
+        return;
+      }
+
+      const payload = buildPayload(form);
+      const endpoint = form.dataset.endpoint ?? '';
+
+      if (!endpoint) {
+        window.location.href = mailtoHref(form.dataset.mailto ?? '', payload);
+        form.classList.add('hidden');
+        show(mailtoBox);
+        return;
+      }
+
+      // TODO(turnstile): read the Turnstile token and add it to the payload before sending.
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+      }
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const result = await response.json().catch(() => ({}));
+        const rejected = result && (result.success === false || result.success === 'false');
+        if (!response.ok || rejected) throw new Error(`Lead form rejected: ${response.status}`);
+        form.reset();
+        form.classList.add('hidden');
+        show(successBox);
+      } catch {
+        if (errorBox) {
+          errorBox.innerHTML =
+            'Sorry, we could not send your request. Please try again, or call us at ' +
+            `<a href="tel:${form.dataset.phoneTel}" class="whitespace-nowrap font-semibold underline">${form.dataset.phone}</a>.`;
+          errorBox.classList.remove('hidden');
+          errorBox.focus();
+        }
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Get My Free Estimate';
+        }
+      }
+    });
+  });
+</script>

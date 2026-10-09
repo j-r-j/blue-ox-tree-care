@@ -115,6 +115,11 @@ const guideNavItems = getGuideNavItems();
   <div class="border-t border-white/10">
     <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-4 text-xs text-white/60 sm:flex-row">
       <p>&copy; {new Date().getFullYear()} {site.legalName}. All rights reserved.</p>
+      <p>
+        <a href={withBase('/privacy')} class="hover:text-white hover:underline">Privacy Policy</a>
+        <span aria-hidden="true" class="mx-1">·</span>
+        <a href={withBase('/terms')} class="hover:text-white hover:underline">Terms</a>
+      </p>
       <p>ISA Certified Arborists · Austin, Texas</p>
     </div>
   </div>
