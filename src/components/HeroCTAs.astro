@@ -1,0 +1,32 @@
+---
+import { site } from '../data/site';
+import { estimateFormPath } from '../data/leadForm';
+import { withBase } from '../lib/paths';
+
+interface Props {
+  estimateLabel?: string;
+  callLabel?: string;
+  class?: string;
+}
+
+const {
+  estimateLabel = 'Get a Free Estimate',
+  callLabel = `Call ${site.phone}`,
+  class: className,
+} = Astro.props;
+---
+
+<div class:list={['flex flex-col gap-3 sm:flex-row', className]}>
+  <a
+    href={withBase(estimateFormPath)}
+    class="btn-primary px-6 py-3 text-center text-base"
+  >
+    {estimateLabel}
+  </a>
+  <a
+    href={`tel:${site.phoneTel}`}
+    class="rounded-md border-2 border-white px-6 py-3 text-center font-semibold text-white transition hover:bg-white/10"
+  >
+    {callLabel}
+  </a>
+</div>

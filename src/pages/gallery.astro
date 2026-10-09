@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABanner from '../components/CTABanner.astro';
 import PageBanner from '../components/PageBanner.astro';
 import { breadcrumbSchema } from '../lib/schema';
+import { estimateFormPath } from '../data/leadForm';
 import { withBase } from '../lib/paths';
 ---
 
@@ -35,7 +36,7 @@ import { withBase } from '../lib/paths';
         We are preparing a gallery of recent trimming, removal, and arborist work from Austin, Round Rock,
         and Bee Cave / Lakeway. Check back soon, or call for a free estimate in the meantime.
       </p>
-      <a href={withBase('/contact')} class="btn-primary inline-block px-6 py-3">
+      <a href={withBase(estimateFormPath)} class="btn-primary inline-block px-6 py-3">
         Request a Free Estimate
       </a>
     </div>

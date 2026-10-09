@@ -1,5 +1,6 @@
 ---
 import { site } from '../data/site';
+import { estimateFormPath } from '../data/leadForm';
 import { withBase } from '../lib/paths';
 
 interface Props {
@@ -11,7 +12,7 @@ interface Props {
 const {
   heading = 'Ready to schedule tree care?',
   subtext = 'Call for a consultation or request an estimate for your Austin-area property.',
-  contactLabel = 'Contact Us',
+  contactLabel = 'Get a Free Estimate',
 } = Astro.props;
 ---
 
@@ -21,16 +22,16 @@ const {
     <p class="mb-6 text-white/90">{subtext}</p>
     <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
       <a
-        href={`tel:${site.phoneTel}`}
+        href={withBase(estimateFormPath)}
         class="rounded-md bg-ox-gold px-6 py-3 font-semibold text-ox-navy transition hover:bg-ox-gold-dark"
       >
-        Call {site.phone}
+        {contactLabel}
       </a>
       <a
-        href={withBase('/contact')}
+        href={`tel:${site.phoneTel}`}
         class="rounded-md border-2 border-white px-6 py-3 font-semibold text-white transition hover:bg-white/10"
       >
-        {contactLabel}
+        Call {site.phone}
       </a>
     </div>
   </div>

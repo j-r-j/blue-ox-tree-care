@@ -1,5 +1,6 @@
 ---
 import Breadcrumbs from './Breadcrumbs.astro';
+import HeroCTAs from './HeroCTAs.astro';
 import type { BreadcrumbItem } from '../lib/schema';
 
 interface Props {
@@ -7,20 +8,25 @@ interface Props {
   description?: string;
   eyebrow?: string;
   breadcrumbs?: BreadcrumbItem[];
+  /** Show the standard Free Estimate + Call buttons under the description. */
+  ctas?: boolean;
 }
 
-const { title, description, eyebrow, breadcrumbs } = Astro.props;
+const { title, description, eyebrow, breadcrumbs, ctas = false } = Astro.props;
 ---
 
-<section class="bg-ox-navy py-12 text-white">
+<section class:list={['bg-ox-navy text-white', ctas ? 'pt-6 pb-8 md:py-12' : 'py-12']}>
   <div class="mx-auto max-w-4xl px-4">
     {breadcrumbs && <Breadcrumbs items={breadcrumbs} variant="dark" />}
     {eyebrow && (
       <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-gold">{eyebrow}</p>
     )}
     <slot name="prefix" />
-    <h1 class="mb-4 text-4xl font-bold">{title}</h1>
-    {description && <p class="text-lg text-white/90">{description}</p>}
+    <h1 class:list={['mb-4 font-bold', ctas ? 'text-3xl leading-tight md:text-4xl' : 'text-4xl']}>{title}</h1>
+    {description && (
+      <p class:list={['text-white/90', ctas ? 'text-base md:text-lg' : 'text-lg']}>{description}</p>
+    )}
+    {ctas && <HeroCTAs class="mt-5 md:mt-6" />}
     <slot name="actions" />
   </div>
 </section>

@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABanner from '../components/CTABanner.astro';
 import CredentialStrip from '../components/CredentialStrip.astro';
 import GoogleReviewsStrip from '../components/GoogleReviewsStrip.astro';
+import HeroCTAs from '../components/HeroCTAs.astro';
 import PestDiseaseHighlight from '../components/PestDiseaseHighlight.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import AreaCard from '../components/AreaCard.astro';
@@ -22,18 +23,19 @@ const guideNavItems = getGuideNavItems();
   schema={localBusinessSchema()}
 >
   <section class="overflow-hidden bg-gradient-to-b from-ox-navy to-[#152f3c] text-white">
-    <div class="mx-auto max-w-6xl px-4 pt-8 pb-12 md:py-24">
+    <div class="mx-auto max-w-6xl px-4 pt-6 pb-12 md:py-24">
       <div class="max-w-3xl">
-        <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-ox-gold">Austin, Texas</p>
-        <h1 class="mb-4 text-3xl font-bold leading-tight md:text-5xl">
+        <p class="mb-1 text-sm font-semibold uppercase tracking-wide text-ox-gold md:mb-2">Austin, Texas</p>
+        <h1 class="mb-3 text-3xl font-bold leading-tight md:mb-4 md:text-5xl">
           Professional Tree Care in Austin by ISA Certified Arborists
         </h1>
-        <p class="mb-3 text-lg text-white/90 md:mb-4">
+        <p class="mb-4 text-base text-white/90 md:mb-6 md:text-lg">
           An ISA certified arborist team led by Board Certified Master Arborist Travis Berlin and
           ISA Certified Arborist Lacy Berlin, serving Austin, Round Rock, Bee Cave, and Lakeway from
           structural pruning to organic pest and disease care.
         </p>
-        <ul class="mb-4 space-y-1.5 text-sm text-white/85 md:mb-6 md:space-y-2">
+        <HeroCTAs class="mb-5 md:mb-6" />
+        <ul class="space-y-1.5 text-sm text-white/85 md:space-y-2">
           {site.trustLines.map((line) => (
             <li class="flex items-start gap-2">
               <span class="mt-0.5 text-ox-gold">✓</span>
@@ -41,20 +43,6 @@ const guideNavItems = getGuideNavItems();
             </li>
           ))}
         </ul>
-        <div class="flex flex-col gap-3 sm:flex-row">
-          <a
-            href={`tel:${site.phoneTel}`}
-            class="rounded-md bg-ox-gold px-6 py-3 text-center font-semibold text-ox-navy transition hover:bg-ox-gold-dark"
-          >
-            Call {site.phone}
-          </a>
-          <a
-            href={withBase('/contact')}
-            class="rounded-md border-2 border-white px-6 py-3 text-center font-semibold text-white transition hover:bg-white/10"
-          >
-            Free Estimate
-          </a>
-        </div>
       </div>
     </div>
   </section>
