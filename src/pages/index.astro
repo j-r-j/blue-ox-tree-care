@@ -10,6 +10,7 @@ import AreaCard from '../components/AreaCard.astro';
 import { site, seo } from '../data/site';
 import { services } from '../data/services';
 import { serviceAreas } from '../data/serviceAreas';
+import { neighborhoods } from '../data/neighborhoods';
 import { getGuideNavItems } from '../data/guides';
 import { localBusinessSchema } from '../lib/schema';
 import { withBase } from '../lib/paths';
@@ -66,8 +67,8 @@ const guideNavItems = getGuideNavItems();
         ))}
       </div>
       <div class="mt-8 text-center">
-        <a href={withBase('/services')} class="font-semibold text-ox-blue hover:text-ox-blue-dark hover:underline">
-          View all services →
+        <a href={withBase('/services')} class="font-semibold text-ox-blue-dark hover:underline">
+          View all tree care services →
         </a>
       </div>
     </div>
@@ -85,6 +86,11 @@ const guideNavItems = getGuideNavItems();
         {serviceAreas.map((area) => (
           <AreaCard area={area} />
         ))}
+      </div>
+      <div class="mt-8 text-center">
+        <a href={withBase('/service-areas')} class="font-semibold text-ox-blue-dark hover:underline">
+          See all {neighborhoods.length} Austin neighborhoods we serve →
+        </a>
       </div>
     </div>
   </section>
@@ -110,7 +116,7 @@ const guideNavItems = getGuideNavItems();
               <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-ox-gold">Featured</p>
             )}
             <h3 class="mb-3 text-lg font-bold text-ox-navy">
-              <a href={withBase(`/guides/${guide.slug}`)} class="hover:text-ox-blue">
+              <a href={withBase(`/guides/${guide.slug}`)} class="hover:text-ox-blue-dark">
                 {guide.title}
               </a>
             </h3>
@@ -136,20 +142,20 @@ const guideNavItems = getGuideNavItems();
       <h2 class="mb-4 text-3xl font-bold text-ox-navy">Why Choose Blue Ox?</h2>
       <div class="grid gap-8 text-left md:grid-cols-3">
         <div>
-          <h3 class="mb-2 font-semibold text-ox-blue">ISA Certified</h3>
+          <h3 class="mb-2 font-semibold text-ox-blue-dark">ISA Certified</h3>
           <p class="text-sm text-ox-navy/80">
             <a href={withBase('/arborists/travis-berlin')} class="link-body">Travis Berlin</a> is an ISA Board Certified Master Arborist (RM-7612B), a credential earned by fewer than 2% of ISA Certified Arborists.{' '}
             <a href={withBase('/arborists/lacy-berlin')} class="link-body">Lacy Berlin</a> is an ISA Certified Arborist (RM-8632A).
           </p>
         </div>
         <div>
-          <h3 class="mb-2 font-semibold text-ox-blue">Licensed & Insured</h3>
+          <h3 class="mb-2 font-semibold text-ox-blue-dark">Licensed & Insured</h3>
           <p class="text-sm text-ox-navy/80">
             Professional equipment, rigorous safety standards, and full insurance for hazardous tree work on your property.
           </p>
         </div>
         <div>
-          <h3 class="mb-2 font-semibold text-ox-blue">Central Texas Expertise</h3>
+          <h3 class="mb-2 font-semibold text-ox-blue-dark">Central Texas Expertise</h3>
           <p class="text-sm text-ox-navy/80">
             Live oaks, oak wilt protocols, heritage tree permits, organic treatments, and Hill Country fire mitigation.
           </p>

@@ -5,13 +5,15 @@ export interface ServiceArea {
   name: string;
   /** Visible H1 / page banner title. */
   title: string;
-  /** Document `<title>` — unique per page for SEO. */
+  /** Document `<title>`, unique per page for SEO. */
   metaTitle: string;
   metaDescription: string;
   description: string;
   body: string[];
   neighborhoods: string[];
   relatedServices: string[];
+  /** Neighborhood page slugs near this area (Austin links every neighborhood). */
+  nearbyNeighborhoods?: string[];
 }
 
 export const serviceAreas: ServiceArea[] = [
@@ -82,6 +84,7 @@ export const serviceAreas: ServiceArea[] = [
       'Rough Hollow',
     ],
     relatedServices: ['fire-mitigation', 'tree-trimming', 'tree-removal', 'tree-risk-assessment'],
+    nearbyNeighborhoods: ['west-lake-hills', 'rollingwood', 'barton-creek', 'lost-creek', 'steiner-ranch'],
   },
 ];
 

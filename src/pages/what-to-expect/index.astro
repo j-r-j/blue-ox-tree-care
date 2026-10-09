@@ -9,13 +9,14 @@ import { withBase } from '../../lib/paths';
 
 const breadcrumbs = [
   { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
   { name: 'What to Expect', path: '/what-to-expect' },
 ];
 ---
 
 <BaseLayout
-  title="What to Expect | Blue Ox Tree Care Austin"
-  description="Free estimates, on-site arborist assessments, timelines, payment, service radius, and storm triage: what to expect when you hire Blue Ox Tree Care. Call (512) 749-8615."
+  title="What to Expect When You Hire Us | Austin Tree Care"
+  description="Free estimates, on-site arborist visits, scheduling, payment, and storm triage: how hiring Blue Ox Tree Care works in Austin. Call (512) 749-8615."
   schema={breadcrumbSchema(breadcrumbs)}
 >
   <PageBanner
@@ -24,9 +25,9 @@ const breadcrumbs = [
     breadcrumbs={breadcrumbs}
   />
 
-  <section class="py-16">
+  <section class="py-12 md:py-16">
     <div class="mx-auto max-w-4xl px-4">
-      <div class="prose prose-ox max-w-none space-y-12 text-ox-navy/90">
+      <div class="space-y-12 text-ox-navy/90">
         <div>
           <h2 class="mb-4 text-2xl font-bold text-ox-navy">Free estimate flow</h2>
           <p class="mb-4">

@@ -8,7 +8,11 @@ export default defineConfig({
   output: 'static',
   site: 'https://j-r-j.github.io',
   base: '/blue-ox-tree-care/',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/gallery'),
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },

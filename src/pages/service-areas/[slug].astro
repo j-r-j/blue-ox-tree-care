@@ -2,10 +2,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import PageBanner from '../../components/PageBanner.astro';
+import NeighborhoodLinks from '../../components/NeighborhoodLinks.astro';
+import SidebarCTA from '../../components/SidebarCTA.astro';
 import { serviceAreas, getServiceArea } from '../../data/serviceAreas';
 import { neighborhoods } from '../../data/neighborhoods';
 import { services } from '../../data/services';
-import { breadcrumbSchema, combineSchemas } from '../../lib/schema';
+import { breadcrumbSchema } from '../../lib/schema';
 import { withBase } from '../../lib/paths';
 
 export function getStaticPaths() {
@@ -22,12 +24,14 @@ if (!area) {
 }
 
 const relatedServices = services.filter((s) => area.relatedServices.includes(s.slug));
+const nearbyNeighborhoods = neighborhoods.filter((n) => area.nearbyNeighborhoods?.includes(n.slug));
 
-const schema = breadcrumbSchema([
+const breadcrumbs = [
   { name: 'Home', path: '/' },
-  { name: 'Service Areas', path: '/service-areas' },
+  { name: 'Areas We Serve', path: '/service-areas' },
   { name: area.name, path: `/service-areas/${area.slug}` },
-]);
+];
+const schema = breadcrumbSchema(breadcrumbs);
 ---
 
 <BaseLayout
@@ -35,13 +39,9 @@ const schema = breadcrumbSchema([
   description={area.metaDescription}
   schema={schema}
 >
-  <PageBanner ctas title={area.title} description={area.description} breadcrumbs={[
-    { name: 'Home', path: '/' },
-    { name: 'Service Areas', path: '/service-areas' },
-    { name: area.name, path: `/service-areas/${area.slug}` },
-  ]} />
+  <PageBanner ctas title={area.title} description={area.description} breadcrumbs={breadcrumbs} />
 
-  <section class="py-16">
+  <section class="py-12 md:py-16">
     <div class="mx-auto max-w-4xl px-4">
       <div class="grid gap-12 md:grid-cols-3">
         <div class="md:col-span-2">
@@ -62,35 +62,42 @@ const schema = breadcrumbSchema([
           </ul>
 
           {area.slug === 'austin' && (
-            <div class="mb-8">
-              <h2 class="mb-4 text-2xl font-bold text-ox-navy">Central & West Austin Neighborhoods</h2>
-              <p class="mb-4 text-sm text-ox-navy/80">
-                Detailed tree care for leafy central and west Austin communities we serve frequently:
+            <div class="mb-10">
+              <h2 class="mb-2 text-2xl font-bold text-ox-navy">Austin Neighborhood Tree Care</h2>
+              <p class="mb-5 text-sm text-ox-navy/80">
+                Local guidance for the central and west Austin communities we serve most often:
               </p>
-              <ul class="grid gap-2 sm:grid-cols-2">
-                {neighborhoods.map((n) => (
-                  <li>
-                    <a href={withBase(`/neighborhoods/${n.slug}`)} class="link-body">
-                      {n.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <p class="mt-4 text-sm">
-                <a href={withBase('/neighborhoods')} class="link-aside font-medium">View all neighborhoods →</a>
+              <NeighborhoodLinks />
+              <p class="mt-5 text-sm">
+                <a href={withBase('/neighborhoods')} class="link-aside font-semibold">Compare all Austin neighborhoods →</a>
               </p>
             </div>
           )}
 
+          {nearbyNeighborhoods.length > 0 && (
+            <div class="mb-10">
+              <h2 class="mb-4 text-2xl font-bold text-ox-navy">Nearby Neighborhood Guides</h2>
+              <ul class="grid gap-2 sm:grid-cols-2">
+                {nearbyNeighborhoods.map((n) => (
+                  <li>
+                    <a href={withBase(`/neighborhoods/${n.slug}`)} class="link-body">
+                      Tree care in {n.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           <h2 class="mb-4 text-2xl font-bold text-ox-navy">Popular Services in {area.name}</h2>
-          <ul class="space-y-3">
+          <ul class="space-y-4">
             {relatedServices.map((service) => (
               <li>
                 <a
                   href={withBase(`/services/${service.slug}`)}
                   class="link-body"
                 >
-                  {service.shortTitle}
+                  {service.shortTitle} in {area.name}
                 </a>
                 <p class="text-sm text-ox-navy/70">{service.intro}</p>
               </li>
@@ -98,16 +105,17 @@ const schema = breadcrumbSchema([
           </ul>
         </div>
 
-        <aside>
-          <div class="rounded-lg border border-ox-navy/10 bg-white p-6 shadow-sm">
-            <h3 class="mb-3 font-semibold text-ox-navy">Other Service Areas</h3>
+        <aside class="space-y-6">
+          <SidebarCTA heading={`Free estimate in ${area.name}`} />
+          <div class="sidebar-card">
+            <h2 class="sidebar-heading">Other Areas We Serve</h2>
             <ul class="space-y-2">
               {serviceAreas
                 .filter((a) => a.slug !== area.slug)
                 .map((a) => (
                   <li>
                     <a href={withBase(`/service-areas/${a.slug}`)} class="link-aside">
-                      {a.name}
+                      Tree care in {a.name}
                     </a>
                   </li>
                 ))}

@@ -27,13 +27,14 @@ const ownerBadges: Record<string, { src: string; alt: string } | undefined> = {
 
 const breadcrumbs = [
   { name: 'Home', path: '/' },
-  { name: 'Arborists', path: '/arborists' },
+  { name: 'About', path: '/about' },
+  { name: 'Our Arborists', path: '/arborists' },
 ];
 ---
 
 <BaseLayout
   title="Meet Our ISA Certified Arborists | Austin, TX"
-  description="Travis Berlin (ISA BCMA, RM-7612B) and Lacy Berlin (ISA Certified Arborist, RM-8632A), co-owners of Blue Ox Tree Care serving the Austin metro. Call (512) 749-8615."
+  description="Travis Berlin (ISA BCMA, RM-7612B) and Lacy Berlin (ISA Certified Arborist, RM-8632A) own and run Blue Ox Tree Care in Austin. Call (512) 749-8615."
   schema={combineSchemas(breadcrumbSchema(breadcrumbs), personSchemas())}
 >
   <PageBanner
@@ -42,7 +43,7 @@ const breadcrumbs = [
     breadcrumbs={breadcrumbs}
   />
 
-  <section class="py-16">
+  <section class="py-12 md:py-16">
     <div class="mx-auto max-w-4xl px-4">
       <div class="grid gap-8 md:grid-cols-2">
         {site.owners.map((owner) => (
@@ -61,11 +62,11 @@ const breadcrumbs = [
               <div class="mb-3 flex items-start justify-between gap-3">
                 <div>
                   <h2 class="mb-1 text-xl font-bold text-ox-navy">
-                    <a href={withBase(`/arborists/${owner.id}`)} class="hover:text-ox-blue">
+                    <a href={withBase(`/arborists/${owner.id}`)} class="hover:text-ox-blue-dark">
                       {owner.name}
                     </a>
                   </h2>
-                  <p class="text-sm font-medium text-ox-blue">{owner.title}</p>
+                  <p class="text-sm font-medium text-ox-blue-dark">{owner.title}</p>
                 </div>
                 {ownerBadges[owner.id] && (
                   <img
@@ -79,9 +80,9 @@ const breadcrumbs = [
                 )}
               </div>
               <p class="mb-3 text-sm font-semibold text-ox-navy/70">{owner.credentials}</p>
-              <p class="mb-4 text-sm text-ox-navy/85">{owner.bio.slice(0, 220)}…</p>
-              <a href={withBase(`/arborists/${owner.id}`)} class="link-aside font-medium">
-                Full bio →
+              <p class="mb-4 line-clamp-4 text-sm text-ox-navy/85">{owner.bio}</p>
+              <a href={withBase(`/arborists/${owner.id}`)} class="link-aside font-semibold">
+                Read {owner.name.split(' ')[0]}'s full profile →
               </a>
             </div>
           </article>

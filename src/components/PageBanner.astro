@@ -15,17 +15,15 @@ interface Props {
 const { title, description, eyebrow, breadcrumbs, ctas = false } = Astro.props;
 ---
 
-<section class:list={['bg-ox-navy text-white', ctas ? 'pt-6 pb-8 md:py-12' : 'py-12']}>
+<section class:list={['bg-ox-navy text-white', ctas ? 'pt-6 pb-8 md:py-12' : 'py-8 md:py-12']}>
   <div class="mx-auto max-w-4xl px-4">
     {breadcrumbs && <Breadcrumbs items={breadcrumbs} variant="dark" />}
     {eyebrow && (
       <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-ox-gold">{eyebrow}</p>
     )}
     <slot name="prefix" />
-    <h1 class:list={['mb-4 font-bold', ctas ? 'text-3xl leading-tight md:text-4xl' : 'text-4xl']}>{title}</h1>
-    {description && (
-      <p class:list={['text-white/90', ctas ? 'text-base md:text-lg' : 'text-lg']}>{description}</p>
-    )}
+    <h1 class="mb-3 text-3xl font-bold leading-tight md:mb-4 md:text-4xl">{title}</h1>
+    {description && <p class="max-w-3xl text-base text-white/90 md:text-lg">{description}</p>}
     {ctas && <HeroCTAs class="mt-5 md:mt-6" />}
     <slot name="actions" />
   </div>

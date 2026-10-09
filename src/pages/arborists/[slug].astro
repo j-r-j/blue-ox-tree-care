@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import PageBanner from '../../components/PageBanner.astro';
+import SidebarCTA from '../../components/SidebarCTA.astro';
 import { site } from '../../data/site';
 import { breadcrumbSchema, combineSchemas, personSchema } from '../../lib/schema';
 import { withBase } from '../../lib/paths';
@@ -40,7 +41,8 @@ const ownerBadges: Record<string, { src: string; alt: string } | undefined> = {
 
 const breadcrumbs = [
   { name: 'Home', path: '/' },
-  { name: 'Arborists', path: '/arborists' },
+  { name: 'About', path: '/about' },
+  { name: 'Our Arborists', path: '/arborists' },
   { name: owner.name, path: `/arborists/${owner.id}` },
 ];
 
@@ -51,8 +53,8 @@ const pageTitle =
 
 const pageDescription =
   owner.id === 'travis-berlin'
-    ? 'Travis Berlin: ISA Board Certified Master Arborist (RM-7612B), fewer than 2% of ISA Certified Arborists earn BCMA. Co-owner of Blue Ox Tree Care in Austin, TX. Call (512) 749-8615.'
-    : 'Lacy Berlin: ISA Certified Arborist (RM-8632A) and co-owner of Blue Ox Tree Care in Austin, TX. Tree health treatments and organic pest & disease care. Call (512) 749-8615.';
+    ? 'Travis Berlin, ISA Board Certified Master Arborist (RM-7612B), a credential held by under 2% of ISA arborists. Co-owner of Blue Ox Tree Care, Austin.'
+    : 'Lacy Berlin, ISA Certified Arborist (RM-8632A) and co-owner of Blue Ox Tree Care in Austin, TX, leads tree health and organic pest & disease care.';
 
 const otherOwner = site.owners.find((o) => o.id !== owner.id)!;
 ---
@@ -64,7 +66,7 @@ const otherOwner = site.owners.find((o) => o.id !== owner.id)!;
 >
   <PageBanner title={owner.name} description={owner.title} breadcrumbs={breadcrumbs} />
 
-  <section class="py-16">
+  <section class="py-12 md:py-16">
     <div class="mx-auto max-w-4xl px-4">
       <div class="grid gap-12 md:grid-cols-3">
         <div class="md:col-span-2">
@@ -114,18 +116,18 @@ const otherOwner = site.owners.find((o) => o.id !== owner.id)!;
         </div>
 
         <aside class="space-y-6">
-          <div class="rounded-lg border border-ox-navy/10 bg-white p-6 shadow-sm">
-            <h2 class="mb-3 font-semibold text-ox-navy">Also meet</h2>
+          <SidebarCTA heading={`Schedule with ${owner.name.split(' ')[0]}`} />
+          <div class="sidebar-card">
+            <h2 class="sidebar-heading">Also meet</h2>
             <p class="mb-3 text-sm text-ox-navy/80">
               <a href={withBase(`/arborists/${otherOwner.id}`)} class="link-aside font-medium">
                 {otherOwner.name}
-              </a>
-             , {otherOwner.credentials}
+              </a>, {otherOwner.credentials}
             </p>
-            <a href={withBase('/about')} class="link-aside text-sm">About Blue Ox →</a>
+            <a href={withBase('/arborists')} class="link-aside text-sm">All arborists →</a>
           </div>
-          <div class="rounded-lg border border-ox-navy/10 bg-white p-6 shadow-sm">
-            <h2 class="mb-3 font-semibold text-ox-navy">Related</h2>
+          <div class="sidebar-card">
+            <h2 class="sidebar-heading">Related</h2>
             <ul class="space-y-2 text-sm">
               <li><a href={withBase('/what-to-expect')} class="link-aside">What to expect</a></li>
               <li><a href={withBase('/services/tree-risk-assessment')} class="link-aside">Tree risk assessment</a></li>

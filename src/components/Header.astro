@@ -1,184 +1,187 @@
 ---
 import { site } from '../data/site';
-import { services } from '../data/services';
-import { serviceAreas } from '../data/serviceAreas';
-import { getGuideNavItems } from '../data/guides';
+import { mainNav, type NavItem } from '../data/nav';
+import { estimateFormPath } from '../data/leadForm';
 import { withBase } from '../lib/paths';
 
-const currentPath = Astro.url.pathname;
-const guideNavItems = getGuideNavItems();
+const currentPath = Astro.url.pathname.replace(/\/$/, '');
 
-function isActive(href: string) {
-  const target = withBase(href);
-  if (href === '/') {
-    return currentPath === target || currentPath === target.replace(/\/$/, '');
-  }
-  return currentPath.startsWith(target.replace(/\/$/, ''));
+function normalize(href: string) {
+  return withBase(href).replace(/\/$/, '');
+}
+
+function isCurrent(item: NavItem) {
+  return currentPath === normalize(item.href);
+}
+
+function isActive(item: NavItem) {
+  return [item.href, ...(item.match ?? [])].some((href) => {
+    const target = normalize(href);
+    return currentPath === target || currentPath.startsWith(`${target}/`);
+  });
 }
 ---
 
 <header class="sticky top-0 z-50 bg-ox-navy text-white shadow-md">
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-    <a href={withBase('/')} class="flex items-center gap-3 no-underline">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 lg:h-[72px]">
+    <a href={withBase('/')} class="flex shrink-0 items-center gap-2.5 no-underline sm:gap-3">
       <picture>
         <source srcset={withBase('/logo-ox.webp')} type="image/webp" />
         <img
           src={withBase('/logo-ox.png')}
-          alt="Blue Ox Tree Care"
+          alt=""
           width="44"
           height="44"
-          class="h-11 w-11 shrink-0 object-contain"
+          class="h-10 w-10 shrink-0 object-contain sm:h-11 sm:w-11"
           loading="eager"
         />
       </picture>
       <span class="text-lg font-bold leading-tight tracking-tight text-white">Blue Ox Tree Care</span>
     </a>
 
-    <nav class="hidden items-center gap-6 lg:flex" aria-label="Main navigation">
-      <div class="group relative">
-        <a
-          href={withBase('/services')}
-          class:list={[
-            'text-sm font-medium transition hover:text-ox-gold',
-            isActive('/services') ? 'text-ox-gold' : 'text-white',
-          ]}
-        >
-          Services
-        </a>
-        <div class="invisible absolute left-0 top-full z-50 min-w-[220px] pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100">
-          <div class="rounded-md bg-white py-2 shadow-lg">
-            {services.map((service) => (
-              <a
-                href={withBase(`/services/${service.slug}`)}
-                class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream"
-              >
-                {service.shortTitle}
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div class="group relative">
-        <a
-          href={withBase('/service-areas')}
-          class:list={[
-            'text-sm font-medium transition hover:text-ox-gold',
-            isActive('/service-areas') ? 'text-ox-gold' : 'text-white',
-          ]}
-        >
-          Service Areas
-        </a>
-        <div class="invisible absolute left-0 top-full z-50 min-w-[200px] pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100">
-          <div class="rounded-md bg-white py-2 shadow-lg">
-            {serviceAreas.map((area) => (
-              <a
-                href={withBase(`/service-areas/${area.slug}`)}
-                class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream"
-              >
-                {area.name}
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div class="group relative">
-        <a
-          href={withBase('/guides')}
-          class:list={[
-            'text-sm font-medium transition hover:text-ox-gold',
-            isActive('/guides') ? 'text-ox-gold' : 'text-white',
-          ]}
-        >
-          Guides ▾
-        </a>
-        <div class="invisible absolute left-0 top-full z-50 min-w-[260px] pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100">
-          <div class="rounded-md bg-white py-2 shadow-lg">
-            <a href={withBase('/guides')} class="block px-4 py-2 text-sm font-medium text-ox-navy hover:bg-ox-cream">
-              All Guides
+    <nav class="hidden lg:block" aria-label="Main">
+      <ul class="flex items-center gap-1 xl:gap-2">
+        {mainNav.map((item) => (
+          <li>
+            <a
+              href={withBase(item.href)}
+              aria-current={isCurrent(item) ? 'page' : undefined}
+              class:list={[
+                'relative block rounded-md px-3 py-2 text-[15px] font-semibold transition hover:bg-white/10 hover:text-ox-gold',
+                isActive(item)
+                  ? 'text-ox-gold after:absolute after:inset-x-3 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-ox-gold'
+                  : 'text-white',
+              ]}
+            >
+              {item.label}
             </a>
-            {guideNavItems.map((guide) => (
-              <a
-                href={withBase(`/guides/${guide.slug}`)}
-                class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream"
-              >
-                {guide.navLabel}
-              </a>
-            ))}
-            <a href={withBase('/journal')} class="block border-t border-ox-navy/10 px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">
-              Journal
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <a
-        href={withBase('/about')}
-        class:list={[
-          'text-sm font-medium transition hover:text-ox-gold',
-          isActive('/about') ? 'text-ox-gold' : 'text-white',
-        ]}
-      >
-        About
-      </a>
-      <a
-        href={withBase('/faq')}
-        class:list={[
-          'text-sm font-medium transition hover:text-ox-gold',
-          isActive('/faq') ? 'text-ox-gold' : 'text-white',
-        ]}
-      >
-        FAQ
-      </a>
-      <a
-        href={withBase('/contact')}
-        class:list={[
-          'text-sm font-medium transition hover:text-ox-gold',
-          isActive('/contact') ? 'text-ox-gold' : 'text-white',
-        ]}
-      >
-        Contact
-      </a>
+          </li>
+        ))}
+      </ul>
     </nav>
 
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-2 sm:gap-3">
       <a
         href={`tel:${site.phoneTel}`}
-        class="hidden rounded-md bg-ox-gold px-4 py-2 text-sm font-semibold text-ox-navy transition hover:bg-ox-gold-dark sm:inline-block"
+        class="hidden items-center gap-2 rounded-md px-2 py-2 text-[15px] font-semibold text-white transition hover:text-ox-gold sm:inline-flex"
       >
+        <svg class="h-4 w-4 text-ox-gold" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z" />
+        </svg>
         {site.phone}
       </a>
-      <details class="relative lg:hidden">
-        <summary class="cursor-pointer list-none rounded-md border border-white/30 px-3 py-2 text-sm font-medium">
-          Menu
-        </summary>
-        <div class="absolute right-0 mt-2 max-h-[70vh] w-72 overflow-y-auto rounded-md bg-white py-2 shadow-lg">
-          <a href={withBase('/services')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Services</a>
-          <a href={withBase('/service-areas')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Service Areas</a>
-          <a
-            href={withBase('/guides')}
-            class="block px-4 pt-2 text-sm font-semibold text-ox-navy hover:bg-ox-cream"
-          >
-            Guides
-          </a>
-          {guideNavItems.map((guide) => (
-            <a href={withBase(`/guides/${guide.slug}`)} class="block px-4 py-2 pl-6 text-sm text-ox-navy hover:bg-ox-cream">
-              {guide.navLabel}
-            </a>
-          ))}
-          <a href={withBase('/journal')} class="block px-4 py-2 pl-6 text-sm text-ox-navy hover:bg-ox-cream">Journal</a>
-          <a href={withBase('/about')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">About</a>
-          <a href={withBase('/faq')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">FAQ</a>
-          <a href={withBase('/contact')} class="block px-4 py-2 text-sm text-ox-navy hover:bg-ox-cream">Contact</a>
-          <a href={withBase('/contact')} class="block px-4 py-2 text-sm font-semibold text-ox-navy hover:bg-ox-cream">
-            Free Estimate
-          </a>
-          <a href={`tel:${site.phoneTel}`} class="block px-4 py-2 text-sm font-semibold text-ox-gold hover:bg-ox-cream">
-            Call {site.phone}
-          </a>
-        </div>
-      </details>
+      <a
+        href={withBase(estimateFormPath)}
+        class="btn-primary hidden px-5 py-2.5 text-[15px] lg:inline-block"
+      >
+        Free Estimate
+      </a>
+      <button
+        type="button"
+        class="inline-flex h-11 items-center gap-2 rounded-md border border-white/30 px-3 text-sm font-semibold transition hover:bg-white/10 lg:hidden"
+        aria-haspopup="dialog"
+        aria-controls="mobile-menu"
+        data-menu-open
+      >
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+        Menu
+      </button>
     </div>
   </div>
+
+  <dialog
+    id="mobile-menu"
+    aria-label="Site menu"
+    class="m-0 ml-auto h-dvh max-h-none w-full max-w-sm overflow-y-auto border-0 bg-white p-0 text-ox-navy shadow-2xl backdrop:bg-ox-navy/60 lg:hidden"
+  >
+    <div class="flex min-h-full flex-col">
+      <div class="flex h-16 items-center justify-between border-b border-ox-navy/10 px-4">
+        <span class="text-lg font-bold">Menu</span>
+        <button
+          type="button"
+          class="inline-flex h-11 items-center gap-2 rounded-md px-3 text-sm font-semibold text-ox-navy transition hover:bg-ox-cream"
+          data-menu-close
+        >
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
+          Close
+        </button>
+      </div>
+
+      <div class="grid gap-3 border-b border-ox-navy/10 bg-ox-cream p-4">
+        <a
+          href={`tel:${site.phoneTel}`}
+          class="btn-primary flex min-h-14 flex-col items-center justify-center px-4 py-2 text-center"
+        >
+          <span class="text-lg leading-tight">Call {site.phone}</span>
+          <span class="text-xs font-medium text-ox-navy/80">{site.hours.short}</span>
+        </a>
+        <a
+          href={withBase(estimateFormPath)}
+          class="flex min-h-14 items-center justify-center rounded-md bg-ox-navy px-4 text-lg font-semibold text-white transition hover:bg-ox-navy/90"
+        >
+          Get a Free Estimate
+        </a>
+      </div>
+
+      <nav aria-label="Main">
+        <ul class="divide-y divide-ox-navy/10">
+          {mainNav.map((item) => (
+            <li>
+              <a
+                href={withBase(item.href)}
+                aria-current={isCurrent(item) ? 'page' : undefined}
+                class:list={[
+                  'flex min-h-16 items-center justify-between gap-4 px-5 py-3 transition hover:bg-ox-cream',
+                  isActive(item) && 'border-l-4 border-ox-gold bg-ox-cream/60 pl-4',
+                ]}
+              >
+                <span>
+                  <span class="block text-lg font-semibold">{item.label}</span>
+                  <span class="block text-sm text-ox-navy/70">{item.hint}</span>
+                </span>
+                <svg class="h-5 w-5 shrink-0 text-ox-navy/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M9 6l6 6-6 6" />
+                </svg>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <div class="mt-auto border-t border-ox-navy/10 px-5 py-5 text-sm text-ox-navy/80">
+        <p class="mb-2">
+          Storm damage?{' '}
+          <a href={withBase('/services/storm-damage')} class="link-body">Emergency tree service</a>
+        </p>
+        <p>{site.serviceAreaNote}</p>
+      </div>
+    </div>
+  </dialog>
 </header>
+
+<script>
+  const dialog = document.getElementById('mobile-menu') as HTMLDialogElement | null;
+  const openButton = document.querySelector<HTMLButtonElement>('[data-menu-open]');
+
+  if (dialog && openButton) {
+    openButton.addEventListener('click', () => {
+      dialog.showModal();
+      openButton.setAttribute('aria-expanded', 'true');
+    });
+    dialog.querySelector('[data-menu-close]')?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+    dialog.addEventListener('close', () => {
+      openButton.setAttribute('aria-expanded', 'false');
+      openButton.focus();
+    });
+    window.matchMedia('(min-width: 1024px)').addEventListener('change', (event) => {
+      if (event.matches && dialog.open) dialog.close();
+    });
+  }
+</script>

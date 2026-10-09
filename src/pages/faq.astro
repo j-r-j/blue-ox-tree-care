@@ -4,45 +4,51 @@ import CTABanner from '../components/CTABanner.astro';
 import PageBanner from '../components/PageBanner.astro';
 import { faqItems } from '../data/faq';
 import { breadcrumbSchema, combineSchemas, faqPageSchema } from '../lib/schema';
+import { withBase } from '../lib/paths';
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Resources', path: '/guides' },
+  { name: 'FAQ', path: '/faq' },
+];
 ---
 
 <BaseLayout
   title="Tree Care FAQ | Austin, TX"
-  description="Frequently asked questions about tree care in Austin, TX. Oak wilt, pruning seasons, permits, organic treatments, and scheduling with Blue Ox Tree Care."
+  description="Answers to common Austin tree care questions: oak wilt, pruning seasons, permits, organic treatments, and scheduling. Call (512) 749-8615."
   schema={combineSchemas(
-    breadcrumbSchema([
-      { name: 'Home', path: '/' },
-      { name: 'FAQ', path: '/faq' },
-    ]),
+    breadcrumbSchema(breadcrumbs),
     faqPageSchema(faqItems),
   )}
 >
   <PageBanner
     title="Frequently Asked Questions"
     description="Common questions about tree care in the Austin area, answered by ISA certified arborists."
-    breadcrumbs={[
-      { name: 'Home', path: '/' },
-      { name: 'FAQ', path: '/faq' },
-    ]}
+    breadcrumbs={breadcrumbs}
   />
 
-  <section class="py-16">
+  <section class="py-12 md:py-16">
     <div class="mx-auto max-w-3xl px-4">
       <div class="space-y-3">
         {faqItems.map((item) => (
           <details class="group rounded-lg border border-ox-navy/10 bg-white shadow-sm">
-            <summary class="cursor-pointer list-none px-6 py-4 font-semibold text-ox-navy marker:content-none [&::-webkit-details-marker]:hidden">
+            <summary class="cursor-pointer list-none px-5 py-4 font-semibold text-ox-navy marker:content-none sm:px-6 [&::-webkit-details-marker]:hidden">
               <span class="flex items-center justify-between gap-4">
                 {item.question}
-                <span class="text-ox-gold transition group-open:rotate-45">+</span>
+                <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-ox-cream text-lg leading-none text-ox-navy transition group-open:rotate-45" aria-hidden="true">+</span>
               </span>
             </summary>
-            <div class="border-t border-ox-navy/10 px-6 py-4 text-ox-navy/80">
+            <div class="border-t border-ox-navy/10 px-5 py-4 text-ox-navy/80 sm:px-6">
               <p>{item.answer}</p>
             </div>
           </details>
         ))}
       </div>
+      <p class="mt-10 text-center text-sm text-ox-navy/75">
+        More answers in our{' '}
+        <a href={withBase('/guides')} class="link-body">tree care guides</a> and{' '}
+        <a href={withBase('/what-to-expect')} class="link-body">what to expect when you hire us</a>.
+      </p>
     </div>
   </section>
 

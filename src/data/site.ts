@@ -62,19 +62,19 @@ export const serviceAreaCities = [
 
 export const seo = {
   home: {
-    title: 'Tree Care in Austin, TX | ISA Certified Arborists',
+    title: 'Blue Ox Tree Care | ISA Certified Arborists in Austin, TX',
     description:
-      'Blue Ox Tree Care: ISA Board Certified Master Arborist owned tree service in Austin, Round Rock, Bee Cave & Lakeway. Licensed, insured, free estimates. Call (512) 749-8615.',
+      'Tree care in Austin, Round Rock, Bee Cave & Lakeway from a Board Certified Master Arborist. Licensed, insured, free estimates. Call (512) 749-8615.',
   },
-  serviceTitle: (name: string) => `${name} in Austin, TX | ISA Certified Arborists`,
+  serviceTitle: (name: string) => `${name} in Austin, TX`,
   /** Visible H1 on service pages; credentials stay in document title / subcopy. */
   servicePageTitle: (name: string) => `${name} in Austin, TX`,
   serviceMeta: (nameLower: string) =>
-    `Professional ${nameLower} in Austin, Round Rock, Bee Cave & Lakeway by ISA certified arborists. Licensed & insured. Free estimates. Call (512) 749-8615.`,
+    `${nameLower.charAt(0).toUpperCase()}${nameLower.slice(1)} in Austin, Round Rock, Bee Cave & Lakeway by ISA certified arborists. Free estimates: (512) 749-8615.`,
   /** Visible H1 on service area pages. */
   areaTitle: (city: string) => `Tree Care in ${city}, TX`,
-  /** Document title — distinct from /services/ index. */
-  areaMetaTitle: (city: string) => `Tree Care in ${city}, TX | Service Area`,
+  /** Document title, distinct from the /services/ index. */
+  areaMetaTitle: (city: string) => `Tree Care & Arborists in ${city}, TX`,
   areaMeta: (city: string) =>
     `ISA certified tree care in ${city}, TX: trimming, removal, risk assessment & more. Blue Ox Tree Care. Call (512) 749-8615.`,
 } as const;
