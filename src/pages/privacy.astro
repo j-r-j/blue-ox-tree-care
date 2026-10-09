@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageBanner from '../components/PageBanner.astro';
 import { site } from '../data/site';
 import { breadcrumbSchema } from '../lib/schema';
-import { withBase } from '../lib/paths';
 
 const lastUpdated = 'October 9, 2026';
 const breadcrumbs = [
@@ -14,7 +13,7 @@ const breadcrumbs = [
 
 <BaseLayout
   title="Privacy Policy"
-  description="How Blue Ox Tree Care collects and uses the information you share with us, including phone numbers and text messages."
+  description="How Blue Ox Tree Care collects and uses the information you share with us, such as through our estimate form."
   schema={breadcrumbSchema(breadcrumbs)}
 >
   <PageBanner title="Privacy Policy" description={`Last updated ${lastUpdated}`} breadcrumbs={breadcrumbs} />
@@ -35,11 +34,9 @@ const breadcrumbs = [
         <li>Your address or neighborhood</li>
         <li>The service you need and any message you write</li>
         <li>How you would like us to contact you</li>
-        <li>Whether you checked the box to get calls and texts from us</li>
       </ul>
       <p>
-        With each form, we also record the date and time, the page you sent it from, and the exact
-        consent wording you saw. This helps us keep a record of your choices.
+        With each form, we also get the page you sent it from.
       </p>
       <p>
         If you call, text, or email us, we get your phone number or email address and what you
@@ -50,23 +47,9 @@ const breadcrumbs = [
       <ul>
         <li>To reply to your request and set up your estimate</li>
         <li>To schedule, do, and bill for tree care work</li>
-        <li>
-          To call or text you at the number you gave us, if you agreed to that. You can stop texts
-          at any time by replying STOP.
-        </li>
+        <li>To call, text, or email you back about your request</li>
         <li>To keep records the law requires</li>
       </ul>
-
-      <h2>Text messages</h2>
-      <p>
-        We only send texts to people who asked us to or agreed to get them. Message and data rates
-        may apply. Message frequency varies. Reply STOP to opt out. Reply HELP for help. See our{' '}
-        <a href={withBase('/terms')}>Terms</a> for more about texts.
-      </p>
-      <p>
-        We do not sell or share your mobile phone number or text opt-in with other companies for
-        their own marketing.
-      </p>
 
       <h2>Who else sees it</h2>
       <p>We do not sell your personal information. We share it only:</p>
@@ -93,7 +76,7 @@ const breadcrumbs = [
 
       <h2>Your choices</h2>
       <ul>
-        <li>Reply STOP to any text to stop getting texts.</li>
+        <li>Ask us to stop calling or texting you at any time. Just tell us.</li>
         <li>
           Ask us to see, fix, or delete your information by calling{' '}
           <a href={`tel:${site.phoneTel}`}>{site.phone}</a> or emailing{' '}
