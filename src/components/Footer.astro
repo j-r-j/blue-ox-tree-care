@@ -3,6 +3,7 @@ import { site, serviceAreaCities } from '../data/site';
 import { services } from '../data/services';
 import { getGuideNavItems } from '../data/guides';
 import { neighborhoods } from '../data/neighborhoods';
+import { estimateFormPath } from '../data/leadForm';
 import { withBase } from '../lib/paths';
 import SocialLinks from './SocialLinks.astro';
 
@@ -63,7 +64,7 @@ const legalLinks = [
         {site.phone}
       </a>
       <p class="mb-4 text-sm text-white/75">{site.hours.short}</p>
-      <a href={withBase('/contact')} class="btn-primary mb-6 inline-block px-5 py-2.5 text-sm">
+      <a href={withBase(estimateFormPath)} class="btn-primary mb-6 inline-block px-5 py-2.5 text-sm">
         Get a Free Estimate
       </a>
       <SocialLinks variant="footer" />

@@ -1,6 +1,7 @@
 ---
 import { site } from '../data/site';
 import { mainNav, type NavItem } from '../data/nav';
+import { estimateFormPath } from '../data/leadForm';
 import { withBase } from '../lib/paths';
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '');
@@ -70,7 +71,7 @@ function isActive(item: NavItem) {
         {site.phone}
       </a>
       <a
-        href={withBase('/contact')}
+        href={withBase(estimateFormPath)}
         class="btn-primary hidden px-5 py-2.5 text-[15px] lg:inline-block"
       >
         Free Estimate
@@ -119,7 +120,7 @@ function isActive(item: NavItem) {
           <span class="text-xs font-medium text-ox-navy/80">{site.hours.short}</span>
         </a>
         <a
-          href={withBase('/contact')}
+          href={withBase(estimateFormPath)}
           class="flex min-h-14 items-center justify-center rounded-md bg-ox-navy px-4 text-lg font-semibold text-white transition hover:bg-ox-navy/90"
         >
           Get a Free Estimate
