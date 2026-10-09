@@ -1,4 +1,3 @@
-import { site } from './site';
 import { services } from './services';
 
 /** Path (before base prefix) of the estimate form. Every "Free Estimate" CTA links here. */
@@ -20,12 +19,3 @@ export const serviceOptions = [
 ];
 
 export const contactMethods = ['Call', 'Text', 'Email'] as const;
-
-/**
- * TCPA call/text consent disclosure. The form renders `smsConsentLead` followed by
- * links to the Privacy Policy and Terms; `smsConsentText` is the same wording as plain
- * text and is what gets logged with each submission.
- */
-export const smsConsentLead = `By checking this box, I agree that ${site.name} may contact me at the phone number I provided by call or text message, including by automated technology, about my request and ${site.name} services. Consent is not a condition of purchase. Message and data rates may apply. Message frequency varies. Reply STOP to opt out and HELP for help.`;
-
-export const smsConsentText = `${smsConsentLead} See our Privacy Policy and Terms.`;
