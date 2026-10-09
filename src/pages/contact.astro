@@ -11,7 +11,7 @@ import { withBase } from '../lib/paths';
 
 <BaseLayout
   title="Contact Blue Ox Tree Care | Austin, TX"
-  description="Contact Blue Ox Tree Care in Austin, TX. Call (512) 749-8615 or email for tree trimming, removal, and arborist services. Mon–Fri 8 AM – 5 PM."
+  description="Contact Blue Ox Tree Care, your Austin tree service. Call (512) 749-8615 or send a request for a free estimate. Open Monday to Friday, 8 AM to 5 PM."
   schema={combineSchemas(
     breadcrumbSchema([
       { name: 'Home', path: '/' },
@@ -22,7 +22,7 @@ import { withBase } from '../lib/paths';
 >
   <PageBanner
     title="Contact Us"
-    description="Ready to schedule tree care? Call for a free estimate. We serve the Austin metro and come to your property."
+    description="Ready for tree care? Call us or fill out the form for a free estimate. We serve the Austin area and come to you."
     breadcrumbs={[
       { name: 'Home', path: '/' },
       { name: 'Contact', path: '/contact' },
@@ -42,7 +42,7 @@ import { withBase } from '../lib/paths';
         class="rounded-lg border border-ox-navy/10 bg-white p-5 shadow-sm sm:p-8 lg:col-span-3"
       >
         <h2 class="mb-1 text-2xl font-bold text-ox-navy md:text-3xl">Get a Free Estimate</h2>
-        <p class="mb-6 text-ox-navy/80">It takes about one minute. The estimate is free.</p>
+        <p class="mb-6 text-ox-navy/80">It takes about one minute, and the estimate is free.</p>
         <div class="mb-6 border-b border-ox-navy/10 pb-6">
           <HowItWorks />
         </div>
@@ -82,14 +82,14 @@ import { withBase } from '../lib/paths';
           <div>
             <dt class="label-accent">Service Area</dt>
             <dd class="mt-1 text-ox-navy/80">
-              Austin, Round Rock, Bee Cave, Lakeway & surrounding Central Texas communities.{' '}
+              Austin, Round Rock, Bee Cave, Lakeway, and nearby Central Texas towns.{' '}
               {site.serviceAreaNote}
             </dd>
           </div>
           <div>
             <dt class="label-accent">New customers</dt>
             <dd class="mt-1 text-sm text-ox-navy/80">
-              <a href={withBase('/what-to-expect')} class="link-body">What to expect</a>: estimate flow, timeline, payment, and credentials.
+              See <a href={withBase('/what-to-expect')} class="link-body">what to expect</a>: how estimates, timing, and payment work.
             </dd>
           </div>
           <div>

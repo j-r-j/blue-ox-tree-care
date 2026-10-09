@@ -30,7 +30,7 @@ const schema = combineSchemas(
   <PageBanner
     eyebrow="Emergency storm response"
     title="Storm Damage Tree Service in Austin, TX"
-    description="After high winds, hail, or ice storms, torn branches and fallen trees need immediate professional attention. Blue Ox Tree Care responds to hazardous situations across the Austin metro."
+    description="After high winds, hail, or ice storms, broken branches and fallen trees need help right away. Blue Ox Tree Care comes out for dangerous tree problems across the Austin area."
     breadcrumbs={[
       { name: 'Home', path: '/' },
       { name: 'Services', path: '/services' },
@@ -48,7 +48,7 @@ const schema = combineSchemas(
         href={withBase(estimateFormPath)}
         class="rounded-md border-2 border-white px-6 py-3 text-center font-semibold text-white transition hover:bg-white/10"
       >
-        Request Callback
+        Ask Us to Call You
       </a>
     </div>
   </PageBanner>
@@ -70,26 +70,27 @@ const schema = combineSchemas(
           <h2 class="mb-4 text-2xl font-bold text-ox-navy">After a storm: safety first</h2>
           <div class="mb-10 space-y-4 text-ox-navy/90">
             <p>
-              Central Texas storms (straight-line winds, hail, and occasional ice) can leave hanging
-              limbs, split trunks, and trees blocking driveways or resting on roofs. Stay clear of
-              damaged trees until a professional evaluates tension and stability. Downed power lines
-              require utility response; never assume a limb is safe to cut because it looks still.
+              Central Texas storms bring straight-line winds, hail, and sometimes ice. They can leave
+              limbs hanging, trunks split, and trees across driveways or on roofs. Stay away from
+              damaged trees until a pro checks how much force is held in the wood and how steady the
+              tree is. Downed power lines need the power company. A limb that looks still may not be
+              safe to cut.
             </p>
             <p>
-              Torn bark and jagged breaks become entry points for insects and decay fungi. Prompt removal
-              of hazardous material and proper pruning cuts protect remaining structure and reduce
-              secondary failure in the weeks after a storm.
+              Torn bark and jagged breaks let in insects and fungi that cause rot. Removing dangerous
+              limbs soon and making clean pruning cuts protects the rest of the tree. It also lowers the
+              chance that more of the tree breaks in the weeks after the storm.
             </p>
           </div>
 
-          <h2 class="mb-4 text-2xl font-bold text-ox-navy">When to call us immediately</h2>
+          <h2 class="mb-4 text-2xl font-bold text-ox-navy">When to call us right away</h2>
           <ul class="mb-10 space-y-2">
             {[
-              'A tree or large limb is on your home, garage, fence, or vehicle',
-              'A hanger is suspended over a walkway, patio, or driveway you need to use',
-              'The tree blocks emergency access or a primary entrance',
-              'Split trunks or root plate uplift suggest imminent failure',
-              'Storm damage exposed major limbs over roofs or play areas',
+              'A tree or large limb is on your home, garage, fence, or car',
+              'A broken limb is hanging over a walkway, patio, or driveway you need to use',
+              'A tree blocks your main door or the way in for emergency crews',
+              'A split trunk or lifted roots mean the tree could fall soon',
+              'The storm left big, damaged limbs over your roof or play areas',
             ].map((item) => (
               <li class="flex items-start gap-2 text-ox-navy/90">
                 <span class="check-mark mt-1">✓</span>
@@ -101,11 +102,11 @@ const schema = combineSchemas(
           <h2 class="mb-4 text-2xl font-bold text-ox-navy">What our storm response includes</h2>
           <ul class="mb-10 space-y-2">
             {[
-              'Emergency hazard mitigation and controlled limb removal',
-              'Fallen tree removal from structures, fences, and yards',
-              'Roof and structure clearance with rigging when needed',
-              'Post-storm tree health and risk assessment by ISA certified arborists',
-              'Complete cleanup and haul-off',
+              'Making dangerous trees safe and lowering broken limbs with care',
+              'Removing fallen trees from buildings, fences, and yards',
+              'Clearing roofs and buildings, using ropes when needed',
+              'A tree health and risk check by ISA certified arborists after the storm',
+              'Full cleanup and haul-away',
             ].map((item) => (
               <li class="flex items-start gap-2 text-ox-navy/90">
                 <span class="check-mark mt-1">✓</span>
@@ -117,15 +118,15 @@ const schema = combineSchemas(
           <h2 class="mb-4 text-2xl font-bold text-ox-navy">Insurance and documentation</h2>
           <div class="mb-10 space-y-4 text-ox-navy/90">
             <p>
-              Homeowner's insurance may cover tree removal when a covered structure is damaged. Policies
-              vary widely. Document the scene with photos before cleanup when safe to do so, notify your
-              insurer promptly, and retain invoices. We provide professional documentation of work
-              performed; we do not act as public adjusters or guarantee coverage decisions.
+              Homeowner's insurance may pay for tree removal when a covered building is damaged.
+              Policies vary a lot. When it is safe, take photos before cleanup starts. Call your
+              insurance company soon, and keep your bills. We give you clear records of the work we
+              did. We are not insurance adjusters, and we can't promise what your policy will cover.
             </p>
             <p>
-              For tree-risk documentation after storm events, Travis Berlin (ISA BCMA, RM-7612B) and Lacy
-              Berlin (ISA Certified Arborist, RM-8632A) can assess whether remaining trees are stable or
-              require follow-up care.
+              After a storm, Travis Berlin (ISA BCMA, RM-7612B) and Lacy Berlin (ISA Certified
+              Arborist, RM-8632A) can check whether your other trees are stable or need more care.
+              They can also write up a risk report for your records.
             </p>
           </div>
 
@@ -133,20 +134,20 @@ const schema = combineSchemas(
             <h2 class="mb-3 text-xl font-bold text-ox-navy">Central Texas Notes</h2>
             <ul class="space-y-3 text-sm text-ox-navy/80">
               <li>
-                Ice storms and high winds frequently damage live oaks and pecans in Austin and Round Rock.
-                Prompt assessment helps prevent secondary failure.
+                Ice storms and high winds often damage live oaks and pecans in Austin and Round Rock.
+                A quick check helps keep a hurt tree from breaking more later.
               </li>
               <li>
-                Oak wounds from storm damage may need paint and timing considerations during active oak
-                wilt transmission periods. See our{' '}
+                Oak wilt is a disease that kills oaks. If a storm wounds an oak during the months when
+                oak wilt spreads, the cut may need paint and careful timing. See our{' '}
                 <a href={withBase('/guides/oak-wilt-austin')} class="link-body">
                   oak wilt guide
                 </a>{' '}
-                for general education.
+                to learn more.
               </li>
               <li>
-                Regulated trees damaged by storms may still require City of Austin review before removal.
-                See our{' '}
+                A protected tree that a storm damaged may still need City of Austin review before you
+                remove it. See our{' '}
                 <a
                   href={withBase('/guides/austin-protected-heritage-trees')}
                   class="link-body"
@@ -156,7 +157,7 @@ const schema = combineSchemas(
                 .
               </li>
               <li>
-                For curbside brush and bulk rules after cleanup, see our{' '}
+                For the city's curbside brush and bulk rules after cleanup, see our{' '}
                 <a href={withBase('/guides/austin-bulk-brush-pickup')} class="link-body">
                   Austin bulk trash & brush pickup guide
                 </a>
@@ -176,8 +177,8 @@ const schema = combineSchemas(
               {site.phone}
             </a>
             <p class="mb-6 text-sm text-ox-navy/70">
-              Licensed and insured for hazardous tree work. Service-area business: we come to your
-              property.
+              We are licensed and insured for dangerous tree work. We have no storefront. We come to
+              you.
             </p>
 
             <h2 class="sidebar-heading">Areas We Serve</h2>
@@ -216,6 +217,6 @@ const schema = combineSchemas(
 
   <CTABanner
     heading="Storm damage on your property?"
-    subtext="Call now for emergency tree service in Austin, Round Rock, Bee Cave, and Lakeway."
+    subtext="Call now for emergency tree help in Austin, Round Rock, Bee Cave, and Lakeway."
   />
 </BaseLayout>

@@ -18,8 +18,8 @@ const ownerPhotos: Record<string, { src: string; alt: string }> = {
 };
 
 const aboutLinks = [
-  { label: 'Our arborists', href: '/arborists', text: 'Credentials and background for Travis and Lacy.' },
-  { label: 'What to expect', href: '/what-to-expect', text: 'Estimates, scheduling, payment, and storm triage.' },
+  { label: 'Our arborists', href: '/arborists', text: 'Learn about Travis and Lacy\'s training and work history.' },
+  { label: 'What to expect', href: '/what-to-expect', text: 'How estimates, scheduling, payment, and storm help work.' },
   { label: 'Tree care FAQ', href: '/faq', text: 'Quick answers to common Austin tree questions.' },
 ];
 
@@ -34,7 +34,7 @@ const ownerBadges: Record<string, { src: string; alt: string } | undefined> = {
 
 <BaseLayout
   title="About Us | Family-Owned Austin Arborists"
-  description="Meet Travis & Lacy Berlin, family owners of Blue Ox Tree Care and ISA certified arborists (BCMA RM-7612B, RM-8632A) serving Austin, TX."
+  description="Meet Travis and Lacy Berlin, the family behind Blue Ox Tree Care in Austin, TX. Travis is an ISA BCMA. Lacy is an ISA Certified Arborist."
   schema={combineSchemas(
     breadcrumbSchema([
       { name: 'Home', path: '/' },
@@ -124,5 +124,5 @@ const ownerBadges: Record<string, { src: string; alt: string } | undefined> = {
     </div>
   </section>
 
-  <CTABanner heading="Work with certified arborists" subtext="Contact Blue Ox Tree Care for tree care in the Austin metro." />
+  <CTABanner heading="Work with certified arborists" subtext="Get a free estimate for tree care anywhere in the Austin area." />
 </BaseLayout>

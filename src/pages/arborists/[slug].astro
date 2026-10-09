@@ -53,8 +53,8 @@ const pageTitle =
 
 const pageDescription =
   owner.id === 'travis-berlin'
-    ? 'Travis Berlin, ISA Board Certified Master Arborist (RM-7612B), a credential held by under 2% of ISA arborists. Co-owner of Blue Ox Tree Care, Austin.'
-    : 'Lacy Berlin, ISA Certified Arborist (RM-8632A) and co-owner of Blue Ox Tree Care in Austin, TX, leads tree health and organic pest & disease care.';
+    ? 'Travis Berlin is an ISA Board Certified Master Arborist (RM-7612B), a title fewer than 2% of ISA Certified Arborists hold. Blue Ox Tree Care, Austin.'
+    : 'Lacy Berlin is an ISA Certified Arborist (RM-8632A) and co-owner of Blue Ox Tree Care in Austin, TX. She leads our tree health and organic pest care.';
 
 const otherOwner = site.owners.find((o) => o.id !== owner.id)!;
 ---
@@ -98,16 +98,14 @@ const otherOwner = site.owners.find((o) => o.id !== owner.id)!;
                 <p>{owner.bio}</p>
                 {owner.id === 'travis-berlin' && (
                   <p>
-                    Travis brings municipal-scale experience from Disneyland and Newport Beach to
-                    residential and commercial tree care across the Austin metro: Tarrytown, West
-                    Lake Hills, Steiner Ranch, and beyond.
+                    Travis cared for trees on a big scale at Disneyland and for the city of Newport
+                    Beach. Now he brings those skills to homes and businesses across the Austin
+                    area, from Tarrytown to West Lake Hills to Steiner Ranch.
                   </p>
                 )}
                 {owner.id === 'lacy-berlin' && (
                   <p>
-                    Lacy leads client communication, marketing, and day-to-day operations, keeping
-                    Blue Ox responsive for Austin-area customers while maintaining the professional
-                    presentation the company is known for.
+                    Lacy also keeps the professional look and feel that Blue Ox is known for.
                   </p>
                 )}
               </div>
